@@ -1,0 +1,6 @@
+package interfaz;
+
+public class Listadodeusuariosusuarioregistrado extends Listadousuarios {
+	public VerlistadoglobaldeusuariosUsuarioregistrado _verlistadoglobaldeusuariosUsuarioregistrado;
+	public Listadodeusuariosusuarioregistrado_item _item;
+}

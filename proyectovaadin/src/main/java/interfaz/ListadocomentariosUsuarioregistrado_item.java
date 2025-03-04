@@ -1,0 +1,11 @@
+package interfaz;
+
+public class ListadocomentariosUsuarioregistrado_item extends Listadocomentarios_item {
+//	private event _darmegustaacomentario;
+	private int _numeroMegustas;
+	public ListadocomentariosUsuarioregistrado _listadocomentariosUsuarioregistrado;
+
+	public void Darmegustaacomentario() {
+		throw new UnsupportedOperationException();
+	}
+}

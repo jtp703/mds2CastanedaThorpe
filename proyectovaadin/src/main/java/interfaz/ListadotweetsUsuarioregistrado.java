@@ -1,0 +1,10 @@
+package interfaz;
+
+import java.util.Vector;
+
+public class ListadotweetsUsuarioregistrado extends Listadotweets {
+	public VermuroprincipalUsuarioregistrado _vermuroprincipalUsuarioregistrado;
+	public VerlistadodetweetsfiltradoUsuarioregistrado _verlistadodetweetsfiltradoUsuarioregistrado;
+	public VerperfilUsuarioregistrado _verperfilUsuarioregistrado;
+	public Vector<ListadotweetsUsuarioregistrado_item> _listadotweetsUsuarioregistrado = new Vector<ListadotweetsUsuarioregistrado_item>();
+}
