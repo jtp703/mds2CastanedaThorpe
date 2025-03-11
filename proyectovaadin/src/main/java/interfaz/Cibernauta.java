@@ -1,12 +1,22 @@
 package interfaz;
 
+import vistas.*;
+import org.vaadin.example.*;
+
 /*import basededatos.iCibernauta;*/
 
-public class Cibernauta {
+
+public class Cibernauta extends VistaCibernauta{
 	/*public iCibernauta _iCibernauta;*/
 	public VerListadohashtags _verListadohashtags;
 	public Vermuroprincipal _vermuroprincipal;
 	public Verlistadogloblaldeusuarios _verlistadogloblaldeusuarios;
+	
+	MainView MainView;
+	
+	public Cibernauta(MainView MainView) {
+		this.MainView = MainView;
+	}
 
 	public void VerListadohashtags() {
 		throw new UnsupportedOperationException();

@@ -1,6 +1,7 @@
 package interfaz;
 
 //import basededatos.iUsuarioregistrado;
+import org.vaadin.example.*;
 
 public class Usuarioregistrado extends Cibernauta {
 //	public iUsuarioregistrado _iUsuarioregistrado;
@@ -11,6 +12,11 @@ public class Usuarioregistrado extends Cibernauta {
 	public Verperfilpersonal _verperfilpersonal;
 	public VerperfilUsuarioregistrado _verperfilUsuarioregistrado;
 
+	public Usuarioregistrado(MainView MainView) {
+		super(MainView);
+		this.getVaadinHorizontalLayout().setVisible(false);
+	}
+	
 	public void Notificacionesdeusuario() {
 		throw new UnsupportedOperationException();
 	}
