@@ -14,7 +14,7 @@ public class Usuarioregistrado extends Cibernauta {
 
 	public Usuarioregistrado(MainView MainView) {
 		super(MainView);
-		this.getVaadinHorizontalLayout().setVisible(false);
+		this.getlRegistro().setVisible(false);
 	}
 	
 	public void Notificacionesdeusuario() {

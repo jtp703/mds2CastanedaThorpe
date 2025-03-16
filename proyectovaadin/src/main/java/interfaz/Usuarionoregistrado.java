@@ -9,7 +9,8 @@ public class Usuarionoregistrado extends Cibernauta {
 	public Registrarse _registrarse;*/
 	public Usuarionoregistrado(MainView MainView) {
 		super(MainView);
-		this.getVaadinVerticalLayout1().setVisible(false);
+		this.get_verPerfil().setVisible(false);
+		this.get_idNotificaciones().setVisible(false);
 	}
 
 	public void Registrarse() {
