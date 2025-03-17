@@ -1,7 +1,7 @@
 package interfaz;
 
 public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
-//	private event _darmegusta;
+	//	private event _darmegusta;
 //	private label _nickUsuario;
 //	private image _perfilUsuario;
 	private int _numRetweets;
@@ -9,7 +9,12 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
 	public ListadotweetsUsuarioregistrado _listadotweetsUsuarioregistrado;
 	public VercomentariosUsuarioregistrado _vercomentariosUsuarioregistrado;
 	public Darretweet _darretweet;
-
+	
+	ListadotweetsUsuarioregistrado_item(ListadotweetsUsuarioregistrado listadotweetsUsuarioregistrado) {
+		super(listadotweetsUsuarioregistrado);
+		this.getIdEliminarTweet().setVisible(false);
+	}
+	
 	public void Darmegusta() {
 		throw new UnsupportedOperationException();
 	}
