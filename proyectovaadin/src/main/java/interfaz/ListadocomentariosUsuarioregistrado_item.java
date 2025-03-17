@@ -5,6 +5,13 @@ public class ListadocomentariosUsuarioregistrado_item extends Listadocomentarios
 	private int _numeroMegustas;
 	public ListadocomentariosUsuarioregistrado _listadocomentariosUsuarioregistrado;
 
+	public ListadocomentariosUsuarioregistrado_item(
+			ListadocomentariosUsuarioregistrado _listadocomentariosUsuarioregistrado) {
+		super(_listadocomentariosUsuarioregistrado);
+		this.get_idEliminarComentario().setVisible(false);
+
+	}
+
 	public void Darmegustaacomentario() {
 		throw new UnsupportedOperationException();
 	}
