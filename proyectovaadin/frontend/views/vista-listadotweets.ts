@@ -14,7 +14,10 @@ export class VistaListadotweets extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;"></vaadin-vertical-layout>
+<vaadin-vertical-layout style="width: 100%; height: 100%;position:absolute;">
+ <vista-listadotweets_item></vista-listadotweets_item>
+ <vista-listadotweets_item></vista-listadotweets_item>
+</vaadin-vertical-layout>
 `;
   }
 

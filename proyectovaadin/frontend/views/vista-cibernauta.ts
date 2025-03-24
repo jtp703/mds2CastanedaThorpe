@@ -1,10 +1,11 @@
 import { LitElement, html, css, customElement } from 'lit-element';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/tabs/src/vaadin-tabs.js';
 import '@vaadin/tabs/src/vaadin-tab.js';
 import '@vaadin/horizontal-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vertical-layout/src/vaadin-vertical-layout.js';
 import '@polymer/iron-icon/iron-icon.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
+import './vista-listadotweets';
 
 @customElement('vista-cibernauta')
 export class VistaCibernauta extends LitElement {
@@ -48,6 +49,8 @@ export class VistaCibernauta extends LitElement {
    </vaadin-vertical-layout>
   </vaadin-horizontal-layout>
  </vaadin-horizontal-layout>
+ <vista-listadotweets></vista-listadotweets>
+ <vaadin-horizontal-layout theme="spacing" style="align-self: stretch; flex-grow: 1;"></vaadin-horizontal-layout>
 </vaadin-vertical-layout>
 `;
   }
