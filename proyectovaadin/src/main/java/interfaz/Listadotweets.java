@@ -2,7 +2,9 @@ package interfaz;
 
 import java.util.Vector;
 
-public class Listadotweets {
+import vistas.VistaListadotweets;
+
+public class Listadotweets extends VistaListadotweets{
 	public Megustas _megustas;
 	public Retweets _retweets;
 	public Verlistadodetweetsfiltrado _verlistadodetweetsfiltrado;

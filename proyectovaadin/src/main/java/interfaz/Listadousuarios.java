@@ -2,7 +2,9 @@ package interfaz;
 
 import java.util.Vector;
 
-public class Listadousuarios {
+import vistas.VistaListadousuarios;
+
+public class Listadousuarios extends VistaListadousuarios{
 	public Verlistadodeseguidos _verlistadodeseguidos;
 	public Verlistadogloblaldeusuarios _verlistadogloblaldeusuarios;
 	public Verlistado _verlistado;
