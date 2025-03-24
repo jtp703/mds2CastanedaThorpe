@@ -19,7 +19,7 @@ export class VistaCibernauta extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;position:absolute;" id="panelPrincipal">
+<vaadin-vertical-layout style="width: 100%; height: 100%; position:absolute; align-items: stretch;" id="panelPrincipal">
  <vaadin-horizontal-layout theme="spacing" style="align-self: stretch; justify-content: center; flex-grow: 0; flex-shrink: 0;background-color: lightblue;" id="vaadinHorizontalLayout">
   <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1">
    <a href="" style="align-self: center; height: 100%; flex-grow: 1; flex-shrink: 0;" id="lRegistro">Registrate en X para tener mas privilegios o inicia sesion</a>
