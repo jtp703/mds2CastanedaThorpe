@@ -17,20 +17,20 @@ export class VistaListadocomentarios extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%; position:absolute;">
- <vaadin-vertical-layout theme="spacing" style="width: 100%; flex-shrink: 0; flex-grow: 1; flex-direction: column;">
-  <vaadin-horizontal-layout theme="spacing" style="width: 100%; flex-shrink: 0; flex-grow: 1; flex-direction: column;">
-   <vista-listadotweets_item style="flex-shrink: 0;"></vista-listadotweets_item>
+<vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%; position:absolute;" id="vaadinVerticalLayout">
+ <vaadin-vertical-layout theme="spacing" style="width: 100%; flex-shrink: 0; flex-grow: 1; flex-direction: column;" id="vaadinVerticalLayout1">
+  <vaadin-horizontal-layout theme="spacing" style="width: 100%; flex-shrink: 0; flex-grow: 1; flex-direction: column;" id="vaadinHorizontalLayout">
+   <vista-listadotweets_item style="flex-shrink: 0;" id="vistaListadotweets_item"></vista-listadotweets_item>
   </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing" style="flex-shrink: 0; flex-grow: 0; width: 100%;">
-   <vaadin-vertical-layout theme="spacing" style="flex-shrink: 0; flex-grow: 1;">
-    <vaadin-horizontal-layout theme="spacing" style="flex-grow: 0; flex-shrink: 0; width: 100%;">
-     <vaadin-vertical-layout theme="spacing" style="width: 100%; flex-shrink: 0;">
-      <vaadin-horizontal-layout theme="spacing" style="width: 100%; flex-grow: 0; flex-shrink: 0;">
-       <vista-listadocomentarios_item style="width: 100%; flex-shrink: 0;"></vista-listadocomentarios_item>
+  <vaadin-horizontal-layout theme="spacing" style="flex-shrink: 0; flex-grow: 0; width: 100%;" id="vaadinHorizontalLayout1">
+   <vaadin-vertical-layout theme="spacing" style="flex-shrink: 0; flex-grow: 1;" id="vaadinVerticalLayout2">
+    <vaadin-horizontal-layout theme="spacing" style="flex-grow: 0; flex-shrink: 0; width: 100%;" id="vaadinHorizontalLayout2">
+     <vaadin-vertical-layout theme="spacing" style="width: 100%; flex-shrink: 0;" id="vaadinVerticalLayout3">
+      <vaadin-horizontal-layout theme="spacing" style="width: 100%; flex-grow: 0; flex-shrink: 0;" id="vaadinHorizontalLayout3">
+       <vista-listadocomentarios_item style="width: 100%; flex-shrink: 0;" id="vistaListadocomentarios_item"></vista-listadocomentarios_item>
       </vaadin-horizontal-layout>
-      <vaadin-horizontal-layout theme="spacing" style="width: 100%; flex-grow: 0; flex-shrink: 0;">
-       <vista-listadocomentarios_item style="width: 100%; flex-shrink: 0;"></vista-listadocomentarios_item>
+      <vaadin-horizontal-layout theme="spacing" style="width: 100%; flex-grow: 0; flex-shrink: 0;" id="vaadinHorizontalLayout4">
+       <vista-listadocomentarios_item style="width: 100%; flex-shrink: 0;" id="vistaListadocomentarios_item1"></vista-listadocomentarios_item>
       </vaadin-horizontal-layout>
      </vaadin-vertical-layout>
     </vaadin-horizontal-layout>
