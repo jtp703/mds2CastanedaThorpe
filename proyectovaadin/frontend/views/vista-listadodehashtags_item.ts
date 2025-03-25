@@ -15,7 +15,7 @@ export class VistaListadodehashtags_item extends LitElement {
   render() {
     return html`
 <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; position:absolute; align-items: flex-start;">
- <vaadin-horizontal-layout theme="spacing" style="flex-grow: 1; flex-shrink: 1;" id="_layoutElementoHashtag">
+ <vaadin-horizontal-layout theme="spacing" style="flex-grow: 1; flex-shrink: 1; margin: var(--lumo-space-m); padding: var(--lumo-space-m);" id="_layoutElementoHashtag">
   <a href="https://vaadin.com" id="_NombreHashtag" style="margin: var(--lumo-space-m); align-self: flex-start;">#Hashtag </a>
   <vaadin-horizontal-layout theme="spacing" style="align-items: flex-start; justify-content: flex-end; flex-grow: 1;">
    <label style="padding: 2px 8px; margin: var(--lumo-space-m);">Numero de interacciones</label>

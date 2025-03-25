@@ -1,4 +1,4 @@
-package interfaz;
+ package interfaz;
 
 public class VercomentariosAdminstrador extends Vercomentarios {
 //	private event _eliminar_tweet;

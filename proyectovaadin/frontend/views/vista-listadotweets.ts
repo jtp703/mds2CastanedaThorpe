@@ -1,5 +1,6 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
+import './vista-listadotweets_item';
 
 @customElement('vista-listadotweets')
 export class VistaListadotweets extends LitElement {

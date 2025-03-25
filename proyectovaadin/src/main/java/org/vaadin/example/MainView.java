@@ -13,8 +13,10 @@ import com.vaadin.flow.router.Route;
 
 import interfaz.Administrador;
 import interfaz.Cibernauta;
+import interfaz.Listadocomentarios;
 import interfaz.Usuarionoregistrado;
 import interfaz.Usuarioregistrado;
+import interfaz.Vercomentarios;
 
 /**
  * A sample Vaadin view class.
@@ -42,11 +44,12 @@ public class MainView extends VerticalLayout {
      *            The message service. Automatically injected Spring managed
      *            bean.
      */
-	
-	Cibernauta cb = new Cibernauta(this);
+	Vercomentarios vc = new Vercomentarios();
+	//Cibernauta cb = new Cibernauta(this);
+	Listadocomentarios lc = new Listadocomentarios(vc);
     public MainView(@Autowired GreetService service) {
     	// Use TextField for standard text input
-        add(cb);
+        add(lc);
     	
     }
     

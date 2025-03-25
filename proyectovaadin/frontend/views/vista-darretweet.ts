@@ -1,5 +1,8 @@
 import { LitElement, html, css, customElement } from 'lit-element';
-import './vista-cibernauta';
+import '@vaadin/vertical-layout/src/vaadin-vertical-layout.js';
+import '@vaadin/horizontal-layout/src/vaadin-horizontal-layout.js';
+import './vista-listadotweets_item';
+import '@vaadin/text-area/src/vaadin-text-area.js';
 
 @customElement('vista-darretweet')
 export class VistaDarretweet extends LitElement {
@@ -14,7 +17,25 @@ export class VistaDarretweet extends LitElement {
 
   render() {
     return html`
-<vista-cibernauta></vista-cibernauta>
+<vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%;position:absolute;">
+ <vaadin-horizontal-layout style="height: 100%;background-color: coral;">
+  <vista-listadotweets_item></vista-listadotweets_item>
+ </vaadin-horizontal-layout>
+ <vaadin-horizontal-layout theme="spacing" style="align-self: stretch; justify-content: space-between; align-content: stretch; height: 100%;margin-bottom: 150px;">
+  <vaadin-horizontal-layout style="flex-grow: 0; margin: var(--lumo-space-m); align-self: flex-start; padding: var(--lumo-space-m);" id="idPerfilLayout">
+   <vaadin-avatar style="align-self: center;"></vaadin-avatar>
+   <a href="" id="_verPerfil" style="flex-grow: 0; align-self: center;">@usuario</a>
+  </vaadin-horizontal-layout>
+  <vaadin-horizontal-layout theme="spacing" style="flex-grow: 1; width: 100%;">
+   <vaadin-text-area id="_MensajeRetweet" style="flex-grow: 1; align-self: stretch; flex-shrink: 1; width: 100%;" placeholder="¿!Que esta pasando¡?"></vaadin-text-area>
+  </vaadin-horizontal-layout>
+  <vaadin-horizontal-layout theme="spacing" style="align-items: center;margin-right: 150px;">
+   <vaadin-button tabindex="0" id="idEnviarRetweet" style="flex-grow: 0;">
+    Enviar Retweet
+   </vaadin-button>
+  </vaadin-horizontal-layout>
+ </vaadin-horizontal-layout>
+</vaadin-vertical-layout>
 `;
   }
 
