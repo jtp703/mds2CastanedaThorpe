@@ -14,6 +14,8 @@ import com.vaadin.flow.router.Route;
 import interfaz.Administrador;
 import interfaz.Cibernauta;
 import interfaz.Listadocomentarios;
+import interfaz.Listadotweets;
+import interfaz.Listadotweets_item;
 import interfaz.Usuarionoregistrado;
 import interfaz.Usuarioregistrado;
 import interfaz.Vercomentarios;
@@ -44,12 +46,13 @@ public class MainView extends VerticalLayout {
      *            The message service. Automatically injected Spring managed
      *            bean.
      */
-	Vercomentarios vc = new Vercomentarios();
+	
 	//Cibernauta cb = new Cibernauta(this);
-	Listadocomentarios lc = new Listadocomentarios(vc);
+	Listadotweets ls = new Listadotweets();
+	
     public MainView(@Autowired GreetService service) {
     	// Use TextField for standard text input
-        add(lc);
+        add();
     	
     }
     
