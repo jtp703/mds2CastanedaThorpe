@@ -48,11 +48,10 @@ public class MainView extends VerticalLayout {
      */
 	
 	//Cibernauta cb = new Cibernauta(this);
-	Listadotweets ls = new Listadotweets();
 	
     public MainView(@Autowired GreetService service) {
     	// Use TextField for standard text input
-        add();
+        
     	
     }
     
