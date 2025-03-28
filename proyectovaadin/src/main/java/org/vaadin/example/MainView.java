@@ -19,6 +19,7 @@ import interfaz.Listadotweets_item;
 import interfaz.Usuarionoregistrado;
 import interfaz.Usuarioregistrado;
 import interfaz.Vercomentarios;
+import interfaz.Verperfildeusuario;
 
 /**
  * A sample Vaadin view class.
@@ -48,10 +49,11 @@ public class MainView extends VerticalLayout {
      */
 	
 	//Cibernauta cb = new Cibernauta(this);
-	
+	Verperfildeusuario vp = new Verperfildeusuario();
+	Listadotweets lt = new Listadotweets(vp);
     public MainView(@Autowired GreetService service) {
     	// Use TextField for standard text input
-        
+        add(lt);
     	
     }
     
