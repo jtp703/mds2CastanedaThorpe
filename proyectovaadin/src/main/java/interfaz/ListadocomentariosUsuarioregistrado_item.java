@@ -8,7 +8,6 @@ public class ListadocomentariosUsuarioregistrado_item extends Listadocomentarios
 	public ListadocomentariosUsuarioregistrado_item(
 			ListadocomentariosUsuarioregistrado _listadocomentariosUsuarioregistrado) {
 		super(_listadocomentariosUsuarioregistrado);
-		this.get_idEliminarComentario().setVisible(false);
 
 	}
 
