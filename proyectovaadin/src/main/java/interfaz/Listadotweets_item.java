@@ -8,5 +8,6 @@ public class Listadotweets_item extends VistaListadotweets_item{
 	
 	public Listadotweets_item(Listadotweets listadoTweets){
 		_listadotweets = listadoTweets;
+		
 	}
 }
