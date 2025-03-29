@@ -23,7 +23,7 @@ export class VistaListadocomentarios_item extends LitElement {
  <vaadin-horizontal-layout theme="spacing" style="padding-bottom: var(--lumo-space-xs); padding: var(--lumo-space-xs); margin-top: var(--lumo-space-s); padding-left: var(--lumo-space-s); flex-grow: 0; flex-shrink: 0; align-self: stretch;" id="vaadinHorizontalLayout">
   <vaadin-avatar id="vaadinAvatar"></vaadin-avatar>
   <a href="https://vaadin.com" style="flex-shrink: 0; flex-grow: 1;" usuario="" id="a">@usuario</a>
-  <button style="flex-shrink: 1; flex-grow: 0;" id="_idEliminarComentario">Eliminar comentario</button>
+  <button style="flex-shrink: 1; flex-grow: 0;" id="botonEliminarComentario">Eliminar comentario</button>
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" style="flex-shrink: 0; flex-grow: 0;" id="vaadinHorizontalLayout2">
   <vaadin-vertical-layout style="flex-grow: 1; flex-shrink: 1; margin: var(--lumo-space-m);" id="vaadinVerticalLayout1">

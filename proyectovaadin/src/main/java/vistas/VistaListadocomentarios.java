@@ -11,32 +11,10 @@ import com.vaadin.flow.component.template.Id;
 @JsModule("./views/vista-listadocomentarios.ts")
 public class VistaListadocomentarios extends LitTemplate {
 
-    @Id("vaadinHorizontalLayout")
-	private HorizontalLayout vaadinHorizontalLayout;
-	@Id("vaadinVerticalLayout1")
-	private Element vaadinVerticalLayout1;
-	@Id("vaadinVerticalLayout")
-	private Element vaadinVerticalLayout;
-	@Id("vistaListadotweets_item")
-	private Element vistaListadotweets_item;
-	@Id("vaadinHorizontalLayout1")
-	private HorizontalLayout vaadinHorizontalLayout1;
-	@Id("vaadinVerticalLayout2")
-	private Element vaadinVerticalLayout2;
-	@Id("vaadinHorizontalLayout2")
+    @Id("vaadinHorizontalLayout2")
 	private HorizontalLayout vaadinHorizontalLayout2;
 	@Id("vaadinVerticalLayout3")
 	private Element vaadinVerticalLayout3;
-	@Id("vaadinHorizontalLayout3")
-	private HorizontalLayout vaadinHorizontalLayout3;
-	@Id("vistaListadocomentarios_item")
-	private Element vistaListadocomentarios_item;
-	@Id("vaadinHorizontalLayout4")
-	private HorizontalLayout vaadinHorizontalLayout4;
-	@Id("vistaListadocomentarios_item1")
-	private Element vistaListadocomentarios_item1;
-
-	
 	public HorizontalLayout getVaadinHorizontalLayout() {
 		return vaadinHorizontalLayout;
 	}

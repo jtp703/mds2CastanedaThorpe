@@ -17,6 +17,16 @@ import com.vaadin.flow.component.html.Paragraph;
 @JsModule("./views/vista-listadocomentarios_item.ts")
 public class VistaListadocomentarios_item extends LitTemplate {
 
-    
+	@Id("botonEliminarComentario")
+	private NativeButton botonEliminarComentario;
 
+	public NativeButton getBotonEliminarComentario() {
+		return botonEliminarComentario;
+	}
+
+	public void setBotonEliminarComentario(NativeButton botonEliminarComentario) {
+		this.botonEliminarComentario = botonEliminarComentario;
+	}
+
+	
 }
