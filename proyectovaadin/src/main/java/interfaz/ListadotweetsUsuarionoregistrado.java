@@ -10,6 +10,7 @@ public class ListadotweetsUsuarionoregistrado extends Listadotweets {
 
 	public ListadotweetsUsuarionoregistrado(VerperfilUsuarioregistrado _verperfilUsuarioregistrado) {
 		super(_verperfilUsuarioregistrado);
+		this.getContenedorNuevoTweet().setVisible(false);
 	}
 	
 	public ListadotweetsUsuarionoregistrado(VerlistadodetweetsfiltradoUsuarioregistrado _verlistadodetweetsfiltradoUsuarioregistrado) {

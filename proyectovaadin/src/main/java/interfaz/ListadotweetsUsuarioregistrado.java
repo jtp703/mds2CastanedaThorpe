@@ -8,8 +8,10 @@ public class ListadotweetsUsuarioregistrado extends Listadotweets {
 	public VerperfilUsuarioregistrado _verperfilUsuarioregistrado;
 	public Vector<ListadotweetsUsuarioregistrado_item> _listadotweetsUsuarioregistrado = new Vector<ListadotweetsUsuarioregistrado_item>();
 	
-	public ListadotweetsUsuarioregistrado(VermuroprincipalUsuarioregistrado _vermuroprincipalUsuarioregistrado) {
-		super(_vermuroprincipalUsuarioregistrado);
+	public ListadotweetsUsuarioregistrado(VermuroprincipalUsuarioregistrado vermuroprincipalUsuarioregistrado) {
+		super(vermuroprincipalUsuarioregistrado);
+		
+		
 	}
 	
 	public ListadotweetsUsuarioregistrado(VerlistadodetweetsfiltradoUsuarioregistrado _verlistadodetweetsfiltradoUsuarioregistrado) {

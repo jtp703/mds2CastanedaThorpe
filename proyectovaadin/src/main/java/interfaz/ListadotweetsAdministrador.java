@@ -9,6 +9,7 @@ public class ListadotweetsAdministrador extends Listadotweets {
 	
 	public ListadotweetsAdministrador(VermuroprincipalAdministrador _vermuroprincipalAdministrador) {
 		super(_vermuroprincipalAdministrador);
+		this.getContenedorNuevoTweet().setVisible(false);
 	}
 	public ListadotweetsAdministrador(VerlistadodetweetsfiltradoAdministrador _verlistadodetweetsfiltradoAdministrador) {
 		super(_verlistadodetweetsfiltradoAdministrador);
