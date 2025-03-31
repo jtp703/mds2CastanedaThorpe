@@ -14,11 +14,15 @@ import com.vaadin.flow.router.Route;
 import interfaz.Administrador;
 import interfaz.Cibernauta;
 import interfaz.Listadocomentarios;
+import interfaz.ListadocomentariosAdministrador;
+import interfaz.ListadocomentariosUsuarioregistrado;
 import interfaz.Listadotweets;
 import interfaz.Listadotweets_item;
 import interfaz.Usuarionoregistrado;
 import interfaz.Usuarioregistrado;
 import interfaz.Vercomentarios;
+import interfaz.VercomentariosAdminstrador;
+import interfaz.VercomentariosUsuarioregistrado;
 import interfaz.Verperfildeusuario;
 
 /**
@@ -51,9 +55,14 @@ public class MainView extends VerticalLayout {
 	//Cibernauta cb = new Cibernauta(this);
 	Vercomentarios vc = new Vercomentarios();
 	Listadocomentarios lc = new Listadocomentarios(vc);
+	VercomentariosAdminstrador vca = new VercomentariosAdminstrador();
+	VercomentariosUsuarioregistrado vcur = new VercomentariosUsuarioregistrado();
+	
+	ListadocomentariosAdministrador lca = new ListadocomentariosAdministrador(vca);
+	ListadocomentariosUsuarioregistrado lcur = new ListadocomentariosUsuarioregistrado(vcur);
     public MainView(@Autowired GreetService service) {
     	// Use TextField for standard text input
-        add(lc);
+        add(lcur);
     	
     }
     

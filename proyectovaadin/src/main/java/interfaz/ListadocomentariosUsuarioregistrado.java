@@ -2,6 +2,8 @@ package interfaz;
 
 import java.util.Vector;
 
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 public class ListadocomentariosUsuarioregistrado extends Listadocomentarios {
 	
 	public VercomentariosUsuarioregistrado _vercomentariosUsuarioregistrado;
@@ -9,6 +11,10 @@ public class ListadocomentariosUsuarioregistrado extends Listadocomentarios {
 	
 	public ListadocomentariosUsuarioregistrado(VercomentariosUsuarioregistrado _vercomentariosUsuarioregistrado) {
 		super(_vercomentariosUsuarioregistrado);
+		ListadocomentariosUsuarioregistrado_item item = new ListadocomentariosUsuarioregistrado_item(this);
+		this.getContenedorListadoComentariosItem().as(VerticalLayout.class).add(item);
+		ListadocomentariosUsuarioregistrado_item item2 = new ListadocomentariosUsuarioregistrado_item(this);
+		this.getContenedorListadoComentariosItem().as(VerticalLayout.class).add(item2);
 	}
 	
 	
