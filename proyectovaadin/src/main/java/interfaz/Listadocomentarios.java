@@ -13,4 +13,5 @@ public class Listadocomentarios extends VistaListadocomentarios{
 	public Listadocomentarios(Vercomentarios _vercomentarios) {
 		this._vercomentarios = _vercomentarios;
 	}
+	
 }
