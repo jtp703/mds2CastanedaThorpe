@@ -6,6 +6,7 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.TextArea;
+import com.vaadin.flow.dom.Element;
 
 @Tag("vista-editarperfil")
 @JsModule("./views/vista-editarperfil.ts")
@@ -23,6 +24,8 @@ public class VistaEditarperfil extends LitTemplate {
 	private TextField _UrlImagenFondo;
 	@Id("_DescripcionPerfil")
 	private TextArea _DescripcionPerfil;
+	@Id("contenedorEditarPerfil")
+	private Element contenedorEditarPerfil;
 
 	public VistaEditarperfil() {
         // You can initialise any data required for the connected UI components here.

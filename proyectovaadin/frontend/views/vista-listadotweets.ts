@@ -1,6 +1,5 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vertical-layout/src/vaadin-vertical-layout.js';
-import './vista-listadotweets_item';
 import '@vaadin/horizontal-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/text-area/src/vaadin-text-area.js';
 
@@ -28,10 +27,6 @@ export class VistaListadotweets extends LitElement {
   </vaadin-horizontal-layout>
   <button id="enviarTweet" style="align-self: flex-end;">Enviar</button>
  </vaadin-vertical-layout>
- <vista-listadotweets_item></vista-listadotweets_item>
- <vista-listadotweets_item></vista-listadotweets_item>
- <vista-listadotweets_item></vista-listadotweets_item>
- <vista-listadotweets_item></vista-listadotweets_item>
 </vaadin-vertical-layout>
 `;
   }

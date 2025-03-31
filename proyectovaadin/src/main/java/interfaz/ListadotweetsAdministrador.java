@@ -2,6 +2,8 @@ package interfaz;
 
 import java.util.Vector;
 
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 public class ListadotweetsAdministrador extends Listadotweets {
 	public VermuroprincipalAdministrador _vermuroprincipalAdministrador;
 	public VerlistadodetweetsfiltradoAdministrador _verlistadodetweetsfiltradoAdministrador;
@@ -10,6 +12,10 @@ public class ListadotweetsAdministrador extends Listadotweets {
 	public ListadotweetsAdministrador(VermuroprincipalAdministrador _vermuroprincipalAdministrador) {
 		super(_vermuroprincipalAdministrador);
 		this.getContenedorNuevoTweet().setVisible(false);
+		ListadotweetsAdministrador_item item = new ListadotweetsAdministrador_item(this);
+		this.getContenedorListadoTweets().as(VerticalLayout.class).add(item);
+		ListadotweetsAdministrador_item item2 = new ListadotweetsAdministrador_item(this);
+		this.getContenedorListadoTweets().as(VerticalLayout.class).add(item2);
 	}
 	public ListadotweetsAdministrador(VerlistadodetweetsfiltradoAdministrador _verlistadodetweetsfiltradoAdministrador) {
 		super(_verlistadodetweetsfiltradoAdministrador);

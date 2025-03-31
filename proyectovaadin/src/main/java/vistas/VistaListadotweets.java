@@ -17,9 +17,19 @@ public class VistaListadotweets extends LitTemplate {
 	private NativeButton enviarTweet;
 	@Id("verPerfilPersonal")
 	private Element verPerfilPersonal;
+	@Id("contenedorListadoTweets")
+	private Element contenedorListadoTweets;
 
 	public VistaListadotweets() {
 		// You can initialise any data required for the connected UI components here.
+	}
+
+	public Element getContenedorListadoTweets() {
+		return contenedorListadoTweets;
+	}
+
+	public void setContenedorListadoTweets(Element contenedorListadoTweets) {
+		this.contenedorListadoTweets = contenedorListadoTweets;
 	}
 
 	public Element getContenedorNuevoTweet() {
@@ -45,5 +55,5 @@ public class VistaListadotweets extends LitTemplate {
 	public void setVerPerfilPersonal(Element verPerfilPersonal) {
 		this.verPerfilPersonal = verPerfilPersonal;
 	}
-	
+
 }
