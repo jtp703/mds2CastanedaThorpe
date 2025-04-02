@@ -9,11 +9,13 @@ import com.vaadin.flow.router.Route;
 import interfaz.Listadodehashtags;
 import interfaz.Listadotweets;
 import interfaz.ListadotweetsAdministrador;
+import interfaz.ListadotweetsUsuarionoregistrado;
 import interfaz.ListadotweetsUsuarioregistrado;
 import interfaz.Notificacionesdeusuario;
 import interfaz.VerListadohashtags;
 import interfaz.Vermuroprincipal;
 import interfaz.VermuroprincipalAdministrador;
+import interfaz.VermuroprincipalUsuarionoregistrado;
 import interfaz.VermuroprincipalUsuarioregistrado;
 
 @Route
@@ -34,12 +36,17 @@ public class MainView extends VerticalLayout {
 	VermuroprincipalUsuarioregistrado vmur = new VermuroprincipalUsuarioregistrado();
 	ListadotweetsUsuarioregistrado ltur = new ListadotweetsUsuarioregistrado(vmur);
 	
+	VermuroprincipalUsuarionoregistrado vmurn = new VermuroprincipalUsuarionoregistrado();
+	ListadotweetsUsuarionoregistrado ltun = new ListadotweetsUsuarionoregistrado(vmurn);
+	
+	
 	Notificacionesdeusuario nu = new Notificacionesdeusuario();
 	
     public MainView(@Autowired GreetService service) {
     	
-        add(nu);
+        add(ltun);
     	
+        
     }
     
     

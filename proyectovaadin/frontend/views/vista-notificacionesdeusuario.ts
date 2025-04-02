@@ -1,5 +1,4 @@
 import { LitElement, html, css, customElement } from 'lit-element';
-import './vista-notificaciones_item';
 
 @customElement('vista-notificacionesdeusuario')
 export class VistaNotificacionesdeusuario extends LitElement {
@@ -14,10 +13,7 @@ export class VistaNotificacionesdeusuario extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%; align-items: stretch;position:absolute;" id="contenedorListadoTweets">
- <vista-notificaciones_item></vista-notificaciones_item>
- <vista-notificaciones_item></vista-notificaciones_item>
-</vaadin-vertical-layout>
+<vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%; align-items: stretch;position:absolute;" id="contenedorNotificacionesUsuario"></vaadin-vertical-layout>
 `;
   }
 
