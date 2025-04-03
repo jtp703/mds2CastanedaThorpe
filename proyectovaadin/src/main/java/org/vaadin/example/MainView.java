@@ -2,20 +2,11 @@ package org.vaadin.example;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.vaadin.flow.component.Key;
-import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.dependency.CssImport;
-import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 
-import interfaz.Administrador;
-import interfaz.Cibernauta;
-import interfaz.Listadocomentarios;
-import interfaz.ListadocomentariosAdministrador;
-import interfaz.ListadocomentariosUsuarioregistrado;
+import interfaz.Listadodehashtags;
 import interfaz.Listadotweets;
 import interfaz.Listadotweets_item;
 import interfaz.Usuarionoregistrado;
@@ -24,48 +15,43 @@ import interfaz.Vercomentarios;
 import interfaz.VercomentariosAdminstrador;
 import interfaz.VercomentariosUsuarioregistrado;
 import interfaz.Verperfildeusuario;
+import interfaz.ListadotweetsAdministrador;
+import interfaz.ListadotweetsUsuarionoregistrado;
+import interfaz.ListadotweetsUsuarioregistrado;
+import interfaz.Notificacionesdeusuario;
+import interfaz.VerListadohashtags;
+import interfaz.Vermuroprincipal;
+import interfaz.VermuroprincipalAdministrador;
+import interfaz.VermuroprincipalUsuarionoregistrado;
+import interfaz.VermuroprincipalUsuarioregistrado;
 
-/**
- * A sample Vaadin view class.
- * <p>
- * To implement a Vaadin view just extend any Vaadin component and use @Route
- * annotation to announce it in a URL as a Spring managed bean.
- * <p>
- * A new instance of this class is created for every new user and every browser
- * tab/window.
- * <p>
- * The main view contains a text field for getting the user name and a button
- * that shows a greeting message in a notification.
- */
 @Route
 @CssImport("./styles/shared-styles.css")
 @CssImport(value = "./styles/vaadin-text-field-styles.css", themeFor = "vaadin-text-field")
 public class MainView extends VerticalLayout {
+	// Cibernauta cb = new Cibernauta(this);
 
-    /**
-     * Construct a new Vaadin view.
-     * <p>
-     * Build the initial UI state for the user accessing the application.
-     *
-     * @param service
-     *            The message service. Automatically injected Spring managed
-     *            bean.
-     */
-	
-	//Cibernauta cb = new Cibernauta(this);
-	Vercomentarios vc = new Vercomentarios();
-	Listadocomentarios lc = new Listadocomentarios(vc);
-	VercomentariosAdminstrador vca = new VercomentariosAdminstrador();
-	VercomentariosUsuarioregistrado vcur = new VercomentariosUsuarioregistrado();
-	
-	ListadocomentariosAdministrador lca = new ListadocomentariosAdministrador(vca);
-	ListadocomentariosUsuarioregistrado lcur = new ListadocomentariosUsuarioregistrado(vcur);
-    public MainView(@Autowired GreetService service) {
-    	// Use TextField for standard text input
-        add(lcur);
-    	
-    }
-    
-    
+	VerListadohashtags vlh = new VerListadohashtags();
+	Listadodehashtags lth = new Listadodehashtags(vlh);
+
+	Vermuroprincipal vmun = new Vermuroprincipal();
+	Listadotweets lt = new Listadotweets(vmun);
+
+	VermuroprincipalAdministrador vma = new VermuroprincipalAdministrador();
+	ListadotweetsAdministrador lta = new ListadotweetsAdministrador(vma);
+
+	VermuroprincipalUsuarioregistrado vmur = new VermuroprincipalUsuarioregistrado();
+	ListadotweetsUsuarioregistrado ltur = new ListadotweetsUsuarioregistrado(vmur);
+
+	VermuroprincipalUsuarionoregistrado vmurn = new VermuroprincipalUsuarionoregistrado();
+	ListadotweetsUsuarionoregistrado ltun = new ListadotweetsUsuarionoregistrado(vmurn);
+
+	Notificacionesdeusuario nu = new Notificacionesdeusuario();
+
+	public MainView(@Autowired GreetService service) {
+
+		add(ltun);
+
+	}
 
 }

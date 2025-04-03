@@ -12,8 +12,9 @@ public class Administrador extends Cibernauta {
 	
 	public Administrador(MainView MainView) {
 		super(MainView);
-		this.get_verPerfil().setVisible(false);
-		this.getlRegistro().setVisible(false);
+		this.getContenedorRegistro().setVisible(false);
+		this.getVerNotificacionesUsuario().setVisible(false);
+		this.getContenedorVerPerfilPersonal().setVisible(false);
 	}
 
 	public void VermuroprincipalAdministrador() {
