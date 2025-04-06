@@ -2,6 +2,8 @@ package interfaz;
 
 import java.util.Vector;
 
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 public class ListadotweetsUsuarionoregistrado extends Listadotweets {
 	public VerperfilUsuarioregistrado _verperfilUsuarioregistrado;
 	public VerlistadodetweetsfiltradoUsuarioregistrado _verlistadodetweetsfiltradoUsuarioregistrado;
@@ -18,5 +20,10 @@ public class ListadotweetsUsuarionoregistrado extends Listadotweets {
 	
 	public ListadotweetsUsuarionoregistrado(VermuroprincipalUsuarionoregistrado _vermuroPrincipalUsuarionoregistrado) {
 		super(_vermuroPrincipalUsuarionoregistrado);
+		this.getContenedorNuevoTweet().setVisible(false);
+		ListadotweetsUsuarionoregistrado_item item = new ListadotweetsUsuarionoregistrado_item(this);
+		this.getContenedorListadoTweets().as(VerticalLayout.class).add(item);
+		ListadotweetsUsuarionoregistrado_item item2 = new ListadotweetsUsuarionoregistrado_item(this);
+		this.getContenedorListadoTweets().as(VerticalLayout.class).add(item2);
 	}
 }

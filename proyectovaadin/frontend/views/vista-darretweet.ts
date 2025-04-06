@@ -17,8 +17,8 @@ export class VistaDarretweet extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%;position:absolute;">
- <vaadin-horizontal-layout style="height: 100%;background-color: coral;">
+<vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%;position:absolute;" id="contenedorRetweet">
+ <vaadin-horizontal-layout style="height: 100%;background-color: lightgray;">
   <vista-listadotweets_item></vista-listadotweets_item>
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" style="align-self: stretch; justify-content: space-between; align-content: stretch; height: 100%;margin-bottom: 150px;">
@@ -31,7 +31,7 @@ export class VistaDarretweet extends LitElement {
   </vaadin-horizontal-layout>
   <vaadin-horizontal-layout theme="spacing" style="align-items: center;margin-right: 150px;">
    <vaadin-button tabindex="0" id="idEnviarRetweet" style="flex-grow: 0;">
-    Enviar Retweet
+     Enviar Retweet 
    </vaadin-button>
   </vaadin-horizontal-layout>
  </vaadin-horizontal-layout>

@@ -1,8 +1,10 @@
 package interfaz;
 
+import vistas.VistaNotificaciones;
+
 //import DCL.Notificaciones;
 
-public class Notificacionesdeusuario {
+public class Notificacionesdeusuario extends VistaNotificaciones{
 //	private event _seguir_usuario_desde_notificaciones;
 	public Usuarioregistrado _usuarioregistrado;
 //	public Notificaciones _notificaciones;

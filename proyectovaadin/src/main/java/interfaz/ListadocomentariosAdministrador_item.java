@@ -6,6 +6,7 @@ public class ListadocomentariosAdministrador_item extends Listadocomentarios_ite
 
 	public ListadocomentariosAdministrador_item(ListadocomentariosAdministrador _listadocomentariosAdministrador) {
 		super(_listadocomentariosAdministrador);
+		
 	}
 
 	public void Eliminar_Comentario() {

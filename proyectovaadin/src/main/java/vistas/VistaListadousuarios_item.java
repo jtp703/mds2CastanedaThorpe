@@ -13,25 +13,25 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 @JsModule("./views/vista-listadousuarios_item.ts")
 public class VistaListadousuarios_item extends LitTemplate {
 
-    @Id("_SeguirUsuario")
-	private Button _SeguirUsuario;
-	@Id("_SeguidosUsuario")
+    @Id("_SeguidosUsuario")
 	private Span _SeguidosUsuario;
 	@Id("_SeguidoresUsuario")
 	private Span _SeguidoresUsuario;
 	@Id("_LayoutUsuario")
 	private HorizontalLayout _LayoutUsuario;
+	@Id("SeguirUsuario")
+	private Button seguirUsuario;
 
 	public VistaListadousuarios_item() {
         // You can initialise any data required for the connected UI components here.
     }
 
-	public Button get_SeguirUsuario() {
-		return _SeguirUsuario;
+	public Button getseguirUsuario() {
+		return seguirUsuario;
 	}
 
-	public void set_SeguirUsuario(Button _SeguirUsuario) {
-		this._SeguirUsuario = _SeguirUsuario;
+	public void set_SeguirUsuario(Button seguirUsuario) {
+		this.seguirUsuario = seguirUsuario;
 	}
 
 	public Span get_SeguidosUsuario() {

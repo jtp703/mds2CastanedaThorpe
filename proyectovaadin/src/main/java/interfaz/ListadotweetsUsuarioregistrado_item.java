@@ -6,13 +6,13 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
 	//	private image _perfilUsuario;
 	private int _numRetweets;
 	private int _numComentarios;
-	public ListadotweetsUsuarioregistrado _listadotweetsUsuarioregistrado;
+	//public ListadotweetsUsuarioregistrado _listadotweetsUsuarioregistrado;
 	public VercomentariosUsuarioregistrado _vercomentariosUsuarioregistrado;
 	public Darretweet _darretweet;
 	
-	public ListadotweetsUsuarioregistrado_item(ListadotweetsUsuarioregistrado listadotweetsUsuarioregistrado) {
+	ListadotweetsUsuarioregistrado_item(ListadotweetsUsuarioregistrado listadotweetsUsuarioregistrado) {
 		super(listadotweetsUsuarioregistrado);
-		this.getIdEliminarTweet().setVisible(false);
+		this.getBtnEliminarTweet().setVisible(false);
 	}
 	
 	public void Darmegusta() {

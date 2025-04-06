@@ -5,7 +5,7 @@ public class Listadodeusuariosusuarionoregistrado_item extends Listadousuarios_i
 	
 	Listadodeusuariosusuarionoregistrado_item(Listadodeusuariosusuarionoregistrado listadodeusuariosusuarionoregistrado){
 		super(listadodeusuariosusuarionoregistrado);
-		this.get_SeguirUsuario().setVisible(false);
+		this.getseguirUsuario().setVisible(false);
 	}
 	
 
