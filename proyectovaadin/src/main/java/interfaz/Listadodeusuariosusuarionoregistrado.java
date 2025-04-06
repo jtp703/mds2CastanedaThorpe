@@ -5,7 +5,7 @@ public class Listadodeusuariosusuarionoregistrado extends Listadousuarios {
 	public VerlistadoglobaldeusuariosUsuarionoregistrado _verlistadoglobaldeusuariosUsuarionoregistrado;
 	public Listadodeusuariosusuarionoregistrado_item _item;
 	
-	Listadodeusuariosusuarionoregistrado(VerlistadoglobaldeusuariosUsuarionoregistrado _verlistadoglobaldeusuariosUsuarionoregistrado){
+	public Listadodeusuariosusuarionoregistrado(VerlistadoglobaldeusuariosUsuarionoregistrado _verlistadoglobaldeusuariosUsuarionoregistrado){
 		super(_verlistadoglobaldeusuariosUsuarionoregistrado);
 		
 	}

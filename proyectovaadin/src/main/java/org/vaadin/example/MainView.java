@@ -10,6 +10,9 @@ import interfaz.ListadocomentariosAdministrador;
 import interfaz.ListadocomentariosUsuarionoregistrado;
 import interfaz.ListadocomentariosUsuarioregistrado;
 import interfaz.Listadodehashtags;
+import interfaz.Listadodeusuariosadministrador;
+import interfaz.Listadodeusuariosusuarionoregistrado;
+import interfaz.Listadodeusuariosusuarioregistrado;
 import interfaz.Listadotweets;
 import interfaz.Listadotweets_item;
 import interfaz.Usuarionoregistrado;
@@ -18,6 +21,9 @@ import interfaz.Vercomentarios;
 import interfaz.VercomentariosAdminstrador;
 import interfaz.VercomentariosUsuarionoregistrado;
 import interfaz.VercomentariosUsuarioregistrado;
+import interfaz.VerlistadoglobaldeusuariosAdministrador;
+import interfaz.VerlistadoglobaldeusuariosUsuarionoregistrado;
+import interfaz.VerlistadoglobaldeusuariosUsuarioregistrado;
 import interfaz.Verperfildeusuario;
 import interfaz.ListadotweetsAdministrador;
 import interfaz.ListadotweetsUsuarionoregistrado;
@@ -61,7 +67,15 @@ public class MainView extends VerticalLayout {
 	VercomentariosUsuarioregistrado vcur;
 	ListadocomentariosUsuarioregistrado lcur = new ListadocomentariosUsuarioregistrado(vcur);	
 	
-
+	VerlistadoglobaldeusuariosAdministrador vlgua;
+	Listadodeusuariosadministrador lua = new Listadodeusuariosadministrador(vlgua);
+	
+	VerlistadoglobaldeusuariosUsuarioregistrado vlguur;
+	Listadodeusuariosusuarioregistrado luur = new Listadodeusuariosusuarioregistrado(vlguur);
+	
+	VerlistadoglobaldeusuariosUsuarionoregistrado vlguunr;
+	Listadodeusuariosusuarionoregistrado luunr = new Listadodeusuariosusuarionoregistrado(vlguunr);
+	
 	public MainView(@Autowired GreetService service) {
 
 		add(ltun);
