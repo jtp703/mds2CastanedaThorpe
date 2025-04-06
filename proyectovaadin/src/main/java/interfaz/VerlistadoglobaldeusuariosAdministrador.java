@@ -1,6 +1,6 @@
 package interfaz;
 
-public class VerlistadoglobaldeusuariosAdministrador {
+public class VerlistadoglobaldeusuariosAdministrador extends Verlistadogloblaldeusuarios {
 	
 	public Administrador adm;
 

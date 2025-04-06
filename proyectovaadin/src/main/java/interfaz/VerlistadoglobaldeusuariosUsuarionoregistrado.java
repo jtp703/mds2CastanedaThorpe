@@ -1,6 +1,6 @@
 package interfaz;
 
-public class VerlistadoglobaldeusuariosUsuarionoregistrado {
+public class VerlistadoglobaldeusuariosUsuarionoregistrado extends Verlistadogloblaldeusuarios{
 
 	public Usuarionoregistrado usu;
 }

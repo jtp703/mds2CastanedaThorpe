@@ -59,11 +59,12 @@ public class MainView extends VerticalLayout {
 	ListadocomentariosAdministrador lca = new ListadocomentariosAdministrador(vca);
 	
 	VercomentariosUsuarioregistrado vcur;
-	ListadocomentariosUsuarioregistrado lcur = new ListadocomentariosUsuarioregistrado(vcur);
+	ListadocomentariosUsuarioregistrado lcur = new ListadocomentariosUsuarioregistrado(vcur);	
+	
 
 	public MainView(@Autowired GreetService service) {
 
-		add(lcur);
+		add(ltun);
 
 	}
 
