@@ -1,6 +1,5 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vertical-layout/src/vaadin-vertical-layout.js';
-import './vista-listadousuarios_item';
 
 @customElement('vista-listadousuarios')
 export class VistaListadousuarios extends LitElement {
@@ -15,10 +14,7 @@ export class VistaListadousuarios extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;">
- <vista-listadousuarios_item style="flex-shrink: 1; flex-grow: 0;"></vista-listadousuarios_item>
- <vista-listadousuarios_item style="flex-shrink: 1; flex-grow: 0;"></vista-listadousuarios_item>
-</vaadin-vertical-layout>
+<vaadin-vertical-layout style="position: absolute; height: 100%; width: 100%;" id="contenedorItemsUsuario" theme="spacing-xl"></vaadin-vertical-layout>
 `;
   }
 
