@@ -1,5 +1,5 @@
 package interfaz;
 
-public class VercomentariosUsuarionoregistrado {
+public class VercomentariosUsuarionoregistrado extends Vercomentarios {
 
 }

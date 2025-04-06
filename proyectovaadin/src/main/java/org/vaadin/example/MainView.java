@@ -6,6 +6,9 @@ import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 
+import interfaz.ListadocomentariosAdministrador;
+import interfaz.ListadocomentariosUsuarionoregistrado;
+import interfaz.ListadocomentariosUsuarioregistrado;
 import interfaz.Listadodehashtags;
 import interfaz.Listadotweets;
 import interfaz.Listadotweets_item;
@@ -13,6 +16,7 @@ import interfaz.Usuarionoregistrado;
 import interfaz.Usuarioregistrado;
 import interfaz.Vercomentarios;
 import interfaz.VercomentariosAdminstrador;
+import interfaz.VercomentariosUsuarionoregistrado;
 import interfaz.VercomentariosUsuarioregistrado;
 import interfaz.Verperfildeusuario;
 import interfaz.ListadotweetsAdministrador;
@@ -47,10 +51,19 @@ public class MainView extends VerticalLayout {
 	ListadotweetsUsuarionoregistrado ltun = new ListadotweetsUsuarionoregistrado(vmurn);
 
 	Notificacionesdeusuario nu = new Notificacionesdeusuario();
+	
+	VercomentariosUsuarionoregistrado vcun;
+	ListadocomentariosUsuarionoregistrado lcun = new ListadocomentariosUsuarionoregistrado(vcun);
+	
+	VercomentariosAdminstrador vca;
+	ListadocomentariosAdministrador lca = new ListadocomentariosAdministrador(vca);
+	
+	VercomentariosUsuarioregistrado vcur;
+	ListadocomentariosUsuarioregistrado lcur = new ListadocomentariosUsuarioregistrado(vcur);
 
 	public MainView(@Autowired GreetService service) {
 
-		add(ltun);
+		add(lcur);
 
 	}
 

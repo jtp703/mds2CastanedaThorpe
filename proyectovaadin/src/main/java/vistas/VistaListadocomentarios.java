@@ -15,6 +15,8 @@ public class VistaListadocomentarios extends LitTemplate {
 	private Element contenedorListadoComentariosItem;
 	@Id("contenedorEscribirComentario")
 	private HorizontalLayout contenedorEscribirComentario;
+	@Id("contenedorListadoTweets")
+	private Element contenedorListadoTweets;
 	
 
 	public Element getContenedorListadoComentariosItem() {
@@ -34,6 +36,16 @@ public class VistaListadocomentarios extends LitTemplate {
 
 	public void setContenedorEscribirComentario(HorizontalLayout contenedorEscribirComentario) {
 		this.contenedorEscribirComentario = contenedorEscribirComentario;
+	}
+
+
+	public Element getContenedorListadoTweets() {
+		return contenedorListadoTweets;
+	}
+
+
+	public void setContenedorListadoTweets(Element contenedorListadoTweets) {
+		this.contenedorListadoTweets = contenedorListadoTweets;
 	}
 
 

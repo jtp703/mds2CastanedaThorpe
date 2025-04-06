@@ -2,10 +2,10 @@ package interfaz;
 
 public class ListadocomentariosUsuarionoregistrado_item extends Listadocomentarios_item {
 	
-	ListadocomentariosAdministrador listadoComentariosAdministrador;
+	ListadocomentariosUsuarionoregistrado listadoComentariosUsuarionoregistrado;
 	
-	public ListadocomentariosUsuarionoregistrado_item(ListadocomentariosAdministrador listadoComentariosAdministrador) {
-		super(listadoComentariosAdministrador);
+	public ListadocomentariosUsuarionoregistrado_item(ListadocomentariosUsuarionoregistrado listadoComentariosUsuarionoregistrado) {
+		super(listadoComentariosUsuarionoregistrado);
 		this.getBotonEliminarComentario().setVisible(false);
 	}
 
