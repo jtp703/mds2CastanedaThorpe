@@ -8,6 +8,8 @@ import com.vaadin.flow.router.Route;
 
 import interfaz.Banearusuario;
 import interfaz.Darretweet;
+import interfaz.Editarperfil;
+import interfaz.Eliminarperfil;
 import interfaz.ListadocomentariosAdministrador;
 import interfaz.ListadocomentariosUsuarionoregistrado;
 import interfaz.ListadocomentariosUsuarioregistrado;
@@ -27,6 +29,7 @@ import interfaz.VerlistadoglobaldeusuariosAdministrador;
 import interfaz.VerlistadoglobaldeusuariosUsuarionoregistrado;
 import interfaz.VerlistadoglobaldeusuariosUsuarioregistrado;
 import interfaz.Verperfildeusuario;
+import interfaz.Verperfilpersonal;
 import interfaz.ListadotweetsAdministrador;
 import interfaz.ListadotweetsUsuarionoregistrado;
 import interfaz.ListadotweetsUsuarioregistrado;
@@ -86,9 +89,14 @@ public class MainView extends VerticalLayout {
 	VerperfilAdministrador vpa;
 	Banearusuario bu = new Banearusuario(vpa);
 	
+	Verperfilpersonal vpp;
+	Editarperfil ep = new Editarperfil(vpp);
+	
+	Eliminarperfil eep = new Eliminarperfil(vpp);
+	
 	public MainView(@Autowired GreetService service) {
 
-		add(bu);
+		add(eep);
 
 	}
 
