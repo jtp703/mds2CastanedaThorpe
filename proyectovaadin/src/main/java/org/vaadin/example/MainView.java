@@ -20,6 +20,7 @@ import interfaz.Listadodeusuariosusuarionoregistrado;
 import interfaz.Listadodeusuariosusuarioregistrado;
 import interfaz.Listadotweets;
 import interfaz.Listadotweets_item;
+import interfaz.Megustas;
 import interfaz.Usuarionoregistrado;
 import interfaz.Usuarioregistrado;
 import interfaz.Vercomentarios;
@@ -36,6 +37,7 @@ import interfaz.ListadotweetsUsuarionoregistrado;
 import interfaz.ListadotweetsUsuarioregistrado;
 import interfaz.ListadotweetsUsuarioregistrado_item;
 import interfaz.Notificacionesdeusuario;
+import interfaz.Recuperarcontrasenia;
 import interfaz.Registrarse;
 import interfaz.VerListadohashtags;
 import interfaz.Vermuroprincipal;
@@ -99,9 +101,14 @@ public class MainView extends VerticalLayout {
 	Registrarse r;
 	Iniciarsesion is = new Iniciarsesion(r);
 	
+	Verperfildeusuario vpdu;
+	Megustas mg = new Megustas(vpdu);
+	
+	Recuperarcontrasenia rc = new Recuperarcontrasenia(is);
+	
 	public MainView(@Autowired GreetService service) {
 
-		add(is);
+		add(rc);
 
 	}
 
