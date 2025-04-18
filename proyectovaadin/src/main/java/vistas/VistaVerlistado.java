@@ -24,6 +24,67 @@ public class VistaVerlistado extends LitTemplate {
 	@Id("ListadoSeguidos")
 	private Element listadoSeguidos;
 
+	
+	public Element getContenedorListadousuariosSeguidoresSeguidos() {
+		return contenedorListadousuariosSeguidoresSeguidos;
+	}
+
+
+	public void setContenedorListadousuariosSeguidoresSeguidos(Element contenedorListadousuariosSeguidoresSeguidos) {
+		this.contenedorListadousuariosSeguidoresSeguidos = contenedorListadousuariosSeguidoresSeguidos;
+	}
+
+
+	public H1 getTituloSeguidores() {
+		return tituloSeguidores;
+	}
+
+
+	public void setTituloSeguidores(H1 tituloSeguidores) {
+		this.tituloSeguidores = tituloSeguidores;
+	}
+
+
+	public H1 getSeguidos() {
+		return seguidos;
+	}
+
+
+	public void setSeguidos(H1 seguidos) {
+		this.seguidos = seguidos;
+	}
+
+
+	public Element getVerPerfil() {
+		return verPerfil;
+	}
+
+
+	public void setVerPerfil(Element verPerfil) {
+		this.verPerfil = verPerfil;
+	}
+
+
+	public Element getListadoSeguidores() {
+		return listadoSeguidores;
+	}
+
+
+	public void setListadoSeguidores(Element listadoSeguidores) {
+		this.listadoSeguidores = listadoSeguidores;
+	}
+
+
+	public Element getListadoSeguidos() {
+		return listadoSeguidos;
+	}
+
+
+	public void setListadoSeguidos(Element listadoSeguidos) {
+		this.listadoSeguidos = listadoSeguidos;
+	}
+
+
 	public VistaVerlistado() {
         // You can initialise any data required for the connected UI components here.
     }

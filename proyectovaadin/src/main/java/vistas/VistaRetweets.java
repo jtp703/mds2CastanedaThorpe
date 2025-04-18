@@ -18,6 +18,37 @@ public class VistaRetweets extends LitTemplate {
 	@Id("contenedorListadoRetweets")
 	private Element contenedorListadoRetweets;
 
+	
+	public Element getContenedorRetweets() {
+		return contenedorRetweets;
+	}
+
+
+	public void setContenedorRetweets(Element contenedorRetweets) {
+		this.contenedorRetweets = contenedorRetweets;
+	}
+
+
+	public Button getBtnCerrar() {
+		return btnCerrar;
+	}
+
+
+	public void setBtnCerrar(Button btnCerrar) {
+		this.btnCerrar = btnCerrar;
+	}
+
+
+	public Element getContenedorListadoRetweets() {
+		return contenedorListadoRetweets;
+	}
+
+
+	public void setContenedorListadoRetweets(Element contenedorListadoRetweets) {
+		this.contenedorListadoRetweets = contenedorListadoRetweets;
+	}
+
+
 	public VistaRetweets() {
         // You can initialise any data required for the connected UI components here.
     }

@@ -20,6 +20,7 @@ import interfaz.Listadodeusuariosusuarionoregistrado;
 import interfaz.Listadodeusuariosusuarioregistrado;
 import interfaz.Listadotweets;
 import interfaz.Listadotweets_item;
+import interfaz.Listadousuarios;
 import interfaz.Megustas;
 import interfaz.Usuarionoregistrado;
 import interfaz.Usuarioregistrado;
@@ -27,6 +28,8 @@ import interfaz.Vercomentarios;
 import interfaz.VercomentariosAdminstrador;
 import interfaz.VercomentariosUsuarionoregistrado;
 import interfaz.VercomentariosUsuarioregistrado;
+import interfaz.Verlistadodeseguidores;
+import interfaz.Verlistadodeseguidos;
 import interfaz.VerlistadoglobaldeusuariosAdministrador;
 import interfaz.VerlistadoglobaldeusuariosUsuarionoregistrado;
 import interfaz.VerlistadoglobaldeusuariosUsuarioregistrado;
@@ -39,6 +42,7 @@ import interfaz.ListadotweetsUsuarioregistrado_item;
 import interfaz.Notificacionesdeusuario;
 import interfaz.Recuperarcontrasenia;
 import interfaz.Registrarse;
+import interfaz.Retweets;
 import interfaz.VerListadohashtags;
 import interfaz.Vermuroprincipal;
 import interfaz.VermuroprincipalAdministrador;
@@ -106,9 +110,18 @@ public class MainView extends VerticalLayout {
 	
 	Recuperarcontrasenia rc = new Recuperarcontrasenia(is);
 	
+	Registrarse re = new Registrarse(is);
+	
+	Retweets rts = new Retweets(vpdu);
+	
+	Listadousuarios lu;
+	Verlistadodeseguidores vlseguidores = new Verlistadodeseguidores(lu);
+	Verlistadodeseguidos vlseguidos = new Verlistadodeseguidos(lu);
+	
+	
 	public MainView(@Autowired GreetService service) {
 
-		add(rc);
+		add(vlseguidos);
 
 	}
 
