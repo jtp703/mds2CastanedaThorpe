@@ -10,6 +10,7 @@ import interfaz.Banearusuario;
 import interfaz.Darretweet;
 import interfaz.Editarperfil;
 import interfaz.Eliminarperfil;
+import interfaz.Iniciarsesion;
 import interfaz.ListadocomentariosAdministrador;
 import interfaz.ListadocomentariosUsuarionoregistrado;
 import interfaz.ListadocomentariosUsuarioregistrado;
@@ -35,6 +36,7 @@ import interfaz.ListadotweetsUsuarionoregistrado;
 import interfaz.ListadotweetsUsuarioregistrado;
 import interfaz.ListadotweetsUsuarioregistrado_item;
 import interfaz.Notificacionesdeusuario;
+import interfaz.Registrarse;
 import interfaz.VerListadohashtags;
 import interfaz.Vermuroprincipal;
 import interfaz.VermuroprincipalAdministrador;
@@ -94,9 +96,12 @@ public class MainView extends VerticalLayout {
 	
 	Eliminarperfil eep = new Eliminarperfil(vpp);
 	
+	Registrarse r;
+	Iniciarsesion is = new Iniciarsesion(r);
+	
 	public MainView(@Autowired GreetService service) {
 
-		add(eep);
+		add(is);
 
 	}
 

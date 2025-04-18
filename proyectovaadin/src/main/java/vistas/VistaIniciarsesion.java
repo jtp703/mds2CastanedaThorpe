@@ -14,10 +14,6 @@ public class VistaIniciarsesion extends LitTemplate {
 
     @Id("contenedorIniciarSesion")
 	private Element contenedorIniciarSesion;
-	@Id("textField")
-	private TextField correo;
-	@Id("contraseña")
-	private TextField contrasenia;
 	@Id("btnIniciarSesion")
 	private Button btnIniciarSesion;
 	@Id("btnIniciarSesionGoogle")
