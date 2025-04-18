@@ -18,8 +18,8 @@ export class VistaDarretweet extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%;position:absolute;" id="contenedorRetweet">
- <vaadin-horizontal-layout style="height: 100%;background-color: lightgray;">
-  <vista-listadotweets_item></vista-listadotweets_item>
+ <vaadin-horizontal-layout style="height: 100%;background-color: lightgray;" id="contenedorTweetsItem">
+  <vista-listadotweets_item id="item"></vista-listadotweets_item>
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" style="align-self: stretch; justify-content: space-between; align-content: stretch; height: 100%;margin-bottom: 150px;">
   <vaadin-horizontal-layout style="flex-grow: 0; margin: var(--lumo-space-m); align-self: flex-start; padding: var(--lumo-space-m);" id="idPerfilLayout">

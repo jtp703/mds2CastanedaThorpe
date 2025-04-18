@@ -6,6 +6,8 @@ import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 
+import interfaz.Banearusuario;
+import interfaz.Darretweet;
 import interfaz.ListadocomentariosAdministrador;
 import interfaz.ListadocomentariosUsuarionoregistrado;
 import interfaz.ListadocomentariosUsuarioregistrado;
@@ -28,12 +30,14 @@ import interfaz.Verperfildeusuario;
 import interfaz.ListadotweetsAdministrador;
 import interfaz.ListadotweetsUsuarionoregistrado;
 import interfaz.ListadotweetsUsuarioregistrado;
+import interfaz.ListadotweetsUsuarioregistrado_item;
 import interfaz.Notificacionesdeusuario;
 import interfaz.VerListadohashtags;
 import interfaz.Vermuroprincipal;
 import interfaz.VermuroprincipalAdministrador;
 import interfaz.VermuroprincipalUsuarionoregistrado;
 import interfaz.VermuroprincipalUsuarioregistrado;
+import interfaz.VerperfilAdministrador;
 
 @Route
 @CssImport("./styles/shared-styles.css")
@@ -76,9 +80,15 @@ public class MainView extends VerticalLayout {
 	VerlistadoglobaldeusuariosUsuarionoregistrado vlguunr;
 	Listadodeusuariosusuarionoregistrado luunr = new Listadodeusuariosusuarionoregistrado(vlguunr);
 	
+	ListadotweetsUsuarioregistrado_item lturi;
+	Darretweet dr = new Darretweet(lturi);
+	
+	VerperfilAdministrador vpa;
+	Banearusuario bu = new Banearusuario(vpa);
+	
 	public MainView(@Autowired GreetService service) {
 
-		add(ltun);
+		add(bu);
 
 	}
 
