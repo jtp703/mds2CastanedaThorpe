@@ -16,6 +16,44 @@ public class VistaVerlistadogloblaldeusuarios extends LitTemplate {
 	private Element contenedorCibernauta;
 	@Id("contenedorListadoUsuarios")
 	private Element contenedorListadoUsuarios;
+	
+	
+
+	public Element getContenedorVerListadoGlobalUsuarios() {
+		return contenedorVerListadoGlobalUsuarios;
+	}
+
+
+
+	public void setContenedorVerListadoGlobalUsuarios(Element contenedorVerListadoGlobalUsuarios) {
+		this.contenedorVerListadoGlobalUsuarios = contenedorVerListadoGlobalUsuarios;
+	}
+
+
+
+	public Element getContenedorCibernauta() {
+		return contenedorCibernauta;
+	}
+
+
+
+	public void setContenedorCibernauta(Element contenedorCibernauta) {
+		this.contenedorCibernauta = contenedorCibernauta;
+	}
+
+
+
+	public Element getContenedorListadoUsuarios() {
+		return contenedorListadoUsuarios;
+	}
+
+
+
+	public void setContenedorListadoUsuarios(Element contenedorListadoUsuarios) {
+		this.contenedorListadoUsuarios = contenedorListadoUsuarios;
+	}
+
+
 
 	public VistaVerlistadogloblaldeusuarios() {
         // You can initialise any data required for the connected UI components here.

@@ -17,6 +17,10 @@ public class Cibernauta extends VistaCibernauta{
 	public Cibernauta(MainView MainView) {
 		this.MainView = MainView;
 	}
+	
+	public Cibernauta() {
+		
+	}
 
 	public void VerListadohashtags() {
 		throw new UnsupportedOperationException();
