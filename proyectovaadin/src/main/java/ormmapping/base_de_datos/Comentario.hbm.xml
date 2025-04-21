@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensee: Diego(University of Almeria)
+License Type: Academic
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="base_de_datos.Comentario" table="Comentario" lazy="false">
+		<id name="idComentario" column="IdComentario" type="long" unsaved-value="0">
+			<generator class="native">
+			</generator>
+		</id>
+		<many-to-one name="comentario_usuario" cascade="lock" column="UsuarioUsuarioAutentificadoID" class="base_de_datos.Usuario" not-null="true" lazy="proxy" access="field">
+		</many-to-one>
+		<many-to-one name="comentario_tweet" cascade="lock" column="TweetID" class="base_de_datos.Tweet" not-null="true" lazy="proxy" access="field">
+		</many-to-one>
+		<many-to-one name="es_eliminado" cascade="lock" column="AdministradorUsuarioAutentificadoID" class="base_de_datos.Administrador" not-null="true" lazy="proxy" access="field">
+		</many-to-one>
+		<property name="texto" column="Texto" type="string" length="255" not-null="false" lazy="false"/>
+		<property name="foto_video" column="Foto_video" type="string" length="255" not-null="false" lazy="false"/>
+		<property name="numMegustas" column="NumMegustas" type="integer" length="10" not-null="true" lazy="false"/>
+		<set name="ORM_Comentario_contiene" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="ComentarioIdComentario" not-null="false"/>
+			<one-to-many class="base_de_datos.Documento"/>
+		</set>
+	</class>
+</hibernate-mapping>
