@@ -11,6 +11,7 @@ import interfaz.Darretweet;
 import interfaz.Editarperfil;
 import interfaz.Eliminarperfil;
 import interfaz.Iniciarsesion;
+import interfaz.Listadocomentarios;
 import interfaz.ListadocomentariosAdministrador;
 import interfaz.ListadocomentariosUsuarionoregistrado;
 import interfaz.ListadocomentariosUsuarioregistrado;
@@ -22,6 +23,7 @@ import interfaz.Listadotweets;
 import interfaz.Listadotweets_item;
 import interfaz.Listadousuarios;
 import interfaz.Megustas;
+import interfaz.Notificaciones;
 import interfaz.Usuarionoregistrado;
 import interfaz.Usuarioregistrado;
 import interfaz.Vercomentarios;
@@ -118,12 +120,14 @@ public class MainView extends VerticalLayout {
 	Verlistadodeseguidores vlseguidores = new Verlistadodeseguidores(lu);
 	Verlistadodeseguidos vlseguidos = new Verlistadodeseguidos(lu);
 	
+	Vercomentarios vc;
+	Listadocomentarios lc = new Listadocomentarios(vc);
 	
-	
+	Notificaciones nt = new Notificaciones(nu);
 	
 	public MainView(@Autowired GreetService service) {
 
-		add(vlseguidos);
+		add(nt);
 
 	}
 
