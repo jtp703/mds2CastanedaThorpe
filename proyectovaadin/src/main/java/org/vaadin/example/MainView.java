@@ -119,6 +119,8 @@ public class MainView extends VerticalLayout {
 	Verlistadodeseguidos vlseguidos = new Verlistadodeseguidos(lu);
 	
 	
+	
+	
 	public MainView(@Autowired GreetService service) {
 
 		add(vlseguidos);
