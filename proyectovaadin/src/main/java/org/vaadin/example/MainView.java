@@ -215,7 +215,7 @@ public class MainView extends VerticalLayout {
 
 	public MainView(@Autowired GreetService service) {
 
-		add(rts);
+		add(vlseguidores);
 
 	}
 

@@ -14,5 +14,9 @@ public class Verlistadodeseguidos extends Verlistado {
 		item0.getseguirUsuario().setVisible(false);
 		this.getListadoSeguidos().as(VerticalLayout.class).add(item0);
 		
+		Listadousuarios_item item1 = new Listadousuarios_item(_listadousuarios);
+		item1.getseguirUsuario().setVisible(false);
+		this.getListadoSeguidos().as(VerticalLayout.class).add(item1);
+		
 	}
 }
