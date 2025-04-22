@@ -197,10 +197,16 @@ public class MainView extends VerticalLayout {
 	
 	Administrador admin;
 	VerlistadoglobaldeusuariosAdministrador vlgdua = new VerlistadoglobaldeusuariosAdministrador(admin);
+	
+	Usuarioregistrado u;
+	VerlistadoglobaldeusuariosUsuarioregistrado vlgduur = new VerlistadoglobaldeusuariosUsuarioregistrado(u);
+	
+	Usuarionoregistrado un;
+	VerlistadoglobaldeusuariosUsuarionoregistrado vlgduunr = new VerlistadoglobaldeusuariosUsuarionoregistrado(un);
 
 	public MainView(@Autowired GreetService service) {
 
-		add(vlgdua);
+		add(vlgduunr);
 
 	}
 

@@ -12,6 +12,10 @@ public class Usuarioregistrado extends Cibernauta {
 	public Verperfilpersonal _verperfilpersonal;
 	public VerperfilUsuarioregistrado _verperfilUsuarioregistrado;
 
+	public Usuarioregistrado() {
+		
+	}
+	
 	public Usuarioregistrado(MainView MainView) {
 		super(MainView);
 		this.getContenedorRegistro().setVisible(false);
