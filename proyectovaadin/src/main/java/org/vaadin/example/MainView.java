@@ -60,7 +60,9 @@ import interfaz.VercomentariosUsuarioregistrado;
 import interfaz.Verlistadodeseguidores;
 
 import interfaz.Verlistadodeseguidos;
-
+import interfaz.VerlistadodetweetsfiltradoAdministrador;
+import interfaz.VerlistadodetweetsfiltradoUsuarionoregistrado;
+import interfaz.VerlistadodetweetsfiltradoUsuarioregistrado;
 import interfaz.VerlistadoglobaldeusuariosAdministrador;
 
 import interfaz.VerlistadoglobaldeusuariosUsuarionoregistrado;
@@ -203,10 +205,16 @@ public class MainView extends VerticalLayout {
 	
 	Usuarionoregistrado un;
 	VerlistadoglobaldeusuariosUsuarionoregistrado vlgduunr = new VerlistadoglobaldeusuariosUsuarionoregistrado(un);
+	
+	VerlistadodetweetsfiltradoUsuarionoregistrado vldtfunr = new VerlistadodetweetsfiltradoUsuarionoregistrado(un);
+	
+	VerlistadodetweetsfiltradoUsuarioregistrado vldtfur = new VerlistadodetweetsfiltradoUsuarioregistrado(u);
+	
+	VerlistadodetweetsfiltradoAdministrador vldtfa = new VerlistadodetweetsfiltradoAdministrador(admin);
 
 	public MainView(@Autowired GreetService service) {
 
-		add(vlgduunr);
+		add(vldtfa);
 
 	}
 
