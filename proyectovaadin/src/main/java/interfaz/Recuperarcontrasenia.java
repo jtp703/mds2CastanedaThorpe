@@ -3,6 +3,7 @@ package interfaz;
 import vistas.VistaRecuperarcontrasenia;
 
 public class Recuperarcontrasenia extends VistaRecuperarcontrasenia {
+	
 	public Iniciarsesion _iniciarsesion;
 	public Correo _correo;
 

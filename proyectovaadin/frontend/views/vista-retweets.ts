@@ -17,7 +17,7 @@ export class VistaRetweets extends LitElement {
  <vaadin-horizontal-layout theme="spacing" style="align-self: center; flex-grow: 1;">
   <vaadin-vertical-layout theme="spacing" style="align-self: center;">
    <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout">
-    <h1>Usuarios que han dado me gusta</h1>
+    <h1>Usuarios que han retweeteado</h1>
     <vaadin-button id="btnCerrar" style="align-self: center;" tabindex="0">
       Cerrar 
     </vaadin-button>

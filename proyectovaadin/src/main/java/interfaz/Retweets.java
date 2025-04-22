@@ -13,6 +13,8 @@ public class Retweets extends VistaRetweets {
 		this._verperfildeusuario = _verperfildeusuario;
 		ListadotweetsUsuarionoregistrado_item item0 = new ListadotweetsUsuarionoregistrado_item(ltunr);
 		this.getContenedorListadoRetweets().as(VerticalLayout.class).add(item0);
+		ListadotweetsUsuarionoregistrado_item item1 = new ListadotweetsUsuarionoregistrado_item(ltunr);
+		this.getContenedorListadoRetweets().as(VerticalLayout.class).add(item1);
 	}
 	
 	public Retweets(Listadotweets _listadotweets) {

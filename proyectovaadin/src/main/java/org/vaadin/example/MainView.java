@@ -212,11 +212,10 @@ public class MainView extends VerticalLayout {
 	
 	VerlistadodetweetsfiltradoAdministrador vldtfa = new VerlistadodetweetsfiltradoAdministrador(admin);
 	
-	
 
 	public MainView(@Autowired GreetService service) {
 
-		add(nt);
+		add(rts);
 
 	}
 
