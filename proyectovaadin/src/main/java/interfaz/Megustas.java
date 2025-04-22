@@ -13,6 +13,8 @@ public class Megustas extends VistaMegustas {
 		this._verperfildeusuario = _verperfildeusuario;
 		Listadodeusuariosusuarioregistrado_item item0 = new Listadodeusuariosusuarioregistrado_item(luur);
 		this.getContenedorListadoMegustas().as(VerticalLayout.class).add(item0);
+		Listadodeusuariosusuarioregistrado_item item1 = new Listadodeusuariosusuarioregistrado_item(luur);
+		this.getContenedorListadoMegustas().as(VerticalLayout.class).add(item1);
 		
 	}
 	
