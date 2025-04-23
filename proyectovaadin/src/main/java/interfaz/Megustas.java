@@ -5,6 +5,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import vistas.VistaMegustas;
 
 public class Megustas extends VistaMegustas {
+	
 	public Verperfildeusuario _verperfildeusuario;
 	public Listadotweets _listadotweets;
 	Listadodeusuariosusuarioregistrado luur;
