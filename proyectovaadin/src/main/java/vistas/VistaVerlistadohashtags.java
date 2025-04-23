@@ -16,6 +16,44 @@ public class VistaVerlistadohashtags extends LitTemplate {
 	private Element contenedorCibernauta;
 	@Id("contenedorListadoHashtags")
 	private Element contenedorListadoHashtags;
+	
+	
+
+	public Element getContenedorVerListadoHashtags() {
+		return contenedorVerListadoHashtags;
+	}
+
+
+
+	public void setContenedorVerListadoHashtags(Element contenedorVerListadoHashtags) {
+		this.contenedorVerListadoHashtags = contenedorVerListadoHashtags;
+	}
+
+
+
+	public Element getContenedorCibernauta() {
+		return contenedorCibernauta;
+	}
+
+
+
+	public void setContenedorCibernauta(Element contenedorCibernauta) {
+		this.contenedorCibernauta = contenedorCibernauta;
+	}
+
+
+
+	public Element getContenedorListadoHashtags() {
+		return contenedorListadoHashtags;
+	}
+
+
+
+	public void setContenedorListadoHashtags(Element contenedorListadoHashtags) {
+		this.contenedorListadoHashtags = contenedorListadoHashtags;
+	}
+
+
 
 	public VistaVerlistadohashtags() {
         // You can initialise any data required for the connected UI components here.

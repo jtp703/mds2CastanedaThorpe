@@ -17,6 +17,44 @@ public class VistaVermuroprincipal extends LitTemplate {
 	@Id("contenedorListadoTweetsMuroPrincipal")
 	private Element contenedorListadoTweetsMuroPrincipal;
 
+	
+	
+	public Element getContenedorVerMuroPrincipal() {
+		return contenedorVerMuroPrincipal;
+	}
+
+
+
+	public void setContenedorVerMuroPrincipal(Element contenedorVerMuroPrincipal) {
+		this.contenedorVerMuroPrincipal = contenedorVerMuroPrincipal;
+	}
+
+
+
+	public Element getContenedorCibernauta() {
+		return contenedorCibernauta;
+	}
+
+
+
+	public void setContenedorCibernauta(Element contenedorCibernauta) {
+		this.contenedorCibernauta = contenedorCibernauta;
+	}
+
+
+
+	public Element getContenedorListadoTweetsMuroPrincipal() {
+		return contenedorListadoTweetsMuroPrincipal;
+	}
+
+
+
+	public void setContenedorListadoTweetsMuroPrincipal(Element contenedorListadoTweetsMuroPrincipal) {
+		this.contenedorListadoTweetsMuroPrincipal = contenedorListadoTweetsMuroPrincipal;
+	}
+
+
+
 	public VistaVermuroprincipal() {
         // You can initialise any data required for the connected UI components here.
     }
