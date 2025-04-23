@@ -1,5 +1,5 @@
 import { LitElement, html, css, customElement } from 'lit-element';
-import './vista-eliminarperfil';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 
 @customElement('vista-googlelogin')
 export class VistaGooglelogin extends LitElement {
@@ -14,10 +14,7 @@ export class VistaGooglelogin extends LitElement {
 
   render() {
     return html`
-<vista-eliminarperfil></vista-eliminarperfil>
-<div id="div" style="width: 100%; height: 100%;">
-  Div 
-</div>
+<vaadin-vertical-layout style="width: 100%; height: 100%;position:aboslute;" id="contnedorGoogleLogin"></vaadin-vertical-layout>
 `;
   }
 

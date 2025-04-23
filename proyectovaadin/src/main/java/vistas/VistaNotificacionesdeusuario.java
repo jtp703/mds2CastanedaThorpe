@@ -12,6 +12,10 @@ public class VistaNotificacionesdeusuario extends LitTemplate {
 
     @Id("contenedorNotificacionesUsuario")
 	private Element contenedorNotificacionesUsuario;
+	@Id("contenedorCibernauta")
+	private Element contenedorCibernauta;
+	@Id("contemdorListadoNotificaciones")
+	private Element contemdorListadoNotificaciones;
 
 	public VistaNotificacionesdeusuario() {
         // You can initialise any data required for the connected UI components here.
