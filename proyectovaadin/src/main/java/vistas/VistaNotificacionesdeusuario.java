@@ -10,15 +10,39 @@ import com.vaadin.flow.component.template.Id;
 @JsModule("./views/vista-notificacionesdeusuario.ts")
 public class VistaNotificacionesdeusuario extends LitTemplate {
 
-    @Id("contenedorNotificacionesUsuario")
+	@Id("contenedorNotificacionesUsuario")
 	private Element contenedorNotificacionesUsuario;
 	@Id("contenedorCibernauta")
 	private Element contenedorCibernauta;
 	@Id("contemdorListadoNotificaciones")
 	private Element contemdorListadoNotificaciones;
 
+	public Element getContenedorNotificacionesUsuario() {
+		return contenedorNotificacionesUsuario;
+	}
+
+	public void setContenedorNotificacionesUsuario(Element contenedorNotificacionesUsuario) {
+		this.contenedorNotificacionesUsuario = contenedorNotificacionesUsuario;
+	}
+
+	public Element getContenedorCibernauta() {
+		return contenedorCibernauta;
+	}
+
+	public void setContenedorCibernauta(Element contenedorCibernauta) {
+		this.contenedorCibernauta = contenedorCibernauta;
+	}
+
+	public Element getContemdorListadoNotificaciones() {
+		return contemdorListadoNotificaciones;
+	}
+
+	public void setContemdorListadoNotificaciones(Element contemdorListadoNotificaciones) {
+		this.contemdorListadoNotificaciones = contemdorListadoNotificaciones;
+	}
+
 	public VistaNotificacionesdeusuario() {
-        // You can initialise any data required for the connected UI components here.
-    }
+		// You can initialise any data required for the connected UI components here.
+	}
 
 }

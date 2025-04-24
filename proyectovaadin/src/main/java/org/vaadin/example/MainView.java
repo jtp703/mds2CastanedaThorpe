@@ -131,8 +131,6 @@ public class MainView extends VerticalLayout {
 
 	ListadotweetsUsuarionoregistrado ltun = new ListadotweetsUsuarionoregistrado(vmurn);
 
-	Notificacionesdeusuario nu = new Notificacionesdeusuario();
-
 	VercomentariosUsuarionoregistrado vcun;
 
 	ListadocomentariosUsuarionoregistrado lcun = new ListadocomentariosUsuarionoregistrado(vcun);
@@ -194,8 +192,6 @@ public class MainView extends VerticalLayout {
 	Vercomentarios vc;
 
 	Listadocomentarios lc = new Listadocomentarios(vc);
-
-	Notificaciones nt = new Notificaciones(nu);
 	
 	Administrador admin = new Administrador(this);
 	VerlistadoglobaldeusuariosAdministrador vlgdua = new VerlistadoglobaldeusuariosAdministrador(admin);
@@ -220,10 +216,11 @@ public class MainView extends VerticalLayout {
 	
 	VermuroprincipalUsuarioregistrado vmpur = new VermuroprincipalUsuarioregistrado(u);
 
+	Notificacionesdeusuario nu = new Notificacionesdeusuario(u);
 
 	public MainView(@Autowired GreetService service) {
 
-		add(ep);
+		add(vlgdua);
 
 	}
 
