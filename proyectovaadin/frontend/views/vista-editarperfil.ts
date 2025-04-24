@@ -17,7 +17,7 @@ export class VistaEditarperfil extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%; padding: var(--lumo-space-xl);" id="contenedorEditarPerfil">
+<vaadin-vertical-layout style="width: 100%; height: 100%; padding: var(--lumo-space-xl); position:absolute;" id="contenedorEditarPerfil">
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; align-self: stretch; flex-grow: 0; justify-content: center;">
   <h1 style="flex-grow: 0;">Editar perfil de usuario registrado</h1>
  </vaadin-horizontal-layout>
