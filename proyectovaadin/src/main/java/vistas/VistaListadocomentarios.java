@@ -6,18 +6,33 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.template.Id;
+import com.vaadin.flow.component.textfield.TextArea;
+import com.vaadin.flow.component.button.Button;
 
 @Tag("vista-listadocomentarios")
 @JsModule("./views/vista-listadocomentarios.ts")
 public class VistaListadocomentarios extends LitTemplate {
 
-	@Id("contenedorListadoComentariosItem")
-	private Element contenedorListadoComentariosItem;
-	@Id("contenedorEscribirComentario")
-	private HorizontalLayout contenedorEscribirComentario;
-	@Id("contenedorListadoTweets")
-	private Element contenedorListadoTweets;
-	
+    @Id("vaadinHorizontalLayout")
+	private HorizontalLayout vaadinHorizontalLayout;
+	@Id("vistaListadotweets_item")
+	private Element vistaListadotweets_item;
+	@Id("vaadinHorizontalLayout2")
+	private HorizontalLayout vaadinHorizontalLayout2;
+	@Id("vaadinVerticalLayout3")
+	private Element vaadinVerticalLayout3;
+	@Id("contendorListadoComentarios")
+	private Element contendorListadoComentarios;
+	@Id("contenedorComentariosItem")
+	private Element contenedorComentariosItem;
+	@Id("contenedorEscribirComentarios")
+	private Element contenedorEscribirComentarios;
+	@Id("verPerfil")
+	private Element verPerfil;
+	@Id("textAreaComentario")
+	private TextArea textAreaComentario;
+	@Id("btnEnviarComentario")
+	private Button btnEnviarComentario;
 
 	public Element getContenedorListadoComentariosItem() {
 		return contenedorListadoComentariosItem;
