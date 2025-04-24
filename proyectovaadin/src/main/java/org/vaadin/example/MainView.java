@@ -220,9 +220,10 @@ public class MainView extends VerticalLayout {
 	
 	VermuroprincipalUsuarioregistrado vmpur = new VermuroprincipalUsuarioregistrado(u);
 
+
 	public MainView(@Autowired GreetService service) {
 
-		add(vmpur);
+		add(bu);
 
 	}
 

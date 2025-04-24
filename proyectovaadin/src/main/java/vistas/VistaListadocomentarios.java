@@ -13,20 +13,12 @@ import com.vaadin.flow.component.button.Button;
 @JsModule("./views/vista-listadocomentarios.ts")
 public class VistaListadocomentarios extends LitTemplate {
 
-    @Id("vaadinHorizontalLayout")
-	private HorizontalLayout vaadinHorizontalLayout;
-	@Id("vistaListadotweets_item")
-	private Element vistaListadotweets_item;
-	@Id("vaadinHorizontalLayout2")
-	private HorizontalLayout vaadinHorizontalLayout2;
-	@Id("vaadinVerticalLayout3")
-	private Element vaadinVerticalLayout3;
-	@Id("contendorListadoComentarios")
-	private Element contendorListadoComentarios;
-	@Id("contenedorComentariosItem")
-	private Element contenedorComentariosItem;
 	@Id("contenedorEscribirComentarios")
 	private Element contenedorEscribirComentarios;
+	@Id("contenedorComentariosItem")
+	private Element contenedorComentariosItem;
+	@Id("contendorListadoComentarios")
+	private Element contendorListadoComentarios;
 	@Id("verPerfil")
 	private Element verPerfil;
 	@Id("textAreaComentario")
@@ -34,7 +26,53 @@ public class VistaListadocomentarios extends LitTemplate {
 	@Id("btnEnviarComentario")
 	private Button btnEnviarComentario;
 
+	public Element getContenedorEscribirComentarios() {
+		return contenedorEscribirComentarios;
+	}
 
+	public void setContenedorEscribirComentarios(Element contenedorEscribirComentarios) {
+		this.contenedorEscribirComentarios = contenedorEscribirComentarios;
+	}
+
+	public Element getContenedorComentariosItem() {
+		return contenedorComentariosItem;
+	}
+
+	public void setContenedorComentariosItem(Element contenedorComentariosItem) {
+		this.contenedorComentariosItem = contenedorComentariosItem;
+	}
+
+	public Element getContendorListadoComentarios() {
+		return contendorListadoComentarios;
+	}
+
+	public void setContendorListadoComentarios(Element contendorListadoComentarios) {
+		this.contendorListadoComentarios = contendorListadoComentarios;
+	}
+
+	public Element getVerPerfil() {
+		return verPerfil;
+	}
+
+	public void setVerPerfil(Element verPerfil) {
+		this.verPerfil = verPerfil;
+	}
+
+	public TextArea getTextAreaComentario() {
+		return textAreaComentario;
+	}
+
+	public void setTextAreaComentario(TextArea textAreaComentario) {
+		this.textAreaComentario = textAreaComentario;
+	}
+
+	public Button getBtnEnviarComentario() {
+		return btnEnviarComentario;
+	}
+
+	public void setBtnEnviarComentario(Button btnEnviarComentario) {
+		this.btnEnviarComentario = btnEnviarComentario;
+	}
 
 	public VistaListadocomentarios() {
 		// You can initialise any data required for the connected UI components here.
