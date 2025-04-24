@@ -34,34 +34,6 @@ public class VistaListadocomentarios extends LitTemplate {
 	@Id("btnEnviarComentario")
 	private Button btnEnviarComentario;
 
-	public Element getContenedorListadoComentariosItem() {
-		return contenedorListadoComentariosItem;
-	}
-
-
-	public void setContenedorListadoComentariosItem(Element contenedorListadoComentariosItem) {
-		this.contenedorListadoComentariosItem = contenedorListadoComentariosItem;
-	}
-
-
-	public HorizontalLayout getContenedorEscribirComentario() {
-		return contenedorEscribirComentario;
-	}
-
-
-	public void setContenedorEscribirComentario(HorizontalLayout contenedorEscribirComentario) {
-		this.contenedorEscribirComentario = contenedorEscribirComentario;
-	}
-
-
-	public Element getContenedorListadoTweets() {
-		return contenedorListadoTweets;
-	}
-
-
-	public void setContenedorListadoTweets(Element contenedorListadoTweets) {
-		this.contenedorListadoTweets = contenedorListadoTweets;
-	}
 
 
 	public VistaListadocomentarios() {
