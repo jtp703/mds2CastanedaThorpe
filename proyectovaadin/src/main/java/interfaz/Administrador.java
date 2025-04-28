@@ -16,6 +16,9 @@ public class Administrador extends Cibernauta {
 		this.getVerNotificacionesUsuario().setVisible(false);
 		this.getContenedorVerPerfilPersonal().setVisible(false);
 	}
+	public Administrador() {
+		
+	}
 
 	public void VermuroprincipalAdministrador() {
 		throw new UnsupportedOperationException();

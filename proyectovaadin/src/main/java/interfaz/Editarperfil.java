@@ -7,8 +7,11 @@ public class Editarperfil extends VistaEditarperfil{
 	public Verperfilpersonal _verperfilpersonal;
 	public Usuarioregistrado _usuarioregistrado;
 	
-	Editarperfil(Usuarioregistrado usuarioregistrado) {
+	public Editarperfil(Usuarioregistrado usuarioregistrado) {
 		this._usuarioregistrado = usuarioregistrado;
+	}
+	public Editarperfil(Verperfilpersonal _verperfilpersonal) {
+		this._verperfilpersonal = _verperfilpersonal;
 	}
 	
 	public void Guardarcambios() {

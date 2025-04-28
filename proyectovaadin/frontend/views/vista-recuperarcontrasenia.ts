@@ -18,20 +18,20 @@ export class VistaRecuperarcontrasenia extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;" id="contenedorRecuperarContrasenia">
+<vaadin-vertical-layout style="width: 100%; height: 100%; position:absolute; align-items: center;" id="contenedorRecuperarContrasenia">
  <vaadin-horizontal-layout theme="spacing" style="align-self: center; flex-grow: 1;">
   <vaadin-vertical-layout theme="spacing" style="align-self: center;">
    <vaadin-horizontal-layout theme="spacing">
     <h1 style="align-self: center;">Recuperar contraseña</h1>
     <vaadin-button id="btnCerrar" style="align-self: center;" tabindex="0">
-     Cerrar
+      Cerrar 
     </vaadin-button>
    </vaadin-horizontal-layout>
    <span>Introduzca el correo de la contraseña que desea recuperar</span>
    <vaadin-horizontal-layout theme="spacing" style="align-self: stretch;">
     <vaadin-text-field placeholder="example@gmail.es" id="correo" style="flex-grow: 1;" type="text"></vaadin-text-field>
     <vaadin-button id="btnEnviar" style="align-self: flex-end;" tabindex="0">
-     Enviar
+      Enviar 
     </vaadin-button>
    </vaadin-horizontal-layout>
   </vaadin-vertical-layout>

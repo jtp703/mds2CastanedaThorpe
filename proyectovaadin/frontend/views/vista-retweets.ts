@@ -1,4 +1,5 @@
 import { LitElement, html, css, customElement } from 'lit-element';
+import '@vaadin/horizontal-layout/src/vaadin-horizontal-layout.js';
 
 @customElement('vista-retweets')
 export class VistaRetweets extends LitElement {
@@ -14,10 +15,10 @@ export class VistaRetweets extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;position:absolute;" id="contenedorRetweets">
- <vaadin-horizontal-layout theme="spacing" style="align-self: center; flex-grow: 1;">
-  <vaadin-vertical-layout theme="spacing" style="align-self: center;">
+ <vaadin-horizontal-layout theme="spacing">
+  <vaadin-vertical-layout theme="spacing" style="align-self: center; flex-grow: 0;">
    <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout">
-    <h1>Usuarios que han dado me gusta</h1>
+    <h1>Usuarios que han dado retweets</h1>
     <vaadin-button id="btnCerrar" style="align-self: center;" tabindex="0">
       Cerrar 
     </vaadin-button>
