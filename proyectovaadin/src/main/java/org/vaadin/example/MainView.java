@@ -217,6 +217,12 @@ public class MainView extends VerticalLayout {
 	VermuroprincipalUsuarioregistrado vmpur = new VermuroprincipalUsuarioregistrado(u);
 
 	Notificacionesdeusuario nu = new Notificacionesdeusuario(u);
+	
+	VercomentariosAdminstrador vcadmin = new VercomentariosAdminstrador(lca);
+	
+	VercomentariosUsuarioregistrado vcUsu = new VercomentariosUsuarioregistrado(lcur);
+	
+	VercomentariosUsuarionoregistrado vcUsuno = new VercomentariosUsuarionoregistrado(lcun);
 
 	public MainView(@Autowired GreetService service) {
 

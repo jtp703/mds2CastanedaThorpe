@@ -15,6 +15,11 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
 		this.getBtnEliminarTweet().setVisible(false);
 	}
 	
+	ListadotweetsUsuarioregistrado_item(VercomentariosUsuarioregistrado _vercomentariosUsuarioregistrado) {
+		super(_vercomentariosUsuarioregistrado);
+		this.getBtnEliminarTweet().setVisible(false);
+	}
+	
 	public void Darmegusta() {
 		throw new UnsupportedOperationException();
 	}
