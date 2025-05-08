@@ -3,11 +3,16 @@ package interfaz;
 public class VerperfilUsuarioregistrado extends Verperfildeusuario {
 	/*private event _bloquear_usuario;
 	private event _seguir_usuario_desde_perfil;*/
-	public Usuarioregistrado _usuarioregistrado;
-	public ListadotweetsUsuarioregistrado _item;
-	public VerperfilUsuarioregistrado(Usuarioregistrado _usuarioregistrado) {
-		super();
-		this._usuarioregistrado = _usuarioregistrado;
+	
+	public Usuarioregistrado usuarioregistrado;
+	public ListadotweetsUsuarioregistrado listadotweetsUsuarioregistrado;
+	
+	public VerperfilUsuarioregistrado(Usuarioregistrado usuarioregistrado) {
+		super(usuarioregistrado);
+	}
+	
+	public VerperfilUsuarioregistrado(ListadotweetsUsuarioregistrado listadotweetsUsuarioregistrado) {
+		super(listadotweetsUsuarioregistrado);
 	}
 	
 	public void Retweets(Retweets _retweets) {

@@ -18,12 +18,19 @@ public class VistaListadotweets_item extends LitTemplate {
 
 	@Id("iconoPerfil")
 	private Avatar iconoPerfil;
-	@Id("verPerfil")
-	private Element verPerfil;
 	@Id("textoTweet")
 	private Paragraph textoTweet;
 	@Id("contenedorInteracciones")
 	private HorizontalLayout contenedorInteracciones;
+
+	public Button getVerperfil() {
+		return verperfil;
+	}
+
+	public void setVerperfil(Button verperfil) {
+		this.verperfil = verperfil;
+	}
+
 	@Id("meGusta")
 	private Icon meGusta;
 	@Id("verMegustas")
@@ -38,6 +45,8 @@ public class VistaListadotweets_item extends LitTemplate {
 	private Button btnEliminarTweet;
 	@Id("contenedorTweet")
 	private Element contenedorTweet;
+	@Id("verperfil")
+	private Button verperfil;
 
 	public VistaListadotweets_item() {
 		// You can initialise any data required for the connected UI components here.
@@ -57,14 +66,6 @@ public class VistaListadotweets_item extends LitTemplate {
 
 	public void setIconoPerfil(Avatar iconoPerfil) {
 		this.iconoPerfil = iconoPerfil;
-	}
-
-	public Element getVerPerfil() {
-		return verPerfil;
-	}
-
-	public void setVerPerfil(Element verPerfil) {
-		this.verPerfil = verPerfil;
 	}
 
 	public Paragraph getTextoTweet() {

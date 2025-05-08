@@ -17,10 +17,14 @@ public class Usuarioregistrado extends Cibernauta {
 	public Verperfilpersonal _verperfilpersonal;
 	public VerperfilUsuarioregistrado _verperfilUsuarioregistrado;
 	
+	public Usuarioregistrado() {
+		
+	}
+	
 	public Usuarioregistrado(MainView mainView) {
 		super(mainView);
 		this.getContenedorRegistro().setVisible(false);
-		VermuroprincipalUsuarioregistrado();
+		//VermuroprincipalUsuarioregistrado();
 		this.getVerMuroPrincipal().addClickListener(event -> VermuroprincipalUsuarioregistrado());
 		this.getVerListadoUsuarios().addClickListener(event -> VerlistadoglobaldeusuariosUsuarioregistrado());
 		this.getVerListadoHashtags().addClickListener(event -> VerListadohashtags());
@@ -65,8 +69,12 @@ public class Usuarioregistrado extends Cibernauta {
 		throw new UnsupportedOperationException();
 	}
 
-	public void VerperfilUsuarioregistrado() {
-		throw new UnsupportedOperationException();
+	public void VerperfilUsuarioregistrado(Usuarioregistrado usuarioRegistrado) {
+		System.out.println("Ejecucion clase usuario");
+		this.getContenedorContenido().as(VerticalLayout.class).removeAll();
+		_verperfilUsuarioregistrado = new VerperfilUsuarioregistrado(usuarioRegistrado);
+		this.getContenedorContenido().as(VerticalLayout.class).add(_verperfilUsuarioregistrado);
+		System.out.println("Final de ejecución");
 	}
 	
 	public void VerListadohashtags() {

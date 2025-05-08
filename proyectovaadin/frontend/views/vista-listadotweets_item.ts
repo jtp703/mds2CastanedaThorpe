@@ -24,7 +24,9 @@ export class VistaListadotweets_item extends LitElement {
  <vaadin-horizontal-layout class="content" style="flex-shrink: 0; flex-grow: 1; margin: var(--lumo-space-m); padding: var(--lumo-space-m); align-self: stretch;" theme="spacing-s">
   <vaadin-horizontal-layout style="flex-grow: 1; margin: var(--lumo-space-m); align-self: flex-start;" id="perfilLayout">
    <vaadin-avatar style="align-self: center; margin-right: 4px;" id="iconoPerfil"></vaadin-avatar>
-   <a href="" id="verPerfil" style="flex-grow: 0; align-self: center;">@usuario</a>
+   <vaadin-button id="verperfil" tabindex="0">
+    usuario
+   </vaadin-button>
   </vaadin-horizontal-layout>
   <vaadin-vertical-layout id="idContenidoTweetLayout" style="flex-grow: 1; margin: var(--lumo-space-m);">
    <vaadin-horizontal-layout theme="spacing" style="align-self: center;">
