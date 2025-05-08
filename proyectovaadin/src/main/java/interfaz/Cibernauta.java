@@ -11,11 +11,12 @@ public class Cibernauta extends VistaCibernauta{
 	public VerListadohashtags _verListadohashtags;
 	public Vermuroprincipal _vermuroprincipal;
 	public Verlistadogloblaldeusuarios _verlistadogloblaldeusuarios;
+	public Notificacionesdeusuario _verNotificaciones;
 	
-	MainView MainView;
+	MainView mainView;
 	
-	public Cibernauta(MainView MainView) {
-		this.MainView = MainView;
+	public Cibernauta(MainView mainView) {
+		this.mainView = mainView;
 	}
 	
 	public Cibernauta() {
@@ -31,6 +32,10 @@ public class Cibernauta extends VistaCibernauta{
 	}
 
 	public void Verlistadogloblaldeusuarios() {
+		throw new UnsupportedOperationException();
+	}
+	
+	public void VerNotificaciones() {
 		throw new UnsupportedOperationException();
 	}
 }

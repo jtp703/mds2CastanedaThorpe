@@ -11,7 +11,6 @@ public class VerlistadodetweetsfiltradoAdministrador extends Verlistadodetweetsf
 		super(_administrador);
 		Administrador item = new Administrador();
 		item.getContenedorRegistro().setVisible(false);
-		item.getVerNotificacionesUsuario().setVisible(false);
 		item.getContenedorVerPerfilPersonal().setVisible(false);
 		this.getContenedorCibernauta().as(VerticalLayout.class).add(item);
 		ListadotweetsAdministrador_item item0 = new ListadotweetsAdministrador_item(_listadotweetsAdministrador);

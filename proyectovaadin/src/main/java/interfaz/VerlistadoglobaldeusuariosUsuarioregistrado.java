@@ -1,6 +1,7 @@
 package interfaz;
 
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import org.vaadin.example.*;
 
 public class VerlistadoglobaldeusuariosUsuarioregistrado extends Verlistadogloblaldeusuarios {
 	
@@ -9,8 +10,7 @@ public class VerlistadoglobaldeusuariosUsuarioregistrado extends Verlistadoglobl
 	
 	public VerlistadoglobaldeusuariosUsuarioregistrado(Usuarioregistrado _usuarioregistrado){
 		super(_usuarioregistrado);
-		Usuarioregistrado ureg = new Usuarioregistrado();
-		this.getContenedorCibernauta().as(VerticalLayout.class).add(ureg);
+		this.getContenedorCibernauta().as(VerticalLayout.class).add(_usuarioregistrado);
 		Listadodeusuariosusuarioregistrado_item item0 = new Listadodeusuariosusuarioregistrado_item(_listadodeusuariosusuarioregistrado);
 		this.getContenedorListadoUsuarios().as(VerticalLayout.class).add(item0);
 		Listadodeusuariosusuarioregistrado_item item1 = new Listadodeusuariosusuarioregistrado_item(_listadodeusuariosusuarioregistrado);

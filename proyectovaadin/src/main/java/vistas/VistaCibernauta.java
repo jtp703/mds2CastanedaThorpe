@@ -21,20 +21,23 @@ public class VistaCibernauta extends LitTemplate {
 	private Element contenedorPrincipal;
 	@Id("contenedorRegistro")
 	private HorizontalLayout contenedorRegistro;
-	@Id("verMuroPrincipal")
-	private Tab verMuroPrincipal;
-	@Id("verListadoUsuarios")
-	private Tab verListadoUsuarios;
-	@Id("verListadohashtags")
-	private Tab verListadohashtags;
-	@Id("verNotificacionesUsuario")
-	private Tab verNotificacionesUsuario;
 	@Id("imgPerfilPersonal")
 	private Avatar imgPerfilPersonal;
 	@Id("verPerfilPersonal")
 	private Element verPerfilPersonal;
 	@Id("contenedorVerPerfilPersonal")
 	private HorizontalLayout contenedorVerPerfilPersonal;
+	@Id("contenedorContenido")
+	private Element contenedorContenido;
+	@Id("verMuroPrincipal")
+	private Button verMuroPrincipal;
+	@Id("verListadoUsuarios")
+	private Button verListadoUsuarios;
+	@Id("verListadoHashtags")
+	private Button verListadoHashtags;
+	@Id("verNotificaciones")
+	private Button verNotificaciones;
+	
 
 	public VistaCibernauta() {
 		// You can initialise any data required for the connected UI components here.
@@ -54,38 +57,6 @@ public class VistaCibernauta extends LitTemplate {
 
 	public void setContenedorRegistro(HorizontalLayout contenedorRegistro) {
 		this.contenedorRegistro = contenedorRegistro;
-	}
-
-	public Tab getVerMuroPrincipal() {
-		return verMuroPrincipal;
-	}
-
-	public void setVerMuroPrincipal(Tab verMuroPrincipal) {
-		this.verMuroPrincipal = verMuroPrincipal;
-	}
-
-	public Tab getVerListadoUsuarios() {
-		return verListadoUsuarios;
-	}
-
-	public void setVerListadoUsuarios(Tab verListadoUsuarios) {
-		this.verListadoUsuarios = verListadoUsuarios;
-	}
-
-	public Tab getVerListadohashtags() {
-		return verListadohashtags;
-	}
-
-	public void setVerListadohashtags(Tab verListadohashtags) {
-		this.verListadohashtags = verListadohashtags;
-	}
-
-	public Tab getVerNotificacionesUsuario() {
-		return verNotificacionesUsuario;
-	}
-
-	public void setVerNotificacionesUsuario(Tab verNotificacionesUsuario) {
-		this.verNotificacionesUsuario = verNotificacionesUsuario;
 	}
 
 	public Avatar getImgPerfilPersonal() {
@@ -111,5 +82,46 @@ public class VistaCibernauta extends LitTemplate {
 	public void setContenedorVerPerfilPersonal(HorizontalLayout contenedorVerPerfilPersonal) {
 		this.contenedorVerPerfilPersonal = contenedorVerPerfilPersonal;
 	}
+	
+	public Element getContenedorContenido() {
+		return contenedorContenido;
+	}
+	public void setContenedorContenido(Element contenedorContenido) {
+		this.contenedorContenido = contenedorContenido;
+	}
+
+	public Button getVerMuroPrincipal() {
+		return verMuroPrincipal;
+	}
+
+	public void setVerMuroPrincipal(Button verMuroPrincipal) {
+		this.verMuroPrincipal = verMuroPrincipal;
+	}
+
+	public Button getVerListadoUsuarios() {
+		return verListadoUsuarios;
+	}
+
+	public void setVerListadoUsuarios(Button verListadoUsuarios) {
+		this.verListadoUsuarios = verListadoUsuarios;
+	}
+
+	public Button getVerListadoHashtags() {
+		return verListadoHashtags;
+	}
+
+	public void setVerListadoHashtags(Button verListadoHashtags) {
+		this.verListadoHashtags = verListadoHashtags;
+	}
+
+	public Button getVerNotificaciones() {
+		return verNotificaciones;
+	}
+
+	public void setVerNotificaciones(Button verNotificaciones) {
+		this.verNotificaciones = verNotificaciones;
+	}
+	
+	
 
 }

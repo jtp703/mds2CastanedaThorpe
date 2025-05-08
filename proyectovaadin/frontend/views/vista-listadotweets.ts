@@ -16,7 +16,7 @@ export class VistaListadotweets extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%; align-items: stretch;position:absolute;" id="contenedorListadoTweets">
+<vaadin-vertical-layout theme="spacing-s" style="width: 100%; height: 100%; align-items: stretch;position:absolute;" id="contenedorListadoTweets">
  <vaadin-vertical-layout theme="spacing" id="contenedorNuevoTweet" style="margin-top: var(--lumo-space-m); margin-right: var(--lumo-space-m); margin-left: var(--lumo-space-m);">
   <vaadin-horizontal-layout theme="spacing" style="align-self: stretch;">
    <vaadin-horizontal-layout style="flex-grow: 0; margin: var(--lumo-space-m); align-self: flex-start;" id="perfilLayout">

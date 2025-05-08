@@ -111,7 +111,7 @@ public class MainView extends VerticalLayout {
 
 	// Cibernauta cb = new Cibernauta(this);
 
-	VerListadohashtags vlh = new VerListadohashtags();
+	/*VerListadohashtags vlh = new VerListadohashtags();
 
 	Listadodehashtags lth = new Listadodehashtags(vlh);
 
@@ -217,10 +217,11 @@ public class MainView extends VerticalLayout {
 	VermuroprincipalUsuarioregistrado vmpur = new VermuroprincipalUsuarioregistrado(u);
 
 	Notificacionesdeusuario nu = new Notificacionesdeusuario(u);
-
+	*/
+	Usuarioregistrado u = new Usuarioregistrado(this);
 	public MainView(@Autowired GreetService service) {
 
-		add(vlgdua);
+		add(u);
 
 	}
 

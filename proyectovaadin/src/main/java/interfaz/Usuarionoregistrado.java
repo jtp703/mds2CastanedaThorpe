@@ -14,7 +14,6 @@ public class Usuarionoregistrado extends Cibernauta {
 	
 	public Usuarionoregistrado(MainView MainView) {
 		super(MainView);
-		this.getVerNotificacionesUsuario().setVisible(false);
 		this.getContenedorVerPerfilPersonal().setVisible(false);
 	}
 

@@ -5,6 +5,10 @@ public class Verperfilpersonal extends Verperfildeusuario {
 	public Usuarioregistrado _usuarioregistrado;
 	public Eliminarperfil _eliminarperfil;
 	public Editarperfil _editarperfil;
+	
+	public Verperfilpersonal(Usuarioregistrado _usuarioregistrado) {
+		this._usuarioregistrado = _usuarioregistrado;
+	}
 
 	public void Eliminar_perfil() {
 		throw new UnsupportedOperationException();

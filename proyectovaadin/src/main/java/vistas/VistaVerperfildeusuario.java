@@ -50,5 +50,100 @@ public class VistaVerperfildeusuario extends LitTemplate {
 	public VistaVerperfildeusuario() {
         // You can initialise any data required for the connected UI components here.
     }
-
+	public Element getContenedorVerPerfil() {
+		return contenedorVerPerfil;
+	}
+	public void setContenedorVerPerfil(Element contenedorVerPerfil) {
+		this.contenedorVerPerfil = contenedorVerPerfil;
+	}
+	public Element getContenedorImgFondo() {
+		return contenedorImgFondo;
+	}
+	public void setContenedorImgFondo(Element contenedorImgFondo) {
+		this.contenedorImgFondo = contenedorImgFondo;
+	}
+	public Element getContenedorImgPerfil() {
+		return contenedorImgPerfil;
+	}
+	public void setContenedorImgPerfil(Element contenedorImgPerfil) {
+		this.contenedorImgPerfil = contenedorImgPerfil;
+	}
+	public Button getBtnVolver() {
+		return btnVolver;
+	}
+	public void setBtnVolver(Button btnVolver) {
+		this.btnVolver = btnVolver;
+	}
+	public Button getBtnSeguir() {
+		return btnSeguir;
+	}
+	public void setBtnSeguir(Button btnSeguir) {
+		this.btnSeguir = btnSeguir;
+	}
+	public Button getBtnBloquear() {
+		return btnBloquear;
+	}
+	public void setBtnBloquear(Button btnBloquear) {
+		this.btnBloquear = btnBloquear;
+	}
+	public Button getBtnBanearUsuario() {
+		return btnBanearUsuario;
+	}
+	public void setBtnBanearUsuario(Button btnBanearUsuario) {
+		this.btnBanearUsuario = btnBanearUsuario;
+	}
+	public Paragraph getDescripcionPerfil() {
+		return descripcionPerfil;
+	}
+	public void setDescripcionPerfil(Paragraph descripcionPerfil) {
+		this.descripcionPerfil = descripcionPerfil;
+	}
+	public H1 getNombreUsuario() {
+		return nombreUsuario;
+	}
+	public void setNombreUsuario(H1 nombreUsuario) {
+		this.nombreUsuario = nombreUsuario;
+	}
+	public Element getVerSeguidos() {
+		return verSeguidos;
+	}
+	public void setVerSeguidos(Element verSeguidos) {
+		this.verSeguidos = verSeguidos;
+	}
+	public Element getVerSeguidores() {
+		return verSeguidores;
+	}
+	public void setVerSeguidores(Element verSeguidores) {
+		this.verSeguidores = verSeguidores;
+	}
+	public Tab getVerPosts() {
+		return verPosts;
+	}
+	public void setVerPosts(Tab verPosts) {
+		this.verPosts = verPosts;
+	}
+	public Tab getVerRetweets() {
+		return verRetweets;
+	}
+	public void setVerRetweets(Tab verRetweets) {
+		this.verRetweets = verRetweets;
+	}
+	public Element getContenedorListadotweets() {
+		return contenedorListadotweets;
+	}
+	public void setContenedorListadotweets(Element contenedorListadotweets) {
+		this.contenedorListadotweets = contenedorListadotweets;
+	}
+	public Tab getVerMeGustas() {
+		return verMeGustas;
+	}
+	public void setVerMeGustas(Tab verMeGustas) {
+		this.verMeGustas = verMeGustas;
+	}
+	public Element getVerPerfil() {
+		return verPerfil;
+	}
+	public void setVerPerfil(Element verPerfil) {
+		this.verPerfil = verPerfil;
+	}
 }

@@ -14,10 +14,6 @@ public class VerListadohashtags extends VistaVerlistadohashtags {
 	public Usuarionoregistrado unr;
 	public Listadodehashtags _listadodehashtags;
 	public MainView main;
-	
-	public VerListadohashtags() {
-		
-	}
 
 	public VerListadohashtags(Cibernauta _cibernauta) {
 		this._cibernauta = _cibernauta;
@@ -27,10 +23,7 @@ public class VerListadohashtags extends VistaVerlistadohashtags {
 		this.admin = admin;
 	}
 
-	public VerListadohashtags(Usuarioregistrado ur) {
-		this.ur = ur;
-		Administrador admin = new Administrador(main);
-		this.getContenedorCibernauta().as(VerticalLayout.class).add(admin);
+	public VerListadohashtags() {
 		Listadodehashtags ldh = new Listadodehashtags(this);
 		this.getContenedorListadoHashtags().as(VerticalLayout.class).add(ldh);
 	}
