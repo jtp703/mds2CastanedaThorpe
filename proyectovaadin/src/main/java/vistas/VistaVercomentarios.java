@@ -11,15 +11,39 @@ import com.vaadin.flow.component.button.Button;
 @JsModule("./views/vista-vercomentarios.ts")
 public class VistaVercomentarios extends LitTemplate {
 
-    @Id("contenedorTweet")
+	@Id("contenedorTweet")
 	private Element contenedorTweet;
 	@Id("contenedorListadoComentarios")
 	private Element contenedorListadoComentarios;
 	@Id("btnVovler")
 	private Button btnVovler;
 
+	public Element getContenedorTweet() {
+		return contenedorTweet;
+	}
+
+	public void setContenedorTweet(Element contenedorTweet) {
+		this.contenedorTweet = contenedorTweet;
+	}
+
+	public Element getContenedorListadoComentarios() {
+		return contenedorListadoComentarios;
+	}
+
+	public void setContenedorListadoComentarios(Element contenedorListadoComentarios) {
+		this.contenedorListadoComentarios = contenedorListadoComentarios;
+	}
+
+	public Button getBtnVovler() {
+		return btnVovler;
+	}
+
+	public void setBtnVovler(Button btnVovler) {
+		this.btnVovler = btnVovler;
+	}
+
 	public VistaVercomentarios() {
-        // You can initialise any data required for the connected UI components here.
-    }
+		// You can initialise any data required for the connected UI components here.
+	}
 
 }

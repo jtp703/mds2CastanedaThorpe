@@ -1,20 +1,21 @@
 package interfaz;
 
+import org.vaadin.example.MainView;
+
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 public class VerlistadoglobaldeusuariosUsuarionoregistrado extends Verlistadogloblaldeusuarios{
 
+	public MainView main;
 	public Usuarionoregistrado usuarioNoRegistrado;
 	public Listadodeusuariosusuarionoregistrado listadoDeUsuariosUsuarioNoRegistrado;
 	
 	public VerlistadoglobaldeusuariosUsuarionoregistrado(Usuarionoregistrado usuarioNoRegistrado) {
 		super(usuarioNoRegistrado);
-		Usuarionoregistrado unr = new Usuarionoregistrado();
-		this.getContenedorCibernauta().as(VerticalLayout.class).add(unr);
-		Listadodeusuariosusuarionoregistrado_item item0 = new Listadodeusuariosusuarionoregistrado_item(listadoDeUsuariosUsuarioNoRegistrado);
-		this.getContenedorListadoUsuarios().as(VerticalLayout.class).add(item0);
-		Listadodeusuariosusuarionoregistrado_item item1 = new Listadodeusuariosusuarionoregistrado_item(listadoDeUsuariosUsuarioNoRegistrado);
-		this.getContenedorListadoUsuarios().as(VerticalLayout.class).add(item1);
+		this.usuarioNoRegistrado = new Usuarionoregistrado(main);
+		this.getContenedorCibernauta().as(VerticalLayout.class).add(this.usuarioNoRegistrado);
+		this.listadoDeUsuariosUsuarioNoRegistrado = new Listadodeusuariosusuarionoregistrado(this);
+		this.getContenedorListadoUsuarios().as(VerticalLayout.class).add(this.listadoDeUsuariosUsuarioNoRegistrado);
 	}
 	
 	public VerlistadoglobaldeusuariosUsuarionoregistrado(Listadodeusuariosusuarionoregistrado listadoDeUsuariosUsuarioNoRegistrado) {

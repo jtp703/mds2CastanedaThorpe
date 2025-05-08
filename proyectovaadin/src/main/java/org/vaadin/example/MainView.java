@@ -217,8 +217,18 @@ public class MainView extends VerticalLayout {
 	VermuroprincipalUsuarioregistrado vmpur = new VermuroprincipalUsuarioregistrado(u);
 
 	Notificacionesdeusuario nu = new Notificacionesdeusuario(u);
+<<<<<<< HEAD
 	*/
 	Usuarioregistrado u = new Usuarioregistrado(this);
+=======
+	
+	VercomentariosAdminstrador vcadmin = new VercomentariosAdminstrador(lca);
+	
+	VercomentariosUsuarioregistrado vcUsu = new VercomentariosUsuarioregistrado(lcur);
+	
+	VercomentariosUsuarionoregistrado vcUsuno = new VercomentariosUsuarionoregistrado(lcun);
+
+>>>>>>> branch 'vistaListasDiego' of git@github.com:jtp703/mds2CastanedaThorpe.git
 	public MainView(@Autowired GreetService service) {
 
 		add(u);

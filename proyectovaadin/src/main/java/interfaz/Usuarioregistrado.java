@@ -25,6 +25,7 @@ public class Usuarioregistrado extends Cibernauta {
 		this.getVerListadoUsuarios().addClickListener(event -> VerlistadoglobaldeusuariosUsuarioregistrado());
 		this.getVerListadoHashtags().addClickListener(event -> VerListadohashtags());
 		this.getVerNotificaciones().addClickListener(event -> Notificacionesdeusuario());
+		
 	}
 	
 	    

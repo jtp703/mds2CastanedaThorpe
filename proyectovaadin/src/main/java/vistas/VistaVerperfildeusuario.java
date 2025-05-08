@@ -15,7 +15,7 @@ import com.vaadin.flow.component.tabs.Tab;
 @JsModule("./views/vista-verperfildeusuario.ts")
 public class VistaVerperfildeusuario extends LitTemplate {
 
-    @Id("contenedorVerPerfil")
+	@Id("contenedorVerPerfil")
 	private Element contenedorVerPerfil;
 	@Id("contenedorImgFondo")
 	private Element contenedorImgFondo;
@@ -47,9 +47,8 @@ public class VistaVerperfildeusuario extends LitTemplate {
 	private Tab verMeGustas;
 	@Id("verPerfil")
 	private Element verPerfil;
-	public VistaVerperfildeusuario() {
-        // You can initialise any data required for the connected UI components here.
-    }
+
+	
 	public Element getContenedorVerPerfil() {
 		return contenedorVerPerfil;
 	}
@@ -146,4 +145,5 @@ public class VistaVerperfildeusuario extends LitTemplate {
 	public void setVerPerfil(Element verPerfil) {
 		this.verPerfil = verPerfil;
 	}
+
 }
