@@ -9,9 +9,9 @@ public class VerlistadodetweetsfiltradoUsuarionoregistrado extends Verlistadodet
 	
 	public VerlistadodetweetsfiltradoUsuarionoregistrado(Usuarionoregistrado unr) {
 		super(unr);
-		Usuarionoregistrado item = new Usuarionoregistrado();
-		item.getContenedorVerPerfilPersonal().setVisible(false);
-		this.getContenedorCibernauta().as(VerticalLayout.class).add(item);
+		this.unr = unr;
+		unr.getContenedorVerPerfilPersonal().setVisible(false);
+		this.getContenedorCibernauta().as(VerticalLayout.class).add(unr);
 		ListadotweetsUsuarionoregistrado_item item0 = new ListadotweetsUsuarionoregistrado_item(ltunr);
 		this.getContenedorListadoTweetsFiltrado().as(VerticalLayout.class).add(item0);
 		ListadotweetsUsuarionoregistrado_item item1 = new ListadotweetsUsuarionoregistrado_item(ltunr);

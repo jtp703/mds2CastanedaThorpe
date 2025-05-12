@@ -7,22 +7,23 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.component.html.Span;
+import com.vaadin.flow.component.button.Button;
 
 @Tag("vista-listadodehashtags_item")
 @JsModule("./views/vista-listadodehashtags_item.ts")
 public class VistaListadodehashtags_item extends LitTemplate {
 
-    @Id("_layoutElementoHashtag")
+	@Id("_layoutElementoHashtag")
 	private HorizontalLayout _layoutElementoHashtag;
-	@Id("_NombreHashtag")
-	private Element _NombreHashtag;
 	@Id("idNumeroInteraccionesHashtag")
 	private Span idNumeroInteraccionesHashtag;
+	@Id("nombrehashtag")
+	private Button nombrehashtag;
 
 	public VistaListadodehashtags_item() {
-        // You can initialise any data required for the connected UI components here.
-    }
-	
+		// You can initialise any data required for the connected UI components here.
+	}
+
 	public HorizontalLayout get_layoutElementoHashtag() {
 		return _layoutElementoHashtag;
 	}
@@ -31,12 +32,12 @@ public class VistaListadodehashtags_item extends LitTemplate {
 		this._layoutElementoHashtag = _layoutElementoHashtag;
 	}
 
-	public Element get_NombreHashtag() {
-		return _NombreHashtag;
+	public Button getNombrehashtag() {
+		return nombrehashtag;
 	}
 
-	public void set_NombreHashtag(Element _NombreHashtag) {
-		this._NombreHashtag = _NombreHashtag;
+	public void setNombrehashtag(Button nombrehashtag) {
+		this.nombrehashtag = nombrehashtag;
 	}
 
 	public Span getIdNumeroInteraccionesHashtag() {

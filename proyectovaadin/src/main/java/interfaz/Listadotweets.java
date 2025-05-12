@@ -2,6 +2,8 @@ package interfaz;
 
 import java.util.Vector;
 
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 import vistas.VistaListadotweets;
 
 public class Listadotweets extends VistaListadotweets {
@@ -20,6 +22,12 @@ public class Listadotweets extends VistaListadotweets {
 	}
 	public Listadotweets(Verlistadodetweetsfiltrado _verlistadodetweetsfiltrado) {
 		this._verlistadodetweetsfiltrado = _verlistadodetweetsfiltrado;
+		Listadotweets_item i = new Listadotweets_item(this);
+		i.getBtnEliminarTweet().setVisible(false);
+		this.getContenedorListadoTweets().as(VerticalLayout.class).add(i);
+		Listadotweets_item is = new Listadotweets_item(this);
+		is.getBtnEliminarTweet().setVisible(false);
+		this.getContenedorListadoTweets().as(VerticalLayout.class).add(is);
 	}
 	public Listadotweets(Verperfildeusuario _verperfildeusuario) {
 		this._verperfildeusuario = _verperfildeusuario;

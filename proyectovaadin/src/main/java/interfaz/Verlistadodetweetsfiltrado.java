@@ -1,5 +1,7 @@
 package interfaz;
 
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 import vistas.VistaVerlistadodetweetsfiltrado;
 
 public class Verlistadodetweetsfiltrado extends VistaVerlistadodetweetsfiltrado {
@@ -11,8 +13,12 @@ public class Verlistadodetweetsfiltrado extends VistaVerlistadodetweetsfiltrado 
 	public Verlistadodetweetsfiltrado(Cibernauta cibernauta) {
 		this.cibernauta = cibernauta;
 	}
+	
 	public Verlistadodetweetsfiltrado(Listadodehashtags_item _item) {
 		this._item = _item;
+		_listadotweets = new Listadotweets(this);
+		_listadotweets.getContenedorNuevoTweet().setVisible(false);
+		this.getContenedorListadoTweetsFiltrado().as(VerticalLayout.class).add(_listadotweets);
 	}
 	
 	public Verlistadodetweetsfiltrado(Listadotweets _listadotweets) {

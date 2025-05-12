@@ -18,10 +18,6 @@ public class Cibernauta extends VistaCibernauta{
 	public Cibernauta(MainView mainView) {
 		this.mainView = mainView;
 	}
-	
-	public Cibernauta() {
-		
-	}
 
 	public void VerListadohashtags() {
 		throw new UnsupportedOperationException();

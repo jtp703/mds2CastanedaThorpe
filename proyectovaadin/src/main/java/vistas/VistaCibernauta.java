@@ -19,8 +19,6 @@ public class VistaCibernauta extends LitTemplate {
 
 	@Id("contenedorPrincipal")
 	private Element contenedorPrincipal;
-	@Id("contenedorRegistro")
-	private HorizontalLayout contenedorRegistro;
 	@Id("imgPerfilPersonal")
 	private Avatar imgPerfilPersonal;
 	@Id("verPerfilPersonal")
@@ -37,18 +35,21 @@ public class VistaCibernauta extends LitTemplate {
 	private Button verListadoHashtags;
 	@Id("verNotificaciones")
 	private Button verNotificaciones;
-	
+	@Id("Registrarse")
+	private Button registrarse;
+	@Id("contenedorRegistro")
+	private HorizontalLayout contenedorRegistro;
 
 	public VistaCibernauta() {
 		// You can initialise any data required for the connected UI components here.
 	}
 
-	public Element getContenedorPrincipal() {
-		return contenedorPrincipal;
+	public Button getRegistrarse() {
+		return registrarse;
 	}
 
-	public void setContenedorPrincipal(Element contenedorPrincipal) {
-		this.contenedorPrincipal = contenedorPrincipal;
+	public void setRegistrarse(Button registrarse) {
+		this.registrarse = registrarse;
 	}
 
 	public HorizontalLayout getContenedorRegistro() {
@@ -57,6 +58,14 @@ public class VistaCibernauta extends LitTemplate {
 
 	public void setContenedorRegistro(HorizontalLayout contenedorRegistro) {
 		this.contenedorRegistro = contenedorRegistro;
+	}
+
+	public Element getContenedorPrincipal() {
+		return contenedorPrincipal;
+	}
+
+	public void setContenedorPrincipal(Element contenedorPrincipal) {
+		this.contenedorPrincipal = contenedorPrincipal;
 	}
 
 	public Avatar getImgPerfilPersonal() {
@@ -82,10 +91,11 @@ public class VistaCibernauta extends LitTemplate {
 	public void setContenedorVerPerfilPersonal(HorizontalLayout contenedorVerPerfilPersonal) {
 		this.contenedorVerPerfilPersonal = contenedorVerPerfilPersonal;
 	}
-	
+
 	public Element getContenedorContenido() {
 		return contenedorContenido;
 	}
+
 	public void setContenedorContenido(Element contenedorContenido) {
 		this.contenedorContenido = contenedorContenido;
 	}
@@ -121,7 +131,5 @@ public class VistaCibernauta extends LitTemplate {
 	public void setVerNotificaciones(Button verNotificaciones) {
 		this.verNotificaciones = verNotificaciones;
 	}
-	
-	
 
 }

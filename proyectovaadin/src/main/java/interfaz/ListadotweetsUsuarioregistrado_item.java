@@ -15,10 +15,8 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
 	
 	ListadotweetsUsuarioregistrado_item(ListadotweetsUsuarioregistrado listadotweetsUsuarioregistrado) {
 		super(listadotweetsUsuarioregistrado);
-		usuario = new Usuarioregistrado();
 		this.getBtnEliminarTweet().setVisible(false);
 		System.out.println("Ejecución usuario boton");
-		this.getVerperfil().addClickListener(event -> usuario.VerperfilUsuarioregistrado(usuario));
 	}
 	
 	ListadotweetsUsuarioregistrado_item(VercomentariosUsuarioregistrado _vercomentariosUsuarioregistrado) {

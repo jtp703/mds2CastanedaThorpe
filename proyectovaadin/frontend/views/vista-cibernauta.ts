@@ -22,21 +22,23 @@ export class VistaCibernauta extends LitElement {
 <vaadin-vertical-layout style="width: 100%; height: 100%; position:absolute; align-items: stretch;" id="contenedorPrincipal">
  <vaadin-horizontal-layout theme="spacing" style="align-self: stretch; justify-content: center; flex-grow: 0; flex-shrink: 0;background-color: lightblue;" id="contenedorRegistro">
   <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout1">
-   <a href="" style="align-self: center; height: 100%; flex-grow: 1; flex-shrink: 0;" id="lRegistro">Registrate en X para tener mas privilegios o inicia sesion</a>
+   <vaadin-button id="Registrarse" tabindex="0">
+     Registrate en X para tener mas privilegios o inicia sesion 
+   </vaadin-button>
   </vaadin-horizontal-layout>
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" style="align-self: stretch; margin-left: var(--lumo-space-s); margin: var(--lumo-space-s);" id="vaadinHorizontalLayout2">
   <vaadin-button id="verMuroPrincipal" tabindex="0">
-   Muro principal
+    Muro principal 
   </vaadin-button>
   <vaadin-button tabindex="0" id="verListadoUsuarios">
-   Listado de usuarios
+    Listado de usuarios 
   </vaadin-button>
   <vaadin-button tabindex="0" id="verListadoHashtags">
-   Listado de hashtags
+    Listado de hashtags 
   </vaadin-button>
   <vaadin-button tabindex="0" id="verNotificaciones" style="flex-shrink: 1;">
-   Notificaciones
+    Notificaciones 
   </vaadin-button>
   <vaadin-horizontal-layout theme="spacing" style="flex-grow: 1; justify-content: flex-end; margin-right: var(--lumo-space-m);" id="contenedorVerPerfilPersonal">
    <vaadin-avatar id="imgPerfilPersonal" style="align-self: center;"></vaadin-avatar>

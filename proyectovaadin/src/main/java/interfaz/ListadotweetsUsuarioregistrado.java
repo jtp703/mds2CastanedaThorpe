@@ -5,6 +5,7 @@ import java.util.Vector;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 public class ListadotweetsUsuarioregistrado extends Listadotweets {
+	
 	public VermuroprincipalUsuarioregistrado _vermuroprincipalUsuarioregistrado;
 	public VerlistadodetweetsfiltradoUsuarioregistrado _verlistadodetweetsfiltradoUsuarioregistrado;
 	public VerperfilUsuarioregistrado _verperfilUsuarioregistrado;

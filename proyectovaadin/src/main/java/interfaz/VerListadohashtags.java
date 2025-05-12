@@ -21,15 +21,19 @@ public class VerListadohashtags extends VistaVerlistadohashtags {
 
 	public VerListadohashtags(Administrador admin) {
 		this.admin = admin;
+		_listadodehashtags = new Listadodehashtags(this);
+		this.getContenedorListadoHashtags().as(VerticalLayout.class).add(_listadodehashtags);
 	}
 
-	public VerListadohashtags() {
-		Listadodehashtags ldh = new Listadodehashtags(this);
-		this.getContenedorListadoHashtags().as(VerticalLayout.class).add(ldh);
+	public VerListadohashtags(Usuarioregistrado ur) {
+		_listadodehashtags = new Listadodehashtags(this);
+		this.getContenedorListadoHashtags().as(VerticalLayout.class).add(_listadodehashtags);
 	}
 
 	public VerListadohashtags(Usuarionoregistrado unr) {
 		this.unr = unr;
+		_listadodehashtags = new Listadodehashtags(this);
+		this.getContenedorListadoHashtags().as(VerticalLayout.class).add(_listadodehashtags);
 	}
 
 	public VerListadohashtags(Listadodehashtags _listadodehashtags) {

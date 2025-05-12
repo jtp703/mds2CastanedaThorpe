@@ -3,35 +3,52 @@ package interfaz;
 /*import basededatos.iAdministrador;*/
 import org.vaadin.example.*;
 
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 public class Administrador extends Cibernauta {
-	/*private event _cerrarsesionAdministrador;
-	public iAdministrador _iAdministrador;*/
+	/*
+	 * private event _cerrarsesionAdministrador; public iAdministrador
+	 * _iAdministrador;
+	 */
 	public VermuroprincipalAdministrador _vermuroprincipalAdministrador;
-	public VerlistadodetweetsfiltradoAdministrador _verlistadodetweetsfiltradoAdministrador;
-	public VerperfilAdministrador _verperfilAdministrador;
-	
+//	public VerlistadodetweetsfiltradoAdministrador _verlistadodetweetsfiltradoAdministrador;
+	public VerListadohashtags _verlistadohashtags;
+	public VerlistadoglobaldeusuariosAdministrador _verlistadoglobaldeusuariosAdministrador;
+//	public VerperfilAdministrador _verperfilAdministrador;
+
 	public Administrador(MainView MainView) {
 		super(MainView);
 		this.getContenedorRegistro().setVisible(false);
 		this.getContenedorVerPerfilPersonal().setVisible(false);
-	}
-	public Administrador() {
-		
+		this.getVerNotificaciones().setVisible(false);
+		this.getVerMuroPrincipal().addClickListener(event -> VermuroprincipalAdministrador());
+		this.getVerListadoUsuarios().addClickListener(event -> VerlistadoglobaldeusuariosUsuarioregistrado());
+		this.getVerListadoHashtags().addClickListener(event -> VerListadohashtags());
 	}
 
 	public void VermuroprincipalAdministrador() {
-		throw new UnsupportedOperationException();
-	}
-
-	public void VerlistadodetweetsfiltradoAdministrador() {
-		throw new UnsupportedOperationException();
+		this.getContenedorContenido().as(VerticalLayout.class).removeAll();
+		_vermuroprincipalAdministrador = new VermuroprincipalAdministrador(this);
+		this.getContenedorContenido().as(VerticalLayout.class).add(_vermuroprincipalAdministrador);
 	}
 
 	public void CerrarsesionAdministrador() {
 		throw new UnsupportedOperationException();
 	}
 
-	public void VerperfilAdministrador() {
-		throw new UnsupportedOperationException();
+	public void VerlistadoglobaldeusuariosUsuarioregistrado() {
+		this.getContenedorContenido().as(VerticalLayout.class).removeAll();
+		_verlistadoglobaldeusuariosAdministrador = new VerlistadoglobaldeusuariosAdministrador(this);
+		this.getContenedorContenido().as(VerticalLayout.class).add(_verlistadoglobaldeusuariosAdministrador);
 	}
+
+	public void VerListadohashtags() {
+		this.getContenedorContenido().as(VerticalLayout.class).removeAll();
+		_verlistadohashtags = new VerListadohashtags(this);
+		this.getContenedorContenido().as(VerticalLayout.class).add(_verlistadohashtags);
+	}
+
+//	public void VerperfilAdministrador() {
+//		throw new UnsupportedOperationException();
+//	}
 }
