@@ -40,10 +40,6 @@ public class Usuarioregistrado extends Cibernauta {
 		this.getContenedorContenido().as(VerticalLayout.class).add(_vermuroprincipalUsuarioregistrado);
 	}
 
-	/*public void VerlistadodetweetsfiltradoUsuarioregistrado() {
-		throw new UnsupportedOperationException();
-	}*/
-
 	public void VerlistadoglobaldeusuariosUsuarioregistrado() {
 		this.getContenedorContenido().as(VerticalLayout.class).removeAll();
 		_verlistadoglobaldeusuariosUsuarioregistrado = new VerlistadoglobaldeusuariosUsuarioregistrado(this);

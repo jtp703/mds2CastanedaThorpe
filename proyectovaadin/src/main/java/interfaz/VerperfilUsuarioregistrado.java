@@ -1,5 +1,7 @@
 package interfaz;
 
+import org.vaadin.example.MainView;
+
 public class VerperfilUsuarioregistrado extends Verperfildeusuario {
 	/*private event _bloquear_usuario;
 	private event _seguir_usuario_desde_perfil;*/
@@ -10,7 +12,9 @@ public class VerperfilUsuarioregistrado extends Verperfildeusuario {
 	public VerperfilUsuarioregistrado(Usuarioregistrado usuarioregistrado) {
 		super(usuarioregistrado);
 		this.getBtnBanearUsuario().setVisible(false);
-		
+		this.getBtnEditarPerfil().setVisible(false);
+		this.getBtnEliminarPerfil().setVisible(false);
+		this.getBtnVolver().addClickListener(event -> btnVolver());
 	}
 	
 	public VerperfilUsuarioregistrado(ListadotweetsUsuarioregistrado listadotweetsUsuarioregistrado) {
@@ -39,5 +43,10 @@ public class VerperfilUsuarioregistrado extends Verperfildeusuario {
 
 	public void VerListadoTweets() {
 		throw new UnsupportedOperationException();
+	}
+	
+	private void btnVolver() {
+		MainView.Pantalla.volver();
+		System.out.println("Volver a la vista anterior desde ver perfil personal");
 	}
 }

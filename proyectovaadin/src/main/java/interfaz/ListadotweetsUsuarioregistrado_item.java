@@ -20,10 +20,8 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
 		super(listadotweetsUsuarioregistrado);
 		this.getBtnEliminarTweet().setVisible(false);
 		System.out.println("Ejecución usuario boton");
-<<<<<<< HEAD
-=======
+
 		this.getVerperfil().addClickListener(event -> VerperfilUsuarioregistrado(usuario));
->>>>>>> stash
 	}
 	
 	ListadotweetsUsuarioregistrado_item(VercomentariosUsuarioregistrado _vercomentariosUsuarioregistrado) {
@@ -48,9 +46,9 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
 	}
 	
 	public void VerperfilUsuarioregistrado(Usuarioregistrado usuario) {
-		VerperfilUsuarioregistrado verperfilUsuarioregistrado = new VerperfilUsuarioregistrado(usuario);
-		System.out.println("Ejecución usuario boton");
-		MainView.Pantalla.cambiarVista(verperfilUsuarioregistrado);
+		_verperfilUsuarioregistrado = new VerperfilUsuarioregistrado(usuario);
+		System.out.println("Ejecución ver perfil de usuario");
+		MainView.Pantalla.cambiarVista(_verperfilUsuarioregistrado);
 	}
 	
 }
