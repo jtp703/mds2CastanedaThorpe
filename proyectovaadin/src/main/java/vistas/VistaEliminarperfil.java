@@ -27,4 +27,46 @@ public class VistaEliminarperfil extends LitTemplate {
         // You can initialise any data required for the connected UI components here.
     }
 
+	public Element getContenedorEliminarCuenta() {
+		return contenedorEliminarCuenta;
+	}
+
+	public void setContenedorEliminarCuenta(Element contenedorEliminarCuenta) {
+		this.contenedorEliminarCuenta = contenedorEliminarCuenta;
+	}
+
+	public TextField getTextFieldMotivo() {
+		return textFieldMotivo;
+	}
+
+	public void setTextFieldMotivo(TextField textFieldMotivo) {
+		this.textFieldMotivo = textFieldMotivo;
+	}
+
+	public TextField getTextFieldConfirmacion() {
+		return textFieldConfirmacion;
+	}
+
+	public void setTextFieldConfirmacion(TextField textFieldConfirmacion) {
+		this.textFieldConfirmacion = textFieldConfirmacion;
+	}
+
+	public Button getBtnEliminarCuenta() {
+		return btnEliminarCuenta;
+	}
+
+	public void setBtnEliminarCuenta(Button btnEliminarCuenta) {
+		this.btnEliminarCuenta = btnEliminarCuenta;
+	}
+
+	public Button getBtnVolver() {
+		return btnVolver;
+	}
+
+	public void setBtnVolver(Button btnVolver) {
+		this.btnVolver = btnVolver;
+	}
+	
+	
+
 }

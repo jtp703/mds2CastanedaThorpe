@@ -47,6 +47,10 @@ public class VistaVerperfildeusuario extends LitTemplate {
 	private Tab verMeGustas;
 	@Id("verPerfil")
 	private Element verPerfil;
+	@Id("btnEditarPerfil")
+	private Button btnEditarPerfil;
+	@Id("btnEliminarPerfil")
+	private Button btnEliminarPerfil;
 
 	
 	public Element getContenedorVerPerfil() {
@@ -145,5 +149,17 @@ public class VistaVerperfildeusuario extends LitTemplate {
 	public void setVerPerfil(Element verPerfil) {
 		this.verPerfil = verPerfil;
 	}
-
+	public Button getBtnEditarPerfil() {
+		return btnEditarPerfil;
+	}
+	public void setBtnEditarPerfil(Button btnEditarPerfil) {
+		this.btnEditarPerfil = btnEditarPerfil;
+	}
+	public Button getBtnEliminarPerfil() {
+		return btnEliminarPerfil;
+	}
+	public void setBtnEliminarPerfil(Button btnEliminarPerfil) {
+		this.btnEliminarPerfil = btnEliminarPerfil;
+	}
+	
 }

@@ -9,6 +9,8 @@ public class VerperfilUsuarioregistrado extends Verperfildeusuario {
 	
 	public VerperfilUsuarioregistrado(Usuarioregistrado usuarioregistrado) {
 		super(usuarioregistrado);
+		this.getBtnBanearUsuario().setVisible(false);
+		
 	}
 	
 	public VerperfilUsuarioregistrado(ListadotweetsUsuarioregistrado listadotweetsUsuarioregistrado) {

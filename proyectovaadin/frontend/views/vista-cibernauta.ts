@@ -42,7 +42,9 @@ export class VistaCibernauta extends LitElement {
   </vaadin-button>
   <vaadin-horizontal-layout theme="spacing" style="flex-grow: 1; justify-content: flex-end; margin-right: var(--lumo-space-m);" id="contenedorVerPerfilPersonal">
    <vaadin-avatar id="imgPerfilPersonal" style="align-self: center;"></vaadin-avatar>
-   <a href="" id="verPerfilPersonal" style="align-self: center;">@usuario</a>
+   <vaadin-button id="verPerfilPersonal" tabindex="0">
+    @usuario
+   </vaadin-button>
   </vaadin-horizontal-layout>
  </vaadin-horizontal-layout>
  <vaadin-vertical-layout theme="spacing" id="contenedorContenido" style="flex-grow: 1;"></vaadin-vertical-layout>

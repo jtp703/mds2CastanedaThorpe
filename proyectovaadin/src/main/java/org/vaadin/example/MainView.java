@@ -1,5 +1,7 @@
 package org.vaadin.example;
 
+import java.util.Stack;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.vaadin.flow.component.Component;
@@ -110,22 +112,39 @@ import interfaz.VerperfilAdministrador;
 
 public class MainView extends VerticalLayout {
 
-	public static class Pantalla {
 
+    public static class Pantalla{
 		public static VerticalLayout MainView;
 
-		public static Component Anterior;
+	    public static Stack<Component> pilaVistas = new Stack<>();
+	    
+	    public static void cambiarVista(Component nuevaVista) {
+            if (MainView != null && MainView.getComponentCount() > 0) {
+                pilaVistas.push(MainView.getComponentAt(0));
+                MainView.removeAll();
+                MainView.add(nuevaVista);
+            }
+        }
 
-	}
+        public static void volver() {
+            if (!pilaVistas.isEmpty()) {
+                Component vistaAnterior = pilaVistas.pop();
+                MainView.removeAll();
+                MainView.add(vistaAnterior);
+            } else {
+                System.out.println("⚠ No hay vista anterior en la pila.");
+            }
+        }
+    	    
+    	    
 
-	public Usuarioregistrado u = new Usuarioregistrado(this);
+    }
+    public Usuarioregistrado u = new Usuarioregistrado(this);
 
-	public Usuarionoregistrado unr = new Usuarionoregistrado(this);
-	
-	public Administrador ad = new Administrador(this);
-
-	@Autowired public MainView(GreetService service) {
-		add(ad);
-		Pantalla.MainView = this;
-	}
+    @Autowired
+    public MainView(GreetService service) {
+        add(u);
+        Pantalla.MainView = this;
+    }
 }
+

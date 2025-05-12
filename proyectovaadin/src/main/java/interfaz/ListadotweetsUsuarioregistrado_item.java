@@ -1,5 +1,7 @@
 package interfaz;
 
+import org.vaadin.example.MainView;
+
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
@@ -12,11 +14,16 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
 	public VercomentariosUsuarioregistrado _vercomentariosUsuarioregistrado;
 	public Darretweet _darretweet;
 	public Usuarioregistrado usuario;
+	public VerperfilUsuarioregistrado _verperfilUsuarioregistrado;
 	
 	ListadotweetsUsuarioregistrado_item(ListadotweetsUsuarioregistrado listadotweetsUsuarioregistrado) {
 		super(listadotweetsUsuarioregistrado);
 		this.getBtnEliminarTweet().setVisible(false);
 		System.out.println("Ejecución usuario boton");
+<<<<<<< HEAD
+=======
+		this.getVerperfil().addClickListener(event -> VerperfilUsuarioregistrado(usuario));
+>>>>>>> stash
 	}
 	
 	ListadotweetsUsuarioregistrado_item(VercomentariosUsuarioregistrado _vercomentariosUsuarioregistrado) {
@@ -40,8 +47,10 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
 		throw new UnsupportedOperationException();
 	}
 	
-	public void VerperfilUsuarioregistrado() {
-		
+	public void VerperfilUsuarioregistrado(Usuarioregistrado usuario) {
+		VerperfilUsuarioregistrado verperfilUsuarioregistrado = new VerperfilUsuarioregistrado(usuario);
+		System.out.println("Ejecución usuario boton");
+		MainView.Pantalla.cambiarVista(verperfilUsuarioregistrado);
 	}
 	
 }

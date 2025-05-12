@@ -1,11 +1,11 @@
 import { LitElement, html, css, customElement } from 'lit-element';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vertical-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/horizontal-layout/src/vaadin-horizontal-layout.js';
-import '@vaadin/icon/src/vaadin-icon.js';
-import '@vaadin/button/src/vaadin-button.js';
 import '@vaadin/tabs/src/vaadin-tabs.js';
 import '@vaadin/tabs/src/vaadin-tab.js';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
+import '@vaadin/button/src/vaadin-button.js';
+import '@vaadin/icon/src/vaadin-icon.js';
 
 @customElement('vista-verperfildeusuario')
 export class VistaVerperfildeusuario extends LitElement {
@@ -32,19 +32,19 @@ export class VistaVerperfildeusuario extends LitElement {
  </vaadin-vertical-layout>
  <vaadin-horizontal-layout theme="spacing" style="align-self: stretch; margin-left: var(--lumo-space-m); margin-right: var(--lumo-space-l);">
   <vaadin-button id="btnVolver" style="align-self: center;" tabindex="0">
-   volver al muro principal
+    volver al muro principal 
   </vaadin-button>
   <vaadin-vertical-layout theme="spacing">
    <vaadin-button id="btnSeguir" style="align-self: stretch;" tabindex="0">
-    Seguir
+     Seguir 
     <vaadin-icon icon="vaadin:user-check"></vaadin-icon>
    </vaadin-button>
    <vaadin-button tabindex="0" id="btnBloquear" style="align-self: stretch;">
-    Bloquear
+     Bloquear 
     <vaadin-icon icon="vaadin:ban"></vaadin-icon>
    </vaadin-button>
    <vaadin-button tabindex="0" id="btnBanearUsuario" style="align-self: stretch;">
-    Banear
+     Banear 
     <vaadin-icon icon="vaadin:ban"></vaadin-icon>
    </vaadin-button>
   </vaadin-vertical-layout>
@@ -68,6 +68,14 @@ font-weight: bold;flex-grow: 0; margin: var(--lumo-space-m);" id="verSeguidores"
     <span style="align-self: center;">Seguidores</span>
    </vaadin-horizontal-layout>
   </vaadin-horizontal-layout>
+  <vaadin-vertical-layout theme="spacing" style="align-self: center;">
+   <vaadin-button id="btnEditarPerfil" style="align-self: stretch;" tabindex="0">
+    Editar perfil 
+   </vaadin-button>
+   <vaadin-button tabindex="0" id="btnEliminarPerfil" style="align-self: stretch;">
+    Eliminar perfil
+   </vaadin-button>
+  </vaadin-vertical-layout>
  </vaadin-horizontal-layout>
  <vaadin-vertical-layout theme="spacing" style="align-self: stretch;">
   <p id="descripcionPerfil" style="align-self: center;">Paragraph</p>
@@ -75,13 +83,13 @@ font-weight: bold;flex-grow: 0; margin: var(--lumo-space-m);" id="verSeguidores"
  <vaadin-vertical-layout theme="spacing" style="align-self: stretch;">
   <vaadin-tabs orientation="horizontal" selected="0">
    <vaadin-tab id="verPosts" selected>
-    Posts 
+     Posts 
    </vaadin-tab>
    <vaadin-tab selected id="verRetweets">
-    Retweets
+     Retweets 
    </vaadin-tab>
    <vaadin-tab selected id="VerMeGustas">
-    Me gustas 
+     Me gustas 
    </vaadin-tab>
   </vaadin-tabs>
  </vaadin-vertical-layout>

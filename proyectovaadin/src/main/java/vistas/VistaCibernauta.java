@@ -21,8 +21,6 @@ public class VistaCibernauta extends LitTemplate {
 	private Element contenedorPrincipal;
 	@Id("imgPerfilPersonal")
 	private Avatar imgPerfilPersonal;
-	@Id("verPerfilPersonal")
-	private Element verPerfilPersonal;
 	@Id("contenedorVerPerfilPersonal")
 	private HorizontalLayout contenedorVerPerfilPersonal;
 	@Id("contenedorContenido")
@@ -39,6 +37,8 @@ public class VistaCibernauta extends LitTemplate {
 	private Button registrarse;
 	@Id("contenedorRegistro")
 	private HorizontalLayout contenedorRegistro;
+	@Id("verPerfilPersonal")
+	private Button verPerfilPersonal;
 
 	public VistaCibernauta() {
 		// You can initialise any data required for the connected UI components here.
@@ -76,11 +76,11 @@ public class VistaCibernauta extends LitTemplate {
 		this.imgPerfilPersonal = imgPerfilPersonal;
 	}
 
-	public Element getVerPerfilPersonal() {
+	public Button getVerPerfilPersonal() {
 		return verPerfilPersonal;
 	}
 
-	public void setVerPerfilPersonal(Element verPerfilPersonal) {
+	public void setVerPerfilPersonal(Button verPerfilPersonal) {
 		this.verPerfilPersonal = verPerfilPersonal;
 	}
 

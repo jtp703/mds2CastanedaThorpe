@@ -19,11 +19,13 @@ public class Usuarioregistrado extends Cibernauta {
 	public Usuarioregistrado(MainView mainView) {
 		super(mainView);
 		this.getContenedorRegistro().setVisible(false);
+		//VermuroprincipalUsuarioregistrado();
+		System.out.println("Ejecucion clase usuario");
 		this.getVerMuroPrincipal().addClickListener(event -> VermuroprincipalUsuarioregistrado());
 		this.getVerListadoUsuarios().addClickListener(event -> VerlistadoglobaldeusuariosUsuarioregistrado());
 		this.getVerListadoHashtags().addClickListener(event -> VerListadohashtags());
 		this.getVerNotificaciones().addClickListener(event -> Notificacionesdeusuario());
-
+		this.getVerPerfilPersonal().addClickListener(event -> Verperfilpersonal());
 	}
 
 	public void Notificacionesdeusuario() {
@@ -46,15 +48,22 @@ public class Usuarioregistrado extends Cibernauta {
 		this.getContenedorContenido().as(VerticalLayout.class).removeAll();
 		_verlistadoglobaldeusuariosUsuarioregistrado = new VerlistadoglobaldeusuariosUsuarioregistrado(this);
 		this.getContenedorContenido().as(VerticalLayout.class).add(_verlistadoglobaldeusuariosUsuarioregistrado);
+
 	}
 
 	public void Verperfilpersonal() {
-		throw new UnsupportedOperationException();
+		Verperfilpersonal _verperfilpersonal = new Verperfilpersonal(this);
+		System.out.println("Ejecucion clase usuario");
+		MainView.Pantalla.cambiarVista(_verperfilpersonal);
 	}
 
 	public void VerListadohashtags() {
 		this.getContenedorContenido().as(VerticalLayout.class).removeAll();
 		_verlistadohashtags = new VerListadohashtags(this);
 		this.getContenedorContenido().as(VerticalLayout.class).add(_verlistadohashtags);
+	}
+	
+	public MainView getMainView() {
+	    return this.mainView;
 	}
 }
