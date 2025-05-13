@@ -2,6 +2,7 @@ import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vertical-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/horizontal-layout/src/vaadin-horizontal-layout.js';
+import '@vaadin/button/src/vaadin-button.js';
 
 @customElement('vista-verlistado')
 export class VistaVerlistado extends LitElement {
@@ -27,6 +28,9 @@ export class VistaVerlistado extends LitElement {
    <vaadin-vertical-layout theme="spacing-xl" style="align-self: stretch; flex-shrink: 0; flex-grow: 0; width: 100%;" id="ListadoSeguidores"></vaadin-vertical-layout>
    <vaadin-vertical-layout theme="spacing-xl" style="flex-shrink: 0; align-self: stretch; width: 100%;" id="ListadoSeguidos"></vaadin-vertical-layout>
   </vaadin-vertical-layout>
+  <vaadin-button id="btnCerrar">
+   Cerrar
+  </vaadin-button>
  </vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;

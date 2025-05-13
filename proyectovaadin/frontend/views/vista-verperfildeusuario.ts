@@ -1,11 +1,9 @@
 import { LitElement, html, css, customElement } from 'lit-element';
+import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
+import '@vaadin/icon/src/vaadin-icon.js';
 import '@vaadin/vertical-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/horizontal-layout/src/vaadin-horizontal-layout.js';
-import '@vaadin/tabs/src/vaadin-tabs.js';
-import '@vaadin/tabs/src/vaadin-tab.js';
-import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/button/src/vaadin-button.js';
-import '@vaadin/icon/src/vaadin-icon.js';
 
 @customElement('vista-verperfildeusuario')
 export class VistaVerperfildeusuario extends LitElement {
@@ -50,48 +48,62 @@ export class VistaVerperfildeusuario extends LitElement {
   </vaadin-vertical-layout>
   <vaadin-horizontal-layout theme="spacing" style="flex-grow: 1;">
    <vaadin-horizontal-layout style="align-self: center; justify-content: center; flex-grow: 1;">
-    <a href="https://vaadin.com" style="background-color: gray !important; 
-color: white !important; 
-border-radius: 999px; 
-padding: 2px 8px; 
-font-size: 12px; 
-font-weight: bold;flex-grow: 0; margin: var(--lumo-space-m);" id="verSeguidos">0</a>
+    <vaadin-button id="verSeguidos" style="background-color: gray !important;
+  color: white !important;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 10px;
+  line-height: 1;
+  min-height: unset;
+  min-width: unset;
+  box-shadow: none;
+  margin: var(--lumo-space-xs);" tabindex="0">
+      0 
+    </vaadin-button>
     <span style="align-self: center;">Seguidos</span>
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout style="align-self: center; justify-content: center; flex-grow: 1;">
-    <a href="https://vaadin.com" style="background-color: gray !important; 
-color: white !important; 
-border-radius: 999px; 
-padding: 2px 8px; 
-font-size: 12px; 
-font-weight: bold;flex-grow: 0; margin: var(--lumo-space-m);" id="verSeguidores">0</a>
+    <vaadin-button tabindex="0" id="verSeguidores" style="background-color: gray !important;
+  color: white !important;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 10px;
+  line-height: 1;
+  min-height: unset;
+  min-width: unset;
+  box-shadow: none;
+  margin: var(--lumo-space-xs);">
+      0 
+    </vaadin-button>
     <span style="align-self: center;">Seguidores</span>
    </vaadin-horizontal-layout>
   </vaadin-horizontal-layout>
   <vaadin-vertical-layout theme="spacing" style="align-self: center;">
    <vaadin-button id="btnEditarPerfil" style="align-self: stretch;" tabindex="0">
-    Editar perfil 
+     Editar perfil 
    </vaadin-button>
    <vaadin-button tabindex="0" id="btnEliminarPerfil" style="align-self: stretch;">
-    Eliminar perfil
+     Eliminar perfil 
    </vaadin-button>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>
  <vaadin-vertical-layout theme="spacing" style="align-self: stretch;">
   <p id="descripcionPerfil" style="align-self: center;">Paragraph</p>
  </vaadin-vertical-layout>
- <vaadin-vertical-layout theme="spacing" style="align-self: stretch;">
-  <vaadin-tabs orientation="horizontal" selected="0">
-   <vaadin-tab id="verPosts" selected>
-     Posts 
-   </vaadin-tab>
-   <vaadin-tab selected id="verRetweets">
-     Retweets 
-   </vaadin-tab>
-   <vaadin-tab selected id="VerMeGustas">
-     Me gustas 
-   </vaadin-tab>
-  </vaadin-tabs>
+ <vaadin-vertical-layout theme="spacing">
+  <vaadin-horizontal-layout theme="spacing" style="align-self: stretch; margin-left: var(--lumo-space-m);">
+   <vaadin-button id="verPosts" tabindex="0">
+    Posts
+   </vaadin-button>
+   <vaadin-button tabindex="0" id="verRetweets">
+    Retweets
+   </vaadin-button>
+   <vaadin-button tabindex="0" id="verMegustas">
+    Me gustas
+   </vaadin-button>
+  </vaadin-horizontal-layout>
  </vaadin-vertical-layout>
  <vaadin-vertical-layout theme="spacing" id="contenedorListadotweets" style="align-self: stretch; flex-grow: 1;"></vaadin-vertical-layout>
 </vaadin-vertical-layout>

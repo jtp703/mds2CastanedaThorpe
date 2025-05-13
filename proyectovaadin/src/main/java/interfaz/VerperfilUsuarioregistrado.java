@@ -8,6 +8,7 @@ public class VerperfilUsuarioregistrado extends Verperfildeusuario {
 	
 	public Usuarioregistrado usuarioregistrado;
 	public ListadotweetsUsuarioregistrado listadotweetsUsuarioregistrado;
+	public Verlistadodeseguidores verListadoseguidores;
 	
 	public VerperfilUsuarioregistrado(Usuarioregistrado usuarioregistrado) {
 		super(usuarioregistrado);
@@ -15,10 +16,12 @@ public class VerperfilUsuarioregistrado extends Verperfildeusuario {
 		this.getBtnEditarPerfil().setVisible(false);
 		this.getBtnEliminarPerfil().setVisible(false);
 		this.getBtnVolver().addClickListener(event -> btnVolver());
+		this.getVerSeguidores().addClickListener(event -> Verlistadodeseguidores());
+		this.getVerMegustas().addClickListener(event -> Retweets(this._retweets));
 	}
 	
 	public VerperfilUsuarioregistrado(ListadotweetsUsuarioregistrado listadotweetsUsuarioregistrado) {
-		super(listadotweetsUsuarioregistrado);
+		super(listadotweetsUsuarioregistrado); 
 	}
 	
 	public void Retweets(Retweets _retweets) {
@@ -49,4 +52,9 @@ public class VerperfilUsuarioregistrado extends Verperfildeusuario {
 		MainView.Pantalla.volver();
 		System.out.println("Volver a la vista anterior desde ver perfil personal");
 	}
+	private void Verlistadodeseguidores() {
+		verListadoseguidores = new Verlistadodeseguidores(this);
+		MainView.Pantalla.cambiarVista(verListadoseguidores);
+	}
+
 }

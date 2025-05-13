@@ -33,25 +33,24 @@ public class VistaVerperfildeusuario extends LitTemplate {
 	private Paragraph descripcionPerfil;
 	@Id("nombreUsuario")
 	private H1 nombreUsuario;
-	@Id("verSeguidos")
-	private Element verSeguidos;
-	@Id("verSeguidores")
-	private Element verSeguidores;
-	@Id("verPosts")
-	private Tab verPosts;
-	@Id("verRetweets")
-	private Tab verRetweets;
 	@Id("contenedorListadotweets")
 	private Element contenedorListadotweets;
-	@Id("VerMeGustas")
-	private Tab verMeGustas;
 	@Id("verPerfil")
 	private Element verPerfil;
 	@Id("btnEditarPerfil")
 	private Button btnEditarPerfil;
 	@Id("btnEliminarPerfil")
 	private Button btnEliminarPerfil;
-
+	@Id("verSeguidos")
+	private Button verSeguidos;
+	@Id("verSeguidores")
+	private Button verSeguidores;
+	@Id("verPosts")
+	private Button verPosts;
+	@Id("verRetweets")
+	private Button verRetweets;
+	@Id("verMegustas")
+	private Button verMegustas;
 	
 	public Element getContenedorVerPerfil() {
 		return contenedorVerPerfil;
@@ -107,41 +106,11 @@ public class VistaVerperfildeusuario extends LitTemplate {
 	public void setNombreUsuario(H1 nombreUsuario) {
 		this.nombreUsuario = nombreUsuario;
 	}
-	public Element getVerSeguidos() {
-		return verSeguidos;
-	}
-	public void setVerSeguidos(Element verSeguidos) {
-		this.verSeguidos = verSeguidos;
-	}
-	public Element getVerSeguidores() {
-		return verSeguidores;
-	}
-	public void setVerSeguidores(Element verSeguidores) {
-		this.verSeguidores = verSeguidores;
-	}
-	public Tab getVerPosts() {
-		return verPosts;
-	}
-	public void setVerPosts(Tab verPosts) {
-		this.verPosts = verPosts;
-	}
-	public Tab getVerRetweets() {
-		return verRetweets;
-	}
-	public void setVerRetweets(Tab verRetweets) {
-		this.verRetweets = verRetweets;
-	}
 	public Element getContenedorListadotweets() {
 		return contenedorListadotweets;
 	}
 	public void setContenedorListadotweets(Element contenedorListadotweets) {
 		this.contenedorListadotweets = contenedorListadotweets;
-	}
-	public Tab getVerMeGustas() {
-		return verMeGustas;
-	}
-	public void setVerMeGustas(Tab verMeGustas) {
-		this.verMeGustas = verMeGustas;
 	}
 	public Element getVerPerfil() {
 		return verPerfil;
@@ -161,5 +130,37 @@ public class VistaVerperfildeusuario extends LitTemplate {
 	public void setBtnEliminarPerfil(Button btnEliminarPerfil) {
 		this.btnEliminarPerfil = btnEliminarPerfil;
 	}
+	public Button getVerSeguidos() {
+		return verSeguidos;
+	}
+	public void setVerSeguidos(Button verSeguidos) {
+		this.verSeguidos = verSeguidos;
+	}
+	public Button getVerSeguidores() {
+		return verSeguidores;
+	}
+	public void setVerSeguidores(Button verSeguidores) {
+		this.verSeguidores = verSeguidores;
+	}
+	public Button getVerPosts() {
+		return verPosts;
+	}
+	public void setVerPosts(Button verPosts) {
+		this.verPosts = verPosts;
+	}
+	public Button getVerRetweets() {
+		return verRetweets;
+	}
+	public void setVerRetweets(Button verRetweets) {
+		this.verRetweets = verRetweets;
+	}
+	public Button getVerMegustas() {
+		return verMegustas;
+	}
+	public void setVerMegustas(Button verMegustas) {
+		this.verMegustas = verMegustas;
+	}
+	
+	
 	
 }
