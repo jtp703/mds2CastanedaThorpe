@@ -15,7 +15,7 @@ export class VistaListadousuarios_item extends LitElement {
 
   render() {
     return html`
-<vaadin-horizontal-layout class="content" style="position:absolute; padding: var(--lumo-space-l); width: 80%; margin: var(--lumo-space-l);" id="_LayoutUsuario">
+<vaadin-horizontal-layout class="content" style="padding: var(--lumo-space-l); width: 80%; margin: var(--lumo-space-l);" id="_LayoutUsuario" theme="spacing">
  <vaadin-horizontal-layout theme="spacing" style="flex-shrink: 0; flex-grow: 1;">
   <vaadin-avatar style="align-self: center;"></vaadin-avatar>
   <vaadin-button id="verperfil" tabindex="0" style="flex-shrink: 0; flex-grow: 0; align-self: center;">

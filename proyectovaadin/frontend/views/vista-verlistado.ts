@@ -18,15 +18,15 @@ export class VistaVerlistado extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%; position:absolute;" id="contenedorListadousuariosSeguidores-Seguidos">
- <vaadin-vertical-layout theme="spacing" style="flex-grow: 1; align-self: center; height: 100%;">
-  <vaadin-vertical-layout theme="spacing-xl" style="flex-grow: 1; flex-shrink: 0; width: 100%;">
+ <vaadin-vertical-layout theme="spacing" style="flex-grow: 1; height: 100%; align-self: center; align-items: center; width: 100%;">
+  <vaadin-vertical-layout theme="spacing-s" style="flex-grow: 1; flex-shrink: 0; width: 100%; align-items: center; align-self: center;">
    <vaadin-horizontal-layout theme="spacing">
     <h1 id="tituloSeguidores">Seguidores</h1>
     <h1 id="Seguidos">Seguidos</h1>
     <h1>de<a href="" id="verPerfil" style="flex-grow: 0; align-self: center;">@usuario</a></h1>
    </vaadin-horizontal-layout>
-   <vaadin-vertical-layout theme="spacing-xl" style="align-self: stretch; flex-shrink: 0; flex-grow: 0; width: 100%;" id="ListadoSeguidores"></vaadin-vertical-layout>
-   <vaadin-vertical-layout theme="spacing-xl" style="flex-shrink: 0; align-self: stretch; width: 100%;" id="ListadoSeguidos"></vaadin-vertical-layout>
+   <vaadin-vertical-layout style="align-self: stretch; flex-shrink: 0; flex-grow: 0; width: 100%;" id="ListadoSeguidores"></vaadin-vertical-layout>
+   <vaadin-vertical-layout style="flex-shrink: 0; align-self: stretch; width: 100%;" id="ListadoSeguidos"></vaadin-vertical-layout>
   </vaadin-vertical-layout>
  </vaadin-vertical-layout>
  <vaadin-button id="btnCerrar" tabindex="0" style="flex-shrink: 0; flex-grow: 0;">
