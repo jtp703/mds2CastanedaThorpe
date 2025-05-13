@@ -10,6 +10,7 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
 	//	private image _perfilUsuario;
 	private int _numRetweets;
 	private int _numComentarios;
+	
 	//public ListadotweetsUsuarioregistrado _listadotweetsUsuarioregistrado;
 	public VercomentariosUsuarioregistrado _vercomentariosUsuarioregistrado;
 	public Darretweet _darretweet;
@@ -19,9 +20,9 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
 	ListadotweetsUsuarioregistrado_item(ListadotweetsUsuarioregistrado listadotweetsUsuarioregistrado) {
 		super(listadotweetsUsuarioregistrado);
 		this.getBtnEliminarTweet().setVisible(false);
-		System.out.println("Ejecución usuario boton");
-
 		this.getVerperfil().addClickListener(event -> VerperfilUsuarioregistrado(usuario));
+		this.getComentar().addClickListener(event -> VercomentariosUsuarioregistrado());
+		this.getDarRetweet().addClickListener(even -> Darretweet());
 	}
 	
 	ListadotweetsUsuarioregistrado_item(VercomentariosUsuarioregistrado _vercomentariosUsuarioregistrado) {
@@ -38,11 +39,15 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
 	}
 
 	public void VercomentariosUsuarioregistrado() {
-		throw new UnsupportedOperationException();
+		_vercomentariosUsuarioregistrado = new VercomentariosUsuarioregistrado(this);
+		MainView.Pantalla.cambiarVista(_vercomentariosUsuarioregistrado);
 	}
 
 	public void Darretweet() {
-		throw new UnsupportedOperationException();
+		_darretweet = new Darretweet(this);
+		MainView.Pantalla.cambiarVista(_darretweet);
+		this.getDarRetweet().getStyle().set("background-color", "#00cc66");
+	    this.getDarRetweet().getStyle().set("color", "white");
 	}
 	
 	public void VerperfilUsuarioregistrado(Usuarioregistrado usuario) {

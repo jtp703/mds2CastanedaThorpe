@@ -3,6 +3,7 @@ import '@vaadin/vertical-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/horizontal-layout/src/vaadin-horizontal-layout.js';
 import './vista-listadotweets_item';
 import '@vaadin/text-area/src/vaadin-text-area.js';
+import '@vaadin/button/src/vaadin-button.js';
 
 @customElement('vista-darretweet')
 export class VistaDarretweet extends LitElement {
@@ -35,6 +36,9 @@ export class VistaDarretweet extends LitElement {
    </vaadin-button>
   </vaadin-horizontal-layout>
  </vaadin-horizontal-layout>
+ <vaadin-button id="volver" tabindex="0">
+  Volver
+ </vaadin-button>
 </vaadin-vertical-layout>
 `;
   }

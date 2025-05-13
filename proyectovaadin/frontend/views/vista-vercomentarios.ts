@@ -15,11 +15,22 @@ export class VistaVercomentarios extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;" id="contenedorVercomentarios">
- <vaadin-vertical-layout theme="spacing" style="flex-shrink: 0; flex-grow: 0; align-self: stretch;" id="contenedorTweet"></vaadin-vertical-layout>
- <vaadin-vertical-layout theme="spacing" id="contenedorListadoComentarios" style="align-self: stretch;"></vaadin-vertical-layout>
- <vaadin-vertical-layout theme="spacing" style="margin-bottom: var(--lumo-space-m);">
-  <vaadin-button id="btnVovler" tabindex="0">
+<vaadin-vertical-layout style="display: flex;
+flex-direction: column;
+width: 100%;
+height: 100%;
+position: absolute;
+" id="contenedorVercomentarios">
+ <vaadin-vertical-layout theme="spacing" style="flex-shrink: 0;
+" id="contenedorTweet"></vaadin-vertical-layout>
+ <vaadin-vertical-layout theme="spacing" id="contenedorListadoComentarios" style="flex-grow: 1;
+overflow-y: auto;
+min-height: 0;
+"></vaadin-vertical-layout>
+ <vaadin-vertical-layout theme="spacing" style="margin-top: auto;
+flex-shrink: 0;
+">
+  <vaadin-button id="btnVovler" tabindex="0" style="flex-shrink: 0;">
     Volver 
   </vaadin-button>
  </vaadin-vertical-layout>

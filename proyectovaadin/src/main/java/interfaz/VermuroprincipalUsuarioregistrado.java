@@ -6,7 +6,6 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 public class VermuroprincipalUsuarioregistrado extends Vermuroprincipal {
 	
-	public MainView main;
 //	private event _enviartweet;
 	public Usuarioregistrado _usuarioregistrado;
 	public ListadotweetsUsuarioregistrado _listadotweetsUsuarioregistrado;
