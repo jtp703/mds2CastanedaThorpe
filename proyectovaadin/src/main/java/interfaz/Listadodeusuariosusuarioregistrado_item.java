@@ -5,10 +5,17 @@ import org.vaadin.example.MainView;
 public class Listadodeusuariosusuarioregistrado_item extends Listadousuarios_item {
 //	private event _seguir_usuario_desde_listado_global_de_usuarios;
 	public Listadodeusuariosusuarioregistrado _listadodeusuariosusuarioregistrado;
+
+	public VerperfilUsuarioregistrado _verPerfilUsuarioregistrado;
 	public Usuarioregistrado usuario;
 	
-	Listadodeusuariosusuarioregistrado_item(Listadodeusuariosusuarioregistrado listadodeusuariosusuarioregistrado){
+	public Listadodeusuariosusuarioregistrado_item(Listadodeusuariosusuarioregistrado listadodeusuariosusuarioregistrado){
 		super(listadodeusuariosusuarioregistrado);
+		this.getVerperfil().addClickListener(event -> VerperfilUsuarioregistrado(usuario));
+	}
+	
+	public Listadodeusuariosusuarioregistrado_item(VerperfilUsuarioregistrado _verPerfilUsuarioregistrado) {
+		super(_verPerfilUsuarioregistrado);
 		this.getVerperfil().addClickListener(event -> VerperfilUsuarioregistrado(usuario));
 	}
 	
@@ -17,8 +24,8 @@ public class Listadodeusuariosusuarioregistrado_item extends Listadousuarios_ite
 	}
 	
 	public void VerperfilUsuarioregistrado(Usuarioregistrado usuario) {
-		VerperfilUsuarioregistrado _verperfilUsuarioregistrado = new VerperfilUsuarioregistrado(usuario);
+		_verPerfilUsuarioregistrado = new VerperfilUsuarioregistrado(usuario);
 		System.out.println("Ejecución ver perfil de usuario");
-		MainView.Pantalla.cambiarVista(_verperfilUsuarioregistrado);
+		MainView.Pantalla.cambiarVista(_verPerfilUsuarioregistrado);
 	}
 }

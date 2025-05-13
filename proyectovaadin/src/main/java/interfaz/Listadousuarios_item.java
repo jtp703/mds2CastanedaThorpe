@@ -6,9 +6,18 @@ public class Listadousuarios_item extends VistaListadousuarios_item{
 	/*private image _fotoPerfil;
 	private label _nickUsuario;*/
 	public Listadousuarios _listadousuarios;
-	public Verlistado _unnamed_Verlistado_;
+	public Verlistado _Verlistado;
+	public Verperfildeusuario _verPerfildeusuario;
 	
-	Listadousuarios_item(Listadousuarios listadousuarios){
-		_listadousuarios = listadousuarios;
+	public Listadousuarios_item(Listadousuarios listadousuarios){
+		this._listadousuarios = listadousuarios;
+	}
+	
+	public Listadousuarios_item(Verlistado _Verlistado) {
+		this._Verlistado = _Verlistado;
+	}
+	
+	public Listadousuarios_item(Verperfildeusuario _verPerfildeusuario) {
+		this._verPerfildeusuario = _verPerfildeusuario;
 	}
 }

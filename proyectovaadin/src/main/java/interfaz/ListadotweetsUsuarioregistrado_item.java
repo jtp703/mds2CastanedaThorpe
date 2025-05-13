@@ -32,10 +32,10 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
 		this.getBtnEliminarTweet().setVisible(false);
 	}
 	
-	ListadotweetsUsuarioregistrado_item(Usuarioregistrado usu) {
+	/*ListadotweetsUsuarioregistrado_item(Usuarioregistrado usu) {
 		super();
 		usuario=usu;
-	}
+	}*/
 	public void Darmegusta() {
 		megusta = !megusta; // invierte el estado
 

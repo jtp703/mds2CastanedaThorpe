@@ -5,7 +5,7 @@ public class Listadodeusuariosadministrador_item extends Listadousuarios_item{
 	
 	Listadodeusuariosadministrador_item(Listadodeusuariosadministrador listadodeusuariosadministrador){
 		super(listadodeusuariosadministrador);
-		this.getseguirUsuario().setVisible(false);
+		this.getSeguirUsuario().setVisible(false);
 	}
 	
 

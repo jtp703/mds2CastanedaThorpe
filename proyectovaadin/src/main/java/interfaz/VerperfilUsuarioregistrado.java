@@ -2,6 +2,8 @@ package interfaz;
 
 import org.vaadin.example.MainView;
 
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 public class VerperfilUsuarioregistrado extends Verperfildeusuario {
 	/*private event _bloquear_usuario;
 	private event _seguir_usuario_desde_perfil;*/
@@ -9,14 +11,19 @@ public class VerperfilUsuarioregistrado extends Verperfildeusuario {
 	public Usuarioregistrado usuarioregistrado;
 	public ListadotweetsUsuarioregistrado listadotweetsUsuarioregistrado;
 	public Verlistadodeseguidores verListadoseguidores;
+	public Verlistadodeseguidos verListadoseguidos;
 	
 	public VerperfilUsuarioregistrado(Usuarioregistrado usuarioregistrado) {
 		super(usuarioregistrado);
+		this.listadotweetsUsuarioregistrado = new ListadotweetsUsuarioregistrado(this);
+		this.listadotweetsUsuarioregistrado.getContenedorNuevoTweet().setVisible(false);
+		this.getContenedorListadotweets().as(VerticalLayout.class).add(listadotweetsUsuarioregistrado);
 		this.getBtnBanearUsuario().setVisible(false);
 		this.getBtnEditarPerfil().setVisible(false);
 		this.getBtnEliminarPerfil().setVisible(false);
 		this.getBtnVolver().addClickListener(event -> btnVolver());
 		this.getVerSeguidores().addClickListener(event -> Verlistadodeseguidores());
+		this.getVerSeguidos().addClickListener(event -> Verlistadodeseguidos());
 		this.getVerMegustas().addClickListener(event -> Retweets(this._retweets));
 	}
 	
@@ -57,4 +64,8 @@ public class VerperfilUsuarioregistrado extends Verperfildeusuario {
 		MainView.Pantalla.cambiarVista(verListadoseguidores);
 	}
 
+	private void Verlistadodeseguidos() {
+		verListadoseguidos = new Verlistadodeseguidos(this);
+		MainView.Pantalla.cambiarVista(verListadoseguidos);
+	}
 }
