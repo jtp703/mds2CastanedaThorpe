@@ -1,7 +1,6 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/avatar/src/vaadin-avatar.js';
 import '@vaadin/icons';
-import '@vaadin/text-area/src/vaadin-text-area.js';
 import '@vaadin/vertical-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/icon/src/vaadin-icon.js';
 import '@vaadin/horizontal-layout/src/vaadin-horizontal-layout.js';
@@ -22,7 +21,11 @@ export class VistaListadocomentarios_item extends LitElement {
 <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%;" id="vaadinVerticalLayout">
  <vaadin-horizontal-layout theme="spacing" style="padding-bottom: var(--lumo-space-xs); padding: var(--lumo-space-xs); margin-top: var(--lumo-space-s); padding-left: var(--lumo-space-s); flex-grow: 0; flex-shrink: 0; align-self: stretch;" id="vaadinHorizontalLayout">
   <vaadin-avatar id="vaadinAvatar"></vaadin-avatar>
-  <a href="https://vaadin.com" style="flex-shrink: 0; flex-grow: 1;" usuario="" id="a">@usuario</a>
+  <vaadin-horizontal-layout theme="spacing" style="flex-grow: 1;">
+   <vaadin-button id="verperfil" tabindex="0" style="flex-shrink: 0; flex-grow: 0;">
+     usuario 
+   </vaadin-button>
+  </vaadin-horizontal-layout>
   <button style="flex-shrink: 1; flex-grow: 0;" id="botonEliminarComentario">Eliminar comentario</button>
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" style="flex-shrink: 0; flex-grow: 0;" id="vaadinHorizontalLayout2">
@@ -31,8 +34,20 @@ export class VistaListadocomentarios_item extends LitElement {
   </vaadin-vertical-layout>
   <vaadin-vertical-layout theme="spacing" style="flex-shrink: 1; flex-grow: 0; flex-wrap: wrap; align-self: center;" id="vaadinVerticalLayout2">
    <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout3" style="flex-grow: 0; flex-shrink: 0; margin: var(--lumo-space-s);">
-    <vaadin-icon style="flex-grow: 0; flex-shrink: 0;" icon="vaadin:heart" id="_idMg" size="16"></vaadin-icon>
-    <a href="https://vaadin.com" style="margin-right: var(--lumo-space-s);">0</a>
+    <vaadin-icon style="flex-grow: 0; flex-shrink: 0;" icon="vaadin:heart" id="btnDarMegusta" size="16"></vaadin-icon>
+    <vaadin-button id="verMegustas" style="background-color: gray !important;
+  color: white !important;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 10px;
+  line-height: 1;
+  min-height: unset;
+  min-width: unset;
+  box-shadow: none;
+  margin: var(--lumo-space-xs);" tabindex="0">
+      0 
+    </vaadin-button>
    </vaadin-horizontal-layout>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>

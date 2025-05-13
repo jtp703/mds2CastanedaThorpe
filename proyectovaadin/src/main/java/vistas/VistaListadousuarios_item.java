@@ -13,14 +13,16 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 @JsModule("./views/vista-listadousuarios_item.ts")
 public class VistaListadousuarios_item extends LitTemplate {
 
-    @Id("_SeguidosUsuario")
-	private Span _SeguidosUsuario;
-	@Id("_SeguidoresUsuario")
-	private Span _SeguidoresUsuario;
 	@Id("_LayoutUsuario")
 	private HorizontalLayout _LayoutUsuario;
 	@Id("SeguirUsuario")
 	private Button seguirUsuario;
+	@Id("verSeguidores")
+	private Button verSeguidores;
+	@Id("verSeguidos")
+	private Button verSeguidos;
+	@Id("verperfil")
+	private Button verperfil;
 
 	public VistaListadousuarios_item() {
         // You can initialise any data required for the connected UI components here.
@@ -34,28 +36,44 @@ public class VistaListadousuarios_item extends LitTemplate {
 		this.seguirUsuario = seguirUsuario;
 	}
 
-	public Span get_SeguidosUsuario() {
-		return _SeguidosUsuario;
-	}
-
-	public void set_SeguidosUsuario(Span _SeguidosUsuario) {
-		this._SeguidosUsuario = _SeguidosUsuario;
-	}
-
-	public Span get_SeguidoresUsuario() {
-		return _SeguidoresUsuario;
-	}
-
-	public void set_SeguidoresUsuario(Span _SeguidoresUsuario) {
-		this._SeguidoresUsuario = _SeguidoresUsuario;
-	}
-
 	public HorizontalLayout get_LayoutUsuario() {
 		return _LayoutUsuario;
 	}
 
 	public void set_LayoutUsuario(HorizontalLayout _LayoutUsuario) {
 		this._LayoutUsuario = _LayoutUsuario;
+	}
+
+	public Button getSeguirUsuario() {
+		return seguirUsuario;
+	}
+
+	public void setSeguirUsuario(Button seguirUsuario) {
+		this.seguirUsuario = seguirUsuario;
+	}
+
+	public Button getVerSeguidores() {
+		return verSeguidores;
+	}
+
+	public void setVerSeguidores(Button verSeguidores) {
+		this.verSeguidores = verSeguidores;
+	}
+
+	public Button getVerSeguidos() {
+		return verSeguidos;
+	}
+
+	public void setVerSeguidos(Button verSeguidos) {
+		this.verSeguidos = verSeguidos;
+	}
+
+	public Button getVerperfil() {
+		return verperfil;
+	}
+
+	public void setVerperfil(Button verperfil) {
+		this.verperfil = verperfil;
 	}
 	
 	

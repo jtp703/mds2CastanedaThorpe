@@ -10,6 +10,7 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
 	//	private image _perfilUsuario;
 	private int _numRetweets;
 	private int _numComentarios;
+	private boolean megusta = false;
 	
 	//public ListadotweetsUsuarioregistrado _listadotweetsUsuarioregistrado;
 	public VercomentariosUsuarioregistrado _vercomentariosUsuarioregistrado;
@@ -23,6 +24,7 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
 		this.getVerperfil().addClickListener(event -> VerperfilUsuarioregistrado(usuario));
 		this.getComentar().addClickListener(event -> VercomentariosUsuarioregistrado());
 		this.getDarRetweet().addClickListener(even -> Darretweet());
+		this.getMeGusta().addClickListener(event -> Darmegusta());
 	}
 	
 	ListadotweetsUsuarioregistrado_item(VercomentariosUsuarioregistrado _vercomentariosUsuarioregistrado) {
@@ -35,7 +37,15 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
 		usuario=usu;
 	}
 	public void Darmegusta() {
-		throw new UnsupportedOperationException();
+		megusta = !megusta; // invierte el estado
+
+	    if (megusta) {
+	        System.out.println("Tweet gustado");
+	        this.getMeGusta().getStyle().set("color", "red");
+	    } else {
+	        System.out.println("Me gusta retirado");
+	        this.getMeGusta().getStyle().set("color", "black");
+	    }
 	}
 
 	public void VercomentariosUsuarioregistrado() {

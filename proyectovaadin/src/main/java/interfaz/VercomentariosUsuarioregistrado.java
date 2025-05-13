@@ -32,9 +32,6 @@ public class VercomentariosUsuarioregistrado extends Vercomentarios {
 		throw new UnsupportedOperationException();
 	}
 
-	public void Comentar() {
-		throw new UnsupportedOperationException();
-	}
 	
 	public void btnVolver() {
 		MainView.Pantalla.volver();

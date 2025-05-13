@@ -1,14 +1,24 @@
 package interfaz;
 
+import org.vaadin.example.MainView;
+
 public class Listadodeusuariosusuarioregistrado_item extends Listadousuarios_item {
 //	private event _seguir_usuario_desde_listado_global_de_usuarios;
 	public Listadodeusuariosusuarioregistrado _listadodeusuariosusuarioregistrado;
+	public Usuarioregistrado usuario;
 	
 	Listadodeusuariosusuarioregistrado_item(Listadodeusuariosusuarioregistrado listadodeusuariosusuarioregistrado){
 		super(listadodeusuariosusuarioregistrado);
+		this.getVerperfil().addClickListener(event -> VerperfilUsuarioregistrado(usuario));
 	}
 	
 	public void Seguir_usuario_desde_listado_global_de_usuarios() {
 		throw new UnsupportedOperationException();
+	}
+	
+	public void VerperfilUsuarioregistrado(Usuarioregistrado usuario) {
+		VerperfilUsuarioregistrado _verperfilUsuarioregistrado = new VerperfilUsuarioregistrado(usuario);
+		System.out.println("Ejecución ver perfil de usuario");
+		MainView.Pantalla.cambiarVista(_verperfilUsuarioregistrado);
 	}
 }

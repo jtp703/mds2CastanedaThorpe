@@ -27,10 +27,8 @@ position: absolute;
 overflow-y: auto;
 min-height: 0;
 "></vaadin-vertical-layout>
- <vaadin-vertical-layout theme="spacing" style="margin-top: auto;
-flex-shrink: 0;
-">
-  <vaadin-button id="btnVovler" tabindex="0" style="flex-shrink: 0;">
+ <vaadin-vertical-layout theme="spacing" style="flex-shrink: 0;">
+  <vaadin-button id="btnVovler" tabindex="0" style="flex-shrink: 0; flex-grow: 0;">
     Volver 
   </vaadin-button>
  </vaadin-vertical-layout>

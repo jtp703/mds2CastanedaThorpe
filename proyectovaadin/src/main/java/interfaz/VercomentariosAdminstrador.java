@@ -1,5 +1,7 @@
  package interfaz;
 
+import org.vaadin.example.MainView;
+
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 public class VercomentariosAdminstrador extends Vercomentarios {
@@ -17,11 +19,16 @@ public class VercomentariosAdminstrador extends Vercomentarios {
 		this.getContenedorTweet().as(VerticalLayout.class).add(item);
 		ListadocomentariosAdministrador listado = new ListadocomentariosAdministrador(this);
 		this.getContenedorListadoComentarios().as(VerticalLayout.class).add(listado);
-		this.getBtnVovler().setVisible(false);
+		this.getBtnVovler().addClickListener(event -> btnVolver());
 	}
 	
 	public VercomentariosAdminstrador(ListadotweetsAdministrador_item _item) {
 		super(_item);
+		ListadotweetsAdministrador_item item = new ListadotweetsAdministrador_item(listado);
+		this.getContenedorTweet().as(VerticalLayout.class).add(item);
+		ListadocomentariosAdministrador listado = new ListadocomentariosAdministrador(this);
+		this.getContenedorListadoComentarios().as(VerticalLayout.class).add(listado);
+		this.getBtnVovler().addClickListener(event -> btnVolver());
 	}
 
 	public void Listado_comentarios_administrador() {
@@ -30,5 +37,8 @@ public class VercomentariosAdminstrador extends Vercomentarios {
 
 	public void Eliminar_tweet() {
 		throw new UnsupportedOperationException();
+	}
+	public void btnVolver() {
+		MainView.Pantalla.volver();
 	}
 }

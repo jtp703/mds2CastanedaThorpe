@@ -16,7 +16,7 @@ export class VistaListadocomentarios extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%; position:absolute;" id="contendorListadoComentarios">
+<vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%;" id="contendorListadoComentarios">
  <vaadin-vertical-layout theme="spacing" style="align-self: stretch; margin-left: var(--lumo-space-m);">
   <h3>Comentarios</h3>
  </vaadin-vertical-layout>
@@ -28,7 +28,7 @@ export class VistaListadocomentarios extends LitElement {
   </vaadin-horizontal-layout>
   <vaadin-text-area id="textAreaComentario" style="align-self: stretch;" placeholder="¿Que esta pasando?"></vaadin-text-area>
   <vaadin-button id="btnEnviarComentario" style="align-self: flex-end;" tabindex="0">
-   Enviar
+    Enviar 
   </vaadin-button>
  </vaadin-vertical-layout>
 </vaadin-vertical-layout>
