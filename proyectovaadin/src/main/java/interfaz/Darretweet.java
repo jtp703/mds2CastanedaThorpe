@@ -2,6 +2,8 @@ package interfaz;
 
 import org.vaadin.example.MainView;
 
+import com.vaadin.flow.component.html.Paragraph;
+
 import vistas.VistaDarretweet;
 
 public class Darretweet extends VistaDarretweet {
@@ -10,19 +12,29 @@ public class Darretweet extends VistaDarretweet {
 	private image _perfilUsuario;
 	private textField _texto;*/
 	public ListadotweetsUsuarioregistrado_item _listadotweetsUsuarioregistrado;
-	public ListadotweetsUsuarioregistrado ltur;
+	//public ListadotweetsUsuarioregistrado ltur;
+	private boolean retweet = false;
 
 	public Darretweet(ListadotweetsUsuarioregistrado_item listadotweetsUsuarioregistrado_item){
 		this._listadotweetsUsuarioregistrado = listadotweetsUsuarioregistrado_item;
-		this.getItem().setVisible(false);
-		_listadotweetsUsuarioregistrado = new ListadotweetsUsuarioregistrado_item(ltur);
-		this.getContenedorTweetsItem().add(_listadotweetsUsuarioregistrado);
+		String autor = _listadotweetsUsuarioregistrado.getNombreUsuario();
+	    String texto = _listadotweetsUsuarioregistrado.getContenidoTexto();
+
+	    Paragraph lblAutor = new Paragraph("@" + autor);
+	    Paragraph lblTexto = new Paragraph(texto);
+	    lblAutor.getStyle().set("font-weight", "bold");
+	    lblTexto.getStyle().set("margin-top", "0.25em");
+
+	    this.getContenedorTweetsItem().add(lblAutor, lblTexto);
+		
 		this.getVolver().addClickListener(event -> btnVolver());
+		this.getIdEnviarRetweet().addClickListener(event -> Enviarretweet());
 	}
 	
 	
 	public void Enviarretweet() {
-		throw new UnsupportedOperationException();
+		_listadotweetsUsuarioregistrado.marcarRetweet();
+		System.out.println("Retweet enviado");
 	}
 	
 	private void btnVolver() {

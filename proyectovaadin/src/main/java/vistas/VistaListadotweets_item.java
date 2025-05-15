@@ -131,5 +131,14 @@ public class VistaListadotweets_item extends LitTemplate {
 	public void setBtnEliminarTweet(Button btnEliminarTweet) {
 		this.btnEliminarTweet = btnEliminarTweet;
 	}
+	
+	public String getContenidoTexto() {
+	    return this.getTextoTweet().getText();
+	}
+
+	public String getNombreUsuario() {
+	    return this.getVerperfil().getText();
+	}
+
 
 }

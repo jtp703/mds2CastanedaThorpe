@@ -1,7 +1,6 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vertical-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/horizontal-layout/src/vaadin-horizontal-layout.js';
-import './vista-listadotweets_item';
 import '@vaadin/text-area/src/vaadin-text-area.js';
 import '@vaadin/button/src/vaadin-button.js';
 
@@ -19,9 +18,7 @@ export class VistaDarretweet extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout theme="spacing" style="width: 100%; height: 100%;position:absolute;" id="contenedorRetweet">
- <vaadin-horizontal-layout style="height: 100%;background-color: lightgray;" id="contenedorTweetsItem">
-  <vista-listadotweets_item id="item"></vista-listadotweets_item>
- </vaadin-horizontal-layout>
+ <vaadin-horizontal-layout style="height: 100%; background-color: lightgray; align-self: stretch;" id="contenedorTweetsItem"></vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" style="align-self: stretch; justify-content: space-between; align-content: stretch; height: 100%;margin-bottom: 150px;">
   <vaadin-horizontal-layout style="flex-grow: 0; margin: var(--lumo-space-m); align-self: flex-start; padding: var(--lumo-space-m);" id="idPerfilLayout">
    <vaadin-avatar style="align-self: center;"></vaadin-avatar>
@@ -37,7 +34,7 @@ export class VistaDarretweet extends LitElement {
   </vaadin-horizontal-layout>
  </vaadin-horizontal-layout>
  <vaadin-button id="volver" tabindex="0">
-  Volver
+   Volver 
  </vaadin-button>
 </vaadin-vertical-layout>
 `;

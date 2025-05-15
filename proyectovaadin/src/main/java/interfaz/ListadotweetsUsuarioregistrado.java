@@ -14,9 +14,9 @@ public class ListadotweetsUsuarioregistrado extends Listadotweets {
 	public ListadotweetsUsuarioregistrado(VermuroprincipalUsuarioregistrado vermuroprincipalUsuarioregistrado) {
 		super(vermuroprincipalUsuarioregistrado);
 		ListadotweetsUsuarioregistrado_item item = new ListadotweetsUsuarioregistrado_item(this);
-		this.getContenedorListadoTweets().as(VerticalLayout.class).add(item);
+		this.getContenedorListadoTweets_item().as(VerticalLayout.class).add(item);
 		ListadotweetsUsuarioregistrado_item item2 = new ListadotweetsUsuarioregistrado_item(this);
-		this.getContenedorListadoTweets().as(VerticalLayout.class).add(item2);
+		this.getContenedorListadoTweets_item().as(VerticalLayout.class).add(item2);
 		
 		
 	}

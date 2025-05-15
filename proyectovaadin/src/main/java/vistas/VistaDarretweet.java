@@ -21,8 +21,6 @@ public class VistaDarretweet extends LitTemplate {
 	private Element _verPerfil;
 	@Id("contenedorTweetsItem")
 	private HorizontalLayout contenedorTweetsItem;
-	@Id("item")
-	private Element item;
 	@Id("volver")
 	private Button volver;
 
@@ -36,14 +34,6 @@ public class VistaDarretweet extends LitTemplate {
 
 	public void setVolver(Button volver) {
 		this.volver = volver;
-	}
-
-	public Element getItem() {
-		return item;
-	}
-
-	public void setItem(Element item) {
-		this.item = item;
 	}
 
 	public Element get_verPerfil() {

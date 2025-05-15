@@ -17,10 +17,13 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
 	public Darretweet _darretweet;
 	public Usuarioregistrado usuario;
 	public VerperfilUsuarioregistrado _verperfilUsuarioregistrado;
+	private boolean retweeteado = false;
 	
 	ListadotweetsUsuarioregistrado_item(ListadotweetsUsuarioregistrado listadotweetsUsuarioregistrado) {
 		super(listadotweetsUsuarioregistrado);
 		this.getBtnEliminarTweet().setVisible(false);
+		this.getVerperfil().setText("Lacacitos");
+		this.getTextoTweet().setText("Hola, soy un tweet de prueba");
 		this.getVerperfil().addClickListener(event -> VerperfilUsuarioregistrado(usuario));
 		this.getComentar().addClickListener(event -> VercomentariosUsuarioregistrado());
 		this.getDarRetweet().addClickListener(even -> Darretweet());
@@ -56,14 +59,17 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
 	public void Darretweet() {
 		_darretweet = new Darretweet(this);
 		MainView.Pantalla.cambiarVista(_darretweet);
-		this.getDarRetweet().getStyle().set("background-color", "#00cc66");
-	    this.getDarRetweet().getStyle().set("color", "white");
 	}
 	
 	public void VerperfilUsuarioregistrado(Usuarioregistrado usuario) {
 		_verperfilUsuarioregistrado = new VerperfilUsuarioregistrado(usuario);
 		System.out.println("Ejecución ver perfil de usuario");
 		MainView.Pantalla.cambiarVista(_verperfilUsuarioregistrado);
+	}
+	
+	public void marcarRetweet() {
+	    retweeteado = true;
+	    this.getDarRetweet().setColor("#00cc66"); // o el color que quieras
 	}
 	
 }

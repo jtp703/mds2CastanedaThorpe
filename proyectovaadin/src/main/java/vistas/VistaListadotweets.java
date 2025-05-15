@@ -19,6 +19,8 @@ public class VistaListadotweets extends LitTemplate {
 	private Element verPerfilPersonal;
 	@Id("contenedorListadoTweets")
 	private Element contenedorListadoTweets;
+	@Id("contenedorListadoTweets_item")
+	private Element contenedorListadoTweets_item;
 
 	public VistaListadotweets() {
 		// You can initialise any data required for the connected UI components here.
@@ -54,6 +56,13 @@ public class VistaListadotweets extends LitTemplate {
 
 	public void setVerPerfilPersonal(Element verPerfilPersonal) {
 		this.verPerfilPersonal = verPerfilPersonal;
+	}
+	
+	public Element getContenedorListadoTweets_item() {
+		return contenedorListadoTweets_item;
+	}
+	public void setContenedorListadoTweets_item(Element contenedorListadoTweets_item) {
+		this.contenedorListadoTweets_item = contenedorListadoTweets_item;
 	}
 
 }
