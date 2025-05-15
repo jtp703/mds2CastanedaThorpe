@@ -140,10 +140,12 @@ public class MainView extends VerticalLayout {
 
     }
     public Usuarioregistrado usuarioregistrado = new Usuarioregistrado(this);
+    public Administrador administrador = new Administrador(this);
+    public Usuarionoregistrado usuarionoregistrado = new Usuarionoregistrado(this);
 
     @Autowired
     public MainView(GreetService service) {
-        add(usuarioregistrado);
+        add(usuarionoregistrado);
         Pantalla.MainView = this;
     }
 }

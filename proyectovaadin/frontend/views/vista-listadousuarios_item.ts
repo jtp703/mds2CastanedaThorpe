@@ -22,7 +22,7 @@ export class VistaListadousuarios_item extends LitElement {
     usuario 
   </vaadin-button>
  </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" style="flex-grow: 1; flex-shrink: 0;">
+ <vaadin-horizontal-layout theme="spacing" style="flex-grow: 1; flex-shrink: 0;" id="contenedorSeguidoresSeguidos">
   <vaadin-horizontal-layout style="align-self: center; justify-content: center; flex-grow: 0;">
    <vaadin-button tabindex="0" id="verSeguidores" style="background-color: gray !important;
   color: white !important;

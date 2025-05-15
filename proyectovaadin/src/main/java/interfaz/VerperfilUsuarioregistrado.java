@@ -19,12 +19,10 @@ public class VerperfilUsuarioregistrado extends Verperfildeusuario {
 		this.listadotweetsUsuarioregistrado.getContenedorNuevoTweet().setVisible(false);
 		this.getContenedorListadotweets().as(VerticalLayout.class).add(listadotweetsUsuarioregistrado);
 		this.getBtnBanearUsuario().setVisible(false);
-		this.getBtnEditarPerfil().setVisible(false);
-		this.getBtnEliminarPerfil().setVisible(false);
 		this.getBtnVolver().addClickListener(event -> btnVolver());
 		this.getVerSeguidores().addClickListener(event -> Verlistadodeseguidores());
 		this.getVerSeguidos().addClickListener(event -> Verlistadodeseguidos());
-		this.getVerMegustas().addClickListener(event -> Retweets(this._retweets));
+		this.getVerRetweets().addClickListener(event -> Retweets(this._retweets));
 	}
 	
 	public VerperfilUsuarioregistrado(ListadotweetsUsuarioregistrado listadotweetsUsuarioregistrado) {

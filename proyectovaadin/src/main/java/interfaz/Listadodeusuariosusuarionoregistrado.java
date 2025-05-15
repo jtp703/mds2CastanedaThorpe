@@ -5,7 +5,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 public class Listadodeusuariosusuarionoregistrado extends Listadousuarios {
 	//confirmar si es necesario verlistadoglobaldeusuariosUsuarioNOregistrado especifico en lugar de usuario registrados
 	public VerlistadoglobaldeusuariosUsuarionoregistrado _verlistadoglobaldeusuariosUsuarionoregistrado;
-	public Listadodeusuariosusuarionoregistrado_item _item;
+	public Listadodeusuariosusuarionoregistrado_item _listadodeusuariosusuarionoregistrado;
 	
 	public Listadodeusuariosusuarionoregistrado(VerlistadoglobaldeusuariosUsuarionoregistrado _verlistadoglobaldeusuariosUsuarionoregistrado){
 		super(_verlistadoglobaldeusuariosUsuarionoregistrado);

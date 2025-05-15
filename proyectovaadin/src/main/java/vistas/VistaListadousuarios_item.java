@@ -13,7 +13,6 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 @JsModule("./views/vista-listadousuarios_item.ts")
 public class VistaListadousuarios_item extends LitTemplate {
 
-
 	@Id("_LayoutUsuario")
 	private HorizontalLayout _LayoutUsuario;
 	@Id("SeguirUsuario")
@@ -24,10 +23,19 @@ public class VistaListadousuarios_item extends LitTemplate {
 	private Button verSeguidos;
 	@Id("verperfil")
 	private Button verperfil;
-
+	@Id("contenedorSeguidoresSeguidos")
+	private HorizontalLayout contenedorSeguidoresSeguidos;
 
 	public VistaListadousuarios_item() {
 		// You can initialise any data required for the connected UI components here.
+	}
+
+	public HorizontalLayout getContenedorSeguidoresSeguidos() {
+		return contenedorSeguidoresSeguidos;
+	}
+
+	public void setContenedorSeguidoresSeguidos(HorizontalLayout contenedorSeguidoresSeguidos) {
+		this.contenedorSeguidoresSeguidos = contenedorSeguidoresSeguidos;
 	}
 
 	public Button getSeguirUsuario() {
@@ -69,5 +77,5 @@ public class VistaListadousuarios_item extends LitTemplate {
 	public void setVerperfil(Button verperfil) {
 		this.verperfil = verperfil;
 	}
-	
+
 }

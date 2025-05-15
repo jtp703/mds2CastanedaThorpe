@@ -2,13 +2,20 @@ package interfaz;
 
 import org.vaadin.example.MainView;
 
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 public class VerperfilUsuarionoregistrado extends Verperfildeusuario{
+	
 	public Usuarionoregistrado _usuarioNoRegistrado;
 	public ListadotweetsUsuarionoregistrado _listadotweetsUsuarioNoRegistrado;
+	public Verlistadodeseguidores verListadoseguidores;
+	public Verlistadodeseguidos verListadoseguidos;
 	
 	public VerperfilUsuarionoregistrado(Usuarionoregistrado _usuarioNoRegistrado) {
 		super(_usuarioNoRegistrado);
-		this._usuarioNoRegistrado = _usuarioNoRegistrado;
+		this._listadotweetsUsuarioNoRegistrado = new ListadotweetsUsuarionoregistrado(this);
+		this._listadotweetsUsuarioNoRegistrado.getContenedorNuevoTweet().setVisible(false);
+		this.getContenedorListadotweets().as(VerticalLayout.class).add(_listadotweetsUsuarioNoRegistrado);
 		this.getBtnBanearUsuario().setVisible(false);
 		this.getBtnEditarPerfil().setVisible(false);
 		this.getBtnEliminarPerfil().setVisible(false);
@@ -16,6 +23,8 @@ public class VerperfilUsuarionoregistrado extends Verperfildeusuario{
 		this.getBtnSeguir().setVisible(false);
 		
 		this.getBtnVolver().addClickListener(event -> btnVolver());
+		this.getVerSeguidores().addClickListener(event -> Verlistadodeseguidores());
+		this.getVerSeguidos().addClickListener(event -> Verlistadodeseguidos());
 	}
 	
 	public VerperfilUsuarionoregistrado(ListadotweetsUsuarionoregistrado _listadotweetsUsuarioNoRegistrado) {
@@ -38,6 +47,15 @@ public class VerperfilUsuarionoregistrado extends Verperfildeusuario{
 	private void btnVolver() {
 		MainView.Pantalla.volver();
 		System.out.println("Volver a la vista anterior desde ver perfil usuario no registrado");
+	}
+	private void Verlistadodeseguidores() {
+		verListadoseguidores = new Verlistadodeseguidores(this);
+		MainView.Pantalla.cambiarVista(verListadoseguidores);
+	}
+
+	private void Verlistadodeseguidos() {
+		verListadoseguidos = new Verlistadodeseguidos(this);
+		MainView.Pantalla.cambiarVista(verListadoseguidos);
 	}
 
 }

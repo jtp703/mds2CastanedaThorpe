@@ -25,7 +25,6 @@ public class Listadodeusuariosusuarioregistrado_item extends Listadousuarios_ite
 	
 	public void VerperfilUsuarioregistrado(Usuarioregistrado usuario) {
 		_verPerfilUsuarioregistrado = new VerperfilUsuarioregistrado(usuario);
-		System.out.println("Ejecución ver perfil de usuario");
 		MainView.Pantalla.cambiarVista(_verPerfilUsuarioregistrado);
 	}
 }
