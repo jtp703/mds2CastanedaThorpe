@@ -21,10 +21,26 @@ public class VerperfilAdministrador extends Verperfildeusuario {
 		this.getBtnSeguir().setVisible(false);
 		this.getBtnEditarPerfil().setVisible(false);
 		this.getBtnEliminarPerfil().setVisible(false);
+		this.getBtnCerrarSesion().setVisible(false);
+		
 		this.getBtnVolver().addClickListener(event -> btnVolver());
 		this.getVerSeguidores().addClickListener(event -> Verlistadodeseguidores());
 		this.getVerSeguidos().addClickListener(event -> Verlistadodeseguidos());
 		this.getBtnBanearUsuario().addClickListener(event -> Banear_usuarios());
+		//sustituir por listado filtrado de megustras
+		this.getVerMegustas().addClickListener(event -> Me_gustas(new Megustas(_listadotweetsadministrador)));
+		//sustituir por listado filtrado de retweets
+		this.getVerRetweets().addClickListener(event -> Retweets(new Retweets(_listadotweetsadministrador)));
+	}
+	
+	public void Retweets(Retweets _retweets) {
+		this.getContenedorListadotweets().as(VerticalLayout.class).removeAll();
+		this.getContenedorListadotweets().as(VerticalLayout.class).add(_retweets);
+	}
+	public void Me_gustas(Megustas _megustas) {
+		this.getContenedorListadotweets().as(VerticalLayout.class).removeAll();
+		this.getContenedorListadotweets().as(VerticalLayout.class).add(_megustas);
+		
 	}
 
 	public void Banear_usuarios() {

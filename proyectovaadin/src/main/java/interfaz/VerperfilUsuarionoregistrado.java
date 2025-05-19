@@ -21,7 +21,7 @@ public class VerperfilUsuarionoregistrado extends Verperfildeusuario{
 		this.getBtnEliminarPerfil().setVisible(false);
 		this.getBtnBloquear().setVisible(false);
 		this.getBtnSeguir().setVisible(false);
-		
+		this.getBtnCerrarSesion().setVisible(false);
 		this.getBtnVolver().addClickListener(event -> btnVolver());
 		this.getVerSeguidores().addClickListener(event -> Verlistadodeseguidores());
 		this.getVerSeguidos().addClickListener(event -> Verlistadodeseguidos());
