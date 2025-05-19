@@ -8,9 +8,9 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
 	//	private event _darmegusta;
 	//	private label _nickUsuario;
 	//	private image _perfilUsuario;
-	private int _numRetweets;
-	private int _numComentarios;
-	private boolean megusta = false;
+	// private int _numRetweets;
+	//private int _numComentarios;
+
 	
 	//public ListadotweetsUsuarioregistrado _listadotweetsUsuarioregistrado;
 	public VercomentariosUsuarioregistrado _vercomentariosUsuarioregistrado;
@@ -18,9 +18,10 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
 	public Usuarioregistrado usuario;
 	public VerperfilUsuarioregistrado _verperfilUsuarioregistrado;
 	private boolean retweeteado = false;
+	private boolean megusta = false;
 	
-	ListadotweetsUsuarioregistrado_item(ListadotweetsUsuarioregistrado listadotweetsUsuarioregistrado) {
-		super(listadotweetsUsuarioregistrado);
+	ListadotweetsUsuarioregistrado_item(ListadotweetsUsuarioregistrado listadotweetsUsuarioregistrado, base_de_datos.Tweet tweet) {
+		super(listadotweetsUsuarioregistrado, tweet);
 		this.getBtnEliminarTweet().setVisible(false);
 		this.getVerperfil().setText("Lacacitos");
 		this.getTextoTweet().setText("Hola, soy un tweet de prueba");
@@ -35,10 +36,6 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
 		this.getBtnEliminarTweet().setVisible(false);
 	}
 	
-	/*ListadotweetsUsuarioregistrado_item(Usuarioregistrado usu) {
-		super();
-		usuario=usu;
-	}*/
 	public void Darmegusta() {
 		megusta = !megusta; // invierte el estado
 

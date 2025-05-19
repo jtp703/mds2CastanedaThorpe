@@ -16,8 +16,12 @@ public class Administrador extends Cibernauta {
 	public VerlistadoglobaldeusuariosAdministrador _verlistadoglobaldeusuariosAdministrador;
 //	public VerperfilAdministrador _verperfilAdministrador;
 	public Usuarionoregistrado usuarioNoRegistrado;
-	public Administrador(MainView MainView) {
+	
+	public base_de_datos.Administrador admin;
+	
+	public Administrador(MainView MainView, base_de_datos.Administrador admin) {
 		super(MainView);
+		this.admin = admin;
 		this.getContenedorRegistro().setVisible(false);
 		this.getVerPerfilPersonal().setVisible(false);
 		this.getVerNotificaciones().setVisible(false);

@@ -8,20 +8,22 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.tabs.Tab;
 
 public class Usuarioregistrado extends Cibernauta {
-//	public iUsuarioregistrado _iUsuarioregistrado;
+
 	public Notificacionesdeusuario _notificacionesdeusuario;
 	public VermuroprincipalUsuarioregistrado _vermuroprincipalUsuarioregistrado;
 	public VerListadohashtags _verlistadohashtags;
-//	public VerlistadodetweetsfiltradoUsuarioregistrado _verlistadodetweetsfiltradoUsuarioregistrado;
 	public VerlistadoglobaldeusuariosUsuarioregistrado _verlistadoglobaldeusuariosUsuarioregistrado;
 	public Verperfilpersonal _verperfilpersonal;
 
-	public Usuarioregistrado(MainView mainView) {
+	public base_de_datos.Usuario usuarioregistrado;
+	
+	public Usuarioregistrado(MainView mainView, base_de_datos.Usuario usuarioregistrado) {
 		super(mainView);
+		this.usuarioregistrado = usuarioregistrado;
+		
 		this.getContenedorRegistro().setVisible(false);
 		this.getBtnCerrrarSesion().setVisible(false);
-		//VermuroprincipalUsuarioregistrado();
-		System.out.println("Ejecucion clase usuario");
+
 		this.getVerMuroPrincipal().addClickListener(event -> VermuroprincipalUsuarioregistrado());
 		this.getVerListadoUsuarios().addClickListener(event -> VerlistadoglobaldeusuariosUsuarioregistrado());
 		this.getVerListadoHashtags().addClickListener(event -> VerListadohashtags());
