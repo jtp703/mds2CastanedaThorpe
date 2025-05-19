@@ -17,6 +17,7 @@ public class Usuarionoregistrado extends Cibernauta {
 		super(MainView);
 		this.getContenedorVerPerfilPersonal().setVisible(false);
 		this.getVerNotificaciones().setVisible(false);
+		this.getBtnCerrrarSesion().setVisible(false);
 		this.getVerMuroPrincipal().addClickListener(event -> VermuroprincipalUsuarioregistrado());
 		this.getVerListadoUsuarios().addClickListener(event -> VerlistadoglobaldeusuariosUsuarioregistrado());
 		this.getVerListadoHashtags().addClickListener(event -> VerListadohashtags());

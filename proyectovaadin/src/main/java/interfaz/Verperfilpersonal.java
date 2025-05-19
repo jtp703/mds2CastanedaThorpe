@@ -7,6 +7,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 public class Verperfilpersonal extends Verperfildeusuario {
 //	private event _cerrar_sesion__Usuario_registrado_;
 	public Usuarioregistrado usuarioregistrado;
+	public Usuarionoregistrado _usuarioNoRegistrado;
 	public Eliminarperfil _eliminarperfil;
 	public Editarperfil _editarperfil;
 	
@@ -19,6 +20,7 @@ public class Verperfilpersonal extends Verperfildeusuario {
 		this.getBtnVolver().addClickListener(event -> btnVolver());
 		this.getBtnEliminarPerfil().addClickListener(event -> Eliminar_perfil());
 		this.getBtnEditarPerfil().addClickListener(event -> Editar_perfil());
+		_usuarioNoRegistrado = new Usuarionoregistrado(new MainView());
 	}
 
 	public void Eliminar_perfil() {
@@ -32,8 +34,8 @@ public class Verperfilpersonal extends Verperfildeusuario {
 		MainView.Pantalla.cambiarVista(_editarperfil);
 	}
 
-	public void Cerrar_sesion__Usuario_registrado_() {
-		throw new UnsupportedOperationException();
+	public void Cerrar_sesion__Usuario_registrado_(Usuarionoregistrado usuarioNoRegistrado) {
+		MainView.Pantalla.cambiarVista(usuarioNoRegistrado);
 	}
 	
 	private void btnVolver() {

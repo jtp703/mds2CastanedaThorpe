@@ -39,6 +39,8 @@ public class VistaCibernauta extends LitTemplate {
 	private HorizontalLayout contenedorRegistro;
 	@Id("verPerfilPersonal")
 	private Button verPerfilPersonal;
+	@Id("btnCerrrarSesion")
+	private Button btnCerrrarSesion;
 
 	public VistaCibernauta() {
 		// You can initialise any data required for the connected UI components here.
@@ -131,5 +133,11 @@ public class VistaCibernauta extends LitTemplate {
 	public void setVerNotificaciones(Button verNotificaciones) {
 		this.verNotificaciones = verNotificaciones;
 	}
-
+	
+	public Button getBtnCerrrarSesion() {
+		return btnCerrrarSesion;
+	}
+	public void setBtnCerrrarSesion(Button btnCerrrarSesion) {
+		this.btnCerrrarSesion = btnCerrrarSesion;
+	}
 }

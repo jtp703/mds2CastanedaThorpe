@@ -15,7 +15,7 @@ public class Administrador extends Cibernauta {
 	public VerListadohashtags _verlistadohashtags;
 	public VerlistadoglobaldeusuariosAdministrador _verlistadoglobaldeusuariosAdministrador;
 //	public VerperfilAdministrador _verperfilAdministrador;
-
+	public Usuarionoregistrado usuarioNoRegistrado;
 	public Administrador(MainView MainView) {
 		super(MainView);
 		this.getContenedorRegistro().setVisible(false);
@@ -24,7 +24,10 @@ public class Administrador extends Cibernauta {
 		this.getVerMuroPrincipal().addClickListener(event -> VermuroprincipalAdministrador());
 		this.getVerListadoUsuarios().addClickListener(event -> VerlistadoglobaldeusuariosUsuarioregistrado());
 		this.getVerListadoHashtags().addClickListener(event -> VerListadohashtags());
+		usuarioNoRegistrado = new Usuarionoregistrado(MainView);
+		this.getBtnCerrrarSesion().addClickListener(event -> CerrarsesionAdministrador(usuarioNoRegistrado));
 	}
+
 
 	public void VermuroprincipalAdministrador() {
 		this.getContenedorContenido().as(VerticalLayout.class).removeAll();
@@ -32,8 +35,8 @@ public class Administrador extends Cibernauta {
 		this.getContenedorContenido().as(VerticalLayout.class).add(_vermuroprincipalAdministrador);
 	}
 
-	public void CerrarsesionAdministrador() {
-		throw new UnsupportedOperationException();
+	public void CerrarsesionAdministrador(Usuarionoregistrado usuarioNoRegistrado) {
+		MainView.Pantalla.cambiarVista(usuarioNoRegistrado);
 	}
 
 	public void VerlistadoglobaldeusuariosUsuarioregistrado() {

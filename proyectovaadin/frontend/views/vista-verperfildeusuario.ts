@@ -1,5 +1,4 @@
 import { LitElement, html, css, customElement } from 'lit-element';
-import '@vaadin/icon/src/vaadin-icon.js';
 import '@vaadin/vertical-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/horizontal-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
@@ -30,20 +29,17 @@ export class VistaVerperfildeusuario extends LitElement {
  </vaadin-vertical-layout>
  <vaadin-horizontal-layout theme="spacing" style="align-self: stretch; margin-left: var(--lumo-space-m); margin-right: var(--lumo-space-l);">
   <vaadin-button id="btnVolver" style="align-self: center;" tabindex="0">
-   volver
+    volver 
   </vaadin-button>
   <vaadin-vertical-layout theme="spacing">
-   <vaadin-button id="btnSeguir" style="align-self: stretch;" tabindex="0">
+   <vaadin-button id="btnSeguir" style="align-self: stretch;" tabindex="0" vaadin-icon="" icon="vaadin:check">
      Seguir 
-    <vaadin-icon icon="vaadin:user-check"></vaadin-icon>
    </vaadin-button>
    <vaadin-button tabindex="0" id="btnBloquear" style="align-self: stretch;">
      Bloquear 
-    <vaadin-icon icon="vaadin:ban"></vaadin-icon>
    </vaadin-button>
    <vaadin-button tabindex="0" id="btnBanearUsuario" style="align-self: stretch;">
      Banear 
-    <vaadin-icon icon="vaadin:ban"></vaadin-icon>
    </vaadin-button>
   </vaadin-vertical-layout>
   <vaadin-horizontal-layout theme="spacing" style="flex-grow: 0; width: 50%;">

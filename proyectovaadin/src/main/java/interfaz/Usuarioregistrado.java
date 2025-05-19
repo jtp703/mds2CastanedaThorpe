@@ -19,6 +19,7 @@ public class Usuarioregistrado extends Cibernauta {
 	public Usuarioregistrado(MainView mainView) {
 		super(mainView);
 		this.getContenedorRegistro().setVisible(false);
+		this.getBtnCerrrarSesion().setVisible(false);
 		//VermuroprincipalUsuarioregistrado();
 		System.out.println("Ejecucion clase usuario");
 		this.getVerMuroPrincipal().addClickListener(event -> VermuroprincipalUsuarioregistrado());

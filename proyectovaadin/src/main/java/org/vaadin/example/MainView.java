@@ -112,7 +112,9 @@ import interfaz.VerperfilAdministrador;
 
 public class MainView extends VerticalLayout {
 
-
+	public MainView() {
+		
+	}
     public static class Pantalla{
 		public static VerticalLayout MainView;
 

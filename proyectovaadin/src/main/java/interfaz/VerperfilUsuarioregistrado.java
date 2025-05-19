@@ -1,6 +1,8 @@
 package interfaz;
 
 import org.vaadin.example.MainView;
+import com.vaadin.flow.component.icon.Icon;
+import com.vaadin.flow.component.icon.VaadinIcon;
 
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
@@ -13,16 +15,27 @@ public class VerperfilUsuarioregistrado extends Verperfildeusuario {
 	public Verlistadodeseguidores verListadoseguidores;
 	public Verlistadodeseguidos verListadoseguidos;
 	
+	private Icon iconoSeguir;
+	private Icon iconoBloquear;
+	
+	
 	public VerperfilUsuarioregistrado(Usuarioregistrado usuarioregistrado) {
 		super(usuarioregistrado);
 		this.listadotweetsUsuarioregistrado = new ListadotweetsUsuarioregistrado(this);
 		this.listadotweetsUsuarioregistrado.getContenedorNuevoTweet().setVisible(false);
 		this.getContenedorListadotweets().as(VerticalLayout.class).add(listadotweetsUsuarioregistrado);
 		this.getBtnBanearUsuario().setVisible(false);
+		
+		iconoSeguir = new Icon(VaadinIcon.USER_CHECK); // estado inicial: "no siguiendo"
+		this.getBtnSeguir().setIcon(iconoSeguir);
+		iconoBloquear = new Icon(VaadinIcon.BAN); // estado inicial: "no bloqueado"
+		this.getBtnBloquear().setIcon(iconoBloquear);
 		this.getBtnVolver().addClickListener(event -> btnVolver());
 		this.getVerSeguidores().addClickListener(event -> Verlistadodeseguidores());
 		this.getVerSeguidos().addClickListener(event -> Verlistadodeseguidos());
 		this.getVerRetweets().addClickListener(event -> Retweets(this._retweets));
+		this.getBtnBloquear().addClickListener(event -> Bloquear_usuario());
+		this.getBtnSeguir().addClickListener(event -> Seguir_usuario_desde_perfil());
 	}
 	
 	public VerperfilUsuarioregistrado(ListadotweetsUsuarioregistrado listadotweetsUsuarioregistrado) {
@@ -42,12 +55,40 @@ public class VerperfilUsuarioregistrado extends Verperfildeusuario {
 		this._listadotweets = _listadotweets;
 	}
 	public void Bloquear_usuario() {
-		throw new UnsupportedOperationException();
+	    boolean bloqueado = iconoBloquear.getElement().getAttribute("icon")
+	        .equals("vaadin:" + VaadinIcon.BAN.name().toLowerCase());
+
+	    if (bloqueado) {
+	        iconoBloquear = new Icon(VaadinIcon.CHECK);
+	        getBtnBloquear().setIcon(iconoBloquear);
+	        getBtnBloquear().setText("Desbloquear");
+	        getBtnBloquear().getStyle().set("color", "red");
+	    } else {
+	        iconoBloquear = new Icon(VaadinIcon.BAN);
+	        getBtnBloquear().setIcon(iconoBloquear);
+	        getBtnBloquear().setText("Bloquear");
+	        getBtnBloquear().getStyle().set("color", "black");
+	    }
 	}
 
 	public void Seguir_usuario_desde_perfil() {
-		throw new UnsupportedOperationException();
+	    boolean siguiendo = iconoSeguir.getElement().getAttribute("icon")
+	        .equals("vaadin:" + VaadinIcon.USER_CHECK.name().toLowerCase());
+
+	    if (siguiendo) {
+	        iconoSeguir = new Icon(VaadinIcon.USER);
+	        getBtnSeguir().setIcon(iconoSeguir);
+	        getBtnSeguir().setText("Siguiendo");
+	        getBtnSeguir().getStyle().set("color", "blue");
+	    } else {
+	        iconoSeguir = new Icon(VaadinIcon.USER_CHECK);
+	        getBtnSeguir().setIcon(iconoSeguir);
+	        getBtnSeguir().setText("Seguir");
+	        getBtnSeguir().getStyle().set("color", "green");
+	    }
 	}
+
+
 
 	public void VerListadoTweets() {
 		throw new UnsupportedOperationException();

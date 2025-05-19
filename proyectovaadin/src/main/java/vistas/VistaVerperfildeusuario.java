@@ -10,6 +10,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.tabs.Tab;
+import com.vaadin.flow.component.icon.Icon;
 
 @Tag("vista-verperfildeusuario")
 @JsModule("./views/vista-verperfildeusuario.ts")
@@ -159,8 +160,6 @@ public class VistaVerperfildeusuario extends LitTemplate {
 	}
 	public void setVerMegustas(Button verMegustas) {
 		this.verMegustas = verMegustas;
-	}
-	
-	
+	}	
 	
 }

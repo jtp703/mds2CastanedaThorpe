@@ -18,7 +18,6 @@ public class ListadotweetsUsuarioregistrado extends Listadotweets {
 		ListadotweetsUsuarioregistrado_item item2 = new ListadotweetsUsuarioregistrado_item(this);
 		this.getContenedorListadoTweets_item().as(VerticalLayout.class).add(item2);
 		
-		
 	}
 	
 	public ListadotweetsUsuarioregistrado(VerlistadodetweetsfiltradoUsuarioregistrado _verlistadodetweetsfiltradoUsuarioregistrado) {
