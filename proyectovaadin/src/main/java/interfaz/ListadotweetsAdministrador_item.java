@@ -18,6 +18,14 @@ public class ListadotweetsAdministrador_item extends Listadotweets_item {
 		this.getComentar().addClickListener(event -> VercomentariosAdministrador());
 	}
 	
+	public ListadotweetsAdministrador_item(VercomentariosAdminstrador _vercomentariosAdminstrador) {
+		super(_vercomentariosAdminstrador);
+		this.getDarRetweet().setVisible(false);
+		this.getMeGusta().setVisible(false);
+		this.getVerperfil().addClickListener(event -> verPerfilUsuarioNoRegistrado());
+		this.getComentar().addClickListener(event -> VercomentariosAdministrador());
+	}
+	
 	public void Eliminartweet() {
 		throw new UnsupportedOperationException();
 	}

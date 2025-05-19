@@ -17,5 +17,4 @@ public class ListadocomentariosAdministrador extends Listadocomentarios {
 		this._item = new ListadocomentariosAdministrador_item(this);
 		this.getContenedorComentariosItem().as(VerticalLayout.class).add(this._item);
 	}
-	
 }

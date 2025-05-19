@@ -17,6 +17,7 @@ public class ListadotweetsUsuarionoregistrado_item extends Listadotweets_item {
 		this.getDarRetweet().setVisible(false);
 		this.getMeGusta().setVisible(false);
 		this.getVerperfil().addClickListener(event -> verPerfilUsuarioNoRegistrado());
+		this.getComentar().addClickListener(event -> verComentariosUsuarioNoRegistrado());
 	}
 	
 	public ListadotweetsUsuarionoregistrado_item(VercomentariosUsuarionoregistrado _vercomentariosUsuarionoregistrado) {
@@ -24,6 +25,8 @@ public class ListadotweetsUsuarionoregistrado_item extends Listadotweets_item {
 		this.getBtnEliminarTweet().setVisible(false);
 		this.getDarRetweet().setVisible(false);
 		this.getMeGusta().setVisible(false);
+		this.getVerperfil().addClickListener(event -> verPerfilUsuarioNoRegistrado());
+		this.getComentar().addClickListener(event -> verComentariosUsuarioNoRegistrado());
 	}
 	
 	//Probablemente deba ser especifico para el no registrado, pero aun no se sabe
