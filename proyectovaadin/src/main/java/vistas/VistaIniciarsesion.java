@@ -20,6 +20,8 @@ public class VistaIniciarsesion extends LitTemplate {
 	private Button btnIniciarSesionGoogle;
 	@Id("recuperarContrasenia")
 	private Element recuperarContrasenia;
+	@Id("btnVolver")
+	private Button btnVolver;
 
 	public VistaIniciarsesion() {
 		// You can initialise any data required for the connected UI components here.
@@ -56,5 +58,11 @@ public class VistaIniciarsesion extends LitTemplate {
 	public void setRecuperarContrasenia(Element recuperarContrasenia) {
 		this.recuperarContrasenia = recuperarContrasenia;
 	}
-
+	
+	public Button getBtnVolver() {
+		return btnVolver;
+	}
+	public void setBtnVolver(Button btnVolver) {
+		this.btnVolver = btnVolver;
+	}
 }

@@ -16,7 +16,8 @@ public class ListadocomentariosAdministrador_item extends Listadocomentarios_ite
 	}
 
 	public void Eliminar_Comentario() {
-		this.getContenedorcontenido().as(VerticalLayout.class).removeAll();
+		//eliminar comentario debera eliminar el comentario de la base de datos y la referencia sera este mismo item
+		this.getContenedorcontenido().as(VerticalLayout.class).remove(this);
 	}
 
 }

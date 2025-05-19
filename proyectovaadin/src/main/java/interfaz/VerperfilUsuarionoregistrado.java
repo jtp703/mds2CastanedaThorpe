@@ -25,6 +25,10 @@ public class VerperfilUsuarionoregistrado extends Verperfildeusuario{
 		this.getBtnVolver().addClickListener(event -> btnVolver());
 		this.getVerSeguidores().addClickListener(event -> Verlistadodeseguidores());
 		this.getVerSeguidos().addClickListener(event -> Verlistadodeseguidos());
+		//sustiuir por listado filtrado de megustras
+		this.getVerMegustas().addClickListener(event -> Me_gustas(new Megustas(_listadotweetsUsuarioNoRegistrado)));
+		//sustituir por listado filtrado de retweets
+		this.getVerRetweets().addClickListener(event -> Retweets(new Retweets(_listadotweetsUsuarioNoRegistrado)));
 	}
 	
 	public VerperfilUsuarionoregistrado(ListadotweetsUsuarionoregistrado _listadotweetsUsuarioNoRegistrado) {
@@ -32,10 +36,13 @@ public class VerperfilUsuarionoregistrado extends Verperfildeusuario{
 	}
 	
 	public void Retweets(Retweets _retweets) {
-		this._retweets = _retweets;
+		this.getContenedorListadotweets().as(VerticalLayout.class).removeAll();
+		this.getContenedorListadotweets().as(VerticalLayout.class).add(_retweets);
 	}
 	public void Me_gustas(Megustas _megustas) {
-		this._megustas = _megustas;
+		this.getContenedorListadotweets().as(VerticalLayout.class).removeAll();
+		this.getContenedorListadotweets().as(VerticalLayout.class).add(_megustas);
+		
 	}
 	public void Ver_Listado(Verlistado _verlistado) {
 		this._verlistado = _verlistado;

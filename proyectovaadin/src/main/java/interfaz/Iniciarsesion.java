@@ -18,6 +18,7 @@ public class Iniciarsesion extends VistaIniciarsesion{
 	public Iniciarsesion(Registrarse _registrarse) {
 		this._registrarse = _registrarse;
 		this.getBtnIniciarSesion().addClickListener(evetn -> Validardatosdelogin());
+		this.getBtnVolver().addClickListener(event -> Volver());
 	}
 	
 	public Iniciarsesion(Recuperarcontrasenia _recuperarcontrasenia) {
@@ -27,5 +28,8 @@ public class Iniciarsesion extends VistaIniciarsesion{
 	public void Validardatosdelogin() {
 		this.getContenedorIniciarSesion().as(VerticalLayout.class).removeAll();
 		
+	}
+	private void Volver() {
+		MainView.Pantalla.volver();
 	}
 }

@@ -39,6 +39,8 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
 		super();
 		usuario=usu;
 	}*/
+	
+	
 	public void Darmegusta() {
 		megusta = !megusta; // invierte el estado
 

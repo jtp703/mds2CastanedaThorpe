@@ -17,7 +17,7 @@ public class ListadocomentariosUsuarioregistrado_item extends Listadocomentarios
 	}
 
 	public void Darmegustaacomentario() {
-		megusta = !megusta; // invierte el estado
+		megusta = !megusta;
 
 		if (megusta) {
 			System.out.println("Comentario gustado");

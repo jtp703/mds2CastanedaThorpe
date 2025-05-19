@@ -26,13 +26,16 @@ export class VistaIniciarsesion extends LitElement {
    <vaadin-text-field label="Contraseña" type="text" id="contrasenia" style="align-self: center;"></vaadin-text-field>
    <vaadin-horizontal-layout theme="spacing" style="align-self: center;">
     <vaadin-button id="btnIniciarSesion" tabindex="0">
-     Acceder a x
+      Acceder a x 
     </vaadin-button>
     <vaadin-button tabindex="0" id="btnIniciarSesionGoogle">
-     Iniciar sesión con google
+      Iniciar sesión con google 
     </vaadin-button>
    </vaadin-horizontal-layout>
    <a href="https://vaadin.com" id="recuperarContrasenia" style="align-self: center;">¿Olvidaste tu contraseña?</a>
+   <vaadin-button id="btnVolver" tabindex="0">
+    Volver
+   </vaadin-button>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>

@@ -24,5 +24,5 @@ public class VermuroprincipalUsuarioregistrado extends Vermuroprincipal {
 
 	/*public void ListadotweetsUsuarioregistrado() {
 		throw new UnsupportedOperationException();
-	}*/
+	}*/ 
 }

@@ -13,10 +13,6 @@ public class VistaRetweets extends LitTemplate {
 
     @Id("contenedorRetweets")
 	private Element contenedorRetweets;
-	@Id("btnCerrar")
-	private Button btnCerrar;
-	@Id("contenedorListadoRetweets")
-	private Element contenedorListadoRetweets;
 
 	
 	public Element getContenedorRetweets() {
@@ -26,26 +22,6 @@ public class VistaRetweets extends LitTemplate {
 
 	public void setContenedorRetweets(Element contenedorRetweets) {
 		this.contenedorRetweets = contenedorRetweets;
-	}
-
-
-	public Button getBtnCerrar() {
-		return btnCerrar;
-	}
-
-
-	public void setBtnCerrar(Button btnCerrar) {
-		this.btnCerrar = btnCerrar;
-	}
-
-
-	public Element getContenedorListadoRetweets() {
-		return contenedorListadoRetweets;
-	}
-
-
-	public void setContenedorListadoRetweets(Element contenedorListadoRetweets) {
-		this.contenedorListadoRetweets = contenedorListadoRetweets;
 	}
 
 

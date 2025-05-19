@@ -4,8 +4,8 @@ import '@vaadin/horizontal-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vertical-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/avatar/src/vaadin-avatar.js';
 import '@vaadin/icon/src/vaadin-icon.js';
-import '@vaadin/button/src/vaadin-button.js';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout.js';
+import '@vaadin/button/src/vaadin-button.js';
 
 @customElement('vista-listadotweets_item')
 export class VistaListadotweets_item extends LitElement {
@@ -36,34 +36,19 @@ export class VistaListadotweets_item extends LitElement {
     <vaadin-vertical-layout id="idMegustaLayout" style="margin: var(--lumo-space-s); justify-content: center;">
      <vaadin-horizontal-layout>
       <vaadin-icon style="align-self: center;" icon="vaadin:heart" size="16" id="meGusta"></vaadin-icon>
-      <a href="https://vaadin.com" style="background-color: gray !important; 
-color: white !important; 
-border-radius: 999px; 
-padding: 2px 8px; 
-font-size: 12px; 
-font-weight: bold;flex-grow: 0; margin: var(--lumo-space-m);" id="verMegustas">0</a>
+      <label id="nMegustas" style="margin-left: var(--lumo-space-m);">0</label>
      </vaadin-horizontal-layout>
     </vaadin-vertical-layout>
     <vaadin-vertical-layout id="idMegustaLayout" style="margin: var(--lumo-space-s); justify-content: center;">
      <vaadin-horizontal-layout>
       <vaadin-icon style="align-self: center;" icon="vaadin:retweet" size="16" id="darRetweet"></vaadin-icon>
-      <a href="https://vaadin.com" id="verRetweet" style="background-color: gray !important; 
-color: white !important; 
-border-radius: 999px; 
-padding: 2px 8px; 
-font-size: 12px; 
-font-weight: bold;flex-grow: 0; margin: var(--lumo-space-m);">0</a>
+      <label style="margin-left: var(--lumo-space-m);" id="nRetweets">0</label>
      </vaadin-horizontal-layout>
     </vaadin-vertical-layout>
     <vaadin-vertical-layout id="idMegustaLayout" style="margin: var(--lumo-space-s); justify-content: center;">
      <vaadin-horizontal-layout>
       <vaadin-icon style="align-self: center;" icon="vaadin:comment" size="16" id="comentar"></vaadin-icon>
-      <a href="https://vaadin.com" style="background-color: gray !important; 
-color: white !important; 
-border-radius: 999px; 
-padding: 2px 8px; 
-font-size: 12px; 
-font-weight: bold;flex-grow: 0; margin: var(--lumo-space-m);" id="verUsuariosComentarios">0</a>
+      <label style="margin-left: var(--lumo-space-m);" id="nComentarios">0</label>
      </vaadin-horizontal-layout>
     </vaadin-vertical-layout>
    </vaadin-horizontal-layout>
