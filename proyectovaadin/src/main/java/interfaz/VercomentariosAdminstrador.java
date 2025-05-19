@@ -10,9 +10,6 @@ public class VercomentariosAdminstrador extends Vercomentarios {
 	public ListadotweetsAdministrador_item _item;
 	public ListadotweetsAdministrador listado;
 	
-	public VercomentariosAdminstrador() {
-	}
-	
 	public VercomentariosAdminstrador(ListadocomentariosAdministrador _listadocomentariosAdministrador) {
 		super(_listadocomentariosAdministrador);
 		ListadotweetsAdministrador_item item = new ListadotweetsAdministrador_item(listado);

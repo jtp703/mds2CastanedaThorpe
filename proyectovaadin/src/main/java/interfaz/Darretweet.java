@@ -11,14 +11,14 @@ public class Darretweet extends VistaDarretweet {
 	private label _nickUsuario;
 	private image _perfilUsuario;
 	private textField _texto;*/
-	public ListadotweetsUsuarioregistrado_item _listadotweetsUsuarioregistrado;
+	public ListadotweetsUsuarioregistrado_item _listadotweetsUsuarioregistrado_item;
 	//public ListadotweetsUsuarioregistrado ltur;
 	private boolean retweet = false;
 
 	public Darretweet(ListadotweetsUsuarioregistrado_item listadotweetsUsuarioregistrado_item){
-		this._listadotweetsUsuarioregistrado = listadotweetsUsuarioregistrado_item;
-		String autor = _listadotweetsUsuarioregistrado.getNombreUsuario();
-	    String texto = _listadotweetsUsuarioregistrado.getContenidoTexto();
+		this._listadotweetsUsuarioregistrado_item = listadotweetsUsuarioregistrado_item;
+		String autor = _listadotweetsUsuarioregistrado_item.getNombreUsuario();
+	    String texto = _listadotweetsUsuarioregistrado_item.getContenidoTexto();
 
 	    Paragraph lblAutor = new Paragraph("@" + autor);
 	    Paragraph lblTexto = new Paragraph(texto);
@@ -33,8 +33,7 @@ public class Darretweet extends VistaDarretweet {
 	
 	
 	public void Enviarretweet() {
-		_listadotweetsUsuarioregistrado.marcarRetweet();
-		System.out.println("Retweet enviado");
+		_listadotweetsUsuarioregistrado_item.marcarRetweet();
 	}
 	
 	private void btnVolver() {

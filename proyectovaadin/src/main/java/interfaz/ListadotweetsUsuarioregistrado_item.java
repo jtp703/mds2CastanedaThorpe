@@ -52,7 +52,7 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
 	}
 
 	public void VercomentariosUsuarioregistrado() {
-		_vercomentariosUsuarioregistrado = new VercomentariosUsuarioregistrado(this);
+		this._vercomentariosUsuarioregistrado = new VercomentariosUsuarioregistrado(this);
 		MainView.Pantalla.cambiarVista(_vercomentariosUsuarioregistrado);
 	}
 

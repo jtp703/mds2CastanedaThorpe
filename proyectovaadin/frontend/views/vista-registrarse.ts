@@ -3,8 +3,8 @@ import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/horizontal-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vertical-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/text-field/src/vaadin-text-field.js';
-import '@vaadin/text-area/src/vaadin-text-area.js';
 import '@vaadin/button/src/vaadin-button.js';
+import '@vaadin/text-area/src/vaadin-text-area.js';
 
 @customElement('vista-registrarse')
 export class VistaRegistrarse extends LitElement {
@@ -37,12 +37,14 @@ export class VistaRegistrarse extends LitElement {
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout theme="spacing">
     <vaadin-button id="btnVolver" tabindex="0">
-     Volver
+      Volver 
     </vaadin-button>
     <vaadin-button tabindex="0" id="btnRegistrarse">
-     Acceder a X
+      Acceder a X 
     </vaadin-button>
-    <a href="https://vaadin.com" id="iniciarSesion" style="align-self: center;">Inicia sesión aqui</a>
+    <vaadin-button id="iniciarsesion" tabindex="0">
+     Iniciar sesión aquí
+    </vaadin-button>
    </vaadin-horizontal-layout>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>

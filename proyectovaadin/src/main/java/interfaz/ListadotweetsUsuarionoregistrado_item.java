@@ -28,7 +28,8 @@ public class ListadotweetsUsuarionoregistrado_item extends Listadotweets_item {
 	
 	//Probablemente deba ser especifico para el no registrado, pero aun no se sabe
 	public void verComentariosUsuarioNoRegistrado() {
-		throw new UnsupportedOperationException();
+		this._vercomentariosUsuarionoregistrado = new VercomentariosUsuarionoregistrado(this);
+		MainView.Pantalla.cambiarVista(this._vercomentariosUsuarionoregistrado);
 	}
 	
 	private void verPerfilUsuarioNoRegistrado() {

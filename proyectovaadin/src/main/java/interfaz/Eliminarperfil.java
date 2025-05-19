@@ -11,14 +11,14 @@ public class Eliminarperfil extends VistaEliminarperfil {
 	public Eliminarperfil(Verperfilpersonal _verperfilpersonal) {
 		this._verperfilpersonal = _verperfilpersonal;
 		this.getBtnVolver().addClickListener(event -> btnVolver());
+		this.getBtnEliminarCuenta().addClickListener(evet -> Validar_datos());
 	}
 	
 	private void btnVolver() {
 		MainView.Pantalla.volver();
-	    System.out.println("Volver a la vista anterior desde eliminar perfil");
 	}
 	
 	public void Validar_datos() {
-		throw new UnsupportedOperationException();
+		MainView.Pantalla.volver();
 	}
 }

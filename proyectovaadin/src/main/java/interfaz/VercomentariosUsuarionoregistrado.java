@@ -9,9 +9,6 @@ public class VercomentariosUsuarionoregistrado extends Vercomentarios {
 	public ListadotweetsUsuarionoregistrado_item _listadotweetsUsuarionoregistradoitem;
 	public ListadocomentariosUsuarionoregistrado _listadocomentariosUsuarionoregistrado;
 	
-	public VercomentariosUsuarionoregistrado() {
-	}
-	
 	public VercomentariosUsuarionoregistrado(ListadocomentariosUsuarionoregistrado _listadocomentariosUsuarionoregistrado) {
 		super(_listadocomentariosUsuarionoregistrado);
 		ListadotweetsUsuarionoregistrado_item item = new ListadotweetsUsuarionoregistrado_item(this);
@@ -21,7 +18,7 @@ public class VercomentariosUsuarionoregistrado extends Vercomentarios {
 		this.getBtnVovler().addClickListener(event -> btnVolver());
 	}
 	
-	public VercomentariosUsuarionoregistrado(ListadotweetsUsuarioregistrado_item _listadotweetsUsuarionoregistradoitem) {
+	public VercomentariosUsuarionoregistrado(ListadotweetsUsuarionoregistrado_item _listadotweetsUsuarionoregistradoitem) {
 		super(_listadotweetsUsuarionoregistradoitem);
 		ListadotweetsUsuarionoregistrado_item item = new ListadotweetsUsuarionoregistrado_item(this);
 		this.getContenedorTweet().as(VerticalLayout.class).add(item);

@@ -14,14 +14,14 @@ public class Banearusuario extends VistaBanearusuario{
 	public Banearusuario(VerperfilAdministrador _verperfilAdministrador) {
 		this._verperfilAdministrador = _verperfilAdministrador;
 		this.getBtnVolver().addClickListener(event -> btnVolver());
+		this.getBtnEnviarBaneo().addClickListener(event -> Banearcuenta());
 	}
 
 	public void Banearcuenta() {
-		throw new UnsupportedOperationException();
+		MainView.Pantalla.volver();
 	}
 	
 	private void btnVolver() {
 		MainView.Pantalla.volver();
-		System.out.println("Volver a la vista anterior desde ver perfil administrador");
 	}
 }

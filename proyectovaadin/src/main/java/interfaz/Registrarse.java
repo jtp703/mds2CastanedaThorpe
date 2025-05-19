@@ -1,5 +1,7 @@
 package interfaz;
 
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 import vistas.VistaRegistrarse;
 
 public class Registrarse extends VistaRegistrarse{
@@ -16,13 +18,16 @@ public class Registrarse extends VistaRegistrarse{
 	
 	public Registrarse(Usuarionoregistrado _usuarionoregistrado) {
 		this._usuarionoregistrado = _usuarionoregistrado;
+		this.getIniciarsesion().addClickListener(event -> IniciarSesion());
 	}
 	
 	public Registrarse(GoogleLogin _googleLogin) {
 		this._googleLogin = _googleLogin;
 	}
 	
-	public Registrarse(Iniciarsesion _iniciarsesion) {
-		this._iniciarsesion = _iniciarsesion;
+	public void IniciarSesion() {
+		this.getContenedorRegistrarse().as(VerticalLayout.class).removeAll();
+		this._iniciarsesion = new Iniciarsesion(this);
+		this.getContenedorRegistrarse().as(VerticalLayout.class).add(this._iniciarsesion);
 	}
 }

@@ -1,5 +1,9 @@
 package interfaz;
 
+import org.vaadin.example.MainView;
+
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 import vistas.VistaIniciarsesion;
 
 public class Iniciarsesion extends VistaIniciarsesion{
@@ -9,9 +13,11 @@ public class Iniciarsesion extends VistaIniciarsesion{
 	private button _accedrGoogle;*/
 	public Registrarse _registrarse;
 	public Recuperarcontrasenia _recuperarcontrasenia;
+	public Usuarioregistrado usuarioregistrado;
 	
 	public Iniciarsesion(Registrarse _registrarse) {
 		this._registrarse = _registrarse;
+		this.getBtnIniciarSesion().addClickListener(evetn -> Validardatosdelogin());
 	}
 	
 	public Iniciarsesion(Recuperarcontrasenia _recuperarcontrasenia) {
@@ -19,6 +25,7 @@ public class Iniciarsesion extends VistaIniciarsesion{
 	}
 
 	public void Validardatosdelogin() {
-		throw new UnsupportedOperationException();
+		this.getContenedorIniciarSesion().as(VerticalLayout.class).removeAll();
+		
 	}
 }

@@ -10,15 +10,21 @@ public class ListadotweetsAdministrador_item extends Listadotweets_item {
 	public VercomentariosAdminstrador _vercomentariosAdminstrador;
 	public Administrador admin;
 	
-	ListadotweetsAdministrador_item(ListadotweetsAdministrador listadotweetsAdministrador) {
+	public ListadotweetsAdministrador_item(ListadotweetsAdministrador listadotweetsAdministrador) {
 		super(listadotweetsAdministrador);
 		this.getDarRetweet().setVisible(false);
 		this.getMeGusta().setVisible(false);
 		this.getVerperfil().addClickListener(event -> verPerfilUsuarioNoRegistrado());
+		this.getComentar().addClickListener(event -> VercomentariosAdministrador());
 	}
 	
 	public void Eliminartweet() {
 		throw new UnsupportedOperationException();
+	}
+	
+	public void VercomentariosAdministrador() {
+		this._vercomentariosAdminstrador = new VercomentariosAdminstrador(this);
+		MainView.Pantalla.cambiarVista(this._vercomentariosAdminstrador);
 	}
 	
 	private void verPerfilUsuarioNoRegistrado() {
