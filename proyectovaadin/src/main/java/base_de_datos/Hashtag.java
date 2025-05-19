@@ -13,7 +13,12 @@
  */
 package base_de_datos;
 
-public class Hashtag {
+import java.io.Serializable;
+import javax.persistence.*;
+@Entity
+@org.hibernate.annotations.Proxy(lazy=false)
+@Table(name="Hashtag")
+public class Hashtag implements Serializable {
 	public Hashtag() {
 	}
 	
@@ -25,6 +30,7 @@ public class Hashtag {
 		return null;
 	}
 	
+	@Transient	
 	org.orm.util.ORMAdapter _ormAdapter = new org.orm.util.AbstractORMAdapter() {
 		public java.util.Set getSet(int key) {
 			return this_getSet(key);
@@ -32,23 +38,32 @@ public class Hashtag {
 		
 	};
 	
-	private long idHashtag;
+	@Column(name="IdHashtag", nullable=false, length=10)	
+	@Id	
+	@GeneratedValue(generator="BASE_DE_DATOS_HASHTAG_IDHASHTAG_GENERATOR")	
+	@org.hibernate.annotations.GenericGenerator(name="BASE_DE_DATOS_HASHTAG_IDHASHTAG_GENERATOR", strategy="native")	
+	private int idHashtag;
 	
+	@Column(name="Nombre", nullable=true, length=255)	
 	private String nombre;
 	
+	@Column(name="NumMenciones", nullable=false, length=10)	
 	private int numMenciones;
 	
+	@ManyToMany(mappedBy="ORM_contiene", targetEntity=base_de_datos.Tweet.class)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
+	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_aparece_en = new java.util.HashSet();
 	
-	private void setIdHashtag(long value) {
+	private void setIdHashtag(int value) {
 		this.idHashtag = value;
 	}
 	
-	public long getIdHashtag() {
+	public int getIdHashtag() {
 		return idHashtag;
 	}
 	
-	public long getORMID() {
+	public int getORMID() {
 		return getIdHashtag();
 	}
 	
@@ -76,6 +91,7 @@ public class Hashtag {
 		return ORM_aparece_en;
 	}
 	
+	@Transient	
 	public final base_de_datos.TweetSetCollection aparece_en = new base_de_datos.TweetSetCollection(this, _ormAdapter, base_de_datos.ORMConstants.KEY_HASHTAG_APARECE_EN, base_de_datos.ORMConstants.KEY_TWEET_CONTIENE, base_de_datos.ORMConstants.KEY_MUL_MANY_TO_MANY);
 	
 	public String toString() {

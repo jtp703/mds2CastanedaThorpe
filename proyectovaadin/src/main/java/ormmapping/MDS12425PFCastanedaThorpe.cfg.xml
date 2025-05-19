@@ -17,10 +17,5 @@ License Type: Academic
 		<property name="show_sql">false</property>
 		<property name="query.substitutions">true 1, false 0, yes 'Y', no 'N'</property>
 		<!-- mapping files -->
-		<mapping resource="ormmapping/base_de_datos/Comentario.hbm.xml" />
-		<mapping resource="ormmapping/base_de_datos/Documento.hbm.xml" />
-		<mapping resource="ormmapping/base_de_datos/Hashtag.hbm.xml" />
-		<mapping resource="ormmapping/base_de_datos/Tweet.hbm.xml" />
-		<mapping resource="ormmapping/base_de_datos/UsuarioAutentificado.hbm.xml" />
 	</session-factory>
 </hibernate-configuration>

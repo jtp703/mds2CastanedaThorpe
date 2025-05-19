@@ -9,17 +9,20 @@ public class CreateMDS12425PFCastanedaThorpeData {
 	public void createTestData() throws PersistentException {
 		PersistentTransaction t = base_de_datos.MDS12425PFCastanedaThorpePersistentManager.instance().getSession().beginTransaction();
 		try {
+			base_de_datos.UsuarioAutentificado base_de_datosUsuarioAutentificado = base_de_datos.UsuarioAutentificadoDAO.createUsuarioAutentificado();
+			// Initialize the properties of the persistent object here
+			base_de_datos.UsuarioAutentificadoDAO.save(base_de_datosUsuarioAutentificado);
 			base_de_datos.Usuario base_de_datosUsuario = base_de_datos.UsuarioDAO.createUsuario();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : publica_comentario, es_seguido, es_bloqueado, publica, sigue, bloquea, es_baneado, idUsuario
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : likea_comentario, likea, retweetea, publica_comentario, es_seguido, es_bloqueado, tweetea, sigue, bloquea, es_baneado, idUsuario
 			base_de_datos.UsuarioDAO.save(base_de_datosUsuario);
 			base_de_datos.Tweet base_de_datosTweet = base_de_datos.TweetDAO.createTweet();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : tweet, tweet_contiene, tiene_comentario, contiene, numComentarios, numRetweets, numMegustas, idTweet, es_eliminado, tweet_usuario, retweet
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : tweet_contiene, tiene_comentario, likeado_por, reetweteado_por, retweet, contiene, numComentarios, numRetweets, numMegustas, es_eliminado, tweeteado_por, tweet
 			base_de_datos.TweetDAO.save(base_de_datosTweet);
 			base_de_datos.Comentario base_de_datosComentario = base_de_datos.ComentarioDAO.createComentario();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : numMegustas, es_eliminado, comentario_tweet, comentario_usuario
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : comlikeado_por, numMegustas, es_eliminado, pertenecea_tweet, comentado_por
 			base_de_datos.ComentarioDAO.save(base_de_datosComentario);
 			base_de_datos.Administrador base_de_datosAdministrador = base_de_datos.AdministradorDAO.createAdministrador();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : banea, administrador_tweet, elimina, idAdministrador
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : banea, elimina_tweet, elimina, idAdministrador
 			base_de_datos.AdministradorDAO.save(base_de_datosAdministrador);
 			base_de_datos.Hashtag base_de_datosHashtag = base_de_datos.HashtagDAO.createHashtag();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : aparece_en, numMenciones

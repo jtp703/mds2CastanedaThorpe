@@ -23,9 +23,9 @@ public class AdministradorCriteria extends AbstractORMCriteria {
 	public final StringExpression nombre;
 	public final StringExpression mail;
 	public final StringExpression password;
-	public final LongExpression idAdministrador;
+	public final IntegerExpression idAdministrador;
 	public final CollectionExpression elimina;
-	public final CollectionExpression administrador_tweet;
+	public final CollectionExpression elimina_tweet;
 	public final CollectionExpression banea;
 	
 	public AdministradorCriteria(Criteria criteria) {
@@ -34,10 +34,10 @@ public class AdministradorCriteria extends AbstractORMCriteria {
 		nombre = new StringExpression("nombre", this);
 		mail = new StringExpression("mail", this);
 		password = new StringExpression("password", this);
-		idAdministrador = new LongExpression("idAdministrador", this);
-		elimina = new CollectionExpression("ORM_Elimina", this);
-		administrador_tweet = new CollectionExpression("ORM_Administrador_tweet", this);
-		banea = new CollectionExpression("ORM_Banea", this);
+		idAdministrador = new IntegerExpression("idAdministrador", this);
+		elimina = new CollectionExpression("ORM_elimina", this);
+		elimina_tweet = new CollectionExpression("ORM_elimina_tweet", this);
+		banea = new CollectionExpression("ORM_banea", this);
 	}
 	
 	public AdministradorCriteria(PersistentSession session) {
@@ -49,15 +49,15 @@ public class AdministradorCriteria extends AbstractORMCriteria {
 	}
 	
 	public base_de_datos.ComentarioCriteria createEliminaCriteria() {
-		return new base_de_datos.ComentarioCriteria(createCriteria("ORM_Elimina"));
+		return new base_de_datos.ComentarioCriteria(createCriteria("ORM_elimina"));
 	}
 	
-	public base_de_datos.TweetCriteria createAdministrador_tweetCriteria() {
-		return new base_de_datos.TweetCriteria(createCriteria("ORM_Administrador_tweet"));
+	public base_de_datos.TweetCriteria createElimina_tweetCriteria() {
+		return new base_de_datos.TweetCriteria(createCriteria("ORM_elimina_tweet"));
 	}
 	
 	public base_de_datos.UsuarioCriteria createBaneaCriteria() {
-		return new base_de_datos.UsuarioCriteria(createCriteria("ORM_Banea"));
+		return new base_de_datos.UsuarioCriteria(createCriteria("ORM_banea"));
 	}
 	
 	public Administrador uniqueAdministrador() {

@@ -19,8 +19,8 @@ import org.orm.PersistentSession;
 import org.orm.criteria.*;
 
 public class DocumentoCriteria extends AbstractORMCriteria {
-	public final LongExpression idDocumento;
-	public final LongExpression pertenecea_comentarioId;
+	public final IntegerExpression idDocumento;
+	public final IntegerExpression pertenecea_comentarioId;
 	public final AssociationExpression pertenecea_comentario;
 	public final IntegerExpression pertenecea_tweetId;
 	public final AssociationExpression pertenecea_tweet;
@@ -29,10 +29,10 @@ public class DocumentoCriteria extends AbstractORMCriteria {
 	
 	public DocumentoCriteria(Criteria criteria) {
 		super(criteria);
-		idDocumento = new LongExpression("idDocumento", this);
-		pertenecea_comentarioId = new LongExpression("pertenecea_comentario.idComentario", this);
+		idDocumento = new IntegerExpression("idDocumento", this);
+		pertenecea_comentarioId = new IntegerExpression("pertenecea_comentario.idComentario", this);
 		pertenecea_comentario = new AssociationExpression("pertenecea_comentario", this);
-		pertenecea_tweetId = new IntegerExpression("pertenecea_tweet.ID", this);
+		pertenecea_tweetId = new IntegerExpression("pertenecea_tweet.idTweet", this);
 		pertenecea_tweet = new AssociationExpression("pertenecea_tweet", this);
 		url = new StringExpression("url", this);
 		tipo = new StringExpression("tipo", this);

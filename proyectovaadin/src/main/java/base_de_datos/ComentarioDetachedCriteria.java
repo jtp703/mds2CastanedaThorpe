@@ -19,54 +19,57 @@ import org.orm.PersistentSession;
 import org.orm.criteria.*;
 
 public class ComentarioDetachedCriteria extends AbstractORMDetachedCriteria {
-	public final LongExpression idComentario;
-	public final IntegerExpression comentario_usuarioId;
-	public final AssociationExpression comentario_usuario;
-	public final IntegerExpression comentario_tweetId;
-	public final AssociationExpression comentario_tweet;
+	public final IntegerExpression idComentario;
+	public final IntegerExpression comentado_porId;
+	public final AssociationExpression comentado_por;
+	public final IntegerExpression pertenecea_tweetId;
+	public final AssociationExpression pertenecea_tweet;
 	public final IntegerExpression es_eliminadoId;
 	public final AssociationExpression es_eliminado;
 	public final StringExpression texto;
 	public final StringExpression foto_video;
 	public final IntegerExpression numMegustas;
 	public final CollectionExpression comentario_contiene;
+	public final CollectionExpression comlikeado_por;
 	
 	public ComentarioDetachedCriteria() {
 		super(base_de_datos.Comentario.class, base_de_datos.ComentarioCriteria.class);
-		idComentario = new LongExpression("idComentario", this.getDetachedCriteria());
-		comentario_usuarioId = new IntegerExpression("comentario_usuario.", this.getDetachedCriteria());
-		comentario_usuario = new AssociationExpression("comentario_usuario", this.getDetachedCriteria());
-		comentario_tweetId = new IntegerExpression("comentario_tweet.ID", this.getDetachedCriteria());
-		comentario_tweet = new AssociationExpression("comentario_tweet", this.getDetachedCriteria());
+		idComentario = new IntegerExpression("idComentario", this.getDetachedCriteria());
+		comentado_porId = new IntegerExpression("comentado_por.", this.getDetachedCriteria());
+		comentado_por = new AssociationExpression("comentado_por", this.getDetachedCriteria());
+		pertenecea_tweetId = new IntegerExpression("pertenecea_tweet.idTweet", this.getDetachedCriteria());
+		pertenecea_tweet = new AssociationExpression("pertenecea_tweet", this.getDetachedCriteria());
 		es_eliminadoId = new IntegerExpression("es_eliminado.", this.getDetachedCriteria());
 		es_eliminado = new AssociationExpression("es_eliminado", this.getDetachedCriteria());
 		texto = new StringExpression("texto", this.getDetachedCriteria());
 		foto_video = new StringExpression("foto_video", this.getDetachedCriteria());
 		numMegustas = new IntegerExpression("numMegustas", this.getDetachedCriteria());
-		comentario_contiene = new CollectionExpression("ORM_Comentario_contiene", this.getDetachedCriteria());
+		comentario_contiene = new CollectionExpression("ORM_comentario_contiene", this.getDetachedCriteria());
+		comlikeado_por = new CollectionExpression("ORM_comlikeado_por", this.getDetachedCriteria());
 	}
 	
 	public ComentarioDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, base_de_datos.ComentarioCriteria.class);
-		idComentario = new LongExpression("idComentario", this.getDetachedCriteria());
-		comentario_usuarioId = new IntegerExpression("comentario_usuario.", this.getDetachedCriteria());
-		comentario_usuario = new AssociationExpression("comentario_usuario", this.getDetachedCriteria());
-		comentario_tweetId = new IntegerExpression("comentario_tweet.ID", this.getDetachedCriteria());
-		comentario_tweet = new AssociationExpression("comentario_tweet", this.getDetachedCriteria());
+		idComentario = new IntegerExpression("idComentario", this.getDetachedCriteria());
+		comentado_porId = new IntegerExpression("comentado_por.", this.getDetachedCriteria());
+		comentado_por = new AssociationExpression("comentado_por", this.getDetachedCriteria());
+		pertenecea_tweetId = new IntegerExpression("pertenecea_tweet.idTweet", this.getDetachedCriteria());
+		pertenecea_tweet = new AssociationExpression("pertenecea_tweet", this.getDetachedCriteria());
 		es_eliminadoId = new IntegerExpression("es_eliminado.", this.getDetachedCriteria());
 		es_eliminado = new AssociationExpression("es_eliminado", this.getDetachedCriteria());
 		texto = new StringExpression("texto", this.getDetachedCriteria());
 		foto_video = new StringExpression("foto_video", this.getDetachedCriteria());
 		numMegustas = new IntegerExpression("numMegustas", this.getDetachedCriteria());
-		comentario_contiene = new CollectionExpression("ORM_Comentario_contiene", this.getDetachedCriteria());
+		comentario_contiene = new CollectionExpression("ORM_comentario_contiene", this.getDetachedCriteria());
+		comlikeado_por = new CollectionExpression("ORM_comlikeado_por", this.getDetachedCriteria());
 	}
 	
-	public UsuarioDetachedCriteria createComentario_usuarioCriteria() {
-		return new UsuarioDetachedCriteria(createCriteria("comentario_usuario"));
+	public UsuarioDetachedCriteria createComentado_porCriteria() {
+		return new UsuarioDetachedCriteria(createCriteria("comentado_por"));
 	}
 	
-	public TweetDetachedCriteria createComentario_tweetCriteria() {
-		return new TweetDetachedCriteria(createCriteria("comentario_tweet"));
+	public TweetDetachedCriteria createPertenecea_tweetCriteria() {
+		return new TweetDetachedCriteria(createCriteria("pertenecea_tweet"));
 	}
 	
 	public AdministradorDetachedCriteria createEs_eliminadoCriteria() {
@@ -74,7 +77,11 @@ public class ComentarioDetachedCriteria extends AbstractORMDetachedCriteria {
 	}
 	
 	public base_de_datos.DocumentoDetachedCriteria createComentario_contieneCriteria() {
-		return new base_de_datos.DocumentoDetachedCriteria(createCriteria("ORM_Comentario_contiene"));
+		return new base_de_datos.DocumentoDetachedCriteria(createCriteria("ORM_comentario_contiene"));
+	}
+	
+	public base_de_datos.UsuarioDetachedCriteria createComlikeado_porCriteria() {
+		return new base_de_datos.UsuarioDetachedCriteria(createCriteria("ORM_comlikeado_por"));
 	}
 	
 	public Comentario uniqueComentario(PersistentSession session) {

@@ -19,8 +19,8 @@ import org.orm.PersistentSession;
 import org.orm.criteria.*;
 
 public class DocumentoDetachedCriteria extends AbstractORMDetachedCriteria {
-	public final LongExpression idDocumento;
-	public final LongExpression pertenecea_comentarioId;
+	public final IntegerExpression idDocumento;
+	public final IntegerExpression pertenecea_comentarioId;
 	public final AssociationExpression pertenecea_comentario;
 	public final IntegerExpression pertenecea_tweetId;
 	public final AssociationExpression pertenecea_tweet;
@@ -29,10 +29,10 @@ public class DocumentoDetachedCriteria extends AbstractORMDetachedCriteria {
 	
 	public DocumentoDetachedCriteria() {
 		super(base_de_datos.Documento.class, base_de_datos.DocumentoCriteria.class);
-		idDocumento = new LongExpression("idDocumento", this.getDetachedCriteria());
-		pertenecea_comentarioId = new LongExpression("pertenecea_comentario.idComentario", this.getDetachedCriteria());
+		idDocumento = new IntegerExpression("idDocumento", this.getDetachedCriteria());
+		pertenecea_comentarioId = new IntegerExpression("pertenecea_comentario.idComentario", this.getDetachedCriteria());
 		pertenecea_comentario = new AssociationExpression("pertenecea_comentario", this.getDetachedCriteria());
-		pertenecea_tweetId = new IntegerExpression("pertenecea_tweet.ID", this.getDetachedCriteria());
+		pertenecea_tweetId = new IntegerExpression("pertenecea_tweet.idTweet", this.getDetachedCriteria());
 		pertenecea_tweet = new AssociationExpression("pertenecea_tweet", this.getDetachedCriteria());
 		url = new StringExpression("url", this.getDetachedCriteria());
 		tipo = new StringExpression("tipo", this.getDetachedCriteria());
@@ -40,10 +40,10 @@ public class DocumentoDetachedCriteria extends AbstractORMDetachedCriteria {
 	
 	public DocumentoDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, base_de_datos.DocumentoCriteria.class);
-		idDocumento = new LongExpression("idDocumento", this.getDetachedCriteria());
-		pertenecea_comentarioId = new LongExpression("pertenecea_comentario.idComentario", this.getDetachedCriteria());
+		idDocumento = new IntegerExpression("idDocumento", this.getDetachedCriteria());
+		pertenecea_comentarioId = new IntegerExpression("pertenecea_comentario.idComentario", this.getDetachedCriteria());
 		pertenecea_comentario = new AssociationExpression("pertenecea_comentario", this.getDetachedCriteria());
-		pertenecea_tweetId = new IntegerExpression("pertenecea_tweet.ID", this.getDetachedCriteria());
+		pertenecea_tweetId = new IntegerExpression("pertenecea_tweet.idTweet", this.getDetachedCriteria());
 		pertenecea_tweet = new AssociationExpression("pertenecea_tweet", this.getDetachedCriteria());
 		url = new StringExpression("url", this.getDetachedCriteria());
 		tipo = new StringExpression("tipo", this.getDetachedCriteria());

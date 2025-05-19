@@ -19,17 +19,17 @@ import org.orm.PersistentSession;
 import org.orm.criteria.*;
 
 public class HashtagCriteria extends AbstractORMCriteria {
-	public final LongExpression idHashtag;
+	public final IntegerExpression idHashtag;
 	public final StringExpression nombre;
 	public final IntegerExpression numMenciones;
 	public final CollectionExpression aparece_en;
 	
 	public HashtagCriteria(Criteria criteria) {
 		super(criteria);
-		idHashtag = new LongExpression("idHashtag", this);
+		idHashtag = new IntegerExpression("idHashtag", this);
 		nombre = new StringExpression("nombre", this);
 		numMenciones = new IntegerExpression("numMenciones", this);
-		aparece_en = new CollectionExpression("ORM_Aparece_en", this);
+		aparece_en = new CollectionExpression("ORM_aparece_en", this);
 	}
 	
 	public HashtagCriteria(PersistentSession session) {
@@ -41,7 +41,7 @@ public class HashtagCriteria extends AbstractORMCriteria {
 	}
 	
 	public base_de_datos.TweetCriteria createAparece_enCriteria() {
-		return new base_de_datos.TweetCriteria(createCriteria("ORM_Aparece_en"));
+		return new base_de_datos.TweetCriteria(createCriteria("ORM_aparece_en"));
 	}
 	
 	public Hashtag uniqueHashtag() {

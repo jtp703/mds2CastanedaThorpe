@@ -9,6 +9,9 @@ public class DeleteMDS12425PFCastanedaThorpeData {
 	public void deleteTestData() throws PersistentException {
 		PersistentTransaction t = base_de_datos.MDS12425PFCastanedaThorpePersistentManager.instance().getSession().beginTransaction();
 		try {
+			base_de_datos.UsuarioAutentificado base_de_datosUsuarioAutentificado = base_de_datos.UsuarioAutentificadoDAO.loadUsuarioAutentificadoByQuery(null, null);
+			// Delete the persistent object
+			base_de_datos.UsuarioAutentificadoDAO.delete(base_de_datosUsuarioAutentificado);
 			base_de_datos.Usuario base_de_datosUsuario = base_de_datos.UsuarioDAO.loadUsuarioByQuery(null, null);
 			// Delete the persistent object
 			base_de_datos.UsuarioDAO.delete(base_de_datosUsuario);

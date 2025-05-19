@@ -327,9 +327,9 @@ public class AdministradorDAO {
 			for(int i = 0; i < lEliminas.length; i++) {
 				lEliminas[i].setEs_eliminado(null);
 			}
-			base_de_datos.Tweet[] lAdministrador_tweets = administrador.administrador_tweet.toArray();
-			for(int i = 0; i < lAdministrador_tweets.length; i++) {
-				lAdministrador_tweets[i].setEs_eliminado(null);
+			base_de_datos.Tweet[] lElimina_tweets = administrador.elimina_tweet.toArray();
+			for(int i = 0; i < lElimina_tweets.length; i++) {
+				lElimina_tweets[i].setEs_eliminado(null);
 			}
 			base_de_datos.Usuario[] lBaneas = administrador.banea.toArray();
 			for(int i = 0; i < lBaneas.length; i++) {
@@ -349,9 +349,9 @@ public class AdministradorDAO {
 			for(int i = 0; i < lEliminas.length; i++) {
 				lEliminas[i].setEs_eliminado(null);
 			}
-			base_de_datos.Tweet[] lAdministrador_tweets = administrador.administrador_tweet.toArray();
-			for(int i = 0; i < lAdministrador_tweets.length; i++) {
-				lAdministrador_tweets[i].setEs_eliminado(null);
+			base_de_datos.Tweet[] lElimina_tweets = administrador.elimina_tweet.toArray();
+			for(int i = 0; i < lElimina_tweets.length; i++) {
+				lElimina_tweets[i].setEs_eliminado(null);
 			}
 			base_de_datos.Usuario[] lBaneas = administrador.banea.toArray();
 			for(int i = 0; i < lBaneas.length; i++) {

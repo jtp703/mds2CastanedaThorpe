@@ -5,8 +5,8 @@
     <Column name="IdUsuario">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
-      <Type>16</Type>
-      <Length>20</Length>
+      <Type>9</Type>
+      <Length>10</Length>
       <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
@@ -83,7 +83,7 @@
     </Column>
   </Entity>
   <Entity name="Tweet" Unlogged="false" PKClustered="0" Temporal="false" TemporalStartTimeColumn="null" TemporalEndTimeColumn="null" TemporalHistoryTable="null">
-    <Column name="ID">
+    <Column name="IdTweet">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
       <Type>9</Type>
@@ -94,10 +94,10 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
-    <Column name="TweetID">
+    <Column name="TweetIdTweet">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>Base de datos.Tweet.ID</ReferencedColumn>
+      <ReferencedColumn>Base de datos.Tweet.IdTweet</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
       <Nullable>false</Nullable>
@@ -124,17 +124,6 @@
       <ReferencedColumn>Base de datos.Administrador.UsuarioAutentificadoID</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
-      <Nullable>false</Nullable>
-      <IDGenerator>native</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
-    <Column name="IdTweet">
-      <PrimaryKey>false</PrimaryKey>
-      <ForeignKey>false</ForeignKey>
-      <Type>16</Type>
-      <Length>20</Length>
       <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
@@ -201,8 +190,8 @@
     <Column name="IdComentario">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
-      <Type>16</Type>
-      <Length>20</Length>
+      <Type>9</Type>
+      <Length>10</Length>
       <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
@@ -221,10 +210,10 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
-    <Column name="TweetID">
+    <Column name="TweetIdTweet">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>Base de datos.Tweet.ID</ReferencedColumn>
+      <ReferencedColumn>Base de datos.Tweet.IdTweet</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
       <Nullable>false</Nullable>
@@ -283,8 +272,8 @@
     <Column name="IdAdministrador">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
-      <Type>16</Type>
-      <Length>20</Length>
+      <Type>9</Type>
+      <Length>10</Length>
       <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
@@ -308,8 +297,8 @@
     <Column name="IdHashtag">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
-      <Type>16</Type>
-      <Length>20</Length>
+      <Type>9</Type>
+      <Length>10</Length>
       <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
@@ -333,6 +322,65 @@
       <Type>9</Type>
       <Length>10</Length>
       <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Documento" Unlogged="false" PKClustered="0" Temporal="false" TemporalStartTimeColumn="null" TemporalEndTimeColumn="null" TemporalHistoryTable="null">
+    <Column name="IdDocumento">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="ComentarioIdComentario">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>Base de datos.Comentario.IdComentario</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="TweetIdTweet">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>Base de datos.Tweet.IdTweet</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Url">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Tipo">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
@@ -385,82 +433,23 @@
       <UserTypes/>
     </Column>
   </Entity>
-  <Entity name="Documento" Unlogged="false" PKClustered="0" Temporal="false" TemporalStartTimeColumn="null" TemporalEndTimeColumn="null" TemporalHistoryTable="null">
-    <Column name="IdDocumento">
-      <PrimaryKey>true</PrimaryKey>
-      <ForeignKey>false</ForeignKey>
-      <Type>16</Type>
-      <Length>20</Length>
-      <Nullable>false</Nullable>
-      <IDGenerator>native</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
-    <Column name="ComentarioIdComentario">
-      <PrimaryKey>false</PrimaryKey>
-      <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>Base de datos.Comentario.IdComentario</ReferencedColumn>
-      <Type>16</Type>
-      <Length>20</Length>
-      <Nullable>true</Nullable>
-      <IDGenerator>native</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
-    <Column name="TweetID">
-      <PrimaryKey>false</PrimaryKey>
-      <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>Base de datos.Tweet.ID</ReferencedColumn>
-      <Type>9</Type>
-      <Length>10</Length>
-      <Nullable>false</Nullable>
-      <IDGenerator>native</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
-    <Column name="Url">
-      <PrimaryKey>false</PrimaryKey>
-      <ForeignKey>false</ForeignKey>
-      <Type>27</Type>
-      <Length>255</Length>
-      <Nullable>true</Nullable>
-      <IDGenerator>native</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
-    <Column name="Tipo">
-      <PrimaryKey>false</PrimaryKey>
-      <ForeignKey>false</ForeignKey>
-      <Type>27</Type>
-      <Length>255</Length>
-      <Nullable>true</Nullable>
-      <IDGenerator>native</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
-  </Entity>
   <Entity name="Hashtag_Tweet" Unlogged="false" PKClustered="0" Temporal="false" TemporalStartTimeColumn="null" TemporalEndTimeColumn="null" TemporalHistoryTable="null">
     <Column name="HashtagIdHashtag">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>true</ForeignKey>
       <ReferencedColumn>Base de datos.Hashtag.IdHashtag</ReferencedColumn>
-      <Type>16</Type>
-      <Length>20</Length>
+      <Type>9</Type>
+      <Length>10</Length>
       <Nullable>false</Nullable>
       <IDGenerator>assigned</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
       <UserTypes/>
     </Column>
-    <Column name="TweetID">
+    <Column name="TweetIdTweet">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>Base de datos.Tweet.ID</ReferencedColumn>
+      <ReferencedColumn>Base de datos.Tweet.IdTweet</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
       <Nullable>false</Nullable>
@@ -522,6 +511,84 @@
       <UserTypes/>
     </Column>
   </Entity>
+  <Entity name="Usuario_Tweet" Unlogged="false" PKClustered="0" Temporal="false" TemporalStartTimeColumn="null" TemporalEndTimeColumn="null" TemporalHistoryTable="null">
+    <Column name="UsuarioUsuarioAutentificadoID">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>Base de datos.Usuario.UsuarioAutentificadoID</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="TweetIdTweet">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>Base de datos.Tweet.IdTweet</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Usuario_Tweet2" Unlogged="false" PKClustered="0" Temporal="false" TemporalStartTimeColumn="null" TemporalEndTimeColumn="null" TemporalHistoryTable="null">
+    <Column name="UsuarioUsuarioAutentificadoID">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>Base de datos.Usuario.UsuarioAutentificadoID</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="TweetIdTweet">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>Base de datos.Tweet.IdTweet</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Usuario_Comentario" Unlogged="false" PKClustered="0" Temporal="false" TemporalStartTimeColumn="null" TemporalEndTimeColumn="null" TemporalHistoryTable="null">
+    <Column name="UsuarioUsuarioAutentificadoID">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>Base de datos.Usuario.UsuarioAutentificadoID</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="ComentarioIdComentario">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>Base de datos.Comentario.IdComentario</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
   <ForeignKey name="FKUsuario653311">
     <ReferenceTable>Usuario</ReferenceTable>
     <ReferencedTable>UsuarioAutentificado</ReferencedTable>
@@ -552,14 +619,14 @@
       <Column>IdHashtag</Column>
     </RefColumns>
   </ForeignKey>
-  <ForeignKey name="FKHashtag_Tw34837">
+  <ForeignKey name="FKHashtag_Tw944590">
     <ReferenceTable>Hashtag_Tweet</ReferenceTable>
     <ReferencedTable>Tweet</ReferencedTable>
     <Columns>
-      <Column>TweetID</Column>
+      <Column>TweetIdTweet</Column>
     </Columns>
     <RefColumns>
-      <Column>ID</Column>
+      <Column>IdTweet</Column>
     </RefColumns>
   </ForeignKey>
   <ForeignKey name="FKComentario705012">
@@ -582,14 +649,14 @@
       <Column>UsuarioAutentificadoID</Column>
     </RefColumns>
   </ForeignKey>
-  <ForeignKey name="FKComentario598896">
+  <ForeignKey name="FKComentario689142">
     <ReferenceTable>Comentario</ReferenceTable>
     <ReferencedTable>Tweet</ReferencedTable>
     <Columns>
-      <Column>TweetID</Column>
+      <Column>TweetIdTweet</Column>
     </Columns>
     <RefColumns>
-      <Column>ID</Column>
+      <Column>IdTweet</Column>
     </RefColumns>
   </ForeignKey>
   <ForeignKey name="FKUsuario104330">
@@ -612,14 +679,14 @@
       <Column>UsuarioAutentificadoID</Column>
     </RefColumns>
   </ForeignKey>
-  <ForeignKey name="FKDocumento68190">
+  <ForeignKey name="FKDocumento977943">
     <ReferenceTable>Documento</ReferenceTable>
     <ReferencedTable>Tweet</ReferencedTable>
     <Columns>
-      <Column>TweetID</Column>
+      <Column>TweetIdTweet</Column>
     </Columns>
     <RefColumns>
-      <Column>ID</Column>
+      <Column>IdTweet</Column>
     </RefColumns>
   </ForeignKey>
   <ForeignKey name="FKDocumento471192">
@@ -672,14 +739,14 @@
       <Column>UsuarioAutentificadoID</Column>
     </RefColumns>
   </ForeignKey>
-  <ForeignKey name="FKTweet610803">
+  <ForeignKey name="FKTweet701049">
     <ReferenceTable>Tweet</ReferenceTable>
     <ReferencedTable>Tweet</ReferencedTable>
     <Columns>
-      <Column>TweetID</Column>
+      <Column>TweetIdTweet</Column>
     </Columns>
     <RefColumns>
-      <Column>ID</Column>
+      <Column>IdTweet</Column>
     </RefColumns>
   </ForeignKey>
   <ForeignKey name="FKComentario113281">
@@ -690,6 +757,66 @@
     </Columns>
     <RefColumns>
       <Column>UsuarioAutentificadoID</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKUsuario_Tw249708">
+    <ReferenceTable>Usuario_Tweet</ReferenceTable>
+    <ReferencedTable>Usuario</ReferencedTable>
+    <Columns>
+      <Column>UsuarioUsuarioAutentificadoID</Column>
+    </Columns>
+    <RefColumns>
+      <Column>UsuarioAutentificadoID</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKUsuario_Tw418875">
+    <ReferenceTable>Usuario_Tweet</ReferenceTable>
+    <ReferencedTable>Tweet</ReferencedTable>
+    <Columns>
+      <Column>TweetIdTweet</Column>
+    </Columns>
+    <RefColumns>
+      <Column>IdTweet</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKUsuario_Tw336510">
+    <ReferenceTable>Usuario_Tweet2</ReferenceTable>
+    <ReferencedTable>Usuario</ReferencedTable>
+    <Columns>
+      <Column>UsuarioUsuarioAutentificadoID</Column>
+    </Columns>
+    <RefColumns>
+      <Column>UsuarioAutentificadoID</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKUsuario_Tw167343">
+    <ReferenceTable>Usuario_Tweet2</ReferenceTable>
+    <ReferencedTable>Tweet</ReferencedTable>
+    <Columns>
+      <Column>TweetIdTweet</Column>
+    </Columns>
+    <RefColumns>
+      <Column>IdTweet</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKUsuario_Co498318">
+    <ReferenceTable>Usuario_Comentario</ReferenceTable>
+    <ReferencedTable>Usuario</ReferencedTable>
+    <Columns>
+      <Column>UsuarioUsuarioAutentificadoID</Column>
+    </Columns>
+    <RefColumns>
+      <Column>UsuarioAutentificadoID</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKUsuario_Co164097">
+    <ReferenceTable>Usuario_Comentario</ReferenceTable>
+    <ReferencedTable>Comentario</ReferencedTable>
+    <Columns>
+      <Column>ComentarioIdComentario</Column>
+    </Columns>
+    <RefColumns>
+      <Column>IdComentario</Column>
     </RefColumns>
   </ForeignKey>
 </Model>

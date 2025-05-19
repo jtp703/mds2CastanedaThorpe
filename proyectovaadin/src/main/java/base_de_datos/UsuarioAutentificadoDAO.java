@@ -295,6 +295,10 @@ public class UsuarioAutentificadoDAO {
 		}
 	}
 	
+	public static UsuarioAutentificado createUsuarioAutentificado() {
+		return new base_de_datos.UsuarioAutentificado();
+	}
+	
 	public static boolean save(base_de_datos.UsuarioAutentificado usuarioAutentificado) throws PersistentException {
 		try {
 			base_de_datos.MDS12425PFCastanedaThorpePersistentManager.instance().saveObject(usuarioAutentificado);

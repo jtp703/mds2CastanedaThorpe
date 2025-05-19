@@ -19,7 +19,7 @@ import org.hibernate.LockMode;
 import java.util.List;
 
 public class HashtagDAO {
-	public static Hashtag loadHashtagByORMID(long idHashtag) throws PersistentException {
+	public static Hashtag loadHashtagByORMID(int idHashtag) throws PersistentException {
 		try {
 			PersistentSession session = base_de_datos.MDS12425PFCastanedaThorpePersistentManager.instance().getSession();
 			return loadHashtagByORMID(session, idHashtag);
@@ -30,7 +30,7 @@ public class HashtagDAO {
 		}
 	}
 	
-	public static Hashtag getHashtagByORMID(long idHashtag) throws PersistentException {
+	public static Hashtag getHashtagByORMID(int idHashtag) throws PersistentException {
 		try {
 			PersistentSession session = base_de_datos.MDS12425PFCastanedaThorpePersistentManager.instance().getSession();
 			return getHashtagByORMID(session, idHashtag);
@@ -41,7 +41,7 @@ public class HashtagDAO {
 		}
 	}
 	
-	public static Hashtag loadHashtagByORMID(long idHashtag, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Hashtag loadHashtagByORMID(int idHashtag, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = base_de_datos.MDS12425PFCastanedaThorpePersistentManager.instance().getSession();
 			return loadHashtagByORMID(session, idHashtag, lockMode);
@@ -52,7 +52,7 @@ public class HashtagDAO {
 		}
 	}
 	
-	public static Hashtag getHashtagByORMID(long idHashtag, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Hashtag getHashtagByORMID(int idHashtag, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = base_de_datos.MDS12425PFCastanedaThorpePersistentManager.instance().getSession();
 			return getHashtagByORMID(session, idHashtag, lockMode);
@@ -63,9 +63,9 @@ public class HashtagDAO {
 		}
 	}
 	
-	public static Hashtag loadHashtagByORMID(PersistentSession session, long idHashtag) throws PersistentException {
+	public static Hashtag loadHashtagByORMID(PersistentSession session, int idHashtag) throws PersistentException {
 		try {
-			return (Hashtag) session.load(base_de_datos.Hashtag.class, Long.valueOf(idHashtag));
+			return (Hashtag) session.load(base_de_datos.Hashtag.class, Integer.valueOf(idHashtag));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -73,9 +73,9 @@ public class HashtagDAO {
 		}
 	}
 	
-	public static Hashtag getHashtagByORMID(PersistentSession session, long idHashtag) throws PersistentException {
+	public static Hashtag getHashtagByORMID(PersistentSession session, int idHashtag) throws PersistentException {
 		try {
-			return (Hashtag) session.get(base_de_datos.Hashtag.class, Long.valueOf(idHashtag));
+			return (Hashtag) session.get(base_de_datos.Hashtag.class, Integer.valueOf(idHashtag));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -83,9 +83,9 @@ public class HashtagDAO {
 		}
 	}
 	
-	public static Hashtag loadHashtagByORMID(PersistentSession session, long idHashtag, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Hashtag loadHashtagByORMID(PersistentSession session, int idHashtag, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Hashtag) session.load(base_de_datos.Hashtag.class, Long.valueOf(idHashtag), lockMode);
+			return (Hashtag) session.load(base_de_datos.Hashtag.class, Integer.valueOf(idHashtag), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -93,9 +93,9 @@ public class HashtagDAO {
 		}
 	}
 	
-	public static Hashtag getHashtagByORMID(PersistentSession session, long idHashtag, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Hashtag getHashtagByORMID(PersistentSession session, int idHashtag, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Hashtag) session.get(base_de_datos.Hashtag.class, Long.valueOf(idHashtag), lockMode);
+			return (Hashtag) session.get(base_de_datos.Hashtag.class, Integer.valueOf(idHashtag), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

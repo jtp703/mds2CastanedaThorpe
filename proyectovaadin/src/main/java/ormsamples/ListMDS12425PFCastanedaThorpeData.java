@@ -9,9 +9,17 @@ public class ListMDS12425PFCastanedaThorpeData {
 	private static final int ROW_COUNT = 100;
 	
 	public void listTestData() throws PersistentException {
+		System.out.println("Listing UsuarioAutentificado...");
+		base_de_datos.UsuarioAutentificado[] base_de_datosUsuarioAutentificados = base_de_datos.UsuarioAutentificadoDAO.listUsuarioAutentificadoByQuery(null, null);
+		int length = Math.min(base_de_datosUsuarioAutentificados.length, ROW_COUNT);
+		for (int i = 0; i < length; i++) {
+			System.out.println(base_de_datosUsuarioAutentificados[i]);
+		}
+		System.out.println(length + " record(s) retrieved.");
+		
 		System.out.println("Listing Usuario...");
 		base_de_datos.Usuario[] base_de_datosUsuarios = base_de_datos.UsuarioDAO.listUsuarioByQuery(null, null);
-		int length = Math.min(base_de_datosUsuarios.length, ROW_COUNT);
+		length = Math.min(base_de_datosUsuarios.length, ROW_COUNT);
 		for (int i = 0; i < length; i++) {
 			System.out.println(base_de_datosUsuarios[i]);
 		}
@@ -60,13 +68,25 @@ public class ListMDS12425PFCastanedaThorpeData {
 	}
 	
 	public void listByCriteria() throws PersistentException {
+		System.out.println("Listing UsuarioAutentificado by Criteria...");
+		base_de_datos.UsuarioAutentificadoCriteria base_de_datosUsuarioAutentificadoCriteria = new base_de_datos.UsuarioAutentificadoCriteria();
+		// Please uncomment the follow line and fill in parameter(s) 
+		//base_de_datosUsuarioAutentificadoCriteria.ID.eq();
+		base_de_datosUsuarioAutentificadoCriteria.setMaxResults(ROW_COUNT);
+		base_de_datos.UsuarioAutentificado[] base_de_datosUsuarioAutentificados = base_de_datosUsuarioAutentificadoCriteria.listUsuarioAutentificado();
+		int length =base_de_datosUsuarioAutentificados== null ? 0 : Math.min(base_de_datosUsuarioAutentificados.length, ROW_COUNT); 
+		for (int i = 0; i < length; i++) {
+			 System.out.println(base_de_datosUsuarioAutentificados[i]);
+		}
+		System.out.println(length + " UsuarioAutentificado record(s) retrieved."); 
+		
 		System.out.println("Listing Usuario by Criteria...");
 		base_de_datos.UsuarioCriteria base_de_datosUsuarioCriteria = new base_de_datos.UsuarioCriteria();
 		// Please uncomment the follow line and fill in parameter(s) 
 		//base_de_datosUsuarioCriteria.ID.eq();
 		base_de_datosUsuarioCriteria.setMaxResults(ROW_COUNT);
 		base_de_datos.Usuario[] base_de_datosUsuarios = base_de_datosUsuarioCriteria.listUsuario();
-		int length =base_de_datosUsuarios== null ? 0 : Math.min(base_de_datosUsuarios.length, ROW_COUNT); 
+		length =base_de_datosUsuarios== null ? 0 : Math.min(base_de_datosUsuarios.length, ROW_COUNT); 
 		for (int i = 0; i < length; i++) {
 			 System.out.println(base_de_datosUsuarios[i]);
 		}
@@ -75,7 +95,7 @@ public class ListMDS12425PFCastanedaThorpeData {
 		System.out.println("Listing Tweet by Criteria...");
 		base_de_datos.TweetCriteria base_de_datosTweetCriteria = new base_de_datos.TweetCriteria();
 		// Please uncomment the follow line and fill in parameter(s) 
-		//base_de_datosTweetCriteria.ID.eq();
+		//base_de_datosTweetCriteria.idTweet.eq();
 		base_de_datosTweetCriteria.setMaxResults(ROW_COUNT);
 		base_de_datos.Tweet[] base_de_datosTweets = base_de_datosTweetCriteria.listTweet();
 		length =base_de_datosTweets== null ? 0 : Math.min(base_de_datosTweets.length, ROW_COUNT); 
