@@ -22,11 +22,7 @@ public class VermuroprincipalUsuarioregistrado extends Vermuroprincipal {
 		super(_listadotweetsUsuarioregistrado);
 	}
 
-	public void ListadotweetsUsuarioregistrado() {
+	/*public void ListadotweetsUsuarioregistrado() {
 		throw new UnsupportedOperationException();
-	}
-
-	public void Enviartweet() {
-		throw new UnsupportedOperationException();
-	}
+	}*/
 }

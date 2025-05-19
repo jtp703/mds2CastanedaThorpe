@@ -6,6 +6,7 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.html.NativeButton;
+import com.vaadin.flow.component.button.Button;
 
 @Tag("vista-listadotweets")
 @JsModule("./views/vista-listadotweets.ts")
@@ -13,14 +14,17 @@ public class VistaListadotweets extends LitTemplate {
 
 	@Id("contenedorNuevoTweet")
 	private Element contenedorNuevoTweet;
-	@Id("enviarTweet")
-	private NativeButton enviarTweet;
-	@Id("verPerfilPersonal")
-	private Element verPerfilPersonal;
+	
 	@Id("contenedorListadoTweets")
 	private Element contenedorListadoTweets;
 	@Id("contenedorListadoTweets_item")
 	private Element contenedorListadoTweets_item;
+
+	@Id("btnEnviarTweet")
+	private Button btnEnviarTweet;
+
+	@Id("verPerfilPersonal")
+	private Button verPerfilPersonal;
 
 	public VistaListadotweets() {
 		// You can initialise any data required for the connected UI components here.
@@ -41,20 +45,10 @@ public class VistaListadotweets extends LitTemplate {
 	public void setContenedorNuevoTweet(Element contenedorNuevoTweet) {
 		this.contenedorNuevoTweet = contenedorNuevoTweet;
 	}
-
-	public NativeButton getEnviarTweet() {
-		return enviarTweet;
-	}
-
-	public void setEnviarTweet(NativeButton enviarTweet) {
-		this.enviarTweet = enviarTweet;
-	}
-
-	public Element getVerPerfilPersonal() {
+	public Button getVerPerfilPersonal() {
 		return verPerfilPersonal;
 	}
-
-	public void setVerPerfilPersonal(Element verPerfilPersonal) {
+	public void setVerPerfilPersonal(Button verPerfilPersonal) {
 		this.verPerfilPersonal = verPerfilPersonal;
 	}
 	
@@ -63,6 +57,12 @@ public class VistaListadotweets extends LitTemplate {
 	}
 	public void setContenedorListadoTweets_item(Element contenedorListadoTweets_item) {
 		this.contenedorListadoTweets_item = contenedorListadoTweets_item;
+	}
+	public Button getBtnEnviarTweet() {
+		return btnEnviarTweet;
+	}
+	public void setBtnEnviarTweet(Button btnEnviarTweet) {
+		this.btnEnviarTweet = btnEnviarTweet;
 	}
 
 }

@@ -84,6 +84,9 @@ export class VistaVerperfildeusuario extends LitElement {
     <vaadin-button tabindex="0" id="btnEliminarPerfil" style="align-self: stretch;">
       Eliminar perfil 
     </vaadin-button>
+    <vaadin-button tabindex="0" id="btnCerrarSesion" style="align-self: stretch;">
+     Cerrar sesion
+    </vaadin-button>
    </vaadin-vertical-layout>
   </vaadin-horizontal-layout>
  </vaadin-horizontal-layout>

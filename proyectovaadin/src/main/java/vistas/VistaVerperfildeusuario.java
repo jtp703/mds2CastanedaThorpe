@@ -52,6 +52,8 @@ public class VistaVerperfildeusuario extends LitTemplate {
 	private Button verRetweets;
 	@Id("verMegustas")
 	private Button verMegustas;
+	@Id("btnCerrarSesion")
+	private Button btnCerrarSesion;
 	
 	public Element getContenedorVerPerfil() {
 		return contenedorVerPerfil;
@@ -160,6 +162,12 @@ public class VistaVerperfildeusuario extends LitTemplate {
 	}
 	public void setVerMegustas(Button verMegustas) {
 		this.verMegustas = verMegustas;
-	}	
+	}
+	public Button getBtnCerrarSesion() {
+		return btnCerrarSesion;
+	}
+	public void setBtnCerrarSesion(Button btnCerrarSesion) {
+		this.btnCerrarSesion = btnCerrarSesion;
+	}
 	
 }

@@ -1,6 +1,7 @@
 import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vertical-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/horizontal-layout/src/vaadin-horizontal-layout.js';
+import '@vaadin/button/src/vaadin-button.js';
 import '@vaadin/text-area/src/vaadin-text-area.js';
 
 @customElement('vista-listadotweets')
@@ -20,12 +21,18 @@ export class VistaListadotweets extends LitElement {
  <vaadin-vertical-layout theme="spacing" id="contenedorNuevoTweet" style="margin-top: var(--lumo-space-m); margin-right: var(--lumo-space-m); margin-left: var(--lumo-space-m);">
   <vaadin-horizontal-layout theme="spacing" style="align-self: stretch;">
    <vaadin-horizontal-layout style="flex-grow: 0; margin: var(--lumo-space-m); align-self: flex-start;" id="perfilLayout">
-    <vaadin-avatar style="align-self: center; margin-right: 4px;" id="iconoPerfil"></vaadin-avatar>
-    <a href="" id="verPerfilPersonal" style="flex-grow: 0; align-self: center;">@usuario</a>
+    <vaadin-horizontal-layout theme="spacing" style="flex-grow: 1; justify-content: flex-end; margin-right: var(--lumo-space-m);" id="contenedorVerPerfilPersonal">
+     <vaadin-avatar id="imgPerfilPersonal" style="align-self: center;"></vaadin-avatar>
+     <vaadin-button id="verPerfilPersonal" tabindex="0" style="align-self: center;">
+       @usuario 
+     </vaadin-button>
+    </vaadin-horizontal-layout>
    </vaadin-horizontal-layout>
    <vaadin-text-area style="flex-grow: 1;" placeholder="¿Qué esta pasando?"></vaadin-text-area>
+   <vaadin-button id="btnEnviarTweet" style="align-self: center;" tabindex="0">
+    Enviar
+   </vaadin-button>
   </vaadin-horizontal-layout>
-  <button id="enviarTweet" style="align-self: flex-end;">Enviar</button>
  </vaadin-vertical-layout>
  <vaadin-vertical-layout theme="spacing" id="contenedorListadoTweets_item" style="flex-grow: 1; width: 80%; height: 100%;"></vaadin-vertical-layout>
 </vaadin-vertical-layout>

@@ -21,6 +21,7 @@ public class Verperfilpersonal extends Verperfildeusuario {
 		this.getBtnEliminarPerfil().addClickListener(event -> Eliminar_perfil());
 		this.getBtnEditarPerfil().addClickListener(event -> Editar_perfil());
 		_usuarioNoRegistrado = new Usuarionoregistrado(new MainView());
+		this.getBtnCerrarSesion().addClickListener(event -> Cerrar_sesion__Usuario_registrado_(_usuarioNoRegistrado));
 	}
 
 	public void Eliminar_perfil() {
