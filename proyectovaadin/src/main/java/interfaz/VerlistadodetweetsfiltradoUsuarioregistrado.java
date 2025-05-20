@@ -11,9 +11,9 @@ public class VerlistadodetweetsfiltradoUsuarioregistrado extends Verlistadodetwe
 		super(_usuarioregistrado);
 		_usuarioregistrado.getContenedorRegistro().setVisible(false);
 		this.getContenedorCibernauta().as(VerticalLayout.class).add(_usuarioregistrado);
-		ListadotweetsUsuarioregistrado_item item0 = new ListadotweetsUsuarioregistrado_item(_listadotweetsUsuarioregistrado);
+		ListadotweetsUsuarioregistrado_item item0 = new ListadotweetsUsuarioregistrado_item(_listadotweetsUsuarioregistrado, null);
 		this.getContenedorListadoTweetsFiltrado().as(VerticalLayout.class).add(item0);
-		ListadotweetsUsuarioregistrado_item item1 = new ListadotweetsUsuarioregistrado_item(_listadotweetsUsuarioregistrado);
+		ListadotweetsUsuarioregistrado_item item1 = new ListadotweetsUsuarioregistrado_item(_listadotweetsUsuarioregistrado, null);
 		this.getContenedorListadoTweetsFiltrado().as(VerticalLayout.class).add(item1);
 	}
 

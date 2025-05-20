@@ -17,9 +17,9 @@ public class ListadotweetsUsuarioregistrado extends Listadotweets {
 	public ListadotweetsUsuarioregistrado(VermuroprincipalUsuarioregistrado vermuroprincipalUsuarioregistrado) {
 		super(vermuroprincipalUsuarioregistrado);
 		//_verperfilpersonal = new Verperfilpersonal(new Usuarioregistrado(this));
-		this._listadotweetsUsuarioregistrado = new ListadotweetsUsuarioregistrado_item(this);
+		this._listadotweetsUsuarioregistrado = new ListadotweetsUsuarioregistrado_item(this, null);
 		this.getContenedorListadoTweets_item().as(VerticalLayout.class).add(_listadotweetsUsuarioregistrado);
-		ListadotweetsUsuarioregistrado_item item2 = new ListadotweetsUsuarioregistrado_item(this);
+		ListadotweetsUsuarioregistrado_item item2 = new ListadotweetsUsuarioregistrado_item(this, null);
 		this.getContenedorListadoTweets_item().as(VerticalLayout.class).add(item2);
 		this.getBtnEnviarTweet().addClickListener(event -> Enviartweet());
 		//this.getVerPerfilPersonal().addClickListener(event -> verPerfilPersonal());
@@ -31,9 +31,9 @@ public class ListadotweetsUsuarioregistrado extends Listadotweets {
 	
 	public ListadotweetsUsuarioregistrado(VerperfilUsuarioregistrado _verperfilUsuarioregistrado) {
 		super(_verperfilUsuarioregistrado);
-		_listadotweetsUsuarioregistrado = new ListadotweetsUsuarioregistrado_item(this);
+		_listadotweetsUsuarioregistrado = new ListadotweetsUsuarioregistrado_item(this, null);
 		this.getContenedorListadoTweets().as(VerticalLayout.class).add(_listadotweetsUsuarioregistrado);
-		ListadotweetsUsuarioregistrado_item item2 = new ListadotweetsUsuarioregistrado_item(this);
+		ListadotweetsUsuarioregistrado_item item2 = new ListadotweetsUsuarioregistrado_item(this, null);
 		this.getContenedorListadoTweets().as(VerticalLayout.class).add(item2);
 	}
 	
@@ -42,7 +42,7 @@ public class ListadotweetsUsuarioregistrado extends Listadotweets {
 	}
 	
 	public void Enviartweet() {
-		this._listadotweetsUsuarioregistrado = new ListadotweetsUsuarioregistrado_item(this);
+		this._listadotweetsUsuarioregistrado = new ListadotweetsUsuarioregistrado_item(this, null);
 		this.getContenedorListadoTweets_item().as(VerticalLayout.class).add(_listadotweetsUsuarioregistrado);
 	}
 }

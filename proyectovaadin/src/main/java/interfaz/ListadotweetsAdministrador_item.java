@@ -11,7 +11,7 @@ public class ListadotweetsAdministrador_item extends Listadotweets_item {
 	public Administrador admin;
 	
 	public ListadotweetsAdministrador_item(ListadotweetsAdministrador listadotweetsAdministrador) {
-		super(listadotweetsAdministrador);
+		super(listadotweetsAdministrador, null);
 		this.getDarRetweet().setVisible(false);
 		this.getMeGusta().setVisible(false);
 		this.getVerperfil().addClickListener(event -> verPerfilUsuarioNoRegistrado());

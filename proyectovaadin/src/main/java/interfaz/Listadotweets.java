@@ -23,10 +23,10 @@ public class Listadotweets extends VistaListadotweets {
 	}
 	public Listadotweets(Verlistadodetweetsfiltrado _verlistadodetweetsfiltrado) {
 		this._verlistadodetweetsfiltrado = _verlistadodetweetsfiltrado;
-		Listadotweets_item i = new Listadotweets_item(this);
+		Listadotweets_item i = new Listadotweets_item(this, null);
 		i.getBtnEliminarTweet().setVisible(false);
 		this.getContenedorListadoTweets().as(VerticalLayout.class).add(i);
-		Listadotweets_item is = new Listadotweets_item(this);
+		Listadotweets_item is = new Listadotweets_item(this, null);
 		is.getBtnEliminarTweet().setVisible(false);
 		this.getContenedorListadoTweets().as(VerticalLayout.class).add(is);
 	}
