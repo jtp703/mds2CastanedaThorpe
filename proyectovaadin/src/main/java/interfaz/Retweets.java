@@ -6,19 +6,23 @@ import vistas.VistaRetweets;
 
 public class Retweets extends VistaRetweets {
 	public Verperfildeusuario _verperfildeusuario;
-	public Listadotweets _listadotweets;
-	ListadotweetsUsuarionoregistrado ltunr;
+	public ListadotweetsUsuarioregistrado _listadotweetsUsuarioregistrado;
+	public ListadotweetsAdministrador _listadotweetsAdministrador;
+	public ListadotweetsUsuarionoregistrado _listadotweetsUsuarionoregistrado;
 
-	public Retweets(Verperfildeusuario _verperfildeusuario) {
-		this._verperfildeusuario = _verperfildeusuario;
-		ListadotweetsUsuarionoregistrado_item item0 = new ListadotweetsUsuarionoregistrado_item(ltunr);
-		this.getContenedorListadoRetweets().as(VerticalLayout.class).add(item0);
-		ListadotweetsUsuarionoregistrado_item item1 = new ListadotweetsUsuarionoregistrado_item(ltunr);
-		this.getContenedorListadoRetweets().as(VerticalLayout.class).add(item1);
+	public Retweets(ListadotweetsUsuarioregistrado _listadotweets) {
+		this._listadotweetsUsuarioregistrado = _listadotweets;
+		System.out.println("Retweets Encontrados");
+		this.getContenedorRetweets().as(VerticalLayout.class).add(_listadotweetsUsuarioregistrado);
+		
 	}
-	
-	public Retweets(Listadotweets _listadotweets) {
-		this._listadotweets = _listadotweets;
+	public Retweets(ListadotweetsAdministrador _listadotweets) {
+		this._listadotweetsAdministrador = _listadotweets;
+		this.getContenedorRetweets().as(VerticalLayout.class).add(_listadotweetsAdministrador);
+	}
+	public Retweets(ListadotweetsUsuarionoregistrado _listadotweets) {
+		this._listadotweetsUsuarionoregistrado = _listadotweets;
+		this.getContenedorRetweets().as(VerticalLayout.class).add(_listadotweetsUsuarionoregistrado);
 	}
 	
 	public void Listadotweets() {

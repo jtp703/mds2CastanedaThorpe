@@ -36,7 +36,7 @@ public class VercomentariosAdminstrador extends Vercomentarios {
 	 */
 
 	public void Eliminar_tweet() {
-		throw new UnsupportedOperationException();
+		System.out.println("Tweet eliminado");
 	}
 
 	public void btnVolver() {

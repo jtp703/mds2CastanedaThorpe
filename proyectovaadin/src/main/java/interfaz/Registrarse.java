@@ -1,5 +1,7 @@
 package interfaz;
 
+import org.vaadin.example.MainView;
+
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import vistas.VistaRegistrarse;
@@ -19,6 +21,11 @@ public class Registrarse extends VistaRegistrarse{
 	public Registrarse(Usuarionoregistrado _usuarionoregistrado) {
 		this._usuarionoregistrado = _usuarionoregistrado;
 		this.getIniciarsesion().addClickListener(event -> IniciarSesion());
+		this.getBtnVolver().addClickListener(event -> btnVolver());
+	}
+	
+	private void btnVolver() {
+		MainView.Pantalla.volver();
 	}
 	
 	public Registrarse(GoogleLogin _googleLogin) {

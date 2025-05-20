@@ -24,13 +24,7 @@ public class Listadodehashtags_item extends VistaListadodehashtags_item{
 		
 		_verlistadodetweetsfiltrado = new Verlistadodetweetsfiltrado(this);
 		this._listadodehashtags.getContenedorHashtags().as(VerticalLayout.class).add(_verlistadodetweetsfiltrado);
-		/*
-		MainView mn = MainView.getInstance();
-		System.out.println(mn.getComponentCount());
-		System.out.println("Listado item hashtags");
-		mn.u.getContenedorContenido().as(VerticalLayout.class).removeAll();
-		mn.u.getContenedorContenido().as(VerticalLayout.class).add(_verlistadodetweetsfiltrado);
-		*/
+		
 	}
 	
 }

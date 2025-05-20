@@ -15,8 +15,11 @@ public class Listadodehashtags extends VistaListadodehashtags{
 		_verListadohashtags = verListadohashtags;
 		
 		Listadodehashtags_item item0 = new Listadodehashtags_item(this);
-		this.getContenedorHashtags().as(VerticalLayout.class).add(item0);
 		Listadodehashtags_item item1 = new Listadodehashtags_item(this);
-		this.getContenedorHashtags().as(VerticalLayout.class).add(item1);
+		_item.add(item0);
+		_item.add(item1);
+		for(Listadodehashtags_item item: _item) {
+			this.getContenedorHashtags().as(VerticalLayout.class).add(item);
+		}
 	}
 }

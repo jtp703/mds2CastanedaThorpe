@@ -147,7 +147,8 @@ public class MainView extends VerticalLayout {
 
     @Autowired
     public MainView(GreetService service) {
-        add(administrador);
+
+        add(usuarionoregistrado);
         Pantalla.MainView = this;
     }
 }
