@@ -13,6 +13,7 @@ public class Listadotweets extends VistaListadotweets {
 	public Verperfildeusuario _verperfildeusuario;
 	public Vermuroprincipal _vermuroprincipal;
 	public Vector<Listadotweets_item> _item = new Vector<Listadotweets_item>();
+	
 
 	public Listadotweets(Megustas _megustas) {
 		this._megustas = _megustas;
