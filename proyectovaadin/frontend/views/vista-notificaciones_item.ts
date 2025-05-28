@@ -17,14 +17,14 @@ export class VistaNotificaciones_item extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%;" id="_layoutNotificacionUsuario">
+<vaadin-vertical-layout style="width: 100%;position:absolute;" id="_layoutNotificacionUsuario">
  <vaadin-vertical-layout theme="spacing" id="_LayoutRetweetUsuario" style="width: 100%; flex-grow: 0; flex-shrink: 0;">
   <vaadin-horizontal-layout theme="spacing-l" style="background-color: #f0f0f0; flex-shrink: 0; align-self: stretch; align-items: center;">
    <vaadin-button tabindex="0" id="verperfil">
      @usuario 
    </vaadin-button>
    <vaadin-icon style="align-self: center; flex-grow: 0; flex-shrink: 0;" icon="vaadin:retweet" size="16"></vaadin-icon>
-   <label>te ha emportillado</label>
+   <label id="tipoNotificacion">te ha emportillado</label>
   </vaadin-horizontal-layout>
  </vaadin-vertical-layout>
 </vaadin-vertical-layout>

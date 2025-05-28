@@ -6,6 +6,7 @@ import org.vaadin.example.*;
 import com.vaadin.flow.component.AttachEvent;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.tabs.Tab;
+import java.util.*;
 
 public class Usuarioregistrado extends Cibernauta {
 
@@ -15,12 +16,11 @@ public class Usuarioregistrado extends Cibernauta {
 	public VerlistadoglobaldeusuariosUsuarioregistrado _verlistadoglobaldeusuariosUsuarioregistrado;
 	public Verperfilpersonal _verperfilpersonal;
 
-	public base_de_datos.Usuario usuarioregistrado;
+	public base_de_datos.Usuario _usuarioregistrado;
 	
 	public Usuarioregistrado(MainView mainView, base_de_datos.Usuario usuarioregistrado) {
 		super(mainView);
-		this.usuarioregistrado = usuarioregistrado;
-		
+		this._usuarioregistrado = usuarioregistrado;
 		this.getContenedorRegistro().setVisible(false);
 		this.getBtnCerrrarSesion().setVisible(false);
 

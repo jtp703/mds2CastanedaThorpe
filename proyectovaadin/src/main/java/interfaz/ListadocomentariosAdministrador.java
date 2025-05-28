@@ -15,8 +15,8 @@ public class ListadocomentariosAdministrador extends Listadocomentarios {
 		super(_vercomentariosAdministrador);
 		this.getContenedorEscribirComentarios().setVisible(false);
 		
-		ListadocomentariosAdministrador_item item0 = new ListadocomentariosAdministrador_item(this);
-		ListadocomentariosAdministrador_item item1 = new ListadocomentariosAdministrador_item(this);
+		ListadocomentariosAdministrador_item item0 = new ListadocomentariosAdministrador_item(this, null);
+		ListadocomentariosAdministrador_item item1 = new ListadocomentariosAdministrador_item(this, null);
 		_item.add(item0);
 		_item.add(item1);
 		for(ListadocomentariosAdministrador_item item: _item) {

@@ -14,8 +14,8 @@ public class Listadodehashtags extends VistaListadodehashtags{
 	public Listadodehashtags(VerListadohashtags verListadohashtags) {
 		_verListadohashtags = verListadohashtags;
 		
-		Listadodehashtags_item item0 = new Listadodehashtags_item(this);
-		Listadodehashtags_item item1 = new Listadodehashtags_item(this);
+		Listadodehashtags_item item0 = new Listadodehashtags_item(this, null);
+		Listadodehashtags_item item1 = new Listadodehashtags_item(this, null);
 		_item.add(item0);
 		_item.add(item1);
 		for(Listadodehashtags_item item: _item) {

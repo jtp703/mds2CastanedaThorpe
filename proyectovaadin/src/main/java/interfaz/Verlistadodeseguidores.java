@@ -17,11 +17,11 @@ public class Verlistadodeseguidores extends Verlistado {
 	public Verlistadodeseguidores(Listadodeusuariosusuarioregistrado _listadousuariosusuarioregistrado) {
 		super(_listadousuariosusuarioregistrado);
 		eliminarSeguidos();
-		Listadousuarios_item item0 = new Listadousuarios_item(_listadousuariosusuarioregistrado);
+		Listadousuarios_item item0 = new Listadousuarios_item(_listadousuariosusuarioregistrado, null);
 		item0.getSeguirUsuario().setVisible(false);
 		this.getListadoSeguidores().as(VerticalLayout.class).add(item0);
 		
-		Listadousuarios_item item1 = new Listadousuarios_item(_listadousuariosusuarioregistrado);
+		Listadousuarios_item item1 = new Listadousuarios_item(_listadousuariosusuarioregistrado, null);
 		item1.getSeguirUsuario().setVisible(false);
 		this.getListadoSeguidores().as(VerticalLayout.class).add(item1);
 	}
@@ -31,11 +31,11 @@ public class Verlistadodeseguidores extends Verlistado {
 		eliminarSeguidos();
 		this.getBtnCerrar().addClickListener(event -> btnCerrar());
 		
-		Listadodeusuariosusuarioregistrado_item item0 = new Listadodeusuariosusuarioregistrado_item(_verperfildeusuariousuarioregistrado);
+		Listadodeusuariosusuarioregistrado_item item0 = new Listadodeusuariosusuarioregistrado_item(_verperfildeusuariousuarioregistrado, null);
 		eliminarSeguidoresYSeguidos(item0);
 		this.getListadoSeguidores().as(VerticalLayout.class).add(item0);
 		
-		Listadodeusuariosusuarioregistrado_item item1 = new Listadodeusuariosusuarioregistrado_item(_verperfildeusuariousuarioregistrado);
+		Listadodeusuariosusuarioregistrado_item item1 = new Listadodeusuariosusuarioregistrado_item(_verperfildeusuariousuarioregistrado, null);
 		eliminarSeguidoresYSeguidos(item1);
 		this.getListadoSeguidores().as(VerticalLayout.class).add(item1);
 	}
@@ -45,11 +45,11 @@ public class Verlistadodeseguidores extends Verlistado {
 		eliminarSeguidos();
 		this.getBtnCerrar().addClickListener(event -> btnCerrar());
 		
-		Listadodeusuariosusuarionoregistrado_item item0 = new Listadodeusuariosusuarionoregistrado_item(_verperfilusuarionoregistrado);
+		Listadodeusuariosusuarionoregistrado_item item0 = new Listadodeusuariosusuarionoregistrado_item(_verperfilusuarionoregistrado, null);
 		eliminarSeguidoresYSeguidos(item0);
 		this.getListadoSeguidores().as(VerticalLayout.class).add(item0);
 		
-		Listadodeusuariosusuarionoregistrado_item item1 = new Listadodeusuariosusuarionoregistrado_item(_verperfilusuarionoregistrado);
+		Listadodeusuariosusuarionoregistrado_item item1 = new Listadodeusuariosusuarionoregistrado_item(_verperfilusuarionoregistrado, null);
 		eliminarSeguidoresYSeguidos(item1);
 		this.getListadoSeguidores().as(VerticalLayout.class).add(item1);
 	}
@@ -58,11 +58,11 @@ public class Verlistadodeseguidores extends Verlistado {
 		super(_verperfilaministrador);
 		eliminarSeguidos();
 		this.getBtnCerrar().addClickListener(event -> btnCerrar());
-		Listadodeusuariosadministrador_item item0 = new Listadodeusuariosadministrador_item(_verperfilaministrador);
+		Listadodeusuariosadministrador_item item0 = new Listadodeusuariosadministrador_item(_verperfilaministrador, null);
 		eliminarSeguidoresYSeguidos(item0);
 		this.getListadoSeguidores().as(VerticalLayout.class).add(item0);
 		
-		Listadodeusuariosadministrador_item item1 = new Listadodeusuariosadministrador_item(_verperfilaministrador);
+		Listadodeusuariosadministrador_item item1 = new Listadodeusuariosadministrador_item(_verperfilaministrador, null);
 		eliminarSeguidoresYSeguidos(item1);
 		this.getListadoSeguidores().as(VerticalLayout.class).add(item1);
 	}

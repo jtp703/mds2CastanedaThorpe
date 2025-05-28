@@ -10,8 +10,8 @@ public class ListadocomentariosUsuarioregistrado_item extends Listadocomentarios
 	public ListadocomentariosUsuarioregistrado _listadocomentariosUsuarioregistrado;
 
 	public ListadocomentariosUsuarioregistrado_item(
-			ListadocomentariosUsuarioregistrado _listadocomentariosUsuarioregistrado) {
-		super(_listadocomentariosUsuarioregistrado);
+			ListadocomentariosUsuarioregistrado _listadocomentariosUsuarioregistrado, base_de_datos.Comentario comentario) {
+		super(_listadocomentariosUsuarioregistrado, comentario);
 		this.getBotonEliminarComentario().setVisible(false);
 		this.getBtnDarMegusta().addClickListener(event -> Darmegustaacomentario());
 	}

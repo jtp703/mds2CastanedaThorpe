@@ -14,8 +14,8 @@ public class ListadotweetsAdministrador extends Listadotweets {
 	public ListadotweetsAdministrador(VermuroprincipalAdministrador _vermuroprincipalAdministrador) {
 		super(_vermuroprincipalAdministrador);
 		this.getContenedorNuevoTweet().setVisible(false);
-		ListadotweetsAdministrador_item item1 = new ListadotweetsAdministrador_item(this);
-		ListadotweetsAdministrador_item item2 = new ListadotweetsAdministrador_item(this);
+		ListadotweetsAdministrador_item item1 = new ListadotweetsAdministrador_item(this, null);
+		ListadotweetsAdministrador_item item2 = new ListadotweetsAdministrador_item(this, null);
 		_item.add(item1);
 		_item.add(item2);
 		for(ListadotweetsAdministrador_item item: _item) {
@@ -29,8 +29,8 @@ public class ListadotweetsAdministrador extends Listadotweets {
 	public ListadotweetsAdministrador(VerperfilAdministrador _verperfiladministrador) {
 		super(_verperfiladministrador);
 		this.getContenedorNuevoTweet().setVisible(false);
-		ListadotweetsAdministrador_item item1 = new ListadotweetsAdministrador_item(this);
-		ListadotweetsAdministrador_item item2 = new ListadotweetsAdministrador_item(this);
+		ListadotweetsAdministrador_item item1 = new ListadotweetsAdministrador_item(this, null);
+		ListadotweetsAdministrador_item item2 = new ListadotweetsAdministrador_item(this, null);
 		_item.add(item1);
 		_item.add(item2);
 		for(ListadotweetsAdministrador_item item: _item) {

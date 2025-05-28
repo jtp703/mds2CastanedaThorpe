@@ -13,7 +13,7 @@ public class VercomentariosUsuarionoregistrado extends Vercomentarios {
 	public VercomentariosUsuarionoregistrado(
 			ListadocomentariosUsuarionoregistrado _listadocomentariosUsuarionoregistrado) {
 		super(_listadocomentariosUsuarionoregistrado);
-		this._listadotweetsUsuarionoregistradoitem = new ListadotweetsUsuarionoregistrado_item(this);
+		this._listadotweetsUsuarionoregistradoitem = new ListadotweetsUsuarionoregistrado_item(this, _listadotweetsUsuarionoregistradoitem.tweet);
 		this._listadotweetsUsuarionoregistradoitem.getContenedorInteracciones().setVisible(false);
 		this.getContenedorTweet().as(VerticalLayout.class).add(this._listadotweetsUsuarionoregistradoitem);
 		ListadocomentariosUsuarionoregistrado listado = new ListadocomentariosUsuarionoregistrado(this);
@@ -24,7 +24,7 @@ public class VercomentariosUsuarionoregistrado extends Vercomentarios {
 	public VercomentariosUsuarionoregistrado(
 			ListadotweetsUsuarionoregistrado_item _listadotweetsUsuarionoregistradoitem) {
 		super(_listadotweetsUsuarionoregistradoitem);
-		this._listadotweetsUsuarionoregistradoitem = new ListadotweetsUsuarionoregistrado_item(this);
+		this._listadotweetsUsuarionoregistradoitem = new ListadotweetsUsuarionoregistrado_item(this, _listadotweetsUsuarionoregistradoitem.tweet);
 		this._listadotweetsUsuarionoregistradoitem.getContenedorInteracciones().setVisible(false);
 		this.getContenedorTweet().as(VerticalLayout.class).add(this._listadotweetsUsuarionoregistradoitem);
 		ListadocomentariosUsuarionoregistrado listado = new ListadocomentariosUsuarionoregistrado(this);

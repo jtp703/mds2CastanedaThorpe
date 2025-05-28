@@ -23,16 +23,15 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
 	ListadotweetsUsuarioregistrado_item(ListadotweetsUsuarioregistrado listadotweetsUsuarioregistrado, base_de_datos.Tweet tweet) {
 		super(listadotweetsUsuarioregistrado, tweet);
 		this.getBtnEliminarTweet().setVisible(false);
-		this.getVerperfil().setText("Lacacitos");
-		this.getTextoTweet().setText("Hola, soy un tweet de prueba");
 		this.getVerperfil().addClickListener(event -> VerperfilUsuarioregistrado(usuario));
 		this.getComentar().addClickListener(event -> VercomentariosUsuarioregistrado());
 		this.getDarRetweet().addClickListener(even -> Darretweet());
 		this.getMeGusta().addClickListener(event -> Darmegusta());
+		
 	}
 	
-	ListadotweetsUsuarioregistrado_item(VercomentariosUsuarioregistrado _vercomentariosUsuarioregistrado) {
-		super(_vercomentariosUsuarioregistrado);
+	ListadotweetsUsuarioregistrado_item(VercomentariosUsuarioregistrado _vercomentariosUsuarioregistrado, base_de_datos.Tweet tweet) {
+		super(_vercomentariosUsuarioregistrado, tweet);
 		this.getBtnEliminarTweet().setVisible(false);
 	}
 	

@@ -11,8 +11,8 @@ public class ListadotweetsUsuarionoregistrado_item extends Listadotweets_item {
 	public VerperfilUsuarionoregistrado _verperfilUsuarionoregistrado;
 	public Usuarionoregistrado usuario;
 	
-	public ListadotweetsUsuarionoregistrado_item(ListadotweetsUsuarionoregistrado listadotweetsUsuarionoregistrado) {
-		super(listadotweetsUsuarionoregistrado, null);
+	public ListadotweetsUsuarionoregistrado_item(ListadotweetsUsuarionoregistrado listadotweetsUsuarionoregistrado, base_de_datos.Tweet tweet) {
+		super(listadotweetsUsuarionoregistrado, tweet);
 		this.getBtnEliminarTweet().setVisible(false);
 		this.getDarRetweet().setVisible(false);
 		this.getMeGusta().setVisible(false);
@@ -20,8 +20,8 @@ public class ListadotweetsUsuarionoregistrado_item extends Listadotweets_item {
 		this.getComentar().addClickListener(event -> verComentariosUsuarioNoRegistrado());
 	}
 	
-	public ListadotweetsUsuarionoregistrado_item(VercomentariosUsuarionoregistrado _vercomentariosUsuarionoregistrado) {
-		super(_vercomentariosUsuarionoregistrado);
+	public ListadotweetsUsuarionoregistrado_item(VercomentariosUsuarionoregistrado _vercomentariosUsuarionoregistrado, base_de_datos.Tweet tweet) {
+		super(_vercomentariosUsuarionoregistrado, tweet);
 		this.getBtnEliminarTweet().setVisible(false);
 		this.getDarRetweet().setVisible(false);
 		this.getMeGusta().setVisible(false);

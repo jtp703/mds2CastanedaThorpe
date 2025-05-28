@@ -12,7 +12,7 @@ public class VercomentariosAdminstrador extends Vercomentarios {
 
 	public VercomentariosAdminstrador(ListadocomentariosAdministrador _listadocomentariosAdministrador) {
 		super(_listadocomentariosAdministrador);
-		this._item = new ListadotweetsAdministrador_item(this);
+		this._item = new ListadotweetsAdministrador_item(this, _item.tweet);
 		this._item.getContenedorInteracciones().setVisible(false);
 		this.getContenedorTweet().as(VerticalLayout.class).add(this._item);
 		ListadocomentariosAdministrador listado = new ListadocomentariosAdministrador(this);
@@ -22,7 +22,7 @@ public class VercomentariosAdminstrador extends Vercomentarios {
 
 	public VercomentariosAdminstrador(ListadotweetsAdministrador_item _item) {
 		super(_item);
-		this._item = new ListadotweetsAdministrador_item(this);
+		this._item = new ListadotweetsAdministrador_item(this, _item.tweet);
 		this._item.getContenedorInteracciones().setVisible(false);
 		this.getContenedorTweet().as(VerticalLayout.class).add(this._item);
 		ListadocomentariosAdministrador listado = new ListadocomentariosAdministrador(this);

@@ -137,18 +137,17 @@ public class MainView extends VerticalLayout {
                 System.out.println("⚠ No hay vista anterior en la pila.");
             }
         }
-    	    
-    	    
-
     }
-    public Usuarioregistrado usuarioregistrado = new Usuarioregistrado(this, null);
+    
+    public base_de_datos.Usuario usuario = new base_de_datos.Usuario();
+    public Usuarioregistrado usuarioregistrado = new Usuarioregistrado(this, usuario);
     public Administrador administrador = new Administrador(this, null);
     public Usuarionoregistrado usuarionoregistrado = new Usuarionoregistrado(this);
 
     @Autowired
     public MainView(GreetService service) {
 
-        add(usuarionoregistrado);
+        add(usuarioregistrado);
         Pantalla.MainView = this;
     }
 }

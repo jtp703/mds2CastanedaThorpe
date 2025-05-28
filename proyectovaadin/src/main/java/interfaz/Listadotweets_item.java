@@ -20,9 +20,15 @@ public class Listadotweets_item extends VistaListadotweets_item {
 		this.tweet = tweet;
 		this.getVerperfil().setText(tweet.getTweeteado_por().getNick());
 		this.getTextoTweet().setText(tweet.getTexto());
+		this.getnComentarios().setText(String.valueOf(tweet.getNumComentarios()));
+		this.getnRetweets().setText(String.valueOf(tweet.getNumRetweets()));
+		this.getnMegustas().setText(String.valueOf(tweet.getNumMegustas()));
+		//falta funcionalidad settear mg y retweet con color si el usuario ya lo ha hecho.
+		//falta funcionalidad imagen.
 	}
 
-	public Listadotweets_item(Vercomentarios _vercomentarios) {
+	public Listadotweets_item(Vercomentarios _vercomentarios, base_de_datos.Tweet tweet) {
 		this._vercomentarios = _vercomentarios;
+		this.tweet = tweet;
 	}
 }

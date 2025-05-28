@@ -10,8 +10,8 @@ public class Listadodeusuariosusuarioregistrado extends Listadousuarios {
 	
 	public Listadodeusuariosusuarioregistrado(VerlistadoglobaldeusuariosUsuarioregistrado _verlistadoglobaldeusuariosUsuarioregistrado){
 		super(_verlistadoglobaldeusuariosUsuarioregistrado);
-		Listadodeusuariosusuarioregistrado_item item1 = new Listadodeusuariosusuarioregistrado_item(this);
-		Listadodeusuariosusuarioregistrado_item item2 = new Listadodeusuariosusuarioregistrado_item(this);
+		Listadodeusuariosusuarioregistrado_item item1 = new Listadodeusuariosusuarioregistrado_item(this, null);
+		Listadodeusuariosusuarioregistrado_item item2 = new Listadodeusuariosusuarioregistrado_item(this, null);
 		_item.add(item1);
 		_item.add(item2);
 		for(Listadodeusuariosusuarioregistrado_item item: _item) {

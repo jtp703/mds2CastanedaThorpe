@@ -7,8 +7,8 @@ public class ListadocomentariosUsuarionoregistrado_item extends Listadocomentari
 	public ListadocomentariosUsuarionoregistrado listadoComentariosUsuarionoregistrado;
 
 	public ListadocomentariosUsuarionoregistrado_item(
-			ListadocomentariosUsuarionoregistrado listadoComentariosUsuarionoregistrado) {
-		super(listadoComentariosUsuarionoregistrado);
+			ListadocomentariosUsuarionoregistrado listadoComentariosUsuarionoregistrado, base_de_datos.Comentario comentario) {
+		super(listadoComentariosUsuarionoregistrado, comentario);
 		this.getBotonEliminarComentario().setVisible(false);
 		this.getBtnDarMegusta().setVisible(false);
 	}

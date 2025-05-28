@@ -9,8 +9,8 @@ public class ListadocomentariosAdministrador_item extends Listadocomentarios_ite
 	// private event _eliminar_comentario;
 	public ListadocomentariosAdministrador _listadocomentariosAdministrador;
 
-	public ListadocomentariosAdministrador_item(ListadocomentariosAdministrador _listadocomentariosAdministrador) {
-		super(_listadocomentariosAdministrador);
+	public ListadocomentariosAdministrador_item(ListadocomentariosAdministrador _listadocomentariosAdministrador,base_de_datos.Comentario comentario) {
+		super(_listadocomentariosAdministrador, comentario);
 		this.getBtnDarMegusta().setVisible(false);
 		this.getBotonEliminarComentario().addClickListener(event -> Eliminar_Comentario());
 	}

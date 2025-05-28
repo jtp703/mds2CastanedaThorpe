@@ -17,6 +17,7 @@ public class Registrarse extends VistaRegistrarse{
 	public Usuarionoregistrado _usuarionoregistrado;
 	public GoogleLogin _googleLogin;
 	public Iniciarsesion _iniciarsesion;
+	public base_de_datos.Usuario _usuario;
 	
 	public Registrarse(Usuarionoregistrado _usuarionoregistrado) {
 		this._usuarionoregistrado = _usuarionoregistrado;

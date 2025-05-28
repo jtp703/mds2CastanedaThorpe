@@ -11,8 +11,8 @@ public class Listadodeusuariosusuarionoregistrado extends Listadousuarios {
 	
 	public Listadodeusuariosusuarionoregistrado(VerlistadoglobaldeusuariosUsuarionoregistrado _verlistadoglobaldeusuariosUsuarionoregistrado){
 		super(_verlistadoglobaldeusuariosUsuarionoregistrado);
-		Listadodeusuariosusuarionoregistrado_item item1 = new Listadodeusuariosusuarionoregistrado_item(this);
-		Listadodeusuariosusuarionoregistrado_item item2 = new Listadodeusuariosusuarionoregistrado_item(this);
+		Listadodeusuariosusuarionoregistrado_item item1 = new Listadodeusuariosusuarionoregistrado_item(this, null);
+		Listadodeusuariosusuarionoregistrado_item item2 = new Listadodeusuariosusuarionoregistrado_item(this, null);
 		_listadodeusuariosusuarionoregistrado.add(item1);
 		_listadodeusuariosusuarionoregistrado.add(item2);
 		for(Listadodeusuariosusuarionoregistrado_item item: _listadodeusuariosusuarionoregistrado) {

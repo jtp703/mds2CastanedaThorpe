@@ -13,8 +13,8 @@ public class ListadocomentariosUsuarionoregistrado extends Listadocomentarios {
 	public ListadocomentariosUsuarionoregistrado(VercomentariosUsuarionoregistrado _usuarioNoRegistrado) {
 		super(_usuarioNoRegistrado);
 		this.getContenedorEscribirComentarios().setVisible(false);
-		ListadocomentariosUsuarionoregistrado_item item0 = new ListadocomentariosUsuarionoregistrado_item(this);
-		ListadocomentariosUsuarionoregistrado_item item1 = new ListadocomentariosUsuarionoregistrado_item(this);
+		ListadocomentariosUsuarionoregistrado_item item0 = new ListadocomentariosUsuarionoregistrado_item(this, null);
+		ListadocomentariosUsuarionoregistrado_item item1 = new ListadocomentariosUsuarionoregistrado_item(this, null);
 		for (ListadocomentariosUsuarionoregistrado_item item : listadocomentariosUsuarionoregistrado_item) {
 			this.getContenedorComentariosItem().as(VerticalLayout.class).add(item);
 		}

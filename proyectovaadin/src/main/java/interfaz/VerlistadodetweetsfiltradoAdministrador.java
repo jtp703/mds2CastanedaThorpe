@@ -13,9 +13,9 @@ public class VerlistadodetweetsfiltradoAdministrador extends Verlistadodetweetsf
 		this._administrador.getContenedorRegistro().setVisible(false);
 		this._administrador.getContenedorVerPerfilPersonal().setVisible(false);
 		this.getContenedorCibernauta().as(VerticalLayout.class).add(this._administrador);
-		ListadotweetsAdministrador_item item0 = new ListadotweetsAdministrador_item(_listadotweetsAdministrador);
+		ListadotweetsAdministrador_item item0 = new ListadotweetsAdministrador_item(_listadotweetsAdministrador, null);
 		this.getContenedorListadoTweetsFiltrado().as(VerticalLayout.class).add(item0);
-		ListadotweetsAdministrador_item item1 = new ListadotweetsAdministrador_item(_listadotweetsAdministrador);
+		ListadotweetsAdministrador_item item1 = new ListadotweetsAdministrador_item(_listadotweetsAdministrador, null);
 		this.getContenedorListadoTweetsFiltrado().as(VerticalLayout.class).add(item1);
 	}
 

@@ -15,8 +15,8 @@ public class ListadocomentariosUsuarioregistrado extends Listadocomentarios {
 	
 	public ListadocomentariosUsuarioregistrado(VercomentariosUsuarioregistrado _vercomentariosUsuarioregistrado) {
 		super(_vercomentariosUsuarioregistrado);
-		ListadocomentariosUsuarioregistrado_item item01 = new ListadocomentariosUsuarioregistrado_item(this);
-		ListadocomentariosUsuarioregistrado_item item02 = new ListadocomentariosUsuarioregistrado_item(this);
+		ListadocomentariosUsuarioregistrado_item item01 = new ListadocomentariosUsuarioregistrado_item(this, null);
+		ListadocomentariosUsuarioregistrado_item item02 = new ListadocomentariosUsuarioregistrado_item(this, null);
 		for(ListadocomentariosUsuarioregistrado_item item: listadoComentariosUsuarioregistrado_item) {
 			this.getContenedorComentariosItem().as(VerticalLayout.class).add(item);
 		}
@@ -24,7 +24,7 @@ public class ListadocomentariosUsuarioregistrado extends Listadocomentarios {
 	}
 	
 	public void Comentar() {
-		ListadocomentariosUsuarioregistrado_item item = new ListadocomentariosUsuarioregistrado_item(this);
+		ListadocomentariosUsuarioregistrado_item item = new ListadocomentariosUsuarioregistrado_item(this, null);
 		this.getContenedorComentariosItem().as(VerticalLayout.class).add(item);
 	}
 	

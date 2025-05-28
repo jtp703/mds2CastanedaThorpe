@@ -22,6 +22,7 @@ public class Notificacionesdeusuario extends VistaNotificacionesdeusuario{
 	public Notificacionesdeusuario(Usuarioregistrado _usuarioregistrado) {
 		this._usuarioregistrado = _usuarioregistrado;
 		_notificaciones = new Notificaciones(this);
+		
 		this.getContemdorListadoNotificaciones().as(VerticalLayout.class).add(_notificaciones);
 		
 	}
