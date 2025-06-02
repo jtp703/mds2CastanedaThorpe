@@ -2,41 +2,266 @@ package base_de_datos;
 
 import base_de_datos.BDPrincipal;
 import java.util.Vector;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Date;
+
+import org.orm.PersistentException;
+import org.orm.PersistentTransaction;
+
 import base_de_datos.Tweet;
+import base_de_datos.Usuario;
+import base_de_datos.Comentario;
+import base_de_datos.Hashtag;
+import base_de_datos.Documento;
+import base_de_datos.Administrador;
+
+// Ajusta este import al nombre real del PersistentManager generado por tu ORM:
+import base_de_datos.MDS12425PFCastanedaThorpePersistentManager;
 
 public class BD_Tweets {
 	public BDPrincipal _bD_principal;
 	public Vector<Tweet> _contiene_publicaciones = new Vector<Tweet>();
 
-	public Tweet[] cargarTweets() {
-		throw new UnsupportedOperationException();
-	}
+	/**
+     * Devuelve todos los tweets existentes en la base de datos.
+     */
+    public Tweet[] cargarTweets() throws PersistentException {
+        PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager
+                .instance().getSession().beginTransaction();
+        Tweet[] resultados = new Tweet[0];
+        try {
+            // Sin filtro (null, null) listamos todos los tweets
+            resultados = TweetDAO.listTweetByQuery(null, null);
+            t.commit();
+        } catch (Exception e) {
+            t.rollback();
+        } finally {
+            MDS12425PFCastanedaThorpePersistentManager.instance().disposePersistentManager();
+        }
+        return resultados;
+    }
 
-	public void borrarTweet(int aIdTweet) {
-		throw new UnsupportedOperationException();
-	}
+    /**
+     * Elimina un tweet dado su ID.
+     */
+    public void borrarTweet(int aIdTweet) throws PersistentException {
+        PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager
+                .instance().getSession().beginTransaction();
+        try {
+            Tweet tweet = TweetDAO.loadTweetByORMID(aIdTweet);
+            if (tweet != null) {
+                TweetDAO.delete(tweet);
+            }
+            t.commit();
+        } catch (Exception e) {
+            t.rollback();
+        } finally {
+            MDS12425PFCastanedaThorpePersistentManager.instance().disposePersistentManager();
+        }
+    }
 
-	public Tweet escribirTweet(String aTexto, String[] aDocumentos, String[] aTipo) {
-		throw new UnsupportedOperationException();
-	}
+    /**
+     * Crea y guarda un nuevo tweet con texto y documentos adjuntos.
+     *
+     * Ahora recibe el ID de usuario (aIdUsuario) que publica el tweet,
+     * porque no existe getUsuarioActual(). 
+     *
+     * @param aIdUsuario   ID del Usuario que publica el tweet.
+     * @param aTexto       Texto del tweet.
+     * @param aDocumentos  Array de URLs o rutas de documentos.
+     * @param aTipo        Array de tipos correspondientes a cada documento.
+     * @return             El Tweet recién creado (con sus documentos vinculados).
+     */
+    public Tweet escribirTweet(int aIdUsuario, String aTexto, String[] aDocumentos, String[] aTipo) throws PersistentException {
+        PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager
+                .instance().getSession().beginTransaction();
+        Tweet tweet = null;
+        try {
+            // 1. Creamos el tweet
+            tweet = TweetDAO.createTweet();
+            tweet.setTexto(aTexto);
+            tweet.setFechaCreacion(new Date());
+            tweet.setNumMegustas(0);
+            tweet.setNumRetweets(0);
+            tweet.setNumComentarios(0);
 
-	public void darMegustaTweet(int aIdUsuario, int aIdTweet) {
-		throw new UnsupportedOperationException();
-	}
+            // 2. Asignamos el Usuario que lo publica
+            Usuario publicador = UsuarioDAO.loadUsuarioByORMID(aIdUsuario);
+            if (publicador == null) {
+                // Si no existe el usuario, lanzamos excepción para abortar la transacción
+                throw new PersistentException("Usuario con ID " + aIdUsuario + " no encontrado.");
+            }
+            tweet.setTweeteado_por(publicador);
 
-	public void quitarMegusta(int aIdUsuario, int aIdTweet) {
-		throw new UnsupportedOperationException();
-	}
+            // 3. Guardamos el tweet inicialmente (para tener ID y permitir relacionar documentos)
+            TweetDAO.save(tweet);
 
-	public Tweet[] getTweetsByUserId(int aIdUsuario) {
-		throw new UnsupportedOperationException();
-	}
+            // 4. Si vienen documentos adjuntos, los creamos y vinculamos al tweet
+            if (aDocumentos != null && aTipo != null && aDocumentos.length == aTipo.length) {
+                for (int i = 0; i < aDocumentos.length; i++) {
+                    Documento doc = DocumentoDAO.createDocumento();
+                    doc.setUrl(aDocumentos[i]);       // 'url' es el campo en Documento
+                    doc.setTipo(aTipo[i]);            // 'tipo' es el campo en Documento
+                    doc.setPertenecea_tweet(tweet);   // vincula el documento al tweet
+                    DocumentoDAO.save(doc);
+                }
+            }
 
-	public Tweet[] cargarTweetsFiltrados(int aIdHashtag) {
-		throw new UnsupportedOperationException();
-	}
+            // 5. Guardamos nuevamente el tweet para asegurar que las relaciones queden persistidas
+            TweetDAO.save(tweet);
 
-	public Tweet retweet(int aIdTweetRetweteado, String aTexto) {
-		throw new UnsupportedOperationException();
-	}
+            t.commit();
+        } catch (Exception e) {
+            t.rollback();
+        } finally {
+            MDS12425PFCastanedaThorpePersistentManager.instance().disposePersistentManager();
+        }
+        return tweet;
+    }
+
+    /**
+     * Añade un "Me gusta" a un tweet: crea la relación Many-to-Many entre Usuario y Tweet,
+     * e incrementa el contador numMegustas.
+     */
+    public void darMegustaTweet(int aIdUsuario, int aIdTweet) throws PersistentException {
+        PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager
+                .instance().getSession().beginTransaction();
+        try {
+            Usuario usuario = UsuarioDAO.loadUsuarioByORMID(aIdUsuario);
+            Tweet tweet = TweetDAO.loadTweetByORMID(aIdTweet);
+            if (usuario != null && tweet != null) {
+                // UsuarioSetCollection likeado_por en Tweet
+                if (!tweet.likeado_por.contains(usuario)) {
+                    tweet.likeado_por.add(usuario);
+                    // Incrementamos el contador de "Me gusta"
+                    tweet.setNumMegustas(tweet.getNumMegustas() + 1);
+                    TweetDAO.save(tweet);
+                }
+            }
+            t.commit();
+        } catch (Exception e) {
+            t.rollback();
+        } finally {
+            MDS12425PFCastanedaThorpePersistentManager.instance().disposePersistentManager();
+        }
+    }
+
+    /**
+     * Quita un "Me gusta" de un tweet: elimina la relación Many-to-Many y decrementa numMegustas.
+     */
+    public void quitarMegusta(int aIdUsuario, int aIdTweet) throws PersistentException {
+        PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager
+                .instance().getSession().beginTransaction();
+        try {
+            Usuario usuario = UsuarioDAO.loadUsuarioByORMID(aIdUsuario);
+            Tweet tweet = TweetDAO.loadTweetByORMID(aIdTweet);
+            if (usuario != null && tweet != null) {
+                if (tweet.likeado_por.contains(usuario)) {
+                    tweet.likeado_por.remove(usuario);
+                    tweet.setNumMegustas(Math.max(0, tweet.getNumMegustas() - 1));
+                    TweetDAO.save(tweet);
+                }
+            }
+            t.commit();
+        } catch (Exception e) {
+            t.rollback();
+        } finally {
+            MDS12425PFCastanedaThorpePersistentManager.instance().disposePersistentManager();
+        }
+    }
+
+    /**
+     * Devuelve todos los tweets publicados por un usuario dado su ID.
+     */
+    public Tweet[] getTweetsByUserId(int aIdUsuario) throws PersistentException {
+        PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager
+                .instance().getSession().beginTransaction();
+        Tweet[] resultados = new Tweet[0];
+        try {
+            // La columna en Tweet que referencia a Usuario es "UsuarioUsuarioAutentificadoID"
+            String condicion = "UsuarioUsuarioAutentificadoID = " + aIdUsuario;
+            resultados = TweetDAO.listTweetByQuery(condicion, null);
+            t.commit();
+        } catch (Exception e) {
+            t.rollback();
+        } finally {
+            MDS12425PFCastanedaThorpePersistentManager.instance().disposePersistentManager();
+        }
+        return resultados;
+    }
+
+    /**
+     * Carga todos los tweets que contengan un hashtag dado su ID.
+     */
+    public Tweet[] cargarTweetsFiltrados(int aIdHashtag) throws PersistentException {
+        PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager
+                .instance().getSession().beginTransaction();
+        Tweet[] resultadoArray = new Tweet[0];
+        try {
+            Hashtag hashtag = HashtagDAO.loadHashtagByORMID(aIdHashtag);
+            if (hashtag != null) {
+                // HashtagSetCollection "aparece_en" contiene todos los tweets asociados
+                Object[] tweetsConHash = hashtag.aparece_en.toArray();
+                Tweet[] tweets = new Tweet[tweetsConHash.length];
+                for (int i = 0; i < tweetsConHash.length; i++) {
+                    tweets[i] = (Tweet) tweetsConHash[i];
+                }
+                resultadoArray = tweets;
+            }
+            t.commit();
+        } catch (Exception e) {
+            t.rollback();
+        } finally {
+            MDS12425PFCastanedaThorpePersistentManager.instance().disposePersistentManager();
+        }
+        return resultadoArray;
+    }
+
+    /**
+     * Crea un retweet de un tweet existente.
+     *
+     * @param aIdTweetRetweteado ID del tweet que se retwitea.
+     * @param aIdUsuario         ID del usuario que hace el retweet.
+     * @param aTexto             Nuevo texto adicional (puede combinarse con el original).
+     * @return                   El nuevo Tweet que referencia al original.
+     */
+    public Tweet retweet(int aIdTweetRetweteado, int aIdUsuario, String aTexto) throws PersistentException {
+        PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager
+                .instance().getSession().beginTransaction();
+        Tweet retweet = null;
+        try {
+            Tweet original = TweetDAO.loadTweetByORMID(aIdTweetRetweteado);
+            if (original != null) {
+                // 1. Creamos el nuevo Tweet que referencia al original
+                retweet = TweetDAO.createTweet();
+                retweet.setTexto(aTexto);
+                retweet.setFechaCreacion(new Date());
+                retweet.setNumMegustas(0);
+                retweet.setNumRetweets(0);
+                retweet.setNumComentarios(0);
+                retweet.setTweet(original);
+
+                // 2. Asignar el usuario que retwitea (pasa el ID en el método)
+                Usuario reTweeter = UsuarioDAO.loadUsuarioByORMID(aIdUsuario);
+                if (reTweeter == null) {
+                    throw new PersistentException("Usuario con ID " + aIdUsuario + " no encontrado.");
+                }
+                retweet.setTweeteado_por(reTweeter);
+
+                // 3. Guardamos el retweet
+                TweetDAO.save(retweet);
+
+                // 4. Incrementamos el contador de retweets en el original
+                original.setNumRetweets(original.getNumRetweets() + 1);
+                TweetDAO.save(original);
+            }
+            t.commit();
+        } catch (Exception e) {
+            t.rollback();
+        } finally {
+            MDS12425PFCastanedaThorpePersistentManager.instance().disposePersistentManager();
+        }
+        return retweet;
+    }
 }
