@@ -3,11 +3,13 @@ package interfaz;
 import vistas.*;
 import org.vaadin.example.*;
 
+import base_de_datos.iCibernauta;
+
 /*import basededatos.iCibernauta;*/
 
 
 public class Cibernauta extends VistaCibernauta{
-	/*public iCibernauta _iCibernauta;*/
+	public iCibernauta _iCibernauta;
 	public VerListadohashtags _verListadohashtags;
 	public Vermuroprincipal _vermuroprincipal;
 	public Verlistadogloblaldeusuarios _verlistadogloblaldeusuarios;

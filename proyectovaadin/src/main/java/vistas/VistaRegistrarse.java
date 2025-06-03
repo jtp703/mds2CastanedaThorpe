@@ -33,7 +33,8 @@ public class VistaRegistrarse extends LitTemplate {
 	private Button btnRegistrarse;
 	@Id("iniciarsesion")
 	private Button iniciarsesion;
-
+	@Id("nombreCompleto")
+	private TextField nombreCompleto;
 	public VistaRegistrarse() {
 		// You can initialise any data required for the connected UI components here.
 	}
@@ -116,6 +117,12 @@ public class VistaRegistrarse extends LitTemplate {
 
 	public void setIniciarsesion(Button iniciarsesion) {
 		this.iniciarsesion = iniciarsesion;
+	}
+	public TextField getNombreCompleto() {
+		return nombreCompleto;
+	}
+	public void setNombreCompleto(TextField nombreCompleto) {
+		this.nombreCompleto = nombreCompleto;
 	}
 
 }

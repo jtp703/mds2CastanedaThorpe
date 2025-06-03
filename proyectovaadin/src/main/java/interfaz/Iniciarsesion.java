@@ -14,6 +14,7 @@ public class Iniciarsesion extends VistaIniciarsesion{
 	public Registrarse _registrarse;
 	public Recuperarcontrasenia _recuperarcontrasenia;
 	public Usuarioregistrado usuarioregistrado;
+	public Cibernauta _cibernauta;
 	
 	public Iniciarsesion(Registrarse _registrarse) {
 		this._registrarse = _registrarse;
@@ -26,7 +27,7 @@ public class Iniciarsesion extends VistaIniciarsesion{
 	}
 
 	public void Validardatosdelogin() {
-		this.getContenedorIniciarSesion().as(VerticalLayout.class).removeAll();
+		//this._cibernauta._iCibernauta.lo
 		
 	}
 	private void Volver() {
