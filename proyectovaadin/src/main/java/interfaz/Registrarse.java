@@ -33,7 +33,7 @@ public class Registrarse extends VistaRegistrarse{
 	
 	private void registrarse() {
 		this._usuario = new base_de_datos.Usuario();
-		if(this._usuarionoregistrado._iUsuarionoregistrado.findByUserId(this.getCorreo().getValue()) != null){
+		if(this._usuarionoregistrado._iUsuarionoregistrado.findByUserMail(this.getCorreo().getValue()) != null){
 			Notification.show("Este correo ya esta registrado");
 			return;
 		}

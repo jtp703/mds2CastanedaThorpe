@@ -289,14 +289,14 @@ public class BDPrincipal implements
     }
 
 	@Override
-	public UsuarioAutentificado findByUserId(String aMail) {
+	public UsuarioAutentificado findByUserMail(String aMail) {
 		UsuarioAutentificado u = null;
 		try {
 			// 1. Primero intentamos encontrar usuario registrado
-			u = _bD_Usuario.findByUserId(aMail);
+			u = _bD_Usuario.findByUserMail(aMail);
 			if (u == null) {
 				// 2. Si no encontramos usuario, probamos como administrador
-				u = _bD_Administrador.findByUserId(aMail);
+				u = _bD_Administrador.findByUserMail(aMail);
 			}
 		} catch (PersistentException e) {
 			e.printStackTrace();

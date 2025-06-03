@@ -4,6 +4,9 @@ import org.vaadin.example.MainView;
 
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import base_de_datos.Usuario;
+import base_de_datos.UsuarioSetCollection;
+
 public class Verlistadodeseguidores extends Verlistado {
 	
 	public Listadodeusuariosusuarioregistrado _listadousuariosusuarioregistrado;
@@ -54,17 +57,15 @@ public class Verlistadodeseguidores extends Verlistado {
 		this.getListadoSeguidores().as(VerticalLayout.class).add(item1);
 	}
 	
-	public Verlistadodeseguidores(VerperfilAdministrador _verperfilaministrador) {
+	public Verlistadodeseguidores(VerperfilAdministrador _verperfilaministrador, Usuario[] _usuarioSetCollection) {
 		super(_verperfilaministrador);
 		eliminarSeguidos();
 		this.getBtnCerrar().addClickListener(event -> btnCerrar());
-		Listadodeusuariosadministrador_item item0 = new Listadodeusuariosadministrador_item(_verperfilaministrador, null);
-		eliminarSeguidoresYSeguidos(item0);
-		this.getListadoSeguidores().as(VerticalLayout.class).add(item0);
-		
-		Listadodeusuariosadministrador_item item1 = new Listadodeusuariosadministrador_item(_verperfilaministrador, null);
-		eliminarSeguidoresYSeguidos(item1);
-		this.getListadoSeguidores().as(VerticalLayout.class).add(item1);
+		for (Usuario usuario : _usuarioSetCollection) {
+			Listadodeusuariosadministrador_item item = new Listadodeusuariosadministrador_item(_verperfilaministrador, usuario);
+			eliminarSeguidoresYSeguidos(item);
+			this.getListadoSeguidores().as(VerticalLayout.class).add(item);
+		}
 	}
 	
 	private void eliminarSeguidoresYSeguidos(Listadousuarios_item item) {

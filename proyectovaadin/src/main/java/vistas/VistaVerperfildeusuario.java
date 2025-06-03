@@ -11,6 +11,8 @@ import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.icon.Icon;
+import com.vaadin.flow.component.html.H3;
+import com.vaadin.flow.component.html.Image;
 
 @Tag("vista-verperfildeusuario")
 @JsModule("./views/vista-verperfildeusuario.ts")
@@ -36,8 +38,6 @@ public class VistaVerperfildeusuario extends LitTemplate {
 	private H1 nombreUsuario;
 	@Id("contenedorListadotweets")
 	private Element contenedorListadotweets;
-	@Id("verPerfil")
-	private Element verPerfil;
 	@Id("btnEditarPerfil")
 	private Button btnEditarPerfil;
 	@Id("btnEliminarPerfil")
@@ -54,6 +54,12 @@ public class VistaVerperfildeusuario extends LitTemplate {
 	private Button verMegustas;
 	@Id("btnCerrarSesion")
 	private Button btnCerrarSesion;
+	@Id("nickUsuario")
+	private H3 nickUsuario;
+	@Id("imgFondo")
+	private Image imgFondo;
+	@Id("imgPerfil")
+	private Image imgPerfil;
 	
 	public Element getContenedorVerPerfil() {
 		return contenedorVerPerfil;
@@ -115,12 +121,6 @@ public class VistaVerperfildeusuario extends LitTemplate {
 	public void setContenedorListadotweets(Element contenedorListadotweets) {
 		this.contenedorListadotweets = contenedorListadotweets;
 	}
-	public Element getVerPerfil() {
-		return verPerfil;
-	}
-	public void setVerPerfil(Element verPerfil) {
-		this.verPerfil = verPerfil;
-	}
 	public Button getBtnEditarPerfil() {
 		return btnEditarPerfil;
 	}
@@ -169,5 +169,24 @@ public class VistaVerperfildeusuario extends LitTemplate {
 	public void setBtnCerrarSesion(Button btnCerrarSesion) {
 		this.btnCerrarSesion = btnCerrarSesion;
 	}
+	public H3 getNickUsuario() {
+		return nickUsuario;
+	}
+	public void setNickUsuario(H3 nickUsuario) {
+		this.nickUsuario = nickUsuario;
+	}
+	public Image getImgFondo() {
+		return imgFondo;
+	}
+	public void setImgFondo(Image imgFondo) {
+		this.imgFondo = imgFondo;
+	}
+	public Image getImgPerfil() {
+		return imgPerfil;
+	}
+	public void setImgPerfil(Image imgPerfil) {
+		this.imgPerfil = imgPerfil;
+	}
+	
 	
 }

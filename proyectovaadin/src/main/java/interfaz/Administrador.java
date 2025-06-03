@@ -1,20 +1,20 @@
 package interfaz;
 
-/*import basededatos.iAdministrador;*/
 import org.vaadin.example.*;
 
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import base_de_datos.iAdministrador;
+
 public class Administrador extends Cibernauta {
 	/*
-	 * private event _cerrarsesionAdministrador; public iAdministrador
-	 * _iAdministrador;
-	 */
+	 * private event _cerrarsesionAdministrador; 
+	 **/
+	public iAdministrador _iAdministrador = new base_de_datos.BDPrincipal();
+	 
 	public VermuroprincipalAdministrador _vermuroprincipalAdministrador;
-//	public VerlistadodetweetsfiltradoAdministrador _verlistadodetweetsfiltradoAdministrador;
 	public VerListadohashtags _verlistadohashtags;
 	public VerlistadoglobaldeusuariosAdministrador _verlistadoglobaldeusuariosAdministrador;
-//	public VerperfilAdministrador _verperfilAdministrador;
 	public Usuarionoregistrado usuarioNoRegistrado;
 	
 	public base_de_datos.Administrador admin;

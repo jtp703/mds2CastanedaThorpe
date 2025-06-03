@@ -19,12 +19,15 @@ export class VistaVerperfildeusuario extends LitElement {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;position:absolute;" id="contenedorVerPerfil">
  <vaadin-vertical-layout theme="spacing" id="contenedorImgFondo" style="align-self: stretch;">
-  <vaadin-vertical-layout theme="spacing" id="contenedorImgPerfil" style="align-items: center; flex-grow: 0; align-self: center;"></vaadin-vertical-layout>
+  <vaadin-vertical-layout theme="spacing" id="contenedorImgPerfil" style="align-items: center; flex-grow: 0; align-self: center;">
+   <img id="imgFondo">
+  </vaadin-vertical-layout>
  </vaadin-vertical-layout>
  <vaadin-vertical-layout theme="spacing" style="align-self: stretch; flex-shrink: 0;">
   <h1 id="nombreUsuario" style="align-self: center;">Heading 1</h1>
+  <img id="imgPerfil">
   <vaadin-horizontal-layout style="flex-grow: 0; align-self: center; flex-shrink: 0;" id="perfilLayout">
-   <a href="" id="verPerfil" style="flex-grow: 0;">@usuario</a>
+   <h3 id="nickUsuario">Heading 3</h3>
   </vaadin-horizontal-layout>
  </vaadin-vertical-layout>
  <vaadin-horizontal-layout theme="spacing" style="align-self: stretch; margin-left: var(--lumo-space-m); margin-right: var(--lumo-space-l);">
@@ -85,7 +88,7 @@ export class VistaVerperfildeusuario extends LitElement {
       Eliminar perfil 
     </vaadin-button>
     <vaadin-button tabindex="0" id="btnCerrarSesion" style="align-self: stretch;">
-     Cerrar sesion
+      Cerrar sesion 
     </vaadin-button>
    </vaadin-vertical-layout>
   </vaadin-horizontal-layout>

@@ -85,7 +85,7 @@ public class Tweet implements Serializable {
 	@ManyToOne(targetEntity=base_de_datos.Usuario.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
 	@JoinColumns(value={ @JoinColumn(name="UsuarioUsuarioAutentificadoID", referencedColumnName="UsuarioAutentificadoID", nullable=false) }, foreignKey=@ForeignKey(name="FKTweet870216"))	
-	private base_de_datos.Usuario tweeteado_por;
+	public base_de_datos.Usuario tweeteado_por;
 	
 	@ManyToOne(targetEntity=base_de_datos.Administrador.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	

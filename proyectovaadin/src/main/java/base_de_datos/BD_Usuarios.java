@@ -303,23 +303,25 @@ public class BD_Usuarios {
 		return usuario;
 	}
 	
-	public UsuarioAutentificado findByUserId(String aMail) throws PersistentException {
-		PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager
-				.instance().getSession().beginTransaction();
-		UsuarioAutentificado usuario = null;
-		try {
-			String condicion = "Mail = '" + aMail.replace("'", "''") + "'";
-			Usuario[] encontrados = UsuarioDAO.listUsuarioByQuery(condicion, null);
-			if (encontrados != null && encontrados.length > 0) {
-				usuario = encontrados[0];
-			}
-			t.commit();
-		} catch (Exception e) {
-			t.rollback();
-		} finally {
-			MDS12425PFCastanedaThorpePersistentManager.instance().disposePersistentManager();
-		}
-		return usuario;
+	public Usuario findByUserMail(String aMail) throws PersistentException {
+	    PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager
+	            .instance().getSession().beginTransaction();
+	    Usuario usuario = null;
+	    try {
+	        // Escapamos posibles comillas en el mail
+	        String condicion = "Mail = '" + aMail.replace("'", "''") + "'";
+	        Usuario[] encontrados = UsuarioDAO.listUsuarioByQuery(condicion, null);
+	        if (encontrados != null && encontrados.length > 0) {
+	            usuario = encontrados[0];
+	        }
+	        t.commit();
+	    } catch (Exception e) {
+	        t.rollback();
+	    } finally {
+	        MDS12425PFCastanedaThorpePersistentManager.instance().disposePersistentManager();
+	    }
+	    return usuario;
 	}
+
 	
 }

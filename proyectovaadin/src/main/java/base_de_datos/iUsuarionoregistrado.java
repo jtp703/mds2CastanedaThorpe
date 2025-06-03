@@ -9,5 +9,5 @@ public interface iUsuarionoregistrado extends iCibernauta {
 
 	public UsuarioAutentificado iniciarSesion(String aMail, String aPassword);
 	
-	public UsuarioAutentificado findByUserId(String aMail);
+	public UsuarioAutentificado findByUserMail(String aMail);
 }

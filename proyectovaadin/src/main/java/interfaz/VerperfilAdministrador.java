@@ -1,18 +1,24 @@
 package interfaz;
 
+import java.util.Collection;
+
 import org.vaadin.example.MainView;
 
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import base_de_datos.Usuario;
+import base_de_datos.UsuarioSetCollection;
+
 public class VerperfilAdministrador extends Verperfildeusuario {
 	
 	public Administrador _administrador;
+	public Usuarioregistrado _usuarioregistrado;
 	public ListadotweetsAdministrador _listadotweetsadministrador;
 	public Banearusuario _banearusuario;
 	public Verlistadodeseguidores verListadoseguidores;
 	public Verlistadodeseguidos verListadoseguidos;
 	
-	public VerperfilAdministrador(Administrador _administrador) {
+	public VerperfilAdministrador(Administrador _administrador, Usuario _usuario) {
 		super(_administrador);
 		this._listadotweetsadministrador = new ListadotweetsAdministrador(this);
 		this._listadotweetsadministrador.getContenedorNuevoTweet().setVisible(false);
@@ -23,9 +29,18 @@ public class VerperfilAdministrador extends Verperfildeusuario {
 		this.getBtnEliminarPerfil().setVisible(false);
 		this.getBtnCerrarSesion().setVisible(false);
 		
+		//cargar perfil
+		this.getNombreUsuario().setText(_usuario.getNombre());
+		this.getNickUsuario().setText(_usuario.getNick());
+		this.getImgFondo().setSrc(_usuario.getFotoFondo());
+		this.getImgPerfil().setSrc(_usuario.getFotoPerfil());
+		this.getDescripcionPerfil().setText(_usuario.getDescripcion());
+		this.getVerSeguidos().setText(Integer.toString(_usuario.es_seguido.size()));
+		this.getVerSeguidores().setText(Integer.toString(_usuario.sigue.size()));
+		
 		this.getBtnVolver().addClickListener(event -> btnVolver());
-		this.getVerSeguidores().addClickListener(event -> Verlistadodeseguidores());
-		this.getVerSeguidos().addClickListener(event -> Verlistadodeseguidos());
+		this.getVerSeguidores().addClickListener(event -> Verlistadodeseguidores(_usuario.es_seguido));
+		this.getVerSeguidos().addClickListener(event -> Verlistadodeseguidos(_usuario.sigue));
 		this.getBtnBanearUsuario().addClickListener(event -> Banear_usuarios());
 		//sustituir por listado filtrado de megustras
 		this.getVerMegustas().addClickListener(event -> Me_gustas(new Megustas(_listadotweetsadministrador)));
@@ -53,13 +68,14 @@ public class VerperfilAdministrador extends Verperfildeusuario {
 		System.out.println("Volver a la vista anterior desde ver perfil administrador");
 	}
 	
-	private void Verlistadodeseguidores() {
-		verListadoseguidores = new Verlistadodeseguidores(this);
+	private void Verlistadodeseguidores(UsuarioSetCollection es_seguido) {
+		
+		verListadoseguidores = new Verlistadodeseguidores(this, es_seguido.toArray());
 		MainView.Pantalla.cambiarVista(verListadoseguidores);
 	}
 
-	private void Verlistadodeseguidos() {
-		verListadoseguidos = new Verlistadodeseguidos(this);
+	private void Verlistadodeseguidos(UsuarioSetCollection seguidos) {
+		verListadoseguidos = new Verlistadodeseguidos(this, seguidos.toArray());
 		MainView.Pantalla.cambiarVista(verListadoseguidos);
 	}
 	
