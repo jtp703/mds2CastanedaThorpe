@@ -10,9 +10,8 @@ import base_de_datos.AdministradorDAO;
 import base_de_datos.MDS12425PFCastanedaThorpePersistentManager;
 
 public class BD_Administradores {
-    public BDPrincipal _bD_principal;
-    public Vector<Administrador> _contiene_administradores = new Vector<Administrador>();
-
+	public BDPrincipal _bD_principal;
+	public Vector<Administrador> _contiene_administradores = new Vector<Administrador>();
     /**
      * Intenta iniciar sesión para un Administrador buscándolo por mail y contraseña.
      * Devuelve el Administrador coincidente, o null si no existe.
