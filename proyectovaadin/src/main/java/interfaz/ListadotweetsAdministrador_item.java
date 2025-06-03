@@ -9,12 +9,14 @@ public class ListadotweetsAdministrador_item extends Listadotweets_item {
 	public ListadotweetsAdministrador _listadotweetsAdministrador;
 	public VercomentariosAdminstrador _vercomentariosAdminstrador;
 	public Administrador admin;
+	public base_de_datos.Tweet tweet;
 	
 	public ListadotweetsAdministrador_item(ListadotweetsAdministrador listadotweetsAdministrador, base_de_datos.Tweet tweet) {
 		super(listadotweetsAdministrador, tweet);
+		this.tweet = tweet;
 		this.getDarRetweet().setVisible(false);
 		this.getMeGusta().setVisible(false);
-		this.getVerperfil().addClickListener(event -> verPerfilUsuarioNoRegistrado());
+		this.getVerperfil().addClickListener(event -> verPerfilUsuarioRegistrado());
 		this.getComentar().addClickListener(event -> VercomentariosAdministrador());
 	}
 	
@@ -22,7 +24,7 @@ public class ListadotweetsAdministrador_item extends Listadotweets_item {
 		super(_vercomentariosAdminstrador, tweet);
 		this.getDarRetweet().setVisible(false);
 		this.getMeGusta().setVisible(false);
-		this.getVerperfil().addClickListener(event -> verPerfilUsuarioNoRegistrado());
+		this.getVerperfil().addClickListener(event -> verPerfilUsuarioRegistrado());
 		this.getComentar().addClickListener(event -> VercomentariosAdministrador());
 	}
 	
@@ -35,9 +37,9 @@ public class ListadotweetsAdministrador_item extends Listadotweets_item {
 		MainView.Pantalla.cambiarVista(this._vercomentariosAdminstrador);
 	}
 	
-	private void verPerfilUsuarioNoRegistrado() {
-		VerperfilAdministrador _verperfilAdministrador = new VerperfilAdministrador(this.admin);
-		System.out.println("Ejecución ver perfil de usuario no registrado");
+	private void verPerfilUsuarioRegistrado() {
+		VerperfilAdministrador _verperfilAdministrador = new VerperfilAdministrador(this.admin, this.tweet.tweeteado_por);
+		
 		MainView.Pantalla.cambiarVista(_verperfilAdministrador);
 	}
 }
