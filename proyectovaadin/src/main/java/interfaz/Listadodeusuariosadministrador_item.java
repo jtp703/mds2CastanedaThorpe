@@ -23,7 +23,7 @@ public class Listadodeusuariosadministrador_item extends Listadousuarios_item{
 	
 	
 	public void VerperfilAdministrador(Administrador administrador) {
-		_verperfiladministrador = new VerperfilAdministrador(administrador);
+		_verperfiladministrador = new VerperfilAdministrador(administrador, _usuario);
 		MainView.Pantalla.cambiarVista(_verperfiladministrador);
 	}
 	

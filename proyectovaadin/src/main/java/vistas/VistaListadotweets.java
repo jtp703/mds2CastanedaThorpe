@@ -11,7 +11,6 @@ import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.radiobutton.RadioButtonGroup;
 
-
 @Tag("vista-listadotweets")
 @JsModule("./views/vista-listadotweets.ts")
 public class VistaListadotweets extends LitTemplate {
@@ -45,8 +44,19 @@ public class VistaListadotweets extends LitTemplate {
 	@Id("tipoUrl2")
 	private RadioButtonGroup<String> tipoUrl2;
 
+	@Id("textoTweet")
+	private TextArea textoTweet;
+
 	public VistaListadotweets() {
 		// You can initialise any data required for the connected UI components here.
+	}
+
+	public TextArea getTextoTweet() {
+		return textoTweet;
+	}
+
+	public void setTextoTweet(TextArea textoTweet) {
+		this.textoTweet = textoTweet;
 	}
 
 	public TextArea getIdTextoTweet() {

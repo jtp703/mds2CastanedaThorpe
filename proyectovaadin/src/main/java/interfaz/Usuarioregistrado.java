@@ -1,15 +1,14 @@
 package interfaz;
 
-//import basededatos.iUsuarioregistrado;
+import base_de_datos.BDPrincipal;
+import base_de_datos.iUsuarioregistrado;
 import org.vaadin.example.*;
-
-import com.vaadin.flow.component.AttachEvent;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.component.tabs.Tab;
 import java.util.*;
 
 public class Usuarioregistrado extends Cibernauta {
 
+	public iUsuarioregistrado iUsuarioregistrado = new BDPrincipal();
 	public Notificacionesdeusuario _notificacionesdeusuario;
 	public VermuroprincipalUsuarioregistrado _vermuroprincipalUsuarioregistrado;
 	public VerListadohashtags _verlistadohashtags;

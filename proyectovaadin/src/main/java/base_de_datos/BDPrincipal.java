@@ -99,13 +99,12 @@ public class BDPrincipal implements
     }
 
     @Override
-    public Tweet escribirTweet(String aTexto, String[] aDocumentos, String[] aTipo) {
+    public Tweet escribirTweet(int idUsuario, String aTexto, String[] aDocumentos, String[] aTipo) {
         // Nota: BD_Tweets.escribirTweet ahora requiere ID de usuario. 
         // Aquí asumimos que el usuario aIdUsuario se obtiene de contexto externo (por ejemplo, de la sesión).
         // Debe reemplazarse "0" por el ID real del usuario registrado que publica.
-        int aIdUsuario = 0; // TODO: sustituir con ID real del usuario actual
         try {
-            return _bD_Publicaciones.escribirTweet(aIdUsuario, aTexto, aDocumentos, aTipo);
+            return _bD_Publicaciones.escribirTweet(idUsuario, aTexto, aDocumentos, aTipo);
         } catch (PersistentException e) {
             throw new RuntimeException(e);
         }

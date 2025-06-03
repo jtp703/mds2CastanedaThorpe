@@ -16,7 +16,7 @@ public interface iUsuarioregistrado extends iCibernauta {
 
 	public void actualizar(int aId, String aNombre, String aNickUsuario, String aContrasenia, String aFotoPerfil, String aImgPerfil, String aDescripcion);
 
-	public Tweet escribirTweet(String aTexto, String[] aDocumentos, String[] aTipo);
+	public Tweet escribirTweet(int idUsuario, String aTexto, String[] aDocumentos, String[] aTipo);
 
 	public Comentario escribirComentario(String aTexto);
 

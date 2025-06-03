@@ -44,7 +44,7 @@ public class VerperfilAdministrador extends Verperfildeusuario {
 		this.getVerSeguidos().addClickListener(event -> Verlistadodeseguidos(_usuario.sigue));
 		this.getBtnBanearUsuario().addClickListener(event -> Banear_usuarios());
 		//sustituir por listado filtrado de megustras
-		this.getVerMegustas().addClickListener(event -> Me_gustas(new Megustas(_listadotweetsadministrador._item.)));
+		this.getVerMegustas().addClickListener(event -> Me_gustas(new Megustas(_listadotweetsadministrador)));
 		//sustituir por listado filtrado de retweets
 		this.getVerRetweets().addClickListener(event -> Retweets(new Retweets(_listadotweetsadministrador)));
 	}
