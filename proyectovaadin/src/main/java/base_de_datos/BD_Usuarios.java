@@ -222,16 +222,38 @@ public class BD_Usuarios {
 	}
 
 	/**
-	 * Marca como "baneado" un usuario. 
-	 * OBSERVACIÓN: la firma sólo recibe el ID del administrador, pero NO el ID del usuario a banear.
-	 * Por tanto, queda la lógica pendiente de concretar cuál usuario debe ser baneado.
-	 * Aquí se lanza una excepción para indicar que hace falta especificar el ID de usuario objetivo.
+	 * Marca como "baneado" un usuario.
+	 * Ahora recibe tanto el ID del administrador que realiza el baneo
+	 * como el ID del usuario que debe ser baneado.
 	 */
-	public void banearUsuario(int aIdAdministrador) {
-		throw new UnsupportedOperationException(
-			"Falta especificar el ID del usuario a banear. " +
-			"La firma actual sólo recibe el ID del administrador (" + aIdAdministrador + ")."
-		);
+	public void banearUsuario(int aIdAdministrador, int idUsuario) throws PersistentException {
+	    PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager
+	            .instance().getSession().beginTransaction();
+	    try {
+	        // 1. Cargamos el Administrador que realiza el baneo
+	        base_de_datos.Administrador administrador = AdministradorDAO.loadAdministradorByORMID(aIdAdministrador);
+	        if (administrador == null) {
+	            throw new PersistentException("Administrador con ID " + aIdAdministrador + " no encontrado.");
+	        }
+
+	        // 2. Cargamos el Usuario que será baneado
+	        Usuario usuario = UsuarioDAO.loadUsuarioByORMID(idUsuario);
+	        if (usuario == null) {
+	            throw new PersistentException("Usuario con ID " + idUsuario + " no encontrado.");
+	        }
+
+	        // 3. Asignamos el administrador como quien banea al usuario
+	        usuario.setEs_baneado(administrador);
+
+	        // 4. Guardamos el cambio en el usuario
+	        UsuarioDAO.save(usuario);
+
+	        t.commit();
+	    } catch (Exception e) {
+	        t.rollback();
+	    } finally {
+	        MDS12425PFCastanedaThorpePersistentManager.instance().disposePersistentManager();
+	    }
 	}
 
 	public Usuario registrarse(String aNombre, String aPassword, String aMail, String aNickusuario, String aFotoFondo, String aFotoPerfil, String aDescripcion, Date aFecha_creacion) throws PersistentException {

@@ -22,9 +22,29 @@ public class VistaIniciarsesion extends LitTemplate {
 	private Element recuperarContrasenia;
 	@Id("btnVolver")
 	private Button btnVolver;
+	@Id("correo")
+	private TextField correo;
+	@Id("contrasenia")
+	private TextField contrasenia;
 
 	public VistaIniciarsesion() {
 		// You can initialise any data required for the connected UI components here.
+	}
+
+	public TextField getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(TextField correo) {
+		this.correo = correo;
+	}
+
+	public TextField getContrasenia() {
+		return contrasenia;
+	}
+
+	public void setContrasenia(TextField contrasenia) {
+		this.contrasenia = contrasenia;
 	}
 
 	public Element getContenedorIniciarSesion() {
@@ -58,10 +78,11 @@ public class VistaIniciarsesion extends LitTemplate {
 	public void setRecuperarContrasenia(Element recuperarContrasenia) {
 		this.recuperarContrasenia = recuperarContrasenia;
 	}
-	
+
 	public Button getBtnVolver() {
 		return btnVolver;
 	}
+
 	public void setBtnVolver(Button btnVolver) {
 		this.btnVolver = btnVolver;
 	}

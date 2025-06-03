@@ -7,5 +7,5 @@ public interface iUsuarionoregistrado extends iCibernauta {
 
 	public void registrarse(String aNombre, String aPassword, String aMail, String aNickusuario, String aFotoFondo, String aFotoPerfil, String aDescripcion, Date aFecha_creacion);
 
-	public Usuario iniciarSesion(String aMail, String aPassword);
+	public UsuarioAutentificado iniciarSesion(String aMail, String aPassword);
 }

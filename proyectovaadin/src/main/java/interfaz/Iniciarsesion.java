@@ -2,8 +2,12 @@ package interfaz;
 
 import org.vaadin.example.MainView;
 
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import base_de_datos.Usuario;
+import base_de_datos.UsuarioAutentificado;
+import base_de_datos.iUsuarionoregistrado;
 import vistas.VistaIniciarsesion;
 
 public class Iniciarsesion extends VistaIniciarsesion{
@@ -13,12 +17,14 @@ public class Iniciarsesion extends VistaIniciarsesion{
 	private button _accedrGoogle;*/
 	public Registrarse _registrarse;
 	public Recuperarcontrasenia _recuperarcontrasenia;
-	public Usuarioregistrado usuarioregistrado;
-	public Cibernauta _cibernauta;
+	public Usuarionoregistrado usuarionoregistrado;
+	public iUsuarionoregistrado iUsuarionoregistrado; 
 	
 	public Iniciarsesion(Registrarse _registrarse) {
 		this._registrarse = _registrarse;
-		this.getBtnIniciarSesion().addClickListener(evetn -> Validardatosdelogin());
+		this.iUsuarionoregistrado = _registrarse._usuarionoregistrado._iUsuarionoregistrado;
+		this.usuarionoregistrado = _registrarse._usuarionoregistrado;
+		this.getBtnIniciarSesion().addClickListener(event -> Validardatosdelogin());
 		this.getBtnVolver().addClickListener(event -> Volver());
 	}
 	
@@ -27,8 +33,17 @@ public class Iniciarsesion extends VistaIniciarsesion{
 	}
 
 	public void Validardatosdelogin() {
-		//this._cibernauta._iCibernauta.lo
-		
+		UsuarioAutentificado r = this.iUsuarionoregistrado.iniciarSesion(this.getCorreo().getValue(), this.getContrasenia().getValue());	
+		if (r instanceof Usuario) {
+			Usuarioregistrado u = new Usuarioregistrado(this._registrarse._usuarionoregistrado.mainView, (base_de_datos.Usuario) r);
+			MainView.Pantalla.cambiarVista(u);
+		} else if (r instanceof base_de_datos.Administrador){
+			Administrador a = new Administrador(this._registrarse._usuarionoregistrado.mainView, (base_de_datos.Administrador) r);
+			MainView.Pantalla.cambiarVista(a);
+		} else {
+			this.usuarionoregistrado.mainView.add(this.usuarionoregistrado);
+			Notification.show("Este usuario no existe");
+		}
 	}
 	private void Volver() {
 		MainView.Pantalla.volver();

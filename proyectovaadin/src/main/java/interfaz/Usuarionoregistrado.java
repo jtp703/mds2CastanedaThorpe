@@ -5,9 +5,12 @@ import org.vaadin.example.*;
 
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import base_de_datos.BDPrincipal;
+import base_de_datos.iUsuarionoregistrado;
+
 public class Usuarionoregistrado extends Cibernauta {
-	/*private label _registrarse;
-	public iUsuarionoregistrado _iUsuarionoregistrado;*/
+	/*private label _registrarse;*/
+	public iUsuarionoregistrado _iUsuarionoregistrado = new BDPrincipal();
 	public Registrarse _registrarse;
 	public VermuroprincipalUsuarionoregistrado _vermuroprincipalUsuarionoregistrado;
 	public VerlistadoglobaldeusuariosUsuarionoregistrado _verlistadoglobaldeusuariosUsuarionoregistrado;

@@ -10,7 +10,9 @@ import base_de_datos.Tweet;
 import base_de_datos.Comentario;
 import base_de_datos.Usuario;
 import base_de_datos.Hashtag;
+
 import java.util.Date;
+
 import interfaz.Usuarioregistrado;
 import interfaz.Cibernauta;
 import interfaz.Administrador;
@@ -18,131 +20,269 @@ import interfaz.GoogleLogin;
 import interfaz.Usuarionoregistrado;
 import interfaz.Correo;
 
-public class BDPrincipal implements iUsuarioregistrado, iAdministrador, iGoogleLogin, iCibernauta, iUsuarionoregistrado, iCorreo {
-	public BD_Usuarios _bD_Usuario;
-	public BD_Tweets _bD_Publicaciones;
-	public BD_Comentarios _bD_Comentario;
-	public BD_Administradores _bD_Administrador;
-	public BD_Hashtags _bD_Hashtag;
-	public BD_Documentos _bD_Documentos;
+import org.orm.PersistentException;
 
-	public void borrarPerfil(String aMotivo, String aConfirmacion) {
-		throw new UnsupportedOperationException();
-	}
+/**
+ * Clase principal que expone todos los servicios de BD_* a las interfaces exteriores.
+ */
+public class BDPrincipal implements 
+        iUsuarioregistrado, 
+        iAdministrador, 
+        iGoogleLogin, 
+        iCibernauta, 
+        iUsuarionoregistrado, 
+        iCorreo 
+{
+    public BD_Usuarios _bD_Usuario;
+    public BD_Tweets _bD_Publicaciones;
+    public BD_Comentarios _bD_Comentario;
+    public BD_Administradores _bD_Administrador;
+    public BD_Hashtags _bD_Hashtag;
+    public BD_Documentos _bD_Documentos;
 
-	public void seguirUsuario(int aIdSeguidor, int aIdSeguido) {
-		throw new UnsupportedOperationException();
-	}
+    public BDPrincipal() {
+        _bD_Usuario = new BD_Usuarios();
+        _bD_Publicaciones = new BD_Tweets();
+        _bD_Comentario = new BD_Comentarios();
+        _bD_Administrador = new BD_Administradores();
+        _bD_Hashtag = new BD_Hashtags();
+        _bD_Documentos = new BD_Documentos();
+    }
 
-	public void dejarSeguir(int aIdSeguidor, int aIdSeguido) {
-		throw new UnsupportedOperationException();
-	}
+    // iUsuarioregistrado / iCibernauta / iUsuarionoregistrado
 
-	public void quitarMegustaComentario(int aIdUsuario, int aIdComentario) {
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public void borrarPerfil(String aMotivo, String aConfirmacion) {
+        try {
+            _bD_Usuario.borrarPerfil(aMotivo, aConfirmacion);
+        } catch (PersistentException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-	public void actualizar(int aId, String aNombre, String aNickUsuario, String aContrasenia, String aFotoPerfil, String aImgPerfil, String aDescripcion) {
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public void seguirUsuario(int aIdSeguidor, int aIdSeguido) {
+        try {
+            _bD_Usuario.seguirUsuario(aIdSeguidor, aIdSeguido);
+        } catch (PersistentException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-	public Tweet escribirTweet(String aTexto, String[] aDocumentos, String[] aTipo) {
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public void dejarSeguir(int aIdSeguidor, int aIdSeguido) {
+        try {
+            _bD_Usuario.dejarSeguir(aIdSeguidor, aIdSeguido);
+        } catch (PersistentException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-	public Comentario escribirComentario(String aTexto) {
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public void quitarMegustaComentario(int aIdUsuario, int aIdComentario) {
+        try {
+            _bD_Comentario.quitarMegustaComentario(aIdUsuario, aIdComentario);
+        } catch (PersistentException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-	public void darMegustaTweet(int aIdUsuario, int aIdTweet) {
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public void actualizar(int aId, String aNombre, String aNickUsuario, String aContrasenia, 
+            String aFotoPerfil, String aImgPerfil, String aDescripcion) 
+    {
+        try {
+            _bD_Usuario.actualizar(aId, aNombre, aNickUsuario, aContrasenia, aFotoPerfil, aImgPerfil, aDescripcion);
+        } catch (PersistentException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-	public void darMegustaComentario(int aIdUsuario, String aIdComentario) {
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public Tweet escribirTweet(String aTexto, String[] aDocumentos, String[] aTipo) {
+        // Nota: BD_Tweets.escribirTweet ahora requiere ID de usuario. 
+        // Aquí asumimos que el usuario aIdUsuario se obtiene de contexto externo (por ejemplo, de la sesión).
+        // Debe reemplazarse "0" por el ID real del usuario registrado que publica.
+        int aIdUsuario = 0; // TODO: sustituir con ID real del usuario actual
+        try {
+            return _bD_Publicaciones.escribirTweet(aIdUsuario, aTexto, aDocumentos, aTipo);
+        } catch (PersistentException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-	public void quitarMegusta(int aIdUsuario, int aIdTweet) {
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public Comentario escribirComentario(String aTexto) {
+        try {
+            return _bD_Comentario.escribirComentario(aTexto);
+        } catch (PersistentException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-	public Usuario[] cargarUsuariosMegustaTweet(int aIdUsuario) {
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public void darMegustaTweet(int aIdUsuario, int aIdTweet) {
+        try {
+            _bD_Publicaciones.darMegustaTweet(aIdUsuario, aIdTweet);
+        } catch (PersistentException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-	public Tweet[] getTweetsByUserId(int aIdUsuario) {
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public void darMegustaComentario(int aIdUsuario, String aIdComentario) {
+        // BD_Comentarios.darMegustaComentario espera int aIdComentario
+        int idComentarioInt = Integer.parseInt(aIdComentario);
+        try {
+            _bD_Comentario.darMegustaComentario(aIdUsuario, idComentarioInt);
+        } catch (PersistentException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-	public Tweet retweet(int aIdTweetRetweteado, String aTexto) {
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public void quitarMegusta(int aIdUsuario, int aIdTweet) {
+        try {
+            _bD_Publicaciones.quitarMegusta(aIdUsuario, aIdTweet);
+        } catch (PersistentException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-	public Tweet[] cargarTweets() {
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public Usuario[] cargarUsuariosMegustaTweet(int aIdUsuario) {
+        try {
+            return _bD_Usuario.cargarUsuariosMegustaTweet(aIdUsuario);
+        } catch (PersistentException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-	public Comentario[] cargarComentarios() {
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public Tweet[] getTweetsByUserId(int aIdUsuario) {
+        try {
+            return _bD_Publicaciones.getTweetsByUserId(aIdUsuario);
+        } catch (PersistentException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-	public Hashtag[] cargarHashtags() {
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public Tweet retweet(int aIdTweetRetweteado, String aTexto) {
+        // Al igual que escribirTweet, retweet requiere ID de usuario; usamos 0 como placeholder
+        int aIdUsuario = 0; // TODO: sustituir por ID real del usuario actual
+        try {
+            return _bD_Publicaciones.retweet(aIdTweetRetweteado, aIdUsuario, aTexto);
+        } catch (PersistentException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-	public Usuario cargarPerfilUsuarioregistrado(int aIdUsuario) {
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public Tweet[] cargarTweets() {
+        try {
+            return _bD_Publicaciones.cargarTweets();
+        } catch (PersistentException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-	public Usuario[] cargarUsuarios() {
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public Comentario[] cargarComentarios() {
+        try {
+            return _bD_Comentario.cargarComentarios();
+        } catch (PersistentException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-	public Tweet[] cargarTweetsFiltrados(int aIdHashtag) {
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public Hashtag[] cargarHashtags() {
+        try {
+            return _bD_Hashtag.cargarHashtags();
+        } catch (PersistentException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-	public void borrarTweet(int aIdTweet) {
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public Usuario cargarPerfilUsuarioregistrado(int aIdUsuario) {
+        try {
+            return _bD_Usuario.cargarPerfiilUsuarioregistrado(aIdUsuario);
+        } catch (PersistentException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-	public void borrarComentario(int aIdComentario) {
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public Usuario[] cargarUsuarios() {
+        try {
+            return _bD_Usuario.cargarUsuarios();
+        } catch (PersistentException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-	public void banearUsuario(int aIdAdministrador, Object aParameter) {
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public Tweet[] cargarTweetsFiltrados(int aIdHashtag) {
+        try {
+            return _bD_Publicaciones.cargarTweetsFiltrados(aIdHashtag);
+        } catch (PersistentException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-	public void registrarse(String aNombre, String aPassword, String aMail, String aNickusuario, String aFotoFondo, String aFotoPerfil, String aDescripcion, Date aFecha_creacion) {
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public void borrarTweet(int aIdTweet) {
+        try {
+            _bD_Publicaciones.borrarTweet(aIdTweet);
+        } catch (PersistentException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-	public Usuario iniciarSesion(String aMail, String aPassword) {
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public void borrarComentario(int aIdComentario) {
+        try {
+            _bD_Comentario.borrarComentario(aIdComentario);
+        } catch (PersistentException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-	public Usuarioregistrado get_Usuarioregistrado() {
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public void banearUsuario(int aIdAdministrador, int aIdUsuario) {
+        try {
+            _bD_Usuario.banearUsuario(aIdAdministrador, aIdUsuario);
+        } catch (PersistentException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-	public Cibernauta get_Cibernauta() {
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public void registrarse(String aNombre, String aPassword, String aMail, String aNickusuario, 
+            String aFotoFondo, String aFotoPerfil, String aDescripcion, Date aFecha_creacion) 
+    {
+        try {
+            _bD_Usuario.registrarse(aNombre, aPassword, aMail, aNickusuario, aFotoFondo, aFotoPerfil, aDescripcion, aFecha_creacion);
+        } catch (PersistentException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-	public Administrador get_Administrador() {
-		throw new UnsupportedOperationException();
-	}
-
-	public GoogleLogin get_GoogleLogin() {
-		throw new UnsupportedOperationException();
-	}
-
-	public Usuarionoregistrado get_Usuarionoregistrado() {
-		throw new UnsupportedOperationException();
-	}
-
-	public Correo get_Correo() {
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public UsuarioAutentificado iniciarSesion(String aMail, String aPassword) {
+        UsuarioAutentificado u = null;
+        try {
+            // 1. Primero intentamos autenticación como usuario registrado
+            u = _bD_Usuario.iniciarSesion(aMail, aPassword);
+            if (u == null) {
+                // 2. Si no encontramos usuario, probamos como administrador
+                u = _bD_Administrador.iniciarSesion(aMail, aPassword);
+            }
+        } catch (PersistentException e) {
+            e.printStackTrace();
+        }
+        return u;
+    }
 }

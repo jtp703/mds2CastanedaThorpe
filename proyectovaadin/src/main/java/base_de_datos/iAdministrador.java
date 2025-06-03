@@ -6,5 +6,7 @@ public interface iAdministrador extends iCibernauta {
 
 	public void borrarComentario(int aIdComentario);
 
-	public void banearUsuario(int aIdAdministrador, Object aParameter);
+	public void banearUsuario(int aIdAdministrador, int aIdUsuario);
+	
+	public UsuarioAutentificado iniciarSesion(String aMail, String aPassword);
 }
