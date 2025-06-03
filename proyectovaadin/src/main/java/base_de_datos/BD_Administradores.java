@@ -35,5 +35,26 @@ public class BD_Administradores {
 	    }
 	    return administrador;
 	}
+	/**
+	 * Busca un Administrador por su ID (Mail).
+	 * Devuelve el Administrador coincidente, o null si no existe.
+	 */
+	public Administrador findByUserId(String aMail) throws PersistentException {
+	    PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager
+	            .instance().getSession().beginTransaction();
+	    Administrador administrador = null;
+	    try {
+	        String condicion = "Mail = '" + aMail.replace("'", "''") + "'";
+	        Administrador[] encontrados = AdministradorDAO.listAdministradorByQuery(condicion, null);
+	        if (encontrados != null && encontrados.length > 0) {
+	            administrador = encontrados[0];
+	        }
+	        t.commit();
+	    } catch (Exception e) {
+	        t.rollback();
+	    } finally {
+	        MDS12425PFCastanedaThorpePersistentManager.instance().disposePersistentManager();
+	    }
+	    return administrador;
 
 }

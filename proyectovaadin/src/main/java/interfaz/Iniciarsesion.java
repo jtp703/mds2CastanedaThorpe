@@ -18,11 +18,9 @@ public class Iniciarsesion extends VistaIniciarsesion{
 	public Registrarse _registrarse;
 	public Recuperarcontrasenia _recuperarcontrasenia;
 	public Usuarionoregistrado usuarionoregistrado;
-	public iUsuarionoregistrado iUsuarionoregistrado; 
 	
 	public Iniciarsesion(Registrarse _registrarse) {
 		this._registrarse = _registrarse;
-		this.iUsuarionoregistrado = _registrarse._usuarionoregistrado._iUsuarionoregistrado;
 		this.usuarionoregistrado = _registrarse._usuarionoregistrado;
 		this.getBtnIniciarSesion().addClickListener(event -> Validardatosdelogin());
 		this.getBtnVolver().addClickListener(event -> Volver());
@@ -33,7 +31,8 @@ public class Iniciarsesion extends VistaIniciarsesion{
 	}
 
 	public void Validardatosdelogin() {
-		UsuarioAutentificado r = this.iUsuarionoregistrado.iniciarSesion(this.getCorreo().getValue(), this.getContrasenia().getValue());	
+		UsuarioAutentificado r = this._registrarse._usuarionoregistrado._iUsuarionoregistrado
+				.iniciarSesion(this.getCorreo().getValue(), this.getContrasenia().getValue());	
 		if (r instanceof Usuario) {
 			Usuarioregistrado u = new Usuarioregistrado(this._registrarse._usuarionoregistrado.mainView, (base_de_datos.Usuario) r);
 			MainView.Pantalla.cambiarVista(u);

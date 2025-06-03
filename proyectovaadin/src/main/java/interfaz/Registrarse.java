@@ -32,24 +32,28 @@ public class Registrarse extends VistaRegistrarse{
 	}
 	
 	private void registrarse() {
-		
 		this._usuario = new base_de_datos.Usuario();
+		if(this._usuarionoregistrado._iUsuarionoregistrado.findByUserId(this.getCorreo().getValue()) != null){
+			Notification.show("Este correo ya esta registrado");
+			return;
+		}
 		if(this.getCorreo().getValue().isEmpty() || 
 		   this.getContrasenia().getValue().isEmpty() || 
 		   this.getNickUsuario().getValue().isEmpty() || this.getNombreCompleto().getValue().isEmpty()){
 			Notification.show("Porfavor rellene todos los campos obligatorios");
 			return;
 		}
-		this._usuario.setNombre(this.getNombreCompleto().getValue());
-		this._usuario.setMail(this.getCorreo().getValue());
-		this._usuario.setPassword(this.getContrasenia().getValue());
-		this._usuario.setNick(this.getNickUsuario().getValue());
-		this._usuario.setFotoPerfil(this.getImgPerfil().getValue());
-		this._usuario.setFotoFondo(this.getImgFondo().getValue());
-		this._usuario.setDescripcion(this.getDescripción().getValue());
 		//fecha de registro, necesita ser actualizada en la base de datos
-		
-		
+		Usuarioregistrado u = new Usuarioregistrado(this._usuarionoregistrado.mainView,
+				(base_de_datos.Usuario) this._usuarionoregistrado._iUsuarionoregistrado.registrarse(this.getNombreCompleto().getValue(), 
+						this.getContrasenia().getValue(), 
+						this.getCorreo().getValue(),
+						this.getNickUsuario().getValue(),
+						this.getImgFondo().getValue(),
+						this.getImgPerfil().getValue(),
+						this.getDescripción().getValue(),
+						null));
+		MainView.Pantalla.cambiarVista(u);
 	}
 	
 	public Registrarse(GoogleLogin _googleLogin) {

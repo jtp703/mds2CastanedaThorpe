@@ -260,14 +260,16 @@ public class BDPrincipal implements
     }
 
     @Override
-    public void registrarse(String aNombre, String aPassword, String aMail, String aNickusuario, 
+    public Usuario registrarse(String aNombre, String aPassword, String aMail, String aNickusuario, 
             String aFotoFondo, String aFotoPerfil, String aDescripcion, Date aFecha_creacion) 
     {
+    	Usuario usuario = null;
         try {
-            _bD_Usuario.registrarse(aNombre, aPassword, aMail, aNickusuario, aFotoFondo, aFotoPerfil, aDescripcion, aFecha_creacion);
+            usuario = _bD_Usuario.registrarse(aNombre, aPassword, aMail, aNickusuario, aFotoFondo, aFotoPerfil, aDescripcion, aFecha_creacion);
         } catch (PersistentException e) {
             throw new RuntimeException(e);
         }
+        return usuario;
     }
 
     @Override
@@ -285,4 +287,20 @@ public class BDPrincipal implements
         }
         return u;
     }
+
+	@Override
+	public UsuarioAutentificado findByUserId(String aMail) {
+		UsuarioAutentificado u = null;
+		try {
+			// 1. Primero intentamos encontrar usuario registrado
+			u = _bD_Usuario.findByUserId(aMail);
+			if (u == null) {
+				// 2. Si no encontramos usuario, probamos como administrador
+				u = _bD_Administrador.findByUserId(aMail);
+			}
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return u;
+	}
 }
