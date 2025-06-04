@@ -22,7 +22,7 @@ public class Usuarioregistrado extends Cibernauta {
 		this._usuarioregistrado = usuarioregistrado;
 		this.getContenedorRegistro().setVisible(false);
 		this.getBtnCerrrarSesion().setVisible(false);
-
+		this.getVerPerfilPersonal().setText(usuarioregistrado.getNick());
 		this.getVerMuroPrincipal().addClickListener(event -> VermuroprincipalUsuarioregistrado());
 		this.getVerListadoUsuarios().addClickListener(event -> VerlistadoglobaldeusuariosUsuarioregistrado());
 		this.getVerListadoHashtags().addClickListener(event -> VerListadohashtags());

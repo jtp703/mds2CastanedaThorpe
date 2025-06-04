@@ -29,9 +29,6 @@ public class VistaListadotweets extends LitTemplate {
 	@Id("verPerfilPersonal")
 	private Button verPerfilPersonal;
 
-	@Id("idTextoTweet")
-	private TextArea idTextoTweet;
-
 	@Id("tipoUrl1")
 	private RadioButtonGroup<String> tipoUrl1;
 
@@ -57,14 +54,6 @@ public class VistaListadotweets extends LitTemplate {
 
 	public void setTextoTweet(TextArea textoTweet) {
 		this.textoTweet = textoTweet;
-	}
-
-	public TextArea getIdTextoTweet() {
-		return idTextoTweet;
-	}
-
-	public void setIdTextoTweet(TextArea idTextoTweet) {
-		this.idTextoTweet = idTextoTweet;
 	}
 
 	public RadioButtonGroup<String> getTipoUrl1() {

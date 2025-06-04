@@ -1,6 +1,8 @@
 package interfaz;
 
 import vistas.VistaListadotweets_item;
+import com.vaadin.flow.component.notification.*;
+import com.vaadin.flow.component.notification.Notification.Position;
 
 public class Listadotweets_item extends VistaListadotweets_item {
 	
@@ -18,6 +20,9 @@ public class Listadotweets_item extends VistaListadotweets_item {
 	public Listadotweets_item(Listadotweets listadoTweets, base_de_datos.Tweet tweet) {
 		this._listadotweets = listadoTweets;
 		this.tweet = tweet;
+		if(tweet == null) {
+			Notification.show("No hay tweets que mostrar", 3000, Position.MIDDLE);
+		}
 		this.getVerperfil().setText(tweet.getTweeteado_por().getNick());
 		this.getTextoTweet().setText(tweet.getTexto());
 		this.getnComentarios().setText(String.valueOf(tweet.getNumComentarios()));
