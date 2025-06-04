@@ -18,7 +18,8 @@ public class Banearusuario extends VistaBanearusuario{
 	}
 
 	public void Banearcuenta() {
-		MainView.Pantalla.volver();
+		_verperfilAdministrador._administrador._iAdministrador.banearUsuario(_verperfilAdministrador._administrador.admin.getIdAdministrador(),
+				_verperfilAdministrador.usuario.getIdUsuario());
 	}
 	
 	private void btnVolver() {

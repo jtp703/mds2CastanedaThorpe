@@ -13,6 +13,7 @@ public class ListadocomentariosAdministrador_item extends Listadocomentarios_ite
 		super(_listadocomentariosAdministrador, comentario);
 		this.getBtnDarMegusta().setVisible(false);
 		this.getBotonEliminarComentario().addClickListener(event -> Eliminar_Comentario());
+		
 	}
 
 	public void Eliminar_Comentario() {
