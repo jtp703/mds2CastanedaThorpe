@@ -91,7 +91,7 @@ public class Usuario extends base_de_datos.UsuarioAutentificado implements Seria
 	
 	@ManyToOne(targetEntity=base_de_datos.Administrador.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="AdministradorUsuarioAutentificadoID", referencedColumnName="UsuarioAutentificadoID", nullable=false) }, foreignKey=@ForeignKey(name="FKUsuario104330"))	
+	@JoinColumns(value={ @JoinColumn(name="AdministradorUsuarioAutentificadoID", referencedColumnName="UsuarioAutentificadoID", nullable=true) }, foreignKey=@ForeignKey(name="FKUsuario104330"))	
 	private base_de_datos.Administrador es_baneado;
 	
 	@ManyToMany(targetEntity=base_de_datos.Usuario.class)	

@@ -43,6 +43,7 @@ public class Registrarse extends VistaRegistrarse{
 			Notification.show("Porfavor rellene todos los campos obligatorios");
 			return;
 		}
+		
 		//fecha de registro, necesita ser actualizada en la base de datos
 		Usuarioregistrado u = new Usuarioregistrado(this._usuarionoregistrado.mainView,
 				(base_de_datos.Usuario) this._usuarionoregistrado._iUsuarionoregistrado.registrarse(this.getNombreCompleto().getValue(), 
