@@ -88,12 +88,12 @@ public class VerperfilUsuarioregistrado extends Verperfildeusuario {
     }
 
     private void Verlistadodeseguidores() {
-        verListadoseguidores = new Verlistadodeseguidores(this, usuarioregistrado.es_seguido.toArray());
+        verListadoseguidores = new Verlistadodeseguidores(this, usuario.es_seguido.toArray());
         MainView.Pantalla.cambiarVista(verListadoseguidores);
     }
 
     private void Verlistadodeseguidos() {
-        verListadoseguidos = new Verlistadodeseguidos(this, usuarioregistrado.sigue.toArray());
+        verListadoseguidos = new Verlistadodeseguidos(this, usuario.sigue.toArray());
         MainView.Pantalla.cambiarVista(verListadoseguidos);
     }
 }

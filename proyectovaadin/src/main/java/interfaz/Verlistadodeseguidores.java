@@ -29,7 +29,7 @@ public class Verlistadodeseguidores extends Verlistado {
 		this.getListadoSeguidores().as(VerticalLayout.class).add(item1);
 	}
 	
-	public Verlistadodeseguidores(VerperfilUsuarioregistrado _verperfildeusuariousuarioregistrado) {
+	public Verlistadodeseguidores(VerperfilUsuarioregistrado _verperfildeusuariousuarioregistrado, Usuario[] _usuarioSetCollection) {
 		super(_verperfildeusuariousuarioregistrado);
 		eliminarSeguidos();
 		this.getBtnCerrar().addClickListener(event -> btnCerrar());
@@ -43,7 +43,7 @@ public class Verlistadodeseguidores extends Verlistado {
 		this.getListadoSeguidores().as(VerticalLayout.class).add(item1);
 	}
 	
-	public Verlistadodeseguidores(VerperfilUsuarionoregistrado _verperfilusuarionoregistrado) {
+	public Verlistadodeseguidores(VerperfilUsuarionoregistrado _verperfilusuarionoregistrado, Usuario[] _usuarioSetCollection) {
 		super(_verperfilusuarionoregistrado);
 		eliminarSeguidos();
 		this.getBtnCerrar().addClickListener(event -> btnCerrar());

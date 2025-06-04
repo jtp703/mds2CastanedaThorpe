@@ -37,7 +37,8 @@ public class ListadotweetsUsuarioregistrado extends Listadotweets {
 		}
 
 		
-		this.getBtnEnviarTweet().addClickListener(event -> Enviartweet(vermuroprincipalUsuarioregistrado._usuarioregistrado._usuarioregistrado.getIdUsuario()));
+		this.getBtnEnviarTweet().addClickListener(event -> Enviartweet());
+
 		this.getVerPerfilPersonal().addClickListener(event -> verPerfilPersonal());
 	}
 	
@@ -62,65 +63,68 @@ public class ListadotweetsUsuarioregistrado extends Listadotweets {
 		MainView.Pantalla.cambiarVista(_verperfilpersonal);
 	}
 	
-	public void Enviartweet(int idUsuario) {
-        
-        String texto = this.getTextoTweet().getValue().trim();
-        if (texto.isEmpty()) {
-            Notification.show("El texto del tweet no puede estar vacío");
-            return;
-        }
+	public void Enviartweet() {
+	    // Obtén el id del usuario directamente aquí
+	    int idUsuario = this._vermuroprincipalUsuarioregistrado._usuarioregistrado._usuarioregistrado.getIdUsuario();
+	    // Resto del método como antes
+	    String texto = this.getTextoTweet().getValue().trim();
+	    if (texto.isEmpty()) {
+	        Notification.show("El texto del tweet no puede estar vacío");
+	        return;
+	    }
 
-        String url1  = this.getUrl1().getValue().trim();
-        String tipo1 = this.getTipoUrl1().getValue();
+	    String url1  = this.getUrl1().getValue().trim();
+	    String tipo1 = this.getTipoUrl1().getValue();
 
-        String url2  = this.getUrl2().getValue().trim();
-        String tipo2 = this.getTipoUrl2().getValue();
+	    String url2  = this.getUrl2().getValue().trim();
+	    String tipo2 = this.getTipoUrl2().getValue();
 
-        List<String> listaUrls  = new ArrayList<>();
-        List<String> listaTipos = new ArrayList<>();
+	    List<String> listaUrls  = new ArrayList<>();
+	    List<String> listaTipos = new ArrayList<>();
 
-        if (!url1.isEmpty() && tipo1 != null) {
-            listaUrls.add(url1);
-            listaTipos.add(tipo1);
-        }
-        if (!url2.isEmpty() && tipo2 != null) {
-            listaUrls.add(url2);
-            listaTipos.add(tipo2);
-        }
+	    if (!url1.isEmpty() && tipo1 != null) {
+	        listaUrls.add(url1);
+	        listaTipos.add(tipo1);
+	    }
+	    if (!url2.isEmpty() && tipo2 != null) {
+	        listaUrls.add(url2);
+	        listaTipos.add(tipo2);
+	    }
 
-        String[] documentosArray;
-        String[] tiposArray;
-        if (listaUrls.isEmpty()) {
-            documentosArray = null;
-            tiposArray      = null;
-        } else {
-            documentosArray = listaUrls.toArray(new String[0]);
-            tiposArray      = listaTipos.toArray(new String[0]);
-        }
+	    String[] documentosArray;
+	    String[] tiposArray;
+	    if (listaUrls.isEmpty()) {
+	        documentosArray = null;
+	        tiposArray      = null;
+	    } else {
+	        documentosArray = listaUrls.toArray(new String[0]);
+	        tiposArray      = listaTipos.toArray(new String[0]);
+	    }
 
-        try {
-            Tweet nuevoTweet = this.iUsuarioregistrado.escribirTweet(
-                idUsuario,
-                texto,
-                documentosArray,
-                tiposArray
-            );
+	    try {
+	        Tweet nuevoTweet = this.iUsuarioregistrado.escribirTweet(
+	            idUsuario,
+	            texto,
+	            documentosArray,
+	            tiposArray
+	        );
 
-            ListadotweetsUsuarioregistrado_item itemNuevo =
-                new ListadotweetsUsuarioregistrado_item(this, nuevoTweet);
-            this.getContenedorListadoTweets()
-                .as(VerticalLayout.class)
-                .addComponentAsFirst(itemNuevo);
+	        ListadotweetsUsuarioregistrado_item itemNuevo =
+	            new ListadotweetsUsuarioregistrado_item(this, nuevoTweet);
+	        this.getContenedorListadoTweets()
+	            .as(VerticalLayout.class)
+	            .addComponentAsFirst(itemNuevo);
 
-            // 8) Limpiar todos los campos del formulario
-            this.getTextoTweet().clear();
-            this.getUrl1().clear();     this.getTipoUrl1().clear();
-            this.getUrl2().clear();     this.getTipoUrl2().clear();
+	        // Limpiar todos los campos del formulario
+	        this.getTextoTweet().clear();
+	        this.getUrl1().clear();     this.getTipoUrl1().clear();
+	        this.getUrl2().clear();     this.getTipoUrl2().clear();
 
-            Notification.show("Tweet enviado correctamente", 1500, Position.BOTTOM_START);
-        }
-        catch (Exception ex) {
-            Notification.show("Error al enviar tweet: " + ex.getMessage(), 3000, Position.MIDDLE);
-        }
-    }
+	        Notification.show("Tweet enviado correctamente", 1500, Position.BOTTOM_START);
+	    }
+	    catch (Exception ex) {
+	        Notification.show("Error al enviar tweet: " + ex.getMessage(), 3000, Position.MIDDLE);
+	    }
+	}
+
 }

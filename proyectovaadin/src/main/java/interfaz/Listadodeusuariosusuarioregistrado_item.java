@@ -12,11 +12,13 @@ public class Listadodeusuariosusuarioregistrado_item extends Listadousuarios_ite
 	
 	public Listadodeusuariosusuarioregistrado_item(Listadodeusuariosusuarioregistrado listadodeusuariosusuarioregistrado, base_de_datos.Usuario usuario){
 		super(listadodeusuariosusuarioregistrado, usuario);
+		this._usuario = usuario;
 		this.getVerperfil().addClickListener(event -> VerperfilUsuarioregistrado(usuarioRegistrado));
 	}
 	
 	public Listadodeusuariosusuarioregistrado_item(VerperfilUsuarioregistrado _verPerfilUsuarioregistrado, base_de_datos.Usuario usuario) {
 		super(_verPerfilUsuarioregistrado, usuario);
+		this._usuario = usuario;
 		this.getVerperfil().addClickListener(event -> VerperfilUsuarioregistrado(usuarioRegistrado));
 	}
 	
@@ -25,7 +27,7 @@ public class Listadodeusuariosusuarioregistrado_item extends Listadousuarios_ite
 	}
 	
 	public void VerperfilUsuarioregistrado(Usuarioregistrado usuario) {
-		_verPerfilUsuarioregistrado = new VerperfilUsuarioregistrado(usuario);
+		_verPerfilUsuarioregistrado = new VerperfilUsuarioregistrado(usuario, _usuario);
 		MainView.Pantalla.cambiarVista(_verPerfilUsuarioregistrado);
 	}
 }

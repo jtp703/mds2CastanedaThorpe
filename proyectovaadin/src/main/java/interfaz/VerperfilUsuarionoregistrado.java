@@ -67,13 +67,13 @@ public class VerperfilUsuarionoregistrado extends Verperfildeusuario {
     private void Verlistadodeseguidores() {
         // Pasamos this como padre y la lista de seguidores (no son UsuariosAutentificados,
         // pero Usuarionoregistrado también hereda de Usuario, así que es válido).
-        verListadoseguidores = new Verlistadodeseguidores(this, usuarioNoRegistrado.es_seguido.toArray());
+        verListadoseguidores = new Verlistadodeseguidores(this, usuario.es_seguido.toArray());
         MainView.Pantalla.cambiarVista(verListadoseguidores);
     }
 
     /** Abre la vista de la lista de seguidos de este usuario */
     private void Verlistadodeseguidos() {
-        verListadoseguidos = new Verlistadodeseguidos(this, usuarioNoRegistrado.sigue.toArray());
+        verListadoseguidos = new Verlistadodeseguidos(this, usuario.sigue.toArray());
         MainView.Pantalla.cambiarVista(verListadoseguidos);
     }
 }

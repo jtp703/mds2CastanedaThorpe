@@ -10,12 +10,14 @@ public class ListadotweetsUsuarionoregistrado_item extends Listadotweets_item {
 	public VercomentariosUsuarionoregistrado _vercomentariosUsuarionoregistrado;
 	public VerperfilUsuarionoregistrado _verperfilUsuarionoregistrado;
 	public Usuarionoregistrado usuario;
+	public base_de_datos.Usuario usu;
 	
 	public ListadotweetsUsuarionoregistrado_item(ListadotweetsUsuarionoregistrado listadotweetsUsuarionoregistrado, base_de_datos.Tweet tweet) {
 		super(listadotweetsUsuarionoregistrado, tweet);
 		this.getBtnEliminarTweet().setVisible(false);
 		this.getDarRetweet().setVisible(false);
 		this.getMeGusta().setVisible(false);
+		this.usu = tweet.tweeteado_por;
 		this.getVerperfil().addClickListener(event -> verPerfilUsuarioNoRegistrado());
 		this.getComentar().addClickListener(event -> verComentariosUsuarioNoRegistrado());
 	}
@@ -25,6 +27,7 @@ public class ListadotweetsUsuarionoregistrado_item extends Listadotweets_item {
 		this.getBtnEliminarTweet().setVisible(false);
 		this.getDarRetweet().setVisible(false);
 		this.getMeGusta().setVisible(false);
+		this.usu = tweet.tweeteado_por;
 		this.getVerperfil().addClickListener(event -> verPerfilUsuarioNoRegistrado());
 		this.getComentar().addClickListener(event -> verComentariosUsuarioNoRegistrado());
 	}
@@ -36,7 +39,7 @@ public class ListadotweetsUsuarionoregistrado_item extends Listadotweets_item {
 	}
 	
 	private void verPerfilUsuarioNoRegistrado() {
-		_verperfilUsuarionoregistrado = new VerperfilUsuarionoregistrado(this.usuario);
+		_verperfilUsuarionoregistrado = new VerperfilUsuarionoregistrado(this.usuario, usu);
 		System.out.println("Ejecución ver perfil de usuario no registrado");
 		MainView.Pantalla.cambiarVista(_verperfilUsuarionoregistrado);
 	}

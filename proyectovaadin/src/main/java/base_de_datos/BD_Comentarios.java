@@ -61,28 +61,35 @@ public class BD_Comentarios {
 		MDS12425PFCastanedaThorpePersistentManager.instance().disposePersistentManager();
 	}
 
-	/**
-	 * Crea y guarda un nuevo comentario con el texto proporcionado.
-	 * Inicializa el contador de "Me gusta" a cero.
-	 */
-	public Comentario escribirComentario(String aTexto) throws PersistentException {
-		PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager
-				.instance().getSession().beginTransaction();
-		Comentario comentario = null;
-		try {
-			comentario = ComentarioDAO.createComentario();
-			comentario.setTexto(aTexto);
-			comentario.setNumMegustas(0);
-			ComentarioDAO.save(comentario);
-			t.commit();
-		}
-		catch (Exception e) {
-			t.rollback();
-		}
+	public Comentario escribirComentario(int idUsuario, String aTexto) throws PersistentException {
+	    PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager
+	            .instance().getSession().beginTransaction();
+	    Comentario comentario = null;
+	    try {
+	        comentario = ComentarioDAO.createComentario();
+	        comentario.setTexto(aTexto);
+	        comentario.setNumMegustas(0);
 
-		MDS12425PFCastanedaThorpePersistentManager.instance().disposePersistentManager();
-		return comentario;
+	        // Asociar el usuario autor del comentario
+	        Usuario autor = UsuarioDAO.loadUsuarioByORMID(idUsuario);
+	        if (autor == null) {
+	            throw new PersistentException("Usuario con ID " + idUsuario + " no encontrado.");
+	        }
+	        comentario.setComentado_por(autor); // Cambia 'Comentado_por' si tu campo se llama distinto
+
+	        ComentarioDAO.save(comentario);
+
+	        t.commit();
+	    }
+	    catch (Exception e) {
+	        t.rollback();
+	    }
+	    finally {
+	        MDS12425PFCastanedaThorpePersistentManager.instance().disposePersistentManager();
+	    }
+	    return comentario;
 	}
+
 
 	/**
 	 * Añade un "Me gusta" a un comentario: crea la relación entre el usuario y el comentario,

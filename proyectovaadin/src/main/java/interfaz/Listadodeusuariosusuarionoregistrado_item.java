@@ -24,7 +24,7 @@ public class Listadodeusuariosusuarionoregistrado_item extends Listadousuarios_i
 	}
 	
 	public void VerperfilUsuarionoregistrado(Usuarionoregistrado usuarionoregistrado) {
-		_verPerfilUsuarionoregistrado = new VerperfilUsuarionoregistrado(usuarionoregistrado);
+		_verPerfilUsuarionoregistrado = new VerperfilUsuarionoregistrado(usuarionoregistrado, _usuario);
 		MainView.Pantalla.cambiarVista(_verPerfilUsuarionoregistrado);
 	}
 

@@ -18,7 +18,7 @@ public interface iUsuarioregistrado extends iCibernauta {
 
 	public Tweet escribirTweet(int idUsuario, String aTexto, String[] aDocumentos, String[] aTipo);
 
-	public Comentario escribirComentario(String aTexto);
+	public Comentario escribirComentario(int idUsuario, String aTexto);
 
 	public void darMegustaTweet(int aIdUsuario, int aIdTweet);
 
