@@ -18,10 +18,8 @@ public class Megustas extends VistaMegustas {
 		System.out.println("Megustas Encontrados");
 		this.getContenedorMegustas().as(VerticalLayout.class).add(_listadotweetsUsuarioregistrado);
 	}
-	public Megustas(ListadotweetsAdministrador _listadotweets, base_de_datos.Usuario _usuario) {
-		
+	public Megustas(ListadotweetsAdministrador _listadotweets) {
 		this._listadotweetsAdministrador = _listadotweets;
-		
 		this.getContenedorMegustas().as(VerticalLayout.class).add(_listadotweetsAdministrador);
 	}
 	public Megustas(ListadotweetsUsuarionoregistrado _listadotweets) {
