@@ -90,7 +90,7 @@ public class Usuario extends base_de_datos.UsuarioAutentificado implements Seria
 	private boolean baneado;
 	
 	@ManyToOne(targetEntity=base_de_datos.Administrador.class, fetch=FetchType.LAZY)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})
 	@JoinColumns(value={ @JoinColumn(name="AdministradorUsuarioAutentificadoID", referencedColumnName="UsuarioAutentificadoID") }, foreignKey=@ForeignKey(name="FKUsuario104330"))	
 	private base_de_datos.Administrador es_baneado;
 	

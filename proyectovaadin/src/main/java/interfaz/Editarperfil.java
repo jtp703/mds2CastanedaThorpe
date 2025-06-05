@@ -38,7 +38,7 @@ public class Editarperfil extends VistaEditarperfil{
 	        String fotoFondo    = this.get_UrlImagenFondo().getValue().trim();
 	        String descripcion  = this.get_DescripcionPerfil().getValue().trim();
 
-	        int idUsuario = usuarioregistrado._usuarioregistrado.getIdUsuario();
+	        int idUsuario = usuarioregistrado._usuarioregistrado.getID();
 
 	        this._iUsuarioregistrado.actualizar(
 	            idUsuario,

@@ -40,7 +40,7 @@ public class ListadocomentariosUsuarioregistrado extends Listadocomentarios {
 
 		// Supongamos que tienes acceso al usuario actual así:
 		int idUsuario = this._vercomentariosUsuarioregistrado._listadotweetsUsuarioregistradoitem._listadotweetsUsuarioregistrado.
-				_vermuroprincipalUsuarioregistrado._usuarioregistrado._usuarioregistrado.getIdUsuario();
+				_vermuroprincipalUsuarioregistrado._usuarioregistrado._usuarioregistrado.getID();
 		// Si tu ruta es diferente, ajústala a tu modelo
 
 		try {

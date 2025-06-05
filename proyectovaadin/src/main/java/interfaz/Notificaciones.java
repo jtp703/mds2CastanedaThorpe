@@ -2,17 +2,22 @@ package interfaz;
 
 import java.util.Vector;
 
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import base_de_datos.Tweet;
+import base_de_datos.Usuario;
 import vistas.VistaNotificaciones;
 
 public class Notificaciones extends VistaNotificaciones {
 
 	public Notificacionesdeusuario notificacionesDeUsuario;
 	public Vector<Notificaciones_item> _vectoritem = new Vector<Notificaciones_item>();
+	public Usuario _usuario;
 	
 	public Notificaciones(Notificacionesdeusuario notificacionesDeUsuario) {
 		this.notificacionesDeUsuario = notificacionesDeUsuario;
+		this._usuario = notificacionesDeUsuario._usuarioregistrado._usuarioregistrado;
 		this.getBtnMegustas().addClickListener(event -> VerNoticacionesMeGustas());
 		this.getBtnRetweets().addClickListener(event -> VerNoticacionesRetweets());
 		this.getBtnMenciones().addClickListener(event -> VerNoticacionesMenciones());
@@ -23,46 +28,50 @@ public class Notificaciones extends VistaNotificaciones {
 	
 	public void VerNoticacionesMeGustas() {
 		this.getContenedorNofiticiacionesItem().as(VerticalLayout.class).removeAll();
-		Notificaciones_item item0 = new Notificaciones_item(this, null);
-		Notificaciones_item item1 = new Notificaciones_item(this, null);
-		_vectoritem.add(item0);
-		_vectoritem.add(item1);
-		for(Notificaciones_item item: _vectoritem) {
-			item.getTipoNotificacion().setText("Te ha dado me gusta en un tweet");
-			this.getContenedorNofiticiacionesItem().as(VerticalLayout.class).add(item);
+		if(_usuario.tweetea.toArray().length == 0) {
+			return;
+		}
+		for(Tweet tweet: _usuario.tweetea.toArray()) {
+			if(tweet.likeado_por.toArray().length == 0) {
+				return;
+			}
+			for(Usuario usuario: tweet.likeado_por.toArray()) {
+				if(usuario.getNick().equals(_usuario.getNick())) {
+					Notificaciones_item item = new Notificaciones_item(this, usuario);
+					this.getContenedorNofiticiacionesItem().as(VerticalLayout.class).add(item);
+					_vectoritem.add(item);
+				}
+			}
 		}
 	}
+	
 	public void VerNoticacionesRetweets() {
 		this.getContenedorNofiticiacionesItem().as(VerticalLayout.class).removeAll();
-		Notificaciones_item item0 = new Notificaciones_item(this, null);
-		Notificaciones_item item1 = new Notificaciones_item(this, null);
-		_vectoritem.add(item0);
-		_vectoritem.add(item1);
-		for(Notificaciones_item item: _vectoritem) {
-			item.getTipoNotificacion().setText("Te ha retweeteado un tweet");
-			this.getContenedorNofiticiacionesItem().as(VerticalLayout.class).add(item);
+		
+		for(Tweet tweet: _usuario.tweetea.toArray()) {
+			if(tweet.reetweteado_por.toArray().length == 0) {
+				return;
+			}
+			for(Usuario usuario: tweet.reetweteado_por.toArray()) {
+				if(usuario.getNick().equals(_usuario.getNick())) {
+					Notificaciones_item item = new Notificaciones_item(this, usuario);
+					this.getContenedorNofiticiacionesItem().as(VerticalLayout.class).add(item);
+					_vectoritem.add(item);
+				}
+			}
 		}
 	}
 	public void VerNoticacionesMenciones() {
 		this.getContenedorNofiticiacionesItem().as(VerticalLayout.class).removeAll();
-		Notificaciones_item item0 = new Notificaciones_item(this, null);
-		Notificaciones_item item1 = new Notificaciones_item(this, null);
-		_vectoritem.add(item0);
-		_vectoritem.add(item1);
-		for(Notificaciones_item item: _vectoritem) {
-			item.getTipoNotificacion().setText("Te ha mencionado en un tweet");
-			this.getContenedorNofiticiacionesItem().as(VerticalLayout.class).add(item);
-		}
+
+        Notification.show("Futura implementacion de menciones", 3000, Notification.Position.MIDDLE);
 	}
 	public void VerNoticacionesSeguidores() {
 		this.getContenedorNofiticiacionesItem().as(VerticalLayout.class).removeAll();
-		Notificaciones_item item0 = new Notificaciones_item(this, null);
-		Notificaciones_item item1 = new Notificaciones_item(this, null);
-		_vectoritem.add(item0);
-		_vectoritem.add(item1);
-		for(Notificaciones_item item: _vectoritem) {
-			item.getTipoNotificacion().setText("Te ha seguido");
+		for(Usuario usuario: _usuario.es_seguido.toArray()) {
+			Notificaciones_item item = new Notificaciones_item(this, usuario);
 			this.getContenedorNofiticiacionesItem().as(VerticalLayout.class).add(item);
+			_vectoritem.add(item);
 		}
 	}
 }

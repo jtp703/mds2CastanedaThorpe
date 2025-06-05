@@ -75,7 +75,7 @@ public class ListadotweetsUsuarioregistrado extends Listadotweets {
 
 	public void Enviartweet() {
 
-		int idUsuario = this._vermuroprincipalUsuarioregistrado._usuarioregistrado._usuarioregistrado.getIdUsuario();
+		int idUsuario = this._vermuroprincipalUsuarioregistrado._usuarioregistrado._usuarioregistrado.getID();
 
 		String texto = this.getTextoTweet().getValue().trim();
 		if (texto.isEmpty()) {
