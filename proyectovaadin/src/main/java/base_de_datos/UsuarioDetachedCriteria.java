@@ -23,11 +23,11 @@ public class UsuarioDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final StringExpression nombre;
 	public final StringExpression mail;
 	public final StringExpression password;
-	public final IntegerExpression idUsuario;
 	public final StringExpression nick;
 	public final StringExpression fotoFondo;
 	public final StringExpression fotoPerfil;
 	public final StringExpression descripcion;
+	public final BooleanExpression baneado;
 	public final IntegerExpression es_baneadoId;
 	public final AssociationExpression es_baneado;
 	public final CollectionExpression bloquea;
@@ -46,11 +46,11 @@ public class UsuarioDetachedCriteria extends AbstractORMDetachedCriteria {
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
 		mail = new StringExpression("mail", this.getDetachedCriteria());
 		password = new StringExpression("password", this.getDetachedCriteria());
-		idUsuario = new IntegerExpression("idUsuario", this.getDetachedCriteria());
 		nick = new StringExpression("nick", this.getDetachedCriteria());
 		fotoFondo = new StringExpression("fotoFondo", this.getDetachedCriteria());
 		fotoPerfil = new StringExpression("fotoPerfil", this.getDetachedCriteria());
 		descripcion = new StringExpression("descripcion", this.getDetachedCriteria());
+		baneado = new BooleanExpression("baneado", this.getDetachedCriteria());
 		es_baneadoId = new IntegerExpression("es_baneado.", this.getDetachedCriteria());
 		es_baneado = new AssociationExpression("es_baneado", this.getDetachedCriteria());
 		bloquea = new CollectionExpression("ORM_bloquea", this.getDetachedCriteria());
@@ -70,11 +70,11 @@ public class UsuarioDetachedCriteria extends AbstractORMDetachedCriteria {
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
 		mail = new StringExpression("mail", this.getDetachedCriteria());
 		password = new StringExpression("password", this.getDetachedCriteria());
-		idUsuario = new IntegerExpression("idUsuario", this.getDetachedCriteria());
 		nick = new StringExpression("nick", this.getDetachedCriteria());
 		fotoFondo = new StringExpression("fotoFondo", this.getDetachedCriteria());
 		fotoPerfil = new StringExpression("fotoPerfil", this.getDetachedCriteria());
 		descripcion = new StringExpression("descripcion", this.getDetachedCriteria());
+		baneado = new BooleanExpression("baneado", this.getDetachedCriteria());
 		es_baneadoId = new IntegerExpression("es_baneado.", this.getDetachedCriteria());
 		es_baneado = new AssociationExpression("es_baneado", this.getDetachedCriteria());
 		bloquea = new CollectionExpression("ORM_bloquea", this.getDetachedCriteria());

@@ -23,7 +23,6 @@ public class AdministradorDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final StringExpression nombre;
 	public final StringExpression mail;
 	public final StringExpression password;
-	public final IntegerExpression idAdministrador;
 	public final CollectionExpression elimina;
 	public final CollectionExpression elimina_tweet;
 	public final CollectionExpression banea;
@@ -34,7 +33,6 @@ public class AdministradorDetachedCriteria extends AbstractORMDetachedCriteria {
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
 		mail = new StringExpression("mail", this.getDetachedCriteria());
 		password = new StringExpression("password", this.getDetachedCriteria());
-		idAdministrador = new IntegerExpression("idAdministrador", this.getDetachedCriteria());
 		elimina = new CollectionExpression("ORM_elimina", this.getDetachedCriteria());
 		elimina_tweet = new CollectionExpression("ORM_elimina_tweet", this.getDetachedCriteria());
 		banea = new CollectionExpression("ORM_banea", this.getDetachedCriteria());
@@ -46,7 +44,6 @@ public class AdministradorDetachedCriteria extends AbstractORMDetachedCriteria {
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
 		mail = new StringExpression("mail", this.getDetachedCriteria());
 		password = new StringExpression("password", this.getDetachedCriteria());
-		idAdministrador = new IntegerExpression("idAdministrador", this.getDetachedCriteria());
 		elimina = new CollectionExpression("ORM_elimina", this.getDetachedCriteria());
 		elimina_tweet = new CollectionExpression("ORM_elimina_tweet", this.getDetachedCriteria());
 		banea = new CollectionExpression("ORM_banea", this.getDetachedCriteria());

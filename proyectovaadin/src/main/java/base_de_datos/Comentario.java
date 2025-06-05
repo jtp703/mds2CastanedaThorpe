@@ -77,7 +77,7 @@ public class Comentario implements Serializable {
 	
 	@ManyToOne(targetEntity=base_de_datos.Administrador.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="AdministradorUsuarioAutentificadoID", referencedColumnName="UsuarioAutentificadoID", nullable=true) }, foreignKey=@ForeignKey(name="FKComentario705012"))	
+	@JoinColumns(value={ @JoinColumn(name="AdministradorUsuarioAutentificadoID", referencedColumnName="UsuarioAutentificadoID") }, foreignKey=@ForeignKey(name="FKComentario705012"))	
 	private base_de_datos.Administrador es_eliminado;
 	
 	@Column(name="Texto", nullable=true, length=255)	
@@ -96,7 +96,7 @@ public class Comentario implements Serializable {
 	
 	@ManyToMany(targetEntity=base_de_datos.Usuario.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinTable(name="Usuario_Comentario", joinColumns={ @JoinColumn(name="ComentarioIdComentario") }, inverseJoinColumns={ @JoinColumn(name="UsuarioUsuarioAutentificadoID") })	
+	@JoinTable(name="Usuario_Comentario2", joinColumns={ @JoinColumn(name="ComentarioIdComentario") }, inverseJoinColumns={ @JoinColumn(name="UsuarioUsuarioAutentificadoID") })	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_comlikeado_por = new java.util.HashSet();
 	

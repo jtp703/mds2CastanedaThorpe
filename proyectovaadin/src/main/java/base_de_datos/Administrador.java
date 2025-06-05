@@ -46,9 +46,6 @@ public class Administrador extends base_de_datos.UsuarioAutentificado implements
 		
 	};
 	
-	@Column(name="IdAdministrador", nullable=false, length=10)	
-	private int idAdministrador;
-	
 	@OneToMany(mappedBy="es_eliminado", targetEntity=base_de_datos.Comentario.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
@@ -63,14 +60,6 @@ public class Administrador extends base_de_datos.UsuarioAutentificado implements
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_banea = new java.util.HashSet();
-	
-	public void setIdAdministrador(int value) {
-		this.idAdministrador = value;
-	}
-	
-	public int getIdAdministrador() {
-		return idAdministrador;
-	}
 	
 	private void setORM_Elimina(java.util.Set value) {
 		this.ORM_elimina = value;

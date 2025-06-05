@@ -23,7 +23,6 @@ public class AdministradorCriteria extends AbstractORMCriteria {
 	public final StringExpression nombre;
 	public final StringExpression mail;
 	public final StringExpression password;
-	public final IntegerExpression idAdministrador;
 	public final CollectionExpression elimina;
 	public final CollectionExpression elimina_tweet;
 	public final CollectionExpression banea;
@@ -34,7 +33,6 @@ public class AdministradorCriteria extends AbstractORMCriteria {
 		nombre = new StringExpression("nombre", this);
 		mail = new StringExpression("mail", this);
 		password = new StringExpression("password", this);
-		idAdministrador = new IntegerExpression("idAdministrador", this);
 		elimina = new CollectionExpression("ORM_elimina", this);
 		elimina_tweet = new CollectionExpression("ORM_elimina_tweet", this);
 		banea = new CollectionExpression("ORM_banea", this);

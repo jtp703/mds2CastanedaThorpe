@@ -23,11 +23,11 @@ public class UsuarioCriteria extends AbstractORMCriteria {
 	public final StringExpression nombre;
 	public final StringExpression mail;
 	public final StringExpression password;
-	public final IntegerExpression idUsuario;
 	public final StringExpression nick;
 	public final StringExpression fotoFondo;
 	public final StringExpression fotoPerfil;
 	public final StringExpression descripcion;
+	public final BooleanExpression baneado;
 	public final IntegerExpression es_baneadoId;
 	public final AssociationExpression es_baneado;
 	public final CollectionExpression bloquea;
@@ -46,11 +46,11 @@ public class UsuarioCriteria extends AbstractORMCriteria {
 		nombre = new StringExpression("nombre", this);
 		mail = new StringExpression("mail", this);
 		password = new StringExpression("password", this);
-		idUsuario = new IntegerExpression("idUsuario", this);
 		nick = new StringExpression("nick", this);
 		fotoFondo = new StringExpression("fotoFondo", this);
 		fotoPerfil = new StringExpression("fotoPerfil", this);
 		descripcion = new StringExpression("descripcion", this);
+		baneado = new BooleanExpression("baneado", this);
 		es_baneadoId = new IntegerExpression("es_baneado.", this);
 		es_baneado = new AssociationExpression("es_baneado", this);
 		bloquea = new CollectionExpression("ORM_bloquea", this);

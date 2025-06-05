@@ -74,9 +74,6 @@ public class Usuario extends base_de_datos.UsuarioAutentificado implements Seria
 		
 	};
 	
-	@Column(name="IdUsuario", nullable=false, length=10)	
-	private int idUsuario;
-	
 	@Column(name="Nick", nullable=true, length=255)	
 	private String nick;
 	
@@ -89,20 +86,23 @@ public class Usuario extends base_de_datos.UsuarioAutentificado implements Seria
 	@Column(name="Descripcion", nullable=true, length=255)	
 	private String descripcion;
 	
+	@Column(name="Baneado", nullable=false, length=1)	
+	private boolean baneado;
+	
 	@ManyToOne(targetEntity=base_de_datos.Administrador.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="AdministradorUsuarioAutentificadoID", referencedColumnName="UsuarioAutentificadoID", nullable=true) }, foreignKey=@ForeignKey(name="FKUsuario104330"))	
+	@JoinColumns(value={ @JoinColumn(name="AdministradorUsuarioAutentificadoID", referencedColumnName="UsuarioAutentificadoID") }, foreignKey=@ForeignKey(name="FKUsuario104330"))	
 	private base_de_datos.Administrador es_baneado;
 	
 	@ManyToMany(targetEntity=base_de_datos.Usuario.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinTable(name="Usuario_Usuario", joinColumns={ @JoinColumn(name="UsuarioUsuarioAutentificadoID2") }, inverseJoinColumns={ @JoinColumn(name="UsuarioUsuarioAutentificadoID") })	
+	@JoinTable(name="Usuario_Usuario3", joinColumns={ @JoinColumn(name="UsuarioUsuarioAutentificadoID2") }, inverseJoinColumns={ @JoinColumn(name="UsuarioUsuarioAutentificadoID") })	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_bloquea = new java.util.HashSet();
 	
 	@ManyToMany(targetEntity=base_de_datos.Usuario.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinTable(name="Usuario_Usuario2", joinColumns={ @JoinColumn(name="UsuarioUsuarioAutentificadoID2") }, inverseJoinColumns={ @JoinColumn(name="UsuarioUsuarioAutentificadoID") })	
+	@JoinTable(name="Usuario_Usuario4", joinColumns={ @JoinColumn(name="UsuarioUsuarioAutentificadoID2") }, inverseJoinColumns={ @JoinColumn(name="UsuarioUsuarioAutentificadoID") })	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_sigue = new java.util.HashSet();
 	
@@ -141,14 +141,6 @@ public class Usuario extends base_de_datos.UsuarioAutentificado implements Seria
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_likea_comentario = new java.util.HashSet();
 	
-	public void setIdUsuario(int value) {
-		this.idUsuario = value;
-	}
-	
-	public int getIdUsuario() {
-		return idUsuario;
-	}
-	
 	public void setNick(String value) {
 		this.nick = value;
 	}
@@ -179,6 +171,14 @@ public class Usuario extends base_de_datos.UsuarioAutentificado implements Seria
 	
 	public String getDescripcion() {
 		return descripcion;
+	}
+	
+	public void setBaneado(boolean value) {
+		this.baneado = value;
+	}
+	
+	public boolean getBaneado() {
+		return baneado;
 	}
 	
 	public void setEs_baneado(base_de_datos.Administrador value) {
