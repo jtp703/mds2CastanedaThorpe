@@ -14,38 +14,48 @@ import com.vaadin.flow.component.notification.Notification.Position;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 public class ListadotweetsUsuarioregistrado extends Listadotweets {
-	
+
 	public VermuroprincipalUsuarioregistrado _vermuroprincipalUsuarioregistrado;
 	public VerlistadodetweetsfiltradoUsuarioregistrado _verlistadodetweetsfiltradoUsuarioregistrado;
 	public VerperfilUsuarioregistrado _verperfilUsuarioregistrado;
 	public Vector<ListadotweetsUsuarioregistrado_item> _listadotweetsUsuarioregistrado = new Vector<ListadotweetsUsuarioregistrado_item>();
 	public Verperfilpersonal _verperfilpersonal;
 	public iUsuarioregistrado iUsuarioregistrado;
-	
+
 	public ListadotweetsUsuarioregistrado(VermuroprincipalUsuarioregistrado vermuroprincipalUsuarioregistrado) {
 		super(vermuroprincipalUsuarioregistrado);
+		this._vermuroprincipalUsuarioregistrado = vermuroprincipalUsuarioregistrado;
 		this.iUsuarioregistrado = vermuroprincipalUsuarioregistrado._usuarioregistrado.iUsuarioregistrado;
-		//_verperfilpersonal = new Verperfilpersonal(new Usuarioregistrado(this));
-		
 
-		ListadotweetsUsuarioregistrado_item item1 = new ListadotweetsUsuarioregistrado_item(this, null);
-		ListadotweetsUsuarioregistrado_item item2 = new ListadotweetsUsuarioregistrado_item(this, null);
-		_listadotweetsUsuarioregistrado.add(item1);
-		_listadotweetsUsuarioregistrado.add(item2);
-		for (ListadotweetsUsuarioregistrado_item item : _listadotweetsUsuarioregistrado) {
-			this.getContenedorListadoTweets().as(VerticalLayout.class).add(item);
-		}
+		try {
+            Tweet[] tweets = this.iUsuarioregistrado.cargarTweets();
+            if (tweets != null) {
+                for (Tweet t : tweets) {
+                    ListadotweetsUsuarioregistrado_item item =
+                        new ListadotweetsUsuarioregistrado_item(this, t);
+                    _listadotweetsUsuarioregistrado.add(item);
+                    this.getContenedorListadoTweets()
+                        .as(VerticalLayout.class)
+                        .add(item);
+                }
+            }
+        } catch (Exception pe) {
+            Notification.show(
+                "No se pudieron cargar los tweets: " + pe.getMessage(),
+                3000, Position.MIDDLE
+            );
+        }
 
-		
 		this.getBtnEnviarTweet().addClickListener(event -> Enviartweet());
 
 		this.getVerPerfilPersonal().addClickListener(event -> verPerfilPersonal());
 	}
-	
-	public ListadotweetsUsuarioregistrado(VerlistadodetweetsfiltradoUsuarioregistrado _verlistadodetweetsfiltradoUsuarioregistrado) {
+
+	public ListadotweetsUsuarioregistrado(
+			VerlistadodetweetsfiltradoUsuarioregistrado _verlistadodetweetsfiltradoUsuarioregistrado) {
 		super(_verlistadodetweetsfiltradoUsuarioregistrado);
 	}
-	
+
 	public ListadotweetsUsuarioregistrado(VerperfilUsuarioregistrado _verperfilUsuarioregistrado) {
 		super(_verperfilUsuarioregistrado);
 
@@ -58,73 +68,66 @@ public class ListadotweetsUsuarioregistrado extends Listadotweets {
 		}
 
 	}
-	
+
 	public void verPerfilPersonal() {
 		MainView.Pantalla.cambiarVista(_verperfilpersonal);
 	}
-	
+
 	public void Enviartweet() {
-	    // Obtén el id del usuario directamente aquí
-	    int idUsuario = this._vermuroprincipalUsuarioregistrado._usuarioregistrado._usuarioregistrado.getIdUsuario();
-	    // Resto del método como antes
-	    String texto = this.getTextoTweet().getValue().trim();
-	    if (texto.isEmpty()) {
-	        Notification.show("El texto del tweet no puede estar vacío");
-	        return;
-	    }
 
-	    String url1  = this.getUrl1().getValue().trim();
-	    String tipo1 = this.getTipoUrl1().getValue();
+		int idUsuario = this._vermuroprincipalUsuarioregistrado._usuarioregistrado._usuarioregistrado.getIdUsuario();
 
-	    String url2  = this.getUrl2().getValue().trim();
-	    String tipo2 = this.getTipoUrl2().getValue();
+		String texto = this.getTextoTweet().getValue().trim();
+		if (texto.isEmpty()) {
+			Notification.show("El texto del tweet no puede estar vacío");
+			return;
+		}
 
-	    List<String> listaUrls  = new ArrayList<>();
-	    List<String> listaTipos = new ArrayList<>();
+		String url1 = this.getUrl1().getValue().trim();
+		String tipo1 = (String) this.getSelect1().getValue();
 
-	    if (!url1.isEmpty() && tipo1 != null) {
-	        listaUrls.add(url1);
-	        listaTipos.add(tipo1);
-	    }
-	    if (!url2.isEmpty() && tipo2 != null) {
-	        listaUrls.add(url2);
-	        listaTipos.add(tipo2);
-	    }
+		String url2 = this.getUrl2().getValue().trim();
+		String tipo2 = (String) this.getSelect2().getValue();
 
-	    String[] documentosArray;
-	    String[] tiposArray;
-	    if (listaUrls.isEmpty()) {
-	        documentosArray = null;
-	        tiposArray      = null;
-	    } else {
-	        documentosArray = listaUrls.toArray(new String[0]);
-	        tiposArray      = listaTipos.toArray(new String[0]);
-	    }
+		List<String> listaUrls = new ArrayList<>();
+		List<String> listaTipos = new ArrayList<>();
 
-	    try {
-	        Tweet nuevoTweet = this.iUsuarioregistrado.escribirTweet(
-	            idUsuario,
-	            texto,
-	            documentosArray,
-	            tiposArray
-	        );
+		if (!url1.isEmpty() && tipo1 != null && !tipo1.isEmpty()) {
+			listaUrls.add(url1);
+			listaTipos.add(tipo1);
+		}
+		if (!url2.isEmpty() && tipo2 != null && !tipo2.isEmpty()) {
+			listaUrls.add(url2);
+			listaTipos.add(tipo2);
+		}
 
-	        ListadotweetsUsuarioregistrado_item itemNuevo =
-	            new ListadotweetsUsuarioregistrado_item(this, nuevoTweet);
-	        this.getContenedorListadoTweets()
-	            .as(VerticalLayout.class)
-	            .addComponentAsFirst(itemNuevo);
+		String[] documentosArray;
+		String[] tiposArray;
+		if (listaUrls.isEmpty()) {
+			documentosArray = null;
+			tiposArray = null;
+		} else {
+			documentosArray = listaUrls.toArray(new String[0]);
+			tiposArray = listaTipos.toArray(new String[0]);
+		}
 
-	        // Limpiar todos los campos del formulario
-	        this.getTextoTweet().clear();
-	        this.getUrl1().clear();     this.getTipoUrl1().clear();
-	        this.getUrl2().clear();     this.getTipoUrl2().clear();
+		try {
 
-	        Notification.show("Tweet enviado correctamente", 1500, Position.BOTTOM_START);
-	    }
-	    catch (Exception ex) {
-	        Notification.show("Error al enviar tweet: " + ex.getMessage(), 3000, Position.MIDDLE);
-	    }
+			Tweet nuevoTweet = this.iUsuarioregistrado.escribirTweet(idUsuario, texto, documentosArray, tiposArray);
+
+			ListadotweetsUsuarioregistrado_item itemNuevo = new ListadotweetsUsuarioregistrado_item(this, nuevoTweet);
+			this.getContenedorListadoTweets().as(VerticalLayout.class).addComponentAsFirst(itemNuevo);
+
+			this.getTextoTweet().clear();
+			this.getUrl1().clear();
+			this.getSelect1().clear();
+			this.getUrl2().clear();
+			this.getSelect2().clear();
+
+			Notification.show("Tweet enviado correctamente", 1500, Position.BOTTOM_START);
+		} catch (Exception ex) {
+			Notification.show("Error al enviar tweet: " + ex.getMessage(), 3000, Position.MIDDLE);
+		}
 	}
 
 }

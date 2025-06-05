@@ -10,6 +10,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.radiobutton.RadioButtonGroup;
+import com.vaadin.flow.component.select.Select;
 
 @Tag("vista-listadotweets")
 @JsModule("./views/vista-listadotweets.ts")
@@ -29,23 +30,39 @@ public class VistaListadotweets extends LitTemplate {
 	@Id("verPerfilPersonal")
 	private Button verPerfilPersonal;
 
-	@Id("tipoUrl1")
-	private RadioButtonGroup<String> tipoUrl1;
-
 	@Id("url1")
 	private TextField url1;
 
 	@Id("url2")
 	private TextField url2;
 
-	@Id("tipoUrl2")
-	private RadioButtonGroup<String> tipoUrl2;
-
 	@Id("textoTweet")
 	private TextArea textoTweet;
 
+	@Id("select1")
+	private Select select1;
+
+	@Id("select2")
+	private Select select2;
+
 	public VistaListadotweets() {
 		// You can initialise any data required for the connected UI components here.
+	}
+
+	public Select getSelect1() {
+		return select1;
+	}
+
+	public void setSelect1(Select select1) {
+		this.select1 = select1;
+	}
+
+	public Select getSelect2() {
+		return select2;
+	}
+
+	public void setSelect2(Select select2) {
+		this.select2 = select2;
 	}
 
 	public TextArea getTextoTweet() {
@@ -54,14 +71,6 @@ public class VistaListadotweets extends LitTemplate {
 
 	public void setTextoTweet(TextArea textoTweet) {
 		this.textoTweet = textoTweet;
-	}
-
-	public RadioButtonGroup<String> getTipoUrl1() {
-		return tipoUrl1;
-	}
-
-	public void setTipoUrl1(RadioButtonGroup<String> tipoUrl1) {
-		this.tipoUrl1 = tipoUrl1;
 	}
 
 	public TextField getUrl1() {
@@ -78,14 +87,6 @@ public class VistaListadotweets extends LitTemplate {
 
 	public void setUrl2(TextField url2) {
 		this.url2 = url2;
-	}
-
-	public RadioButtonGroup<String> getTipoUrl2() {
-		return tipoUrl2;
-	}
-
-	public void setTipoUrl2(RadioButtonGroup<String> tipoUrl2) {
-		this.tipoUrl2 = tipoUrl2;
 	}
 
 	public Element getContenedorListadoTweets() {

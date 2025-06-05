@@ -3,9 +3,8 @@ import '@vaadin/button/src/vaadin-button.js';
 import '@vaadin/text-area/src/vaadin-text-area.js';
 import '@vaadin/horizontal-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/text-field/src/vaadin-text-field.js';
-import '@vaadin/radio-group/src/vaadin-radio-group.js';
-import '@vaadin/radio-group/src/vaadin-radio-button.js';
 import '@vaadin/vertical-layout/src/vaadin-vertical-layout.js';
+import '@vaadin/select/src/vaadin-select.js';
 
 @customElement('vista-listadotweets')
 export class VistaListadotweets extends LitElement {
@@ -20,7 +19,7 @@ export class VistaListadotweets extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout theme="spacing-s" style="width: 80%; height: 100%; align-items: stretch; position:absolute;" id="contenedorListadoTweets">
+<vaadin-vertical-layout theme="spacing-s" style="height: 100%; align-items: stretch; position:absolute; width: 100%;" id="contenedorListadoTweets">
  <vaadin-vertical-layout theme="spacing" id="contenedorNuevoTweet" style="margin-top: var(--lumo-space-m); margin-right: var(--lumo-space-m); margin-left: var(--lumo-space-m);">
   <vaadin-horizontal-layout theme="spacing" style="align-self: stretch;">
    <vaadin-horizontal-layout style="flex-grow: 0; margin: var(--lumo-space-m); align-self: flex-start;" id="perfilLayout">
@@ -37,36 +36,22 @@ export class VistaListadotweets extends LitElement {
    </vaadin-button>
   </vaadin-horizontal-layout>
  </vaadin-vertical-layout>
- <vaadin-horizontal-layout theme="spacing" style="align-self: center;">
+ <vaadin-horizontal-layout theme="spacing" style="margin-right: var(--lumo-space-m); align-self: center;">
   <vaadin-horizontal-layout theme="spacing">
    <vaadin-text-field id="url1" style="align-self: center;" type="text" label="url">
      TextText 
    </vaadin-text-field>
-   <vaadin-radio-group value="foo" id="tipoUrl1" style="flex-shrink: 0;">
-    <vaadin-vertical-layout theme="spacing">
-     <vaadin-radio-button name="foo" type="radio" value="img" id="botonImg1">
-       img 
-     </vaadin-radio-button>
-     <vaadin-radio-button name="bar" type="radio" value="video" id="botonVideo1">
-       video 
-     </vaadin-radio-button>
-    </vaadin-vertical-layout>
-   </vaadin-radio-group>
+   <vaadin-select id="select1" style="align-self: center;">
+     imagenvideo 
+   </vaadin-select>
   </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing">
+  <vaadin-horizontal-layout theme="spacing" style="align-self: center;">
    <vaadin-text-field style="align-self: center;" type="text" label="url" id="url2">
      TextText 
    </vaadin-text-field>
-   <vaadin-radio-group value="foo" id="tipoUrl2" style="flex-shrink: 0;">
-    <vaadin-vertical-layout theme="spacing">
-     <vaadin-radio-button name="foo" type="radio" value="img" id="botonImg2">
-       img 
-     </vaadin-radio-button>
-     <vaadin-radio-button name="bar" type="radio" value="video" id="botonVideo2">
-       video 
-     </vaadin-radio-button>
-    </vaadin-vertical-layout>
-   </vaadin-radio-group>
+   <vaadin-select style="align-self: center;" id="select2">
+     imagenvideo 
+   </vaadin-select>
   </vaadin-horizontal-layout>
  </vaadin-horizontal-layout>
  <vaadin-vertical-layout theme="spacing" id="contenedorListadoTweets_item" style="flex-grow: 1; width: 80%; height: 100%; align-self: center;"></vaadin-vertical-layout>
