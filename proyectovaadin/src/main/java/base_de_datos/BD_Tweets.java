@@ -2,15 +2,19 @@ package base_de_datos;
 
 import base_de_datos.BDPrincipal;
 import java.util.Vector;
+import java.util.regex.Pattern;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.ArrayList;
 import java.util.Date;
 
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
+import antlr.collections.List;
 import base_de_datos.Tweet;
 import base_de_datos.Usuario;
+import ch.qos.logback.core.boolex.Matcher;
 import base_de_datos.Comentario;
 import base_de_datos.Hashtag;
 import base_de_datos.Documento;
@@ -108,18 +112,83 @@ public class BD_Tweets {
                 }
             }
 
-            // 5. Guardamos nuevamente el tweet para asegurar que las relaciones queden persistidas
+            // 5. Volvemos a guardar el tweet para que se fijen bien las relaciones con documentos
+            TweetDAO.save(tweet);
+
+            // 6. Extraemos todos los hashtags del texto
+            ArrayList<String> nombresHashtags = extraerHashtags(aTexto);
+            for (String nombreRaw : nombresHashtags) {
+                // --- 6.1. Escapamos posibles comillas simples para la consulta ---
+                String nombreEscapado = nombreRaw.replace("'", "''");
+
+                // --- 6.2. Intentamos cargar un hashtag existente con ese nombre ---
+                // Condición HQL: nombre = 'elHashtag'
+                String condicion = "nombre = '" + nombreEscapado + "'";
+                Hashtag[] encontrados = HashtagDAO.listHashtagByQuery(condicion, null);
+
+                Hashtag hashtag;
+                if (encontrados != null && encontrados.length > 0) {
+                    // Ya existía en BD: tomamos el primero
+                    hashtag = encontrados[0];
+                } else {
+                    // No existía: lo creamos y seteamos campos iniciales
+                    hashtag = HashtagDAO.createHashtag();
+                    hashtag.setNombre(nombreRaw);
+                    hashtag.setNumMenciones(0);
+                    HashtagDAO.save(hashtag);
+                }
+
+                // --- 6.3. Asociamos este hashtag al tweet si aún no está asociado ---
+                // La relación ManyToMany se maneja por ambas colecciones: tweet.contiene y hashtag.aparece_en
+                // Para evitar duplicados, comprobamos antes:
+                if (!tweet.contiene.contains(hashtag)) {
+                    // Añadimos al tweet
+                    tweet.contiene.add(hashtag);
+                    TweetDAO.save(tweet);
+                }
+                if (!hashtag.aparece_en.contains(tweet)) {
+                    // Añadimos al hashtag
+                    hashtag.aparece_en.add(tweet);
+                }
+
+                // --- 6.4. Incrementamos el contador de menciones en el hashtag ---
+                hashtag.setNumMenciones(hashtag.getNumMenciones() + 1);
+                HashtagDAO.save(hashtag);
+            }
+
+            // 7. Guardamos de nuevo el tweet para fijar la relación con todos los hashtags
             TweetDAO.save(tweet);
 
             t.commit();
         } catch (Exception e) {
             t.rollback();
+            throw e instanceof PersistentException ? (PersistentException) e : new PersistentException(e);
         } finally {
             MDS12425PFCastanedaThorpePersistentManager.instance().disposePersistentManager();
         }
         return tweet;
     }
 
+    /**
+     * Extrae todos los hashtags de un texto (sin la ‘#’), evitando duplicados.
+     * Por ejemplo, de "Hola #Java y #VaadinFlow" devolvería ["Java", "VaadinFlow"].
+     */
+    private ArrayList<String> extraerHashtags(String text) {
+        ArrayList<String> hashtags = new ArrayList<>();
+        String regex = "#(\\w+)";
+        Pattern pattern = Pattern.compile(regex);
+        java.util.regex.Matcher matcher = pattern.matcher(text);
+
+        while (matcher.find()) {
+            String hashtag = matcher.group(1); // Captura el texto del hashtag sin la '#'
+            if (!hashtags.contains(hashtag)) {
+                hashtags.add(hashtag);
+            }
+        }
+        return hashtags;
+    }
+
+    
     /**
      * Añade un "Me gusta" a un tweet: crea la relación Many-to-Many entre Usuario y Tweet,
      * e incrementa el contador numMegustas.

@@ -9,7 +9,7 @@ import base_de_datos.iCibernauta;
 
 
 public class Cibernauta extends VistaCibernauta{
-	public iCibernauta _iCibernauta;
+	public iCibernauta _iCibernauta = new base_de_datos.BDPrincipal();
 	public VerListadohashtags _verListadohashtags;
 	public Vermuroprincipal _vermuroprincipal;
 	public Verlistadogloblaldeusuarios _verlistadogloblaldeusuarios;

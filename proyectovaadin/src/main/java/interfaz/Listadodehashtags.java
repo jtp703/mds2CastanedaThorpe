@@ -11,10 +11,8 @@ public class Listadodehashtags extends VistaListadodehashtags{
 	
 	public VerListadohashtags _verListadohashtags;
 	public Vector<Listadodehashtags_item> _item = new Vector<Listadodehashtags_item>();
-	private base_de_datos.Usuario usuario;
 	public Listadodehashtags(VerListadohashtags verListadohashtags) {
 		_verListadohashtags = verListadohashtags;
-		
 		if(verListadohashtags._cibernauta._iCibernauta.cargarHashtags() == null) {
 			Notification.show("El listado hashtags puede estar vacío");
 			return;

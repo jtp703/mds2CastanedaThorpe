@@ -15,7 +15,8 @@ public class Listadousuarios_item extends VistaListadousuarios_item{
 		this._usuario = usuario;
 		this.getVerperfil().setText(usuario.getNick());
 		//falta funcionalidad imagen perfil, seguidores y seguidos
-		this.getVerSeguidores().setText(Integer.toString(usuario.es_seguido.size()));
+		Integer seguidores = usuario.es_seguido.size();
+		this.getVerSeguidores().setText(Integer.toString(seguidores == null ? 0 : usuario.es_seguido.size()));
 		//this.getVerSeguidos().setText(String.valueOf());
 	}
 	

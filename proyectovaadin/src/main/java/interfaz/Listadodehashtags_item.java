@@ -27,7 +27,7 @@ public class Listadodehashtags_item extends VistaListadodehashtags_item{
 		
 		this._listadodehashtags.getContenedorHashtags().as(VerticalLayout.class).removeAll();
 		
-		_verlistadodetweetsfiltrado = new Verlistadodetweetsfiltrado(this);
+		_verlistadodetweetsfiltrado = new Verlistadodetweetsfiltrado(this, _hashtag);
 		this._listadodehashtags.getContenedorHashtags().as(VerticalLayout.class).add(_verlistadodetweetsfiltrado);
 		
 	}

@@ -29,7 +29,7 @@ public class ListadotweetsAdministrador extends Listadotweets {
 		
 	}
 	public ListadotweetsAdministrador(VerlistadodetweetsfiltradoAdministrador _verlistadodetweetsfiltradoAdministrador) {
-		super(_verlistadodetweetsfiltradoAdministrador);
+		super(_verlistadodetweetsfiltradoAdministrador, null);
 	}
 	
 	public ListadotweetsAdministrador(VerperfilAdministrador _verperfiladministrador) {

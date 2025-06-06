@@ -23,7 +23,6 @@ export class VistaNotificaciones_item extends LitElement {
    <vaadin-button tabindex="0" id="verperfil">
      @usuario 
    </vaadin-button>
-   <vaadin-icon style="align-self: center; flex-grow: 0; flex-shrink: 0;" icon="vaadin:retweet" size="16"></vaadin-icon>
    <label id="tipoNotificacion">te ha emportillado</label>
   </vaadin-horizontal-layout>
  </vaadin-vertical-layout>

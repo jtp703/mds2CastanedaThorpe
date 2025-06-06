@@ -18,8 +18,9 @@ public class Verperfildeusuario extends VistaVerperfildeusuario {
 	public Verlistado _verlistado;
 	public Listadotweets _listadotweets;
 	
-	public Verperfildeusuario(Cibernauta cibernauta) {
+	public Verperfildeusuario(Cibernauta cibernauta, base_de_datos.Usuario usuario) {
 		this.cibernauta = cibernauta;
+		cargarUsuario(usuario);
 	}
 	
 	public Verperfildeusuario(Retweets _retweets) {
@@ -52,5 +53,15 @@ public class Verperfildeusuario extends VistaVerperfildeusuario {
 
 	public void Listadotweets(Listadotweets _listadotweets) {
 		this._listadotweets = _listadotweets;
+	}
+	
+	public void cargarUsuario(base_de_datos.Usuario usuario) {
+		this.getNombreUsuario().setText(usuario.getNombre());
+		this.getNickUsuario().setText(usuario.getNick());
+		this.getDescripcionPerfil().setText(usuario.getDescripcion());
+		this.getImgFondo().setSrc(usuario.getFotoFondo());
+		this.getImgPerfil().setSrc(usuario.getFotoPerfil());
+		this.getVerSeguidores().setText(usuario.es_seguido == null ? "0" : String.valueOf(usuario.es_seguido.size()));
+		this.getVerSeguidos().setText(usuario.sigue == null ? "0" : String.valueOf(usuario.sigue.size()));
 	}
 }

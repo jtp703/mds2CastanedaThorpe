@@ -20,7 +20,7 @@ public class VerperfilAdministrador extends Verperfildeusuario {
 	public base_de_datos.Usuario usuario;
 	
 	public VerperfilAdministrador(Administrador _administrador, Usuario _usuario) {
-		super(_administrador);
+		super(_administrador, _usuario);
 		this._listadotweetsadministrador = new ListadotweetsAdministrador(this);
 		this._listadotweetsadministrador.getContenedorNuevoTweet().setVisible(false);
 		this.usuario = _usuario;

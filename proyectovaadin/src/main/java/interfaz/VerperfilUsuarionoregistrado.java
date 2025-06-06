@@ -13,10 +13,12 @@ public class VerperfilUsuarionoregistrado extends Verperfildeusuario{
 	public base_de_datos.Usuario usuario;
 	
 	public VerperfilUsuarionoregistrado(Usuarionoregistrado _usuarioNoRegistrado, base_de_datos.Usuario _usuario) {
-		super(_usuarioNoRegistrado);
+		super(_usuarioNoRegistrado, _usuario);
 		this._listadotweetsUsuarioNoRegistrado = new ListadotweetsUsuarionoregistrado(this);
 		this._listadotweetsUsuarioNoRegistrado.getContenedorNuevoTweet().setVisible(false);
 		this.usuario = _usuario;
+		super.cargarUsuario(_usuario);
+		
 		this.getContenedorListadotweets().as(VerticalLayout.class).add(_listadotweetsUsuarioNoRegistrado);
 		this.getBtnBanearUsuario().setVisible(false);
 		this.getBtnEditarPerfil().setVisible(false);

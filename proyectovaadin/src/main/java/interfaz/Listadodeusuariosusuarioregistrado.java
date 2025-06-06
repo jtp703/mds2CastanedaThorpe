@@ -10,11 +10,14 @@ public class Listadodeusuariosusuarioregistrado extends Listadousuarios {
 	
 	public Listadodeusuariosusuarioregistrado(VerlistadoglobaldeusuariosUsuarioregistrado _verlistadoglobaldeusuariosUsuarioregistrado){
 		super(_verlistadoglobaldeusuariosUsuarioregistrado);
-		Listadodeusuariosusuarioregistrado_item item1 = new Listadodeusuariosusuarioregistrado_item(this, null);
-		Listadodeusuariosusuarioregistrado_item item2 = new Listadodeusuariosusuarioregistrado_item(this, null);
-		_item.add(item1);
-		_item.add(item2);
-		for(Listadodeusuariosusuarioregistrado_item item: _item) {
+		this._verlistadoglobaldeusuariosUsuarioregistrado = _verlistadoglobaldeusuariosUsuarioregistrado;
+		
+		for (base_de_datos.Usuario u : _verlistadoglobaldeusuariosUsuarioregistrado._usuarioregistrado.iUsuarioregistrado.cargarUsuarios()) {
+			if(u.getID() == _verlistadoglobaldeusuariosUsuarioregistrado._usuarioregistrado._usuarioregistrado.getID()){
+				continue;
+			}
+			Listadodeusuariosusuarioregistrado_item item = new Listadodeusuariosusuarioregistrado_item(this, u);
+			_item.add(item);
 			this.getContenedorItemsUsuario().as(VerticalLayout.class).add(item);
 		}
 	}

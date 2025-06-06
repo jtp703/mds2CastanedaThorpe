@@ -20,18 +20,20 @@ public class VerperfilUsuarioregistrado extends Verperfildeusuario {
     public base_de_datos.Usuario usuario;
 
     public VerperfilUsuarioregistrado(Usuarioregistrado usuarioregistrado, base_de_datos.Usuario _usuario) {
-        super(usuarioregistrado);
+        super(usuarioregistrado, _usuario);
         this.usuarioregistrado = usuarioregistrado;
         this.usuario = _usuario;
 		this.listadotweetsUsuarioregistrado = new ListadotweetsUsuarioregistrado(this);
 		this.listadotweetsUsuarioregistrado.getContenedorNuevoTweet().setVisible(false);
 		this.getContenedorListadotweets().as(VerticalLayout.class).add(listadotweetsUsuarioregistrado);
 		this.getBtnBanearUsuario().setVisible(false);
+		super.cargarUsuario(_usuario);
 		
 		iconoSeguir = new Icon(VaadinIcon.USER_CHECK); // estado inicial: "no siguiendo"
 		this.getBtnSeguir().setIcon(iconoSeguir);
 		iconoBloquear = new Icon(VaadinIcon.BAN); // estado inicial: "no bloqueado"
 		this.getBtnBloquear().setIcon(iconoBloquear);
+		
 		this.getBtnVolver().addClickListener(event -> btnVolver());
 		this.getVerSeguidores().addClickListener(event -> Verlistadodeseguidores());
 		this.getVerSeguidos().addClickListener(event -> Verlistadodeseguidos());

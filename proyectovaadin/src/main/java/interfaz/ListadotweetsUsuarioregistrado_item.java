@@ -24,6 +24,7 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
 	ListadotweetsUsuarioregistrado_item(ListadotweetsUsuarioregistrado listadotweetsUsuarioregistrado, base_de_datos.Tweet tweet) {
 		super(listadotweetsUsuarioregistrado, tweet);
 		this.getBtnEliminarTweet().setVisible(false);
+		this.usuario = listadotweetsUsuarioregistrado._vermuroprincipalUsuarioregistrado._usuarioregistrado;
 		this.usu = tweet.tweeteado_por;
 		this.getVerperfil().addClickListener(event -> VerperfilUsuarioregistrado(usuario));
 		this.getComentar().addClickListener(event -> VercomentariosUsuarioregistrado());
@@ -67,6 +68,7 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
 	}
 	
 	public void VerperfilUsuarioregistrado(Usuarioregistrado usuario) {
+		//usuario es aquel que inicio sesion y usu es el usuario cuyo perfil se quiere ver
 		_verperfilUsuarioregistrado = new VerperfilUsuarioregistrado(usuario, usu);
 		System.out.println("Ejecución ver perfil de usuario");
 		MainView.Pantalla.cambiarVista(_verperfilUsuarioregistrado);

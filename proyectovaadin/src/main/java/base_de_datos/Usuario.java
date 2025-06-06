@@ -94,51 +94,42 @@ public class Usuario extends base_de_datos.UsuarioAutentificado implements Seria
 	@JoinColumns(value={ @JoinColumn(name="AdministradorUsuarioAutentificadoID", referencedColumnName="UsuarioAutentificadoID") }, foreignKey=@ForeignKey(name="FKUsuario104330"))	
 	private base_de_datos.Administrador es_baneado;
 	
-	@ManyToMany(targetEntity=base_de_datos.Usuario.class)	
+	@ManyToMany(targetEntity=base_de_datos.Usuario.class, fetch = FetchType.EAGER)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinTable(name="Usuario_Usuario3", joinColumns={ @JoinColumn(name="UsuarioUsuarioAutentificadoID2") }, inverseJoinColumns={ @JoinColumn(name="UsuarioUsuarioAutentificadoID") })	
-	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
+	@JoinTable(name="Usuario_Usuario3", joinColumns={ @JoinColumn(name="UsuarioUsuarioAutentificadoID2") }, inverseJoinColumns={ @JoinColumn(name="UsuarioUsuarioAutentificadoID") })		
 	private java.util.Set ORM_bloquea = new java.util.HashSet();
 	
-	@ManyToMany(targetEntity=base_de_datos.Usuario.class)	
+	@ManyToMany(targetEntity=base_de_datos.Usuario.class, fetch = FetchType.EAGER)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@JoinTable(name="Usuario_Usuario4", joinColumns={ @JoinColumn(name="UsuarioUsuarioAutentificadoID2") }, inverseJoinColumns={ @JoinColumn(name="UsuarioUsuarioAutentificadoID") })	
-	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_sigue = new java.util.HashSet();
 	
-	@OneToMany(mappedBy="tweeteado_por", targetEntity=base_de_datos.Tweet.class)	
+	@OneToMany(mappedBy="tweeteado_por", targetEntity=base_de_datos.Tweet.class, fetch = FetchType.EAGER)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_tweetea = new java.util.HashSet();
 	
-	@ManyToMany(mappedBy="ORM_bloquea", targetEntity=base_de_datos.Usuario.class)	
+	@ManyToMany(mappedBy="ORM_bloquea", targetEntity=base_de_datos.Usuario.class, fetch = FetchType.EAGER)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_es_bloqueado = new java.util.HashSet();
 	
-	@ManyToMany(mappedBy="ORM_sigue", targetEntity=base_de_datos.Usuario.class)	
+	@ManyToMany(mappedBy="ORM_sigue", targetEntity=base_de_datos.Usuario.class, fetch = FetchType.EAGER)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_es_seguido = new java.util.HashSet();
 	
-	@OneToMany(mappedBy="comentado_por", targetEntity=base_de_datos.Comentario.class)	
+	@OneToMany(mappedBy="comentado_por", targetEntity=base_de_datos.Comentario.class, fetch = FetchType.EAGER)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_publica_comentario = new java.util.HashSet();
 	
-	@ManyToMany(mappedBy="ORM_reetweteado_por", targetEntity=base_de_datos.Tweet.class)	
+	@ManyToMany(mappedBy="ORM_reetweteado_por", targetEntity=base_de_datos.Tweet.class, fetch = FetchType.EAGER)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_retweetea = new java.util.HashSet();
 	
-	@ManyToMany(mappedBy="ORM_likeado_por", targetEntity=base_de_datos.Tweet.class)	
+	@ManyToMany(mappedBy="ORM_likeado_por", targetEntity=base_de_datos.Tweet.class, fetch = FetchType.EAGER)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_likea = new java.util.HashSet();
 	
-	@ManyToMany(mappedBy="ORM_comlikeado_por", targetEntity=base_de_datos.Comentario.class)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
+	@ManyToMany(mappedBy="ORM_comlikeado_por", targetEntity=base_de_datos.Comentario.class, fetch = FetchType.EAGER)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})		
 	private java.util.Set ORM_likea_comentario = new java.util.HashSet();
 	
 	public void setNick(String value) {

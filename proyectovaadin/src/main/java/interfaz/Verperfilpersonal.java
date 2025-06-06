@@ -12,7 +12,7 @@ public class Verperfilpersonal extends Verperfildeusuario {
 	public Editarperfil _editarperfil;
 	
 	public Verperfilpersonal(Usuarioregistrado usuarioregistrado) {
-		super(usuarioregistrado);
+		super(usuarioregistrado, usuarioregistrado._usuarioregistrado);
 		this.usuarioregistrado = usuarioregistrado;
 		this.getBtnBanearUsuario().setVisible(false);
 		this.getBtnSeguir().setVisible(false);
