@@ -24,9 +24,9 @@ public class BD_Usuarios {
 	public Vector<Usuario> _contiene_usuarios = new Vector<Usuario>();
 
 	/**
-	 * Elimina (borra) el perfil de un usuario. 
-	 * Se asume que 'aConfirmacion' contiene el ID del usuario como cadena. 
-	 * 'aMotivo' se guarda o se ignora según necesidad (aquí se ignora).
+	 * Elimina (borra) el perfil de un usuario. Se asume que 'aConfirmacion'
+	 * contiene el ID del usuario como cadena. 'aMotivo' se guarda o se ignora según
+	 * necesidad (aquí se ignora).
 	 */
 	public void borrarPerfil(String aMotivo, String aConfirmacion) throws PersistentException {
 		// Convertimos la confirmación a entero para obtener el ID de usuario
@@ -38,8 +38,7 @@ public class BD_Usuarios {
 			throw new PersistentException("ID de usuario inválido en la confirmación: " + aConfirmacion);
 		}
 
-		PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager
-				.instance().getSession().beginTransaction();
+		PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager.instance().getSession().beginTransaction();
 		try {
 			Usuario usuario = UsuarioDAO.loadUsuarioByORMID(idUsuario);
 			if (usuario != null) {
@@ -54,11 +53,11 @@ public class BD_Usuarios {
 	}
 
 	/**
-	 * Hace que un usuario (aIdSeguidor) empiece a seguir a otro usuario (aIdSeguido).
+	 * Hace que un usuario (aIdSeguidor) empiece a seguir a otro usuario
+	 * (aIdSeguido).
 	 */
 	public void seguirUsuario(int aIdSeguidor, int aIdSeguido) throws PersistentException {
-		PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager
-				.instance().getSession().beginTransaction();
+		PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager.instance().getSession().beginTransaction();
 		try {
 			Usuario seguidor = UsuarioDAO.loadUsuarioByORMID(aIdSeguidor);
 			Usuario seguido = UsuarioDAO.loadUsuarioByORMID(aIdSeguido);
@@ -81,8 +80,7 @@ public class BD_Usuarios {
 	 * Hace que un usuario (aIdSeguidor) deje de seguir a otro usuario (aIdSeguido).
 	 */
 	public void dejarSeguir(int aIdSeguidor, int aIdSeguido) throws PersistentException {
-		PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager
-				.instance().getSession().beginTransaction();
+		PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager.instance().getSession().beginTransaction();
 		try {
 			Usuario seguidor = UsuarioDAO.loadUsuarioByORMID(aIdSeguidor);
 			Usuario seguido = UsuarioDAO.loadUsuarioByORMID(aIdSeguido);
@@ -102,11 +100,12 @@ public class BD_Usuarios {
 	}
 
 	/**
-	 * Actualiza los datos de un usuario existente (nombre, nick, contraseña, fotos, descripción).
+	 * Actualiza los datos de un usuario existente (nombre, nick, contraseña, fotos,
+	 * descripción).
 	 */
-	public void actualizar(int aId, String aNombre, String aNickUsuario, String aContrasenia, String aFotoPerfil, String aImgPerfil, String aDescripcion) throws PersistentException {
-		PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager
-				.instance().getSession().beginTransaction();
+	public void actualizar(int aId, String aNombre, String aNickUsuario, String aContrasenia, String aFotoPerfil,
+			String aImgPerfil, String aDescripcion) throws PersistentException {
+		PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager.instance().getSession().beginTransaction();
 		try {
 			Usuario usuario = UsuarioDAO.loadUsuarioByORMID(aId);
 			if (usuario != null) {
@@ -130,8 +129,7 @@ public class BD_Usuarios {
 	 * Carga y devuelve el perfil de un usuario dado su ID.
 	 */
 	public Usuario cargarPerfiilUsuarioregistrado(int aIdUsuario) throws PersistentException {
-		PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager
-				.instance().getSession().beginTransaction();
+		PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager.instance().getSession().beginTransaction();
 		Usuario usuario = null;
 		try {
 			usuario = UsuarioDAO.loadUsuarioByORMID(aIdUsuario);
@@ -148,8 +146,7 @@ public class BD_Usuarios {
 	 * Devuelve todos los usuarios registrados en la base de datos.
 	 */
 	public Usuario[] cargarUsuarios() throws PersistentException {
-		PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager
-				.instance().getSession().beginTransaction();
+		PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager.instance().getSession().beginTransaction();
 		Usuario[] resultados = new Usuario[0];
 		try {
 			resultados = UsuarioDAO.listUsuarioByQuery(null, null);
@@ -163,46 +160,46 @@ public class BD_Usuarios {
 	}
 
 	/**
-     * Devuelve un arreglo de usuarios cuyos tweets han sido "likeados" por el usuario con ID `aIdUsuario`.
-     * - Se obtiene TweetSetCollection de tweets marcados como "Me gusta".
-     * - Para cada tweet, se extrae el autor y se añade a un HashSet para evitar duplicados.
-     *
-     * Nota: TweetSetCollection no implementa Iterable, así que usamos toArray() para recorrerlo.
-     */
-    public Usuario[] cargarUsuariosMegustaTweet(int aIdUsuario) throws PersistentException {
-        PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager
-                .instance().getSession().beginTransaction();
-        Usuario[] resultadoArray = new Usuario[0];
-        try {
-            Usuario usuario = UsuarioDAO.loadUsuarioByORMID(aIdUsuario);
-            if (usuario != null) {
-                // TweetSetCollection es la colección generada por ORM, no Iterable
-                Object[] tweetsLikeadosArray = usuario.likea.toArray();
-                Set<Usuario> autores = new HashSet<>();
-                for (Object obj : tweetsLikeadosArray) {
-                    Tweet tweet = (Tweet) obj;
-                    Usuario autor = tweet.getTweeteado_por();
-                    if (autor != null) {
-                        autores.add(autor);
-                    }
-                }
-                resultadoArray = autores.toArray(new Usuario[0]);
-            }
-            t.commit();
-        } catch (Exception e) {
-            t.rollback();
-        } finally {
-            MDS12425PFCastanedaThorpePersistentManager.instance().disposePersistentManager();
-        }
-        return resultadoArray;
-    }
+	 * Devuelve un arreglo de usuarios cuyos tweets han sido "likeados" por el
+	 * usuario con ID `aIdUsuario`. - Se obtiene TweetSetCollection de tweets
+	 * marcados como "Me gusta". - Para cada tweet, se extrae el autor y se añade a
+	 * un HashSet para evitar duplicados.
+	 *
+	 * Nota: TweetSetCollection no implementa Iterable, así que usamos toArray()
+	 * para recorrerlo.
+	 */
+	public Usuario[] cargarUsuariosMegustaTweet(int aIdUsuario) throws PersistentException {
+		PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager.instance().getSession().beginTransaction();
+		Usuario[] resultadoArray = new Usuario[0];
+		try {
+			Usuario usuario = UsuarioDAO.loadUsuarioByORMID(aIdUsuario);
+			if (usuario != null) {
+				// TweetSetCollection es la colección generada por ORM, no Iterable
+				Object[] tweetsLikeadosArray = usuario.likea.toArray();
+				Set<Usuario> autores = new HashSet<>();
+				for (Object obj : tweetsLikeadosArray) {
+					Tweet tweet = (Tweet) obj;
+					Usuario autor = tweet.getTweeteado_por();
+					if (autor != null) {
+						autores.add(autor);
+					}
+				}
+				resultadoArray = autores.toArray(new Usuario[0]);
+			}
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		} finally {
+			MDS12425PFCastanedaThorpePersistentManager.instance().disposePersistentManager();
+		}
+		return resultadoArray;
+	}
 
 	/**
 	 * Hace que un usuario (aIdUsuario) retuitee un tweet (aIdTweetRetweteado).
 	 */
 	public void asociarUsuarioTweet(int aIdTweetRetweteado, int aIdUsuario) throws PersistentException {
-		PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager
-				.instance().getSession().beginTransaction();
+		PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager.instance().getSession().beginTransaction();
 		try {
 			Usuario usuario = UsuarioDAO.loadUsuarioByORMID(aIdUsuario);
 			Tweet tweet = TweetDAO.loadTweetByORMID(aIdTweetRetweteado);
@@ -222,43 +219,41 @@ public class BD_Usuarios {
 	}
 
 	/**
-	 * Marca como "baneado" un usuario.
-	 * Ahora recibe tanto el ID del administrador que realiza el baneo
-	 * como el ID del usuario que debe ser baneado.
+	 * Marca como "baneado" un usuario. Ahora recibe tanto el ID del administrador
+	 * que realiza el baneo como el ID del usuario que debe ser baneado.
 	 */
 	public void banearUsuario(int aIdAdministrador, int idUsuario) throws PersistentException {
-	    PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager
-	            .instance().getSession().beginTransaction();
-	    try {
-	        // 1. Cargamos el Administrador que realiza el baneo
-	        base_de_datos.Administrador administrador = AdministradorDAO.loadAdministradorByORMID(aIdAdministrador);
-	        if (administrador == null) {
-	            throw new PersistentException("Administrador con ID " + aIdAdministrador + " no encontrado.");
-	        }
+		PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager.instance().getSession().beginTransaction();
+		try {
+			// 1. Cargamos el Administrador que realiza el baneo
+			base_de_datos.Administrador administrador = AdministradorDAO.loadAdministradorByORMID(aIdAdministrador);
+			if (administrador == null) {
+				throw new PersistentException("Administrador con ID " + aIdAdministrador + " no encontrado.");
+			}
 
-	        // 2. Cargamos el Usuario que será baneado
-	        Usuario usuario = UsuarioDAO.loadUsuarioByORMID(idUsuario);
-	        if (usuario == null) {
-	            throw new PersistentException("Usuario con ID " + idUsuario + " no encontrado.");
-	        }
+			// 2. Cargamos el Usuario que será baneado
+			Usuario usuario = UsuarioDAO.loadUsuarioByORMID(idUsuario);
+			if (usuario == null) {
+				throw new PersistentException("Usuario con ID " + idUsuario + " no encontrado.");
+			}
 
-	        // 3. Asignamos el administrador como quien banea al usuario
-	        usuario.setEs_baneado(administrador);
+			// 3. Asignamos el administrador como quien banea al usuario
+			usuario.setEs_baneado(administrador);
 
-	        // 4. Guardamos el cambio en el usuario
-	        UsuarioDAO.save(usuario);
+			// 4. Guardamos el cambio en el usuario
+			UsuarioDAO.save(usuario);
 
-	        t.commit();
-	    } catch (Exception e) {
-	        t.rollback();
-	    } finally {
-	        MDS12425PFCastanedaThorpePersistentManager.instance().disposePersistentManager();
-	    }
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		} finally {
+			MDS12425PFCastanedaThorpePersistentManager.instance().disposePersistentManager();
+		}
 	}
 
-	public Usuario registrarse(String aNombre, String aPassword, String aMail, String aNickusuario, String aFotoFondo, String aFotoPerfil, String aDescripcion, Date aFecha_creacion) throws PersistentException {
-		PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager.instance()
-				.getSession().beginTransaction();
+	public Usuario registrarse(String aNombre, String aPassword, String aMail, String aNickusuario, String aFotoFondo,
+			String aFotoPerfil, String aDescripcion, Date aFecha_creacion) throws PersistentException {
+		PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager.instance().getSession().beginTransaction();
 		Usuario usuario = null;
 		try {
 			usuario = UsuarioDAO.createUsuario();
@@ -271,25 +266,24 @@ public class BD_Usuarios {
 			usuario.setNombre(aNombre);
 			UsuarioDAO.save(usuario);
 			t.commit();
-		}
-		catch (Exception e){
+		} catch (Exception e) {
 			t.rollback();
 		}
-		
+
 		MDS12425PFCastanedaThorpePersistentManager.instance().disposePersistentManager();
 		return usuario;
 	}
 
 	/**
-	 * Intenta iniciar sesión buscándolo por mail y contraseña.
-	 * Devuelve el usuario coincidente, o null si no existe.
+	 * Intenta iniciar sesión buscándolo por mail y contraseña. Devuelve el usuario
+	 * coincidente, o null si no existe.
 	 */
 	public Usuario iniciarSesion(String aMail, String aPassword) throws PersistentException {
-		PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager
-				.instance().getSession().beginTransaction();
+		PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager.instance().getSession().beginTransaction();
 		Usuario usuario = null;
 		try {
-			String condicion = "Mail = '" + aMail.replace("'", "''") + "' AND Password = '" + aPassword.replace("'", "''") + "'";
+			String condicion = "Mail = '" + aMail.replace("'", "''") + "' AND Password = '"
+					+ aPassword.replace("'", "''") + "'";
 			Usuario[] encontrados = UsuarioDAO.listUsuarioByQuery(condicion, null);
 			if (encontrados != null && encontrados.length > 0) {
 				usuario = encontrados[0];
@@ -302,26 +296,24 @@ public class BD_Usuarios {
 		}
 		return usuario;
 	}
-	
+
 	public Usuario findByUserMail(String aMail) throws PersistentException {
-	    PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager
-	            .instance().getSession().beginTransaction();
-	    Usuario usuario = null;
-	    try {
-	        // Escapamos posibles comillas en el mail
-	        String condicion = "Mail = '" + aMail.replace("'", "''") + "'";
-	        Usuario[] encontrados = UsuarioDAO.listUsuarioByQuery(condicion, null);
-	        if (encontrados != null && encontrados.length > 0) {
-	            usuario = encontrados[0];
-	        }
-	        t.commit();
-	    } catch (Exception e) {
-	        t.rollback();
-	    } finally {
-	        MDS12425PFCastanedaThorpePersistentManager.instance().disposePersistentManager();
-	    }
-	    return usuario;
+		PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager.instance().getSession().beginTransaction();
+		Usuario usuario = null;
+		try {
+			// Escapamos posibles comillas en el mail
+			String condicion = "Mail = '" + aMail.replace("'", "''") + "'";
+			Usuario[] encontrados = UsuarioDAO.listUsuarioByQuery(condicion, null);
+			if (encontrados != null && encontrados.length > 0) {
+				usuario = encontrados[0];
+			}
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		} finally {
+			MDS12425PFCastanedaThorpePersistentManager.instance().disposePersistentManager();
+		}
+		return usuario;
 	}
 
-	
 }
