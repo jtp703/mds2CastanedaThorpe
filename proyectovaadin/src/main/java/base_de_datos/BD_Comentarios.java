@@ -46,9 +46,6 @@ public class BD_Comentarios {
 				// Remueve la relación Many-to-Many
 				if (comentario.comlikeado_por.contains(usuario)) {
 					comentario.comlikeado_por.remove(usuario);
-					// Actualiza el contador de "Me gusta"
-					int actuales = comentario.getNumMegustas();
-					comentario.setNumMegustas(Math.max(0, actuales - 1));
 					ComentarioDAO.save(comentario);
 				}
 			}
@@ -68,7 +65,6 @@ public class BD_Comentarios {
 	    try {
 	        comentario = ComentarioDAO.createComentario();
 	        comentario.setTexto(aTexto);
-	        comentario.setNumMegustas(0);
 
 	        // Asociar el usuario autor del comentario
 	        Usuario autor = UsuarioDAO.loadUsuarioByORMID(idUsuario);
@@ -105,9 +101,6 @@ public class BD_Comentarios {
 				// Añade la relación Many-to-Many
 				if (!comentario.comlikeado_por.contains(usuario)) {
 					comentario.comlikeado_por.add(usuario);
-					// Actualiza el contador de "Me gusta"
-					int actuales = comentario.getNumMegustas();
-					comentario.setNumMegustas(actuales + 1);
 					ComentarioDAO.save(comentario);
 				}
 			}

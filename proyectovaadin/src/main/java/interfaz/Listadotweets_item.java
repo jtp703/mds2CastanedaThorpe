@@ -9,10 +9,6 @@ import com.vaadin.flow.component.notification.Notification.Position;
 import base_de_datos.Documento;
 
 public class Listadotweets_item extends VistaListadotweets_item {
-	
-	//private event _darmegusta;
-	//private label _nickUsuario;
-	//private image _perfilUsuario;
 	private int _numRetweets;
 	private int _numComentarios;
 	
@@ -29,9 +25,9 @@ public class Listadotweets_item extends VistaListadotweets_item {
 		}
 		this.getVerperfil().setText(tweet.getTweeteado_por().getNick());
 		this.getTextoTweet().setText(tweet.getTexto());
-		this.getnComentarios().setText(String.valueOf(tweet.getNumComentarios()));
-		this.getnRetweets().setText(String.valueOf(tweet.getNumRetweets()));
-		this.getnMegustas().setText(String.valueOf(tweet.getNumMegustas()));
+		this.getnComentarios().setText(String.valueOf(tweet.tiene_comentario.size()));
+		this.getnRetweets().setText(String.valueOf(tweet.reetweteado_por.size()));
+		this.getnMegustas().setText(String.valueOf(tweet.likeado_por.size()));
 		
 		if(tweet.tweet_contiene.toArray() != null) {
 			Documento documento = null;

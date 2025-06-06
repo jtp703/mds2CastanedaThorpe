@@ -18,7 +18,7 @@ public class Listadodehashtags_item extends VistaListadodehashtags_item{
 		_listadodehashtags = listadodehashtag;
 		this._hashtag = hashtag;
 		this.getNombrehashtag().setText(hashtag.getNombre());
-		this.getIdNumeroInteraccionesHashtag().setText(String.valueOf(hashtag.getNumMenciones()));
+		this.getIdNumeroInteraccionesHashtag().setText(String.valueOf(hashtag.aparece_en.size()));
 		this.getNombrehashtag().addClickListener(event -> Verlistadodetweetsfiltrado());
 		
 	}

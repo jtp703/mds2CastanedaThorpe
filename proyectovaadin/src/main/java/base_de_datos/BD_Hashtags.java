@@ -51,9 +51,6 @@ public class BD_Hashtags {
                     // Añadimos en el lado del tweet
                     tweet.contiene.add(hashtag);
                     TweetDAO.save(tweet);
-
-                    // Incrementamos el contador de menciones en el hashtag
-                    hashtag.setNumMenciones(hashtag.getNumMenciones() + 1);
                     HashtagDAO.save(hashtag);
                 }
             }

@@ -86,9 +86,6 @@ public class BD_Tweets {
             tweet = TweetDAO.createTweet();
             tweet.setTexto(aTexto);
             tweet.setFechaCreacion(new Date());
-            tweet.setNumMegustas(0);
-            tweet.setNumRetweets(0);
-            tweet.setNumComentarios(0);
 
             // 2. Asignamos el Usuario que lo publica
             Usuario publicador = UsuarioDAO.loadUsuarioByORMID(aIdUsuario);
@@ -134,7 +131,6 @@ public class BD_Tweets {
                     // No existía: lo creamos y seteamos campos iniciales
                     hashtag = HashtagDAO.createHashtag();
                     hashtag.setNombre(nombreRaw);
-                    hashtag.setNumMenciones(0);
                     HashtagDAO.save(hashtag);
                 }
 
@@ -150,9 +146,6 @@ public class BD_Tweets {
                     // Añadimos al hashtag
                     hashtag.aparece_en.add(tweet);
                 }
-
-                // --- 6.4. Incrementamos el contador de menciones en el hashtag ---
-                hashtag.setNumMenciones(hashtag.getNumMenciones() + 1);
                 HashtagDAO.save(hashtag);
             }
 
@@ -203,8 +196,6 @@ public class BD_Tweets {
                 // UsuarioSetCollection likeado_por en Tweet
                 if (!tweet.likeado_por.contains(usuario)) {
                     tweet.likeado_por.add(usuario);
-                    // Incrementamos el contador de "Me gusta"
-                    tweet.setNumMegustas(tweet.getNumMegustas() + 1);
                     TweetDAO.save(tweet);
                 }
             }
@@ -228,7 +219,6 @@ public class BD_Tweets {
             if (usuario != null && tweet != null) {
                 if (tweet.likeado_por.contains(usuario)) {
                     tweet.likeado_por.remove(usuario);
-                    tweet.setNumMegustas(Math.max(0, tweet.getNumMegustas() - 1));
                     TweetDAO.save(tweet);
                 }
             }
@@ -306,9 +296,6 @@ public class BD_Tweets {
                 retweet = TweetDAO.createTweet();
                 retweet.setTexto(aTexto);
                 retweet.setFechaCreacion(new Date());
-                retweet.setNumMegustas(0);
-                retweet.setNumRetweets(0);
-                retweet.setNumComentarios(0);
                 retweet.setTweet(original);
 
                 // 2. Asignar el usuario que retwitea (pasa el ID en el método)
@@ -320,9 +307,6 @@ public class BD_Tweets {
 
                 // 3. Guardamos el retweet
                 TweetDAO.save(retweet);
-
-                // 4. Incrementamos el contador de retweets en el original
-                original.setNumRetweets(original.getNumRetweets() + 1);
                 TweetDAO.save(original);
             }
             t.commit();

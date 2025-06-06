@@ -58,13 +58,10 @@ public class ListadotweetsUsuarioregistrado extends Listadotweets {
 
 	public ListadotweetsUsuarioregistrado(VerperfilUsuarioregistrado _verperfilUsuarioregistrado) {
 		super(_verperfilUsuarioregistrado);
-
-		ListadotweetsUsuarioregistrado_item item1 = new ListadotweetsUsuarioregistrado_item(this, null);
-		ListadotweetsUsuarioregistrado_item item2 = new ListadotweetsUsuarioregistrado_item(this, null);
-		_listadotweetsUsuarioregistrado.add(item1);
-		_listadotweetsUsuarioregistrado.add(item2);
-		for (ListadotweetsUsuarioregistrado_item item : _listadotweetsUsuarioregistrado) {
-			this.getContenedorListadoTweets().as(VerticalLayout.class).add(item);
+		
+		for(Tweet tweet: _verperfilUsuarioregistrado.usuario.tweetea.toArray()) {
+			ListadotweetsUsuarioregistrado_item itemNuevo = new ListadotweetsUsuarioregistrado_item(this, tweet);
+			this.getContenedorListadoTweets().as(VerticalLayout.class).add(itemNuevo);
 		}
 
 	}

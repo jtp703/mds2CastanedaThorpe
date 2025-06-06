@@ -16,7 +16,7 @@ public class Listadocomentarios_item extends VistaListadocomentarios_item {
 		this.comentario = comentario;
 		this.getVerperfil().setText(comentario.getComentado_por().getNick());
 		this.getTextoComentario().setText(comentario.getTexto());
-		this.getnMegustas().setText(String.valueOf(comentario.getNumMegustas()));
+		this.getnMegustas().setText(String.valueOf(comentario.comlikeado_por.size()));
 		//funcionalidad imagen perfil
 		//funcionalidad dar me gusta comentario si ya lo ha hecho
 	}
