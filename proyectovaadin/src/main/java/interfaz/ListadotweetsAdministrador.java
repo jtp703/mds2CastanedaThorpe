@@ -36,7 +36,29 @@ public class ListadotweetsAdministrador extends Listadotweets {
 		super(_verperfiladministrador);
 		this.getContenedorNuevoTweet().setVisible(false);
 		
-		Tweet[] tweets = this._administrador._iAdministrador.cargarTweets();
+		Tweet[] tweets = _verperfiladministrador.usuario.tweetea.toArray();
+		
+		for (int i = 0; i < tweets.length; i++) {
+			ListadotweetsAdministrador_item item = new ListadotweetsAdministrador_item(this, tweets[i]);
+			_item.add(item);
+			this.getContenedorListadoTweets().as(VerticalLayout.class).add(item);
+		}
+	}
+	
+	public ListadotweetsAdministrador(Retweets _retweets, Tweet[] tweets) {
+		super(_retweets);
+		this.getContenedorNuevoTweet().setVisible(false);
+		
+		for (int i = 0; i < tweets.length; i++) {
+			ListadotweetsAdministrador_item item = new ListadotweetsAdministrador_item(this, tweets[i]);
+			_item.add(item);
+			this.getContenedorListadoTweets().as(VerticalLayout.class).add(item);
+		}
+	}
+	
+	public ListadotweetsAdministrador(Megustas _megustas, Tweet[] tweets) {
+		super(_megustas);
+		this.getContenedorNuevoTweet().setVisible(false);
 		
 		for (int i = 0; i < tweets.length; i++) {
 			ListadotweetsAdministrador_item item = new ListadotweetsAdministrador_item(this, tweets[i]);

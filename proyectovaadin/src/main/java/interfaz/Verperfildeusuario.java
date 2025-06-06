@@ -23,6 +23,7 @@ public class Verperfildeusuario extends VistaVerperfildeusuario {
 	public Verperfildeusuario(Cibernauta cibernauta, base_de_datos.Usuario usuario) {
 		this.cibernauta = cibernauta;
 		cargarUsuario(usuario);
+		
 	}
 	
 	public Verperfildeusuario(Retweets _retweets) {

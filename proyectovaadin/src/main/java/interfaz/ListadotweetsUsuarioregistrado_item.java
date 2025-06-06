@@ -20,12 +20,14 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
 	private boolean retweeteado = false;
 	private boolean megusta = false;
 	public base_de_datos.Usuario usu;
+	private base_de_datos.Tweet tweet;
 	
 	ListadotweetsUsuarioregistrado_item(ListadotweetsUsuarioregistrado listadotweetsUsuarioregistrado, base_de_datos.Tweet tweet) {
 		super(listadotweetsUsuarioregistrado, tweet);
 		this.getBtnEliminarTweet().setVisible(false);
 		this.usuario = listadotweetsUsuarioregistrado._vermuroprincipalUsuarioregistrado._usuarioregistrado;
 		this.usu = tweet.tweeteado_por;
+		this.tweet = tweet;
 		this.getVerperfil().addClickListener(event -> VerperfilUsuarioregistrado(usuario));
 		this.getComentar().addClickListener(event -> VercomentariosUsuarioregistrado());
 		this.getDarRetweet().addClickListener(even -> Darretweet());
@@ -36,25 +38,23 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
 	ListadotweetsUsuarioregistrado_item(VercomentariosUsuarioregistrado _vercomentariosUsuarioregistrado, base_de_datos.Tweet tweet) {
 		super(_vercomentariosUsuarioregistrado, tweet);
 		this.getBtnEliminarTweet().setVisible(false);
-	}
-	
-
-	/*ListadotweetsUsuarioregistrado_item(Usuarioregistrado usu) {
-		super();
-		usuario=usu;
-	}*/
-	
+		this.getContenedorInteracciones().setVisible(false);
+	}	
 	
 	public void Darmegusta() {
 		megusta = !megusta; // invierte el estado
 
 	    if (megusta) {
 	        System.out.println("Tweet gustado");
+	        usuario.iUsuarioregistrado.darMegustaTweet(usuario._usuarioregistrado.getID(), tweet.getIdTweet());
 	        this.getMeGusta().getStyle().set("color", "red");
 	    } else {
 	        System.out.println("Me gusta retirado");
+	        usuario.iUsuarioregistrado.quitarMegusta(usuario._usuarioregistrado.getID(), tweet.getIdTweet());
 	        this.getMeGusta().getStyle().set("color", "black");
 	    }
+	    
+	    Usuarioregistrado usuarioregistrado = new Usuarioregistrado(usuario.mainView, usuario.iUsuarioregistrado.cargarPerfilUsuarioregistrado(usu.getID()));
 	}
 
 	public void VercomentariosUsuarioregistrado() {

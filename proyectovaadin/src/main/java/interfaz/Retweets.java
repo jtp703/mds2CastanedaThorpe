@@ -9,29 +9,25 @@ public class Retweets extends VistaRetweets {
 	public ListadotweetsUsuarioregistrado _listadotweetsUsuarioregistrado;
 	public ListadotweetsAdministrador _listadotweetsAdministrador;
 	public ListadotweetsUsuarionoregistrado _listadotweetsUsuarionoregistrado;
-
-	public Retweets(ListadotweetsUsuarioregistrado _listadotweets) {
-		this._listadotweetsUsuarioregistrado = _listadotweets;
-		
-		System.out.println("Retweets Encontrados");
-		this.getContenedorRetweets().as(VerticalLayout.class).add(_listadotweetsUsuarioregistrado);
-		
-	}
-	public Retweets(ListadotweetsAdministrador _listadotweets) {
-		this._listadotweetsAdministrador = _listadotweets;
-		this.getContenedorRetweets().as(VerticalLayout.class).add(_listadotweetsAdministrador);
-	}
-	public Retweets(ListadotweetsUsuarionoregistrado _listadotweets) {
-		this._listadotweetsUsuarionoregistrado = _listadotweets;
-		this.getContenedorRetweets().as(VerticalLayout.class).add(_listadotweetsUsuarionoregistrado);
-	}
+	public Listadotweets _listadotweets;
 	
-	public Retweets(VerperfilUsuarioregistrado _verperfilUsuarioregistrado) {
-		this._verperfildeusuario = _verperfilUsuarioregistrado;
-		this.getContenedorRetweets().as(VerticalLayout.class).add(_verperfilUsuarioregistrado);
-	}
-	
-	public void Listadotweets() {
-		throw new UnsupportedOperationException();
+	public Retweets(Verperfildeusuario _verperfil) {
+		this._verperfildeusuario = _verperfil;
+		
+		if(_verperfil instanceof VerperfilUsuarioregistrado) {
+			VerperfilUsuarioregistrado _verperfilregistrado = (VerperfilUsuarioregistrado) _verperfil;
+			_listadotweetsUsuarioregistrado = new ListadotweetsUsuarioregistrado(this, _verperfilregistrado.usuario.retweetea.toArray());
+			this.getContenedorRetweets().as(VerticalLayout.class).add(_listadotweetsUsuarioregistrado);
+		} else if(_verperfil instanceof VerperfilAdministrador) {
+			VerperfilAdministrador _verperfiladmin = (VerperfilAdministrador) _verperfil;
+			_listadotweetsAdministrador = new ListadotweetsAdministrador(this, _verperfiladmin.usuario.retweetea.toArray());
+			this.getContenedorRetweets().as(VerticalLayout.class).add(_listadotweetsAdministrador);
+		} else if(_verperfil instanceof VerperfilUsuarionoregistrado) {
+			VerperfilUsuarionoregistrado _verperfilnoregistrado = (VerperfilUsuarionoregistrado) _verperfil;
+			_listadotweetsUsuarionoregistrado = new ListadotweetsUsuarionoregistrado(this, _verperfilnoregistrado.usuario.retweetea.toArray());
+			this.getContenedorRetweets().as(VerticalLayout.class).add(_listadotweetsUsuarionoregistrado);
+		} else {
+			throw new UnsupportedOperationException("Tipo de perfil no soportado para retweets.");
+		}
 	}
 }

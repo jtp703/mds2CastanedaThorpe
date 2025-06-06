@@ -30,9 +30,9 @@ public class VerperfilUsuarionoregistrado extends Verperfildeusuario{
 		this.getVerSeguidores().addClickListener(event -> Verlistadodeseguidores());
 		this.getVerSeguidos().addClickListener(event -> Verlistadodeseguidos());
 		//sustiuir por listado filtrado de megustras
-		this.getVerMegustas().addClickListener(event -> Me_gustas(new Megustas(_listadotweetsUsuarioNoRegistrado)));
+		this.getVerMegustas().addClickListener(event -> Me_gustas(new Megustas(this)));
 		//sustituir por listado filtrado de retweets
-		this.getVerRetweets().addClickListener(event -> Retweets(new Retweets(_listadotweetsUsuarioNoRegistrado)));
+		this.getVerRetweets().addClickListener(event -> Retweets(new Retweets(this)));
 	}
 	
 	public VerperfilUsuarionoregistrado(ListadotweetsUsuarionoregistrado _listadotweetsUsuarioNoRegistrado) {

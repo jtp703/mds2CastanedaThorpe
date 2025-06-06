@@ -47,9 +47,8 @@ public class Hashtag implements Serializable {
 	@Column(name="Nombre", nullable=true, length=255)
 	private String nombre;
 
-	@ManyToMany(mappedBy="ORM_contiene", targetEntity=base_de_datos.Tweet.class)
+	@ManyToMany(mappedBy="ORM_contiene", targetEntity=base_de_datos.Tweet.class, fetch=FetchType.EAGER)
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})
-	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)
 	private java.util.Set ORM_aparece_en = new java.util.HashSet();
 
 	private void setIdHashtag(int value) {

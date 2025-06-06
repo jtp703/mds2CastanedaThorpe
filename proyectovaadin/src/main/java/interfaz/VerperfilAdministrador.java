@@ -33,22 +33,16 @@ public class VerperfilAdministrador extends Verperfildeusuario {
 		_usuario.likea.toArray();
 		
 		//cargar perfil
-		this.getNombreUsuario().setText(_usuario.getNombre());
-		this.getNickUsuario().setText(_usuario.getNick());
-		this.getImgFondo().setSrc(_usuario.getFotoFondo());
-		this.getImgPerfil().setSrc(_usuario.getFotoPerfil());
-		this.getDescripcionPerfil().setText(_usuario.getDescripcion());
-		this.getVerSeguidos().setText(Integer.toString(_usuario.es_seguido.size()));
-		this.getVerSeguidores().setText(Integer.toString(_usuario.sigue.size()));
+		super.cargarUsuario(_usuario);
 		
 		this.getBtnVolver().addClickListener(event -> btnVolver());
 		this.getVerSeguidores().addClickListener(event -> Verlistadodeseguidores(_usuario.es_seguido));
 		this.getVerSeguidos().addClickListener(event -> Verlistadodeseguidos(_usuario.sigue));
 		this.getBtnBanearUsuario().addClickListener(event -> Banear_usuarios());
 		//sustituir por listado filtrado de megustras
-		this.getVerMegustas().addClickListener(event -> Me_gustas(new Megustas(_listadotweetsadministrador)));
+		this.getVerMegustas().addClickListener(event -> Me_gustas(new Megustas(this)));
 		//sustituir por listado filtrado de retweets
-		this.getVerRetweets().addClickListener(event -> Retweets(new Retweets(_listadotweetsadministrador)));
+		this.getVerRetweets().addClickListener(event -> Retweets(new Retweets(this)));
 	}
 	
 	public void Retweets(Retweets _retweets) {

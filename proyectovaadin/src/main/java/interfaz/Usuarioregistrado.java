@@ -14,11 +14,13 @@ public class Usuarioregistrado extends Cibernauta {
 	public VerListadohashtags _verlistadohashtags;
 	public VerlistadoglobaldeusuariosUsuarioregistrado _verlistadoglobaldeusuariosUsuarioregistrado;
 	public Verperfilpersonal _verperfilpersonal;
+	public MainView mainView;
 
 	public base_de_datos.Usuario _usuarioregistrado;
 	
-	public Usuarioregistrado(MainView mainView, base_de_datos.Usuario usuarioregistrado) {
-		super(mainView);
+	public Usuarioregistrado(MainView _mainView, base_de_datos.Usuario usuarioregistrado) {
+		super(_mainView);
+		this.mainView = _mainView;
 		this._usuarioregistrado = usuarioregistrado;
 		this.getContenedorRegistro().setVisible(false);
 		this.getBtnCerrrarSesion().setVisible(false);

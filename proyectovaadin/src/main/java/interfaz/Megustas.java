@@ -12,22 +12,23 @@ public class Megustas extends VistaMegustas {
 	public ListadotweetsUsuarioregistrado _listadotweetsUsuarioregistrado;
 	public ListadotweetsAdministrador _listadotweetsAdministrador;
 	public ListadotweetsUsuarionoregistrado _listadotweetsUsuarionoregistrado;
-	
-	public Megustas(ListadotweetsUsuarioregistrado _listadotweets) {
-		this._listadotweetsUsuarioregistrado = _listadotweets;
-		System.out.println("Megustas Encontrados");
-		this.getContenedorMegustas().as(VerticalLayout.class).add(_listadotweetsUsuarioregistrado);
-	}
-	public Megustas(ListadotweetsAdministrador _listadotweets) {
-		this._listadotweetsAdministrador = _listadotweets;
-		this.getContenedorMegustas().as(VerticalLayout.class).add(_listadotweetsAdministrador);
-	}
-	public Megustas(ListadotweetsUsuarionoregistrado _listadotweets) {
-		this._listadotweetsUsuarionoregistrado = _listadotweets;
-		this.getContenedorMegustas().as(VerticalLayout.class).add(_listadotweetsUsuarionoregistrado);
-	}
 
-	public void Listadotweets() {
-		throw new UnsupportedOperationException();
+	public Megustas(Verperfildeusuario _verperfil) {
+		this._verperfildeusuario = _verperfil;
+		if (_verperfil instanceof VerperfilUsuarioregistrado) {
+			VerperfilUsuarioregistrado _verperfilregistrado = (VerperfilUsuarioregistrado) _verperfil;
+			_listadotweetsUsuarioregistrado = new ListadotweetsUsuarioregistrado(this, _verperfilregistrado.usuario.likea.toArray());
+			this.getContenedorMegustas().as(VerticalLayout.class).add(_listadotweetsUsuarioregistrado);
+		} else if (_verperfil instanceof VerperfilAdministrador) {
+			VerperfilAdministrador _verperfiladmin = (VerperfilAdministrador) _verperfil;
+			_listadotweetsAdministrador = new ListadotweetsAdministrador(this, _verperfiladmin.usuario.likea.toArray());
+			this.getContenedorMegustas().as(VerticalLayout.class).add(_listadotweetsAdministrador);
+		} else if (_verperfil instanceof VerperfilUsuarionoregistrado) {
+			VerperfilUsuarionoregistrado _verperfilnoregistrado = (VerperfilUsuarionoregistrado) _verperfil;
+			_listadotweetsUsuarionoregistrado = new ListadotweetsUsuarionoregistrado(this, _verperfilnoregistrado.usuario.likea.toArray());
+			this.getContenedorMegustas().as(VerticalLayout.class).add(_listadotweetsUsuarionoregistrado);
+		} else {
+			throw new UnsupportedOperationException("Tipo de perfil no soportado para me gustas.");
+		}
 	}
 }
