@@ -10,13 +10,12 @@ import base_de_datos.Usuario;
 import base_de_datos.iUsuarioregistrado;
 import vistas.VistaEditarperfil;
 
-public class Editarperfil extends VistaEditarperfil{
-	
-	//	private event _guardarcambios;
+public class Editarperfil extends VistaEditarperfil {
+
 	public Verperfilpersonal _verperfilpersonal;
-	//public Usuarioregistrado usuarioregistrado;
+
 	public iUsuarioregistrado _iUsuarioregistrado;
-	
+
 	public Editarperfil(Verperfilpersonal _verperfilpersonal) {
 		this._verperfilpersonal = _verperfilpersonal;
 		this._iUsuarioregistrado = _verperfilpersonal.usuarioregistrado.iUsuarioregistrado;
@@ -29,44 +28,33 @@ public class Editarperfil extends VistaEditarperfil{
 		this.getBtnVolver().addClickListener(event -> btnVolver());
 		this.getBtnGuardar().addClickListener(event -> Guardarcambios());
 	}
-	
+
 	public void Guardarcambios() {
-        try {
-            String nombre       = this.get_NombreUsuario().getValue().trim();
-            String nick         = this.get_nickUsuario().getValue().trim();
-            String contrasenia  = this.get_contraUsuario().getValue().trim();
-            String fotoPerfil   = this.get_UrlImagenPerfil().getValue().trim();
-            String fotoFondo    = this.get_UrlImagenFondo().getValue().trim();
-            String descripcion  = this.get_DescripcionPerfil().getValue().trim();
+		try {
+			String nombre = this.get_NombreUsuario().getValue().trim();
+			String nick = this.get_nickUsuario().getValue().trim();
+			String contrasenia = this.get_contraUsuario().getValue().trim();
+			String fotoPerfil = this.get_UrlImagenPerfil().getValue().trim();
+			String fotoFondo = this.get_UrlImagenFondo().getValue().trim();
+			String descripcion = this.get_DescripcionPerfil().getValue().trim();
 
-            int idUsuario = _verperfilpersonal.usuarioregistrado._usuarioregistrado.getID();
+			int idUsuario = _verperfilpersonal.usuarioregistrado._usuarioregistrado.getID();
 
-            // 1. Guardamos los cambios en la base de datos
-            this._iUsuarioregistrado.actualizar(
-                idUsuario,
-                nombre,
-                nick,
-                contrasenia,
-                fotoPerfil,
-                fotoFondo,
-                descripcion
-            );
+			this._iUsuarioregistrado.actualizar(idUsuario, nombre, nick, contrasenia, fotoPerfil, fotoFondo,
+					descripcion);
 
-            // 2. Recuperamos el Usuario actualizado desde la BD
-            Usuario usuarioActualizado = _iUsuarioregistrado.cargarPerfilUsuarioregistrado(idUsuario);
+			Usuario usuarioActualizado = _iUsuarioregistrado.cargarPerfilUsuarioregistrado(idUsuario);
 
-            // 3. Sustituimos el objeto viejo por el actualizado en Verperfilpersonal
-            _verperfilpersonal.usuarioregistrado._usuarioregistrado = usuarioActualizado;
+			_verperfilpersonal.usuarioregistrado._usuarioregistrado = usuarioActualizado;
 
-            // 4. Mostramos notificación y volvemos a la vista anterior
-            Notification.show("Perfil actualizado correctamente", 2000, Position.TOP_CENTER);
-            MainView.Pantalla.volver();
+			Notification.show("Perfil actualizado correctamente", 2000, Position.TOP_CENTER);
+			MainView.Pantalla.volver();
 
-        } catch (Exception e) {
-            Notification.show("Error al actualizar el perfil: " + e.getMessage(), 3000, Position.TOP_CENTER);
-        }
-    }
-	
+		} catch (Exception e) {
+			Notification.show("Error al actualizar el perfil: " + e.getMessage(), 3000, Position.TOP_CENTER);
+		}
+	}
+
 	private void btnVolver() {
 		MainView.Pantalla.volver();
 	}

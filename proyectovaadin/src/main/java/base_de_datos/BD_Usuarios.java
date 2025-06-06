@@ -24,32 +24,40 @@ public class BD_Usuarios {
 	public Vector<Usuario> _contiene_usuarios = new Vector<Usuario>();
 
 	/**
-	 * Elimina (borra) el perfil de un usuario. Se asume que 'aConfirmacion'
-	 * contiene el ID del usuario como cadena. 'aMotivo' se guarda o se ignora según
-	 * necesidad (aquí se ignora).
+	 * Elimina (borra) el perfil de un usuario buscando por su nick.
+	 * Se asume que 'aConfirmacion' contiene el nick del usuario.
+	 * 'aMotivo' se puede ignorar o usar según necesidad.
 	 */
 	public void borrarPerfil(String aMotivo, String aConfirmacion) throws PersistentException {
-		// Convertimos la confirmación a entero para obtener el ID de usuario
-		int idUsuario;
-		try {
-			idUsuario = Integer.parseInt(aConfirmacion);
-		} catch (NumberFormatException ex) {
-			// Si la confirmación no es un número válido, abortamos
-			throw new PersistentException("ID de usuario inválido en la confirmación: " + aConfirmacion);
-		}
+	    // 1. Escapamos posibles comillas en el nick
+	    String nickInput = aConfirmacion.replace("'", "''");
 
-		PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager.instance().getSession().beginTransaction();
-		try {
-			Usuario usuario = UsuarioDAO.loadUsuarioByORMID(idUsuario);
-			if (usuario != null) {
-				UsuarioDAO.delete(usuario);
-			}
-			t.commit();
-		} catch (Exception e) {
-			t.rollback();
-		} finally {
-			MDS12425PFCastanedaThorpePersistentManager.instance().disposePersistentManager();
-		}
+	    PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager
+	            .instance().getSession().beginTransaction();
+	    try {
+	        // 2. Buscamos al Usuario por su nick
+	        String condicion = "Nick = '" + nickInput + "'";
+	        Usuario[] encontrados = UsuarioDAO.listUsuarioByQuery(condicion, null);
+
+	        if (encontrados != null && encontrados.length > 0) {
+	            // 3. Si hay coincidencia, tomamos el primero (el nick es único en BD)
+	            Usuario usuario = encontrados[0];
+	            UsuarioDAO.delete(usuario);
+	        } else {
+	            // 4. Si no se encuentra ningún usuario con ese nick, lanzamos excepción
+	            throw new PersistentException("No existe ningún usuario con nick = '" + aConfirmacion + "'");
+	        }
+
+	        t.commit();
+	    } catch (PersistentException pe) {
+	        t.rollback();
+	        throw pe;
+	    } catch (Exception e) {
+	        t.rollback();
+	        throw new PersistentException("Error al borrar el usuario con nick = '" + aConfirmacion + "': " + e.getMessage());
+	    } finally {
+	        MDS12425PFCastanedaThorpePersistentManager.instance().disposePersistentManager();
+	    }
 	}
 
 	/**
