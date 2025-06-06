@@ -12,6 +12,7 @@ public class Retweets extends VistaRetweets {
 
 	public Retweets(ListadotweetsUsuarioregistrado _listadotweets) {
 		this._listadotweetsUsuarioregistrado = _listadotweets;
+		
 		System.out.println("Retweets Encontrados");
 		this.getContenedorRetweets().as(VerticalLayout.class).add(_listadotweetsUsuarioregistrado);
 		
@@ -23,6 +24,11 @@ public class Retweets extends VistaRetweets {
 	public Retweets(ListadotweetsUsuarionoregistrado _listadotweets) {
 		this._listadotweetsUsuarionoregistrado = _listadotweets;
 		this.getContenedorRetweets().as(VerticalLayout.class).add(_listadotweetsUsuarionoregistrado);
+	}
+	
+	public Retweets(VerperfilUsuarioregistrado _verperfilUsuarioregistrado) {
+		this._verperfildeusuario = _verperfilUsuarioregistrado;
+		this.getContenedorRetweets().as(VerticalLayout.class).add(_verperfilUsuarioregistrado);
 	}
 	
 	public void Listadotweets() {

@@ -18,6 +18,7 @@ public class VerlistadoglobaldeusuariosUsuarionoregistrado extends Verlistadoglo
 	
 	public VerlistadoglobaldeusuariosUsuarionoregistrado(Listadodeusuariosusuarionoregistrado listadoDeUsuariosUsuarioNoRegistrado) {
 		super(listadoDeUsuariosUsuarioNoRegistrado);
+		
 	}
 	
 	public void Listado_Usuarios__Usuario_No_Registrado_() {

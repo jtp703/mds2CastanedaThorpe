@@ -12,6 +12,7 @@ import com.vaadin.flow.component.avatar.Avatar;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.html.Image;
 
 @Tag("vista-listadotweets_item")
 @JsModule("./views/vista-listadotweets_item.ts")
@@ -50,6 +51,10 @@ public class VistaListadotweets_item extends LitTemplate {
 	private Label nRetweets;
 	@Id("nComentarios")
 	private Label nComentarios;
+	@Id("doc1")
+	private Image doc1;
+	@Id("doc2")
+	private Image doc2;
 
 	public VistaListadotweets_item() {
 		// You can initialise any data required for the connected UI components here.
@@ -150,6 +155,21 @@ public class VistaListadotweets_item extends LitTemplate {
 	public void setnComentarios(Label nComentarios) {
 		this.nComentarios = nComentarios;
 	}
-	
+
+	public Image getDoc1() {
+		return doc1;
+	}
+
+	public void setDoc1(Image doc1) {
+		this.doc1 = doc1;
+	}
+
+	public Image getDoc2() {
+		return doc2;
+	}
+
+	public void setDoc2(Image doc2) {
+		this.doc2 = doc2;
+	}
 
 }

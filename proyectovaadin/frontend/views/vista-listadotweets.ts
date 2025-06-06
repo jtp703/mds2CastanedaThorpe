@@ -3,8 +3,8 @@ import '@vaadin/button/src/vaadin-button.js';
 import '@vaadin/text-area/src/vaadin-text-area.js';
 import '@vaadin/horizontal-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/text-field/src/vaadin-text-field.js';
-import '@vaadin/vertical-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/select/src/vaadin-select.js';
+import '@vaadin/vertical-layout/src/vaadin-vertical-layout.js';
 
 @customElement('vista-listadotweets')
 export class VistaListadotweets extends LitElement {
@@ -35,26 +35,26 @@ export class VistaListadotweets extends LitElement {
      Enviar 
    </vaadin-button>
   </vaadin-horizontal-layout>
+  <vaadin-horizontal-layout theme="spacing" style="margin-right: var(--lumo-space-m); align-self: center;">
+   <vaadin-horizontal-layout theme="spacing">
+    <vaadin-text-field id="url1" style="align-self: center;" type="text" label="Url 1">
+      TextText 
+    </vaadin-text-field>
+    <vaadin-select id="select1" style="align-self: flex-end;">
+      imagenvideo 
+    </vaadin-select>
+   </vaadin-horizontal-layout>
+   <vaadin-horizontal-layout theme="spacing" style="align-self: center;">
+    <vaadin-text-field style="align-self: center;" type="text" label="Url 2" id="url2">
+      TextText 
+    </vaadin-text-field>
+    <vaadin-select style="align-self: flex-end;" id="select2">
+      imagenvideo 
+    </vaadin-select>
+   </vaadin-horizontal-layout>
+  </vaadin-horizontal-layout>
  </vaadin-vertical-layout>
- <vaadin-horizontal-layout theme="spacing" style="margin-right: var(--lumo-space-m); align-self: center;">
-  <vaadin-horizontal-layout theme="spacing">
-   <vaadin-text-field id="url1" style="align-self: center;" type="text" label="url">
-     TextText 
-   </vaadin-text-field>
-   <vaadin-select id="select1" style="align-self: center;">
-     imagenvideo 
-   </vaadin-select>
-  </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing" style="align-self: center;">
-   <vaadin-text-field style="align-self: center;" type="text" label="url" id="url2">
-     TextText 
-   </vaadin-text-field>
-   <vaadin-select style="align-self: center;" id="select2">
-     imagenvideo 
-   </vaadin-select>
-  </vaadin-horizontal-layout>
- </vaadin-horizontal-layout>
- <vaadin-vertical-layout theme="spacing" id="contenedorListadoTweets_item" style="flex-grow: 1; width: 80%; height: 100%; align-self: center;"></vaadin-vertical-layout>
+ <vaadin-vertical-layout theme="spacing-s" id="contenedorListadoTweets_item" style="flex-grow: 1; width: 80%; height: 100%; align-self: center;"></vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;
   }

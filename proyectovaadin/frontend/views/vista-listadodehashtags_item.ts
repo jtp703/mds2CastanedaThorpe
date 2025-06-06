@@ -16,8 +16,8 @@ export class VistaListadodehashtags_item extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout theme="spacing" style="width: 100%; align-items: center;">
- <vaadin-horizontal-layout theme="spacing" style="flex-grow: 1; flex-shrink: 1; margin: var(--lumo-space-m); padding: var(--lumo-space-m); width: 100%;" id="_layoutElementoHashtag">
+<vaadin-vertical-layout style="width: 100%; align-items: center;">
+ <vaadin-horizontal-layout style="flex-grow: 1; flex-shrink: 1; width: 100%; align-self: stretch;" id="_layoutElementoHashtag">
   <vaadin-button id="nombrehashtag" tabindex="0" style="align-self: center; flex-shrink: 0; flex-grow: 1;">
     hashtag 
   </vaadin-button>

@@ -1,8 +1,12 @@
 package interfaz;
 
 import vistas.VistaListadotweets_item;
+
+import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.notification.*;
 import com.vaadin.flow.component.notification.Notification.Position;
+
+import base_de_datos.Documento;
 
 public class Listadotweets_item extends VistaListadotweets_item {
 	
@@ -28,6 +32,26 @@ public class Listadotweets_item extends VistaListadotweets_item {
 		this.getnComentarios().setText(String.valueOf(tweet.getNumComentarios()));
 		this.getnRetweets().setText(String.valueOf(tweet.getNumRetweets()));
 		this.getnMegustas().setText(String.valueOf(tweet.getNumMegustas()));
+		
+		if(tweet.tweet_contiene.toArray() != null) {
+			Documento documento = null;
+			for(int i = 0; i < tweet.tweet_contiene.size(); i++) {
+				documento = tweet.tweet_contiene.toArray()[i];
+				if(documento != null && i > 0) {
+					/*
+					//opcion1 no va
+					this.getDoc1().setSrc(documento.getUrl());
+					//opcion2 no va
+					this.getDoc1().getStyle().set("src", documento.getUrl());
+					//opcion3
+					 */
+					Image img = new Image(documento.getUrl(), "Documento");
+					this.setDoc1(img);
+				} else if(documento != null){
+					this.getDoc2().setSrc(documento.getUrl());
+				}
+			}
+		}
 		//falta funcionalidad settear mg y retweet con color si el usuario ya lo ha hecho.
 		//falta funcionalidad imagen.
 	}

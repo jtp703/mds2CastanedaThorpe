@@ -6,16 +6,15 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 public class Listadodeusuariosusuarionoregistrado extends Listadousuarios {
 	//confirmar si es necesario verlistadoglobaldeusuariosUsuarioNOregistrado especifico en lugar de usuario registrados
-	public VerlistadoglobaldeusuariosUsuarionoregistrado _verlistadoglobaldeusuariosUsuarionoregistrado;
+	public VerlistadoglobaldeusuariosUsuarionoregistrado verlistadoglobaldeusuariosUsuarionoregistrado;
 	public Vector<Listadodeusuariosusuarionoregistrado_item> _listadodeusuariosusuarionoregistrado = new Vector<Listadodeusuariosusuarionoregistrado_item>();
 	
 	public Listadodeusuariosusuarionoregistrado(VerlistadoglobaldeusuariosUsuarionoregistrado _verlistadoglobaldeusuariosUsuarionoregistrado){
 		super(_verlistadoglobaldeusuariosUsuarionoregistrado);
-		Listadodeusuariosusuarionoregistrado_item item1 = new Listadodeusuariosusuarionoregistrado_item(this, null);
-		Listadodeusuariosusuarionoregistrado_item item2 = new Listadodeusuariosusuarionoregistrado_item(this, null);
-		_listadodeusuariosusuarionoregistrado.add(item1);
-		_listadodeusuariosusuarionoregistrado.add(item2);
-		for(Listadodeusuariosusuarionoregistrado_item item: _listadodeusuariosusuarionoregistrado) {
+		this.verlistadoglobaldeusuariosUsuarionoregistrado = _verlistadoglobaldeusuariosUsuarionoregistrado;
+		for(base_de_datos.Usuario usuario : this.verlistadoglobaldeusuariosUsuarionoregistrado.usuarioNoRegistrado._iUsuarionoregistrado.cargarUsuarios()) {
+			Listadodeusuariosusuarionoregistrado_item item = new Listadodeusuariosusuarionoregistrado_item(this, usuario);
+			_listadodeusuariosusuarionoregistrado.add(item);
 			this.getContenedorItemsUsuario().as(VerticalLayout.class).add(item);
 		}
 	}

@@ -47,12 +47,12 @@ export class VistaCibernauta extends LitElement {
       @usuario 
     </vaadin-button>
     <vaadin-button id="btnCerrrarSesion" tabindex="0">
-     Cerrar sesion
+      Cerrar sesion 
     </vaadin-button>
    </vaadin-vertical-layout>
   </vaadin-horizontal-layout>
  </vaadin-horizontal-layout>
- <vaadin-vertical-layout theme="spacing" id="contenedorContenido" style="flex-grow: 1;"></vaadin-vertical-layout>
+ <vaadin-vertical-layout id="contenedorContenido" style="flex-grow: 1;"></vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;
   }

@@ -46,13 +46,5 @@ public class ListadotweetsUsuarionoregistrado extends Listadotweets {
 		} catch (Exception pe) {
 			Notification.show("No se pudieron cargar los tweets: " + pe.getMessage(), 3000, Position.MIDDLE);
 		}
-		
-		ListadotweetsUsuarionoregistrado_item item1 = new ListadotweetsUsuarionoregistrado_item(this, null);
-		ListadotweetsUsuarionoregistrado_item item2 = new ListadotweetsUsuarionoregistrado_item(this, null);
-		_listadotweetsUsuarionoregistrado.add(item1);
-		_listadotweetsUsuarionoregistrado.add(item2);
-		for(ListadotweetsUsuarionoregistrado_item item: _listadotweetsUsuarionoregistrado) {
-			this.getContenedorListadoTweets().as(VerticalLayout.class).add(item);
-		}
 	}
 }
