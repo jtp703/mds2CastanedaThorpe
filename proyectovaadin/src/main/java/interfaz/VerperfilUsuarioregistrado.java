@@ -29,9 +29,9 @@ public class VerperfilUsuarioregistrado extends Verperfildeusuario {
 		this.getBtnBanearUsuario().setVisible(false);
 		super.cargarUsuario(_usuario);
 		
-		iconoSeguir = new Icon(VaadinIcon.USER_CHECK); // estado inicial: "no siguiendo"
+		iconoSeguir = new Icon(VaadinIcon.USER_CHECK);
 		this.getBtnSeguir().setIcon(iconoSeguir);
-		iconoBloquear = new Icon(VaadinIcon.BAN); // estado inicial: "no bloqueado"
+		iconoBloquear = new Icon(VaadinIcon.BAN);
 		this.getBtnBloquear().setIcon(iconoBloquear);
 		
 		this.getBtnVolver().addClickListener(event -> btnVolver());
@@ -48,6 +48,8 @@ public class VerperfilUsuarioregistrado extends Verperfildeusuario {
 	public VerperfilUsuarioregistrado(ListadotweetsUsuarioregistrado listadotweetsUsuarioregistrado) {
 		super(listadotweetsUsuarioregistrado); 
 	}
+	
+	public void Posts(ListadotweetsUsuarioregistrado _listadotweets) {
 	
 	public void Retweets(Retweets _retweets) {
 		this.getContenedorListadotweets().as(VerticalLayout.class).removeAll();
