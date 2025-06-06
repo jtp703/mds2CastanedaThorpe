@@ -1,5 +1,7 @@
 package interfaz;
 
+import com.vaadin.flow.component.html.Image;
+
 import vistas.VistaVerperfildeusuario;
 
 public class Verperfildeusuario extends VistaVerperfildeusuario {
@@ -59,8 +61,10 @@ public class Verperfildeusuario extends VistaVerperfildeusuario {
 		this.getNombreUsuario().setText(usuario.getNombre());
 		this.getNickUsuario().setText(usuario.getNick());
 		this.getDescripcionPerfil().setText(usuario.getDescripcion());
-		this.getImgFondo().setSrc(usuario.getFotoFondo());
-		this.getImgPerfil().setSrc(usuario.getFotoPerfil());
+		Image img = new Image(usuario.getFotoPerfil(), "imgPerfil");
+		this.setImgPerfil(img);
+		Image img2 = new Image(usuario.getFotoFondo(), "imgFondo");
+		this.setImgFondo(img2);
 		this.getVerSeguidores().setText(usuario.es_seguido == null ? "0" : String.valueOf(usuario.es_seguido.size()));
 		this.getVerSeguidos().setText(usuario.sigue == null ? "0" : String.valueOf(usuario.sigue.size()));
 	}

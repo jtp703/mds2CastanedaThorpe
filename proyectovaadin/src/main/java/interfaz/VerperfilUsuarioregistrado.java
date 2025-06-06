@@ -40,6 +40,7 @@ public class VerperfilUsuarioregistrado extends Verperfildeusuario {
 		this.getBtnBloquear().addClickListener(event -> Bloquear_usuario());
 		this.getBtnSeguir().addClickListener(event -> Seguir_usuario_desde_perfil());
 		//sustiuir por listado filtrado de megustras
+		this.getVerPosts().addClickListener(event -> Posts(listadotweetsUsuarioregistrado));
 		this.getVerMegustas().addClickListener(event -> Me_gustas(new Megustas(listadotweetsUsuarioregistrado)));
 		//sustituir por listado filtrado de retweets
 		this.getVerRetweets().addClickListener(event -> Retweets(new Retweets(listadotweetsUsuarioregistrado)));
@@ -50,6 +51,8 @@ public class VerperfilUsuarioregistrado extends Verperfildeusuario {
 	}
 	
 	public void Posts(ListadotweetsUsuarioregistrado _listadotweets) {
+		this.getContenedorListadotweets().as(VerticalLayout.class);
+	}
 	
 	public void Retweets(Retweets _retweets) {
 		this.getContenedorListadotweets().as(VerticalLayout.class).removeAll();
