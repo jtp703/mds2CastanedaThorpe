@@ -27,9 +27,6 @@ public class TweetDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression es_eliminadoId;
 	public final AssociationExpression es_eliminado;
 	public final StringExpression texto;
-	public final IntegerExpression numMegustas;
-	public final IntegerExpression numRetweets;
-	public final IntegerExpression numComentarios;
 	public final DateExpression fechaCreacion;
 	public final CollectionExpression contiene;
 	public final CollectionExpression retweet;
@@ -48,9 +45,6 @@ public class TweetDetachedCriteria extends AbstractORMDetachedCriteria {
 		es_eliminadoId = new IntegerExpression("es_eliminado.", this.getDetachedCriteria());
 		es_eliminado = new AssociationExpression("es_eliminado", this.getDetachedCriteria());
 		texto = new StringExpression("texto", this.getDetachedCriteria());
-		numMegustas = new IntegerExpression("numMegustas", this.getDetachedCriteria());
-		numRetweets = new IntegerExpression("numRetweets", this.getDetachedCriteria());
-		numComentarios = new IntegerExpression("numComentarios", this.getDetachedCriteria());
 		fechaCreacion = new DateExpression("fechaCreacion", this.getDetachedCriteria());
 		contiene = new CollectionExpression("ORM_contiene", this.getDetachedCriteria());
 		retweet = new CollectionExpression("ORM_retweet", this.getDetachedCriteria());
@@ -70,9 +64,6 @@ public class TweetDetachedCriteria extends AbstractORMDetachedCriteria {
 		es_eliminadoId = new IntegerExpression("es_eliminado.", this.getDetachedCriteria());
 		es_eliminado = new AssociationExpression("es_eliminado", this.getDetachedCriteria());
 		texto = new StringExpression("texto", this.getDetachedCriteria());
-		numMegustas = new IntegerExpression("numMegustas", this.getDetachedCriteria());
-		numRetweets = new IntegerExpression("numRetweets", this.getDetachedCriteria());
-		numComentarios = new IntegerExpression("numComentarios", this.getDetachedCriteria());
 		fechaCreacion = new DateExpression("fechaCreacion", this.getDetachedCriteria());
 		contiene = new CollectionExpression("ORM_contiene", this.getDetachedCriteria());
 		retweet = new CollectionExpression("ORM_retweet", this.getDetachedCriteria());

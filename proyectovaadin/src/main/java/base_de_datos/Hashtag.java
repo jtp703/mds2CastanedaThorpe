@@ -47,9 +47,6 @@ public class Hashtag implements Serializable {
 	@Column(name="Nombre", nullable=true, length=255)	
 	private String nombre;
 	
-	@Column(name="NumMenciones", nullable=false, length=10)	
-	private int numMenciones;
-	
 	@ManyToMany(mappedBy="ORM_contiene", targetEntity=base_de_datos.Tweet.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
@@ -73,14 +70,6 @@ public class Hashtag implements Serializable {
 	
 	public String getNombre() {
 		return nombre;
-	}
-	
-	public void setNumMenciones(int value) {
-		this.numMenciones = value;
-	}
-	
-	public int getNumMenciones() {
-		return numMenciones;
 	}
 	
 	private void setORM_Aparece_en(java.util.Set value) {

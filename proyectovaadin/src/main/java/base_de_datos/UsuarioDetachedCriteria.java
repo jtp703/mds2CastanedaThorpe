@@ -27,7 +27,6 @@ public class UsuarioDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final StringExpression fotoFondo;
 	public final StringExpression fotoPerfil;
 	public final StringExpression descripcion;
-	public final BooleanExpression baneado;
 	public final IntegerExpression es_baneadoId;
 	public final AssociationExpression es_baneado;
 	public final CollectionExpression bloquea;
@@ -50,7 +49,6 @@ public class UsuarioDetachedCriteria extends AbstractORMDetachedCriteria {
 		fotoFondo = new StringExpression("fotoFondo", this.getDetachedCriteria());
 		fotoPerfil = new StringExpression("fotoPerfil", this.getDetachedCriteria());
 		descripcion = new StringExpression("descripcion", this.getDetachedCriteria());
-		baneado = new BooleanExpression("baneado", this.getDetachedCriteria());
 		es_baneadoId = new IntegerExpression("es_baneado.", this.getDetachedCriteria());
 		es_baneado = new AssociationExpression("es_baneado", this.getDetachedCriteria());
 		bloquea = new CollectionExpression("ORM_bloquea", this.getDetachedCriteria());
@@ -74,7 +72,6 @@ public class UsuarioDetachedCriteria extends AbstractORMDetachedCriteria {
 		fotoFondo = new StringExpression("fotoFondo", this.getDetachedCriteria());
 		fotoPerfil = new StringExpression("fotoPerfil", this.getDetachedCriteria());
 		descripcion = new StringExpression("descripcion", this.getDetachedCriteria());
-		baneado = new BooleanExpression("baneado", this.getDetachedCriteria());
 		es_baneadoId = new IntegerExpression("es_baneado.", this.getDetachedCriteria());
 		es_baneado = new AssociationExpression("es_baneado", this.getDetachedCriteria());
 		bloquea = new CollectionExpression("ORM_bloquea", this.getDetachedCriteria());

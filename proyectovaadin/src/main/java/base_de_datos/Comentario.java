@@ -86,8 +86,9 @@ public class Comentario implements Serializable {
 	@Column(name="Foto_video", nullable=true, length=255)	
 	private String foto_video;
 	
-	@Column(name="NumMegustas", nullable=false, length=10)	
-	private int numMegustas;
+	@Column(name="FechaCreacion", nullable=true)	
+	@Temporal(TemporalType.DATE)	
+	private java.util.Date fechaCreacion;
 	
 	@OneToMany(mappedBy="pertenecea_comentario", targetEntity=base_de_datos.Documento.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
@@ -96,7 +97,7 @@ public class Comentario implements Serializable {
 	
 	@ManyToMany(targetEntity=base_de_datos.Usuario.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinTable(name="Usuario_Comentario2", joinColumns={ @JoinColumn(name="ComentarioIdComentario") }, inverseJoinColumns={ @JoinColumn(name="UsuarioUsuarioAutentificadoID") })	
+	@JoinTable(name="Usuario_Comentario", joinColumns={ @JoinColumn(name="ComentarioIdComentario") }, inverseJoinColumns={ @JoinColumn(name="UsuarioUsuarioAutentificadoID") })	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_comlikeado_por = new java.util.HashSet();
 	
@@ -128,12 +129,12 @@ public class Comentario implements Serializable {
 		return foto_video;
 	}
 	
-	public void setNumMegustas(int value) {
-		this.numMegustas = value;
+	public void setFechaCreacion(java.util.Date value) {
+		this.fechaCreacion = value;
 	}
 	
-	public int getNumMegustas() {
-		return numMegustas;
+	public java.util.Date getFechaCreacion() {
+		return fechaCreacion;
 	}
 	
 	public void setPertenecea_tweet(base_de_datos.Tweet value) {

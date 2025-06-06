@@ -28,7 +28,7 @@ public class ComentarioCriteria extends AbstractORMCriteria {
 	public final AssociationExpression es_eliminado;
 	public final StringExpression texto;
 	public final StringExpression foto_video;
-	public final IntegerExpression numMegustas;
+	public final DateExpression fechaCreacion;
 	public final CollectionExpression comentario_contiene;
 	public final CollectionExpression comlikeado_por;
 	
@@ -43,7 +43,7 @@ public class ComentarioCriteria extends AbstractORMCriteria {
 		es_eliminado = new AssociationExpression("es_eliminado", this);
 		texto = new StringExpression("texto", this);
 		foto_video = new StringExpression("foto_video", this);
-		numMegustas = new IntegerExpression("numMegustas", this);
+		fechaCreacion = new DateExpression("fechaCreacion", this);
 		comentario_contiene = new CollectionExpression("ORM_comentario_contiene", this);
 		comlikeado_por = new CollectionExpression("ORM_comlikeado_por", this);
 	}

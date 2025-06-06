@@ -28,7 +28,7 @@ public class ComentarioDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final AssociationExpression es_eliminado;
 	public final StringExpression texto;
 	public final StringExpression foto_video;
-	public final IntegerExpression numMegustas;
+	public final DateExpression fechaCreacion;
 	public final CollectionExpression comentario_contiene;
 	public final CollectionExpression comlikeado_por;
 	
@@ -43,7 +43,7 @@ public class ComentarioDetachedCriteria extends AbstractORMDetachedCriteria {
 		es_eliminado = new AssociationExpression("es_eliminado", this.getDetachedCriteria());
 		texto = new StringExpression("texto", this.getDetachedCriteria());
 		foto_video = new StringExpression("foto_video", this.getDetachedCriteria());
-		numMegustas = new IntegerExpression("numMegustas", this.getDetachedCriteria());
+		fechaCreacion = new DateExpression("fechaCreacion", this.getDetachedCriteria());
 		comentario_contiene = new CollectionExpression("ORM_comentario_contiene", this.getDetachedCriteria());
 		comlikeado_por = new CollectionExpression("ORM_comlikeado_por", this.getDetachedCriteria());
 	}
@@ -59,7 +59,7 @@ public class ComentarioDetachedCriteria extends AbstractORMDetachedCriteria {
 		es_eliminado = new AssociationExpression("es_eliminado", this.getDetachedCriteria());
 		texto = new StringExpression("texto", this.getDetachedCriteria());
 		foto_video = new StringExpression("foto_video", this.getDetachedCriteria());
-		numMegustas = new IntegerExpression("numMegustas", this.getDetachedCriteria());
+		fechaCreacion = new DateExpression("fechaCreacion", this.getDetachedCriteria());
 		comentario_contiene = new CollectionExpression("ORM_comentario_contiene", this.getDetachedCriteria());
 		comlikeado_por = new CollectionExpression("ORM_comlikeado_por", this.getDetachedCriteria());
 	}

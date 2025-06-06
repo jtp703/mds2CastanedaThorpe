@@ -21,14 +21,12 @@ import org.orm.criteria.*;
 public class HashtagCriteria extends AbstractORMCriteria {
 	public final IntegerExpression idHashtag;
 	public final StringExpression nombre;
-	public final IntegerExpression numMenciones;
 	public final CollectionExpression aparece_en;
 	
 	public HashtagCriteria(Criteria criteria) {
 		super(criteria);
 		idHashtag = new IntegerExpression("idHashtag", this);
 		nombre = new StringExpression("nombre", this);
-		numMenciones = new IntegerExpression("numMenciones", this);
 		aparece_en = new CollectionExpression("ORM_aparece_en", this);
 	}
 	

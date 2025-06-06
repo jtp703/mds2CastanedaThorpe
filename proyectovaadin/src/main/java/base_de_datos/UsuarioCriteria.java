@@ -27,7 +27,6 @@ public class UsuarioCriteria extends AbstractORMCriteria {
 	public final StringExpression fotoFondo;
 	public final StringExpression fotoPerfil;
 	public final StringExpression descripcion;
-	public final BooleanExpression baneado;
 	public final IntegerExpression es_baneadoId;
 	public final AssociationExpression es_baneado;
 	public final CollectionExpression bloquea;
@@ -50,7 +49,6 @@ public class UsuarioCriteria extends AbstractORMCriteria {
 		fotoFondo = new StringExpression("fotoFondo", this);
 		fotoPerfil = new StringExpression("fotoPerfil", this);
 		descripcion = new StringExpression("descripcion", this);
-		baneado = new BooleanExpression("baneado", this);
 		es_baneadoId = new IntegerExpression("es_baneado.", this);
 		es_baneado = new AssociationExpression("es_baneado", this);
 		bloquea = new CollectionExpression("ORM_bloquea", this);

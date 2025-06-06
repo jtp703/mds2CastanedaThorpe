@@ -86,22 +86,25 @@ public class Usuario extends base_de_datos.UsuarioAutentificado implements Seria
 	@Column(name="Descripcion", nullable=true, length=255)	
 	private String descripcion;
 	
-	@Column(name="Baneado", nullable=false, length=1)	
-	private boolean baneado;
-	
 	@ManyToOne(targetEntity=base_de_datos.Administrador.class, fetch=FetchType.LAZY)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
 	@JoinColumns(value={ @JoinColumn(name="AdministradorUsuarioAutentificadoID", referencedColumnName="UsuarioAutentificadoID") }, foreignKey=@ForeignKey(name="FKUsuario104330"))	
 	private base_de_datos.Administrador es_baneado;
 	
 	@ManyToMany(targetEntity=base_de_datos.Usuario.class, fetch = FetchType.EAGER)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinTable(name="Usuario_Usuario3", joinColumns={ @JoinColumn(name="UsuarioUsuarioAutentificadoID2") }, inverseJoinColumns={ @JoinColumn(name="UsuarioUsuarioAutentificadoID") })		
+
+	@JoinTable(name="Usuario_Usuario", joinColumns={ @JoinColumn(name="UsuarioUsuarioAutentificadoID2") }, inverseJoinColumns={ @JoinColumn(name="UsuarioUsuarioAutentificadoID") })	
+	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
+
 	private java.util.Set ORM_bloquea = new java.util.HashSet();
 	
 	@ManyToMany(targetEntity=base_de_datos.Usuario.class, fetch = FetchType.EAGER)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinTable(name="Usuario_Usuario4", joinColumns={ @JoinColumn(name="UsuarioUsuarioAutentificadoID2") }, inverseJoinColumns={ @JoinColumn(name="UsuarioUsuarioAutentificadoID") })	
+
+	@JoinTable(name="Usuario_Usuario2", joinColumns={ @JoinColumn(name="UsuarioUsuarioAutentificadoID2") }, inverseJoinColumns={ @JoinColumn(name="UsuarioUsuarioAutentificadoID") })	
+	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
+
 	private java.util.Set ORM_sigue = new java.util.HashSet();
 	
 	@OneToMany(mappedBy="tweeteado_por", targetEntity=base_de_datos.Tweet.class, fetch = FetchType.EAGER)	
@@ -162,14 +165,6 @@ public class Usuario extends base_de_datos.UsuarioAutentificado implements Seria
 	
 	public String getDescripcion() {
 		return descripcion;
-	}
-	
-	public void setBaneado(boolean value) {
-		this.baneado = value;
-	}
-	
-	public boolean getBaneado() {
-		return baneado;
 	}
 	
 	public void setEs_baneado(base_de_datos.Administrador value) {

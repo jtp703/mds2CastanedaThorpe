@@ -21,14 +21,12 @@ import org.orm.criteria.*;
 public class HashtagDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression idHashtag;
 	public final StringExpression nombre;
-	public final IntegerExpression numMenciones;
 	public final CollectionExpression aparece_en;
 	
 	public HashtagDetachedCriteria() {
 		super(base_de_datos.Hashtag.class, base_de_datos.HashtagCriteria.class);
 		idHashtag = new IntegerExpression("idHashtag", this.getDetachedCriteria());
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
-		numMenciones = new IntegerExpression("numMenciones", this.getDetachedCriteria());
 		aparece_en = new CollectionExpression("ORM_aparece_en", this.getDetachedCriteria());
 	}
 	
@@ -36,7 +34,6 @@ public class HashtagDetachedCriteria extends AbstractORMDetachedCriteria {
 		super(aDetachedCriteria, base_de_datos.HashtagCriteria.class);
 		idHashtag = new IntegerExpression("idHashtag", this.getDetachedCriteria());
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
-		numMenciones = new IntegerExpression("numMenciones", this.getDetachedCriteria());
 		aparece_en = new CollectionExpression("ORM_aparece_en", this.getDetachedCriteria());
 	}
 	

@@ -53,7 +53,7 @@ public class Documento implements Serializable {
 	
 	@ManyToOne(targetEntity=base_de_datos.Tweet.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns(value={ @JoinColumn(name="TweetIdTweet", referencedColumnName="IdTweet", nullable=false) }, foreignKey=@ForeignKey(name="FKDocumento977943"))	
+	@JoinColumns(value={ @JoinColumn(name="TweetIdTweet", referencedColumnName="IdTweet") }, foreignKey=@ForeignKey(name="FKDocumento977943"))	
 	private base_de_datos.Tweet pertenecea_tweet;
 	
 	@Column(name="Url", nullable=true, length=255)	

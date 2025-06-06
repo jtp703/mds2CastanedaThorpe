@@ -27,9 +27,6 @@ public class TweetCriteria extends AbstractORMCriteria {
 	public final IntegerExpression es_eliminadoId;
 	public final AssociationExpression es_eliminado;
 	public final StringExpression texto;
-	public final IntegerExpression numMegustas;
-	public final IntegerExpression numRetweets;
-	public final IntegerExpression numComentarios;
 	public final DateExpression fechaCreacion;
 	public final CollectionExpression contiene;
 	public final CollectionExpression retweet;
@@ -48,9 +45,6 @@ public class TweetCriteria extends AbstractORMCriteria {
 		es_eliminadoId = new IntegerExpression("es_eliminado.", this);
 		es_eliminado = new AssociationExpression("es_eliminado", this);
 		texto = new StringExpression("texto", this);
-		numMegustas = new IntegerExpression("numMegustas", this);
-		numRetweets = new IntegerExpression("numRetweets", this);
-		numComentarios = new IntegerExpression("numComentarios", this);
 		fechaCreacion = new DateExpression("fechaCreacion", this);
 		contiene = new CollectionExpression("ORM_contiene", this);
 		retweet = new CollectionExpression("ORM_retweet", this);

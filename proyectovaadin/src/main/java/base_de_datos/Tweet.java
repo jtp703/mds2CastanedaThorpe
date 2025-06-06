@@ -85,7 +85,7 @@ public class Tweet implements Serializable {
 	@ManyToOne(targetEntity=base_de_datos.Usuario.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
 	@JoinColumns(value={ @JoinColumn(name="UsuarioUsuarioAutentificadoID", referencedColumnName="UsuarioAutentificadoID", nullable=false) }, foreignKey=@ForeignKey(name="FKTweet870216"))	
-	public base_de_datos.Usuario tweeteado_por;
+	private base_de_datos.Usuario tweeteado_por;
 	
 	@ManyToOne(targetEntity=base_de_datos.Administrador.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
@@ -95,22 +95,13 @@ public class Tweet implements Serializable {
 	@Column(name="Texto", nullable=true, length=255)	
 	private String texto;
 	
-	@Column(name="NumMegustas", nullable=false, length=10)	
-	private int numMegustas;
-	
-	@Column(name="NumRetweets", nullable=false, length=10)	
-	private int numRetweets;
-	
-	@Column(name="NumComentarios", nullable=false, length=10)	
-	private int numComentarios;
-	
 	@Column(name="FechaCreacion", nullable=true)	
 	@Temporal(TemporalType.DATE)	
 	private java.util.Date fechaCreacion;
 	
 	@ManyToMany(targetEntity=base_de_datos.Hashtag.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinTable(name="Hashtag_Tweet2", joinColumns={ @JoinColumn(name="TweetIdTweet") }, inverseJoinColumns={ @JoinColumn(name="HashtagIdHashtag") })	
+	@JoinTable(name="Hashtag_Tweet", joinColumns={ @JoinColumn(name="TweetIdTweet") }, inverseJoinColumns={ @JoinColumn(name="HashtagIdHashtag") })	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_contiene = new java.util.HashSet();
 	
@@ -121,13 +112,13 @@ public class Tweet implements Serializable {
 	
 	@ManyToMany(targetEntity=base_de_datos.Usuario.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinTable(name="Usuario_Tweet3", joinColumns={ @JoinColumn(name="TweetIdTweet") }, inverseJoinColumns={ @JoinColumn(name="UsuarioUsuarioAutentificadoID") })	
+	@JoinTable(name="Usuario_Tweet", joinColumns={ @JoinColumn(name="TweetIdTweet") }, inverseJoinColumns={ @JoinColumn(name="UsuarioUsuarioAutentificadoID") })	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_reetweteado_por = new java.util.HashSet();
 	
 	@ManyToMany(targetEntity=base_de_datos.Usuario.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinTable(name="Usuario_Tweet4", joinColumns={ @JoinColumn(name="TweetIdTweet") }, inverseJoinColumns={ @JoinColumn(name="UsuarioUsuarioAutentificadoID") })	
+	@JoinTable(name="Usuario_Tweet2", joinColumns={ @JoinColumn(name="TweetIdTweet") }, inverseJoinColumns={ @JoinColumn(name="UsuarioUsuarioAutentificadoID") })	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_likeado_por = new java.util.HashSet();
 	
@@ -159,30 +150,6 @@ public class Tweet implements Serializable {
 	
 	public String getTexto() {
 		return texto;
-	}
-	
-	public void setNumMegustas(int value) {
-		this.numMegustas = value;
-	}
-	
-	public int getNumMegustas() {
-		return numMegustas;
-	}
-	
-	public void setNumRetweets(int value) {
-		this.numRetweets = value;
-	}
-	
-	public int getNumRetweets() {
-		return numRetweets;
-	}
-	
-	public void setNumComentarios(int value) {
-		this.numComentarios = value;
-	}
-	
-	public int getNumComentarios() {
-		return numComentarios;
 	}
 	
 	public void setFechaCreacion(java.util.Date value) {
