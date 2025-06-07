@@ -303,4 +303,13 @@ public class BDPrincipal implements
 		return u;
 	}
 	
+	@Override
+    public Tweet getTweetById(int aIdTweet) {
+        try {
+            return _bD_Publicaciones.getTweetById(aIdTweet);
+        } catch (PersistentException e) {
+            throw new RuntimeException(e);
+        }
+    }
+	
 }

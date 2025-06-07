@@ -317,4 +317,26 @@ public class BD_Tweets {
         }
         return retweet;
     }
+    
+    public Tweet getTweetById(int aIdTweet) throws PersistentException {
+        PersistentTransaction tx = MDS12425PFCastanedaThorpePersistentManager
+            .instance().getSession().beginTransaction();
+        try {
+            // 1) Cargamos la entidad
+            Tweet tweet = TweetDAO.loadTweetByORMID(aIdTweet);
+            // 2) Refrescamos su estado desde la BD (incluye la relación de likes)
+            MDS12425PFCastanedaThorpePersistentManager
+                .instance().getSession().refresh(tweet);
+            tx.commit();
+            return tweet;
+        } catch (Exception e) {
+            tx.rollback();
+            throw new PersistentException(
+                "Error cargando/refrescando Tweet " + aIdTweet, e
+            );
+        } finally {
+            MDS12425PFCastanedaThorpePersistentManager
+                .instance().disposePersistentManager();
+        }
+    }
 }
