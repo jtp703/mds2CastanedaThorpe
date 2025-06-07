@@ -4,29 +4,23 @@ import org.vaadin.example.MainView;
 
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import base_de_datos.Tweet;
+
 public class VercomentariosUsuarioregistrado extends Vercomentarios {
 
 	// private event _comentar;
 	public ListadotweetsUsuarioregistrado_item _listadotweetsUsuarioregistradoitem;
 	public ListadocomentariosUsuarioregistrado _listadocomentariosUsuarioregistrado;
-
-	public VercomentariosUsuarioregistrado(ListadocomentariosUsuarioregistrado _listadocomentariosUsuarioregistrado) {
-		super(_listadocomentariosUsuarioregistrado);
-		this._listadotweetsUsuarioregistradoitem = new ListadotweetsUsuarioregistrado_item(this, _listadotweetsUsuarioregistradoitem.tweet);
-		this._listadotweetsUsuarioregistradoitem.getContenedorInteracciones().setVisible(false);
-		this.getContenedorTweet().as(VerticalLayout.class).add(this._listadotweetsUsuarioregistradoitem);
-		ListadocomentariosUsuarioregistrado listado = new ListadocomentariosUsuarioregistrado(this);
-		this.getContenedorListadoComentarios().as(VerticalLayout.class).add(listado);
-		this.getBtnVovler().addClickListener(event -> btnVolver());
-	}
+	public Tweet _tweet;
 
 	public VercomentariosUsuarioregistrado(ListadotweetsUsuarioregistrado_item _listadotweetsUsuarioregistradoitem) {
 		super(_listadotweetsUsuarioregistradoitem);
-		this._listadotweetsUsuarioregistradoitem = new ListadotweetsUsuarioregistrado_item(this, _listadotweetsUsuarioregistradoitem.tweet);
+		this._tweet = _listadotweetsUsuarioregistradoitem.tweet;
+		this._listadotweetsUsuarioregistradoitem = _listadotweetsUsuarioregistradoitem;
 		this._listadotweetsUsuarioregistradoitem.getContenedorInteracciones().setVisible(false);
 		this.getContenedorTweet().as(VerticalLayout.class).add(this._listadotweetsUsuarioregistradoitem);
-		ListadocomentariosUsuarioregistrado listado = new ListadocomentariosUsuarioregistrado(this);
-		this.getContenedorListadoComentarios().as(VerticalLayout.class).add(listado);
+		ListadocomentariosUsuarioregistrado listadoComentarios = new ListadocomentariosUsuarioregistrado(this);
+		this.getContenedorListadoComentarios().as(VerticalLayout.class).add(listadoComentarios);
 		this.getBtnVovler().addClickListener(event -> btnVolver());
 	}
 

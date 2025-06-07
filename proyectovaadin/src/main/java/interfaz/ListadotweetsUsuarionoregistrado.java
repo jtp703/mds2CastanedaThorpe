@@ -50,6 +50,11 @@ public class ListadotweetsUsuarionoregistrado extends Listadotweets {
 	public ListadotweetsUsuarionoregistrado(Retweets _retweets, Tweet[] tweets) {
 		super(_retweets);
 		this.getContenedorNuevoTweet().setVisible(false);
+		this._vermuroPrincipalUsuarionoregistrado = _retweets._verperfilUsuarionoregistrado._vermuroPrincipalUsuarionoregistrado;
+		if(tweets == null) {
+			Notification.show("No hay tweets para mostrar.", 3000, Position.MIDDLE);
+			return;
+		}
 		if (tweets != null) {
 			for (Tweet t : tweets) {
 				ListadotweetsUsuarionoregistrado_item item = new ListadotweetsUsuarionoregistrado_item(this, t);
@@ -62,6 +67,11 @@ public class ListadotweetsUsuarionoregistrado extends Listadotweets {
 	public ListadotweetsUsuarionoregistrado(Megustas _megustas, Tweet[] tweets) {
 		super(_megustas);
 		this.getContenedorNuevoTweet().setVisible(false);
+		this._vermuroPrincipalUsuarionoregistrado = _megustas._verperfilUsuarionoregistrado._vermuroPrincipalUsuarionoregistrado;
+		if(tweets == null) {
+			Notification.show("No hay tweets para mostrar.", 3000, Position.MIDDLE);
+			return;
+		}
 		if (tweets != null) {
 			for (Tweet t : tweets) {
 				ListadotweetsUsuarionoregistrado_item item = new ListadotweetsUsuarionoregistrado_item(this, t);

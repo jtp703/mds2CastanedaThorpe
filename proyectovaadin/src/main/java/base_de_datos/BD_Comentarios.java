@@ -58,14 +58,15 @@ public class BD_Comentarios {
 		MDS12425PFCastanedaThorpePersistentManager.instance().disposePersistentManager();
 	}
 
-	public Comentario escribirComentario(int idUsuario, String aTexto) throws PersistentException {
+	public Comentario escribirComentario(int idUsuario, int idTweet, String aTexto) throws PersistentException {
 	    PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager
 	            .instance().getSession().beginTransaction();
 	    Comentario comentario = null;
 	    try {
 	        comentario = ComentarioDAO.createComentario();
 	        comentario.setTexto(aTexto);
-
+	        comentario.setPertenecea_tweet(TweetDAO.loadTweetByORMID(idTweet));
+	        
 	        // Asociar el usuario autor del comentario
 	        Usuario autor = UsuarioDAO.loadUsuarioByORMID(idUsuario);
 	        if (autor == null) {

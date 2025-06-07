@@ -24,11 +24,16 @@ public class VerperfilUsuarioregistrado extends Verperfildeusuario {
         super(usuarioregistrado, _usuario);
         this.usuarioregistrado = usuarioregistrado;
         this.usuario = _usuario;
+        this.getBtnEditarPerfil().setVisible(false);
+        this.getBtnEliminarPerfil().setVisible(false);
+		this.getBtnBanearUsuario().setVisible(false);
+		this.getBtnCerrarSesion().setVisible(false);
+		
         this.vermuroprincipalUsuarioregistrado = usuarioregistrado._vermuroprincipalUsuarioregistrado;
 		this.listadotweetsUsuarioregistrado = new ListadotweetsUsuarioregistrado(this);
 		this.listadotweetsUsuarioregistrado.getContenedorNuevoTweet().setVisible(false);
+		
 		this.getContenedorListadotweets().as(VerticalLayout.class).add(listadotweetsUsuarioregistrado);
-		this.getBtnBanearUsuario().setVisible(false);
 		super.cargarUsuario(_usuario);
 		
 		iconoSeguir = new Icon(VaadinIcon.USER_CHECK);
@@ -95,12 +100,6 @@ public class VerperfilUsuarioregistrado extends Verperfildeusuario {
 	        getBtnSeguir().setText("Seguir");
 	        getBtnSeguir().getStyle().set("color", "green");
 	    }
-	}
-
-
-
-	public void VerListadoTweets() {
-		throw new UnsupportedOperationException();
 	}
 	
 	private void btnVolver() {

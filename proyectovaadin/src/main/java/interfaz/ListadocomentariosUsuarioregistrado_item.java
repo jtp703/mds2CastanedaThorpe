@@ -1,19 +1,29 @@
 package interfaz;
 
-import org.vaadin.example.MainView;
-
+@SuppressWarnings("serial")
 public class ListadocomentariosUsuarioregistrado_item extends Listadocomentarios_item {
 
-	// private event _darmegustaacomentario;
-	private int _numeroMegustas;
 	private boolean megusta = false;
 	public ListadocomentariosUsuarioregistrado _listadocomentariosUsuarioregistrado;
 
 	public ListadocomentariosUsuarioregistrado_item(
 			ListadocomentariosUsuarioregistrado _listadocomentariosUsuarioregistrado, base_de_datos.Comentario comentario) {
 		super(_listadocomentariosUsuarioregistrado, comentario);
+		this._listadocomentariosUsuarioregistrado = _listadocomentariosUsuarioregistrado;
 		this.getBotonEliminarComentario().setVisible(false);
 		this.getBtnDarMegusta().addClickListener(event -> Darmegustaacomentario());
+		
+		for(base_de_datos.Usuario u : comentario.comlikeado_por.toArray()) {
+			if (u.getID() == _listadocomentariosUsuarioregistrado.usuario.getID()) {
+				megusta = true;
+				break;
+			}
+		}
+	    if (megusta) {
+	        this.getBtnDarMegusta().getStyle().set("color", "red");
+	    } else {
+	        this.getBtnDarMegusta().getStyle().set("color", "black");
+	    }
 	}
 
 	public void Darmegustaacomentario() {

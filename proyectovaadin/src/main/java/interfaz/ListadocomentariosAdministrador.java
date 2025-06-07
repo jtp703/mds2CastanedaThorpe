@@ -2,7 +2,10 @@ package interfaz;
 
 import java.util.Vector;
 
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
+import base_de_datos.Comentario;
 
 public class ListadocomentariosAdministrador extends Listadocomentarios {
 	
@@ -14,13 +17,16 @@ public class ListadocomentariosAdministrador extends Listadocomentarios {
 	public ListadocomentariosAdministrador(VercomentariosAdminstrador _vercomentariosAdministrador) {
 		super(_vercomentariosAdministrador);
 		this.getContenedorEscribirComentarios().setVisible(false);
+		Comentario[] comentarios = _vercomentariosAdministrador.tweet.tiene_comentario.toArray();
 		
-		ListadocomentariosAdministrador_item item0 = new ListadocomentariosAdministrador_item(this, null);
-		ListadocomentariosAdministrador_item item1 = new ListadocomentariosAdministrador_item(this, null);
-		_item.add(item0);
-		_item.add(item1);
-		for(ListadocomentariosAdministrador_item item: _item) {
-			this.getContenedorComentariosItem().as(VerticalLayout.class).add(item);
+		if(comentarios.length != 0) {
+			for (Comentario comentario : comentarios) {
+				ListadocomentariosAdministrador_item item = new ListadocomentariosAdministrador_item(this, comentario);
+				_item.add(item);
+				this.getContenedorComentariosItem().as(VerticalLayout.class).add(item);
+			}
+		} else {
+			Notification.show("No hay comentarios para este tweet");
 		}
 		
 	}

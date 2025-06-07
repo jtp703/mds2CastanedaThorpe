@@ -313,5 +313,22 @@ public class Usuario extends base_de_datos.UsuarioAutentificado implements Seria
     public String toString() {
         return super.toString();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+    	if (this == obj)
+    		return true;
+    	if (obj == null || getClass() != obj.getClass())
+    		return false;
+    	Usuario other = (Usuario) obj;
+    	return this.getID() == other.getID(); // o this.getID().equals(other.getID()) si es Integer
+    }
+
+    @Override
+    public int hashCode() {
+    	return Integer.hashCode(getID()); // o Objects.hash(getID());
+    }
+
+
 }
 

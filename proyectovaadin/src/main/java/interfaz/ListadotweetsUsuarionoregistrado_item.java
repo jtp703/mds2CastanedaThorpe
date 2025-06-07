@@ -14,6 +14,7 @@ public class ListadotweetsUsuarionoregistrado_item extends Listadotweets_item {
 	
 	public ListadotweetsUsuarionoregistrado_item(ListadotweetsUsuarionoregistrado listadotweetsUsuarionoregistrado, base_de_datos.Tweet tweet) {
 		super(listadotweetsUsuarionoregistrado, tweet);
+		this._listadotweetsUsuarionoregistrado = listadotweetsUsuarionoregistrado;
 		this.getBtnEliminarTweet().setVisible(false);
 		this.getDarRetweet().setVisible(false);
 		this.getMeGusta().setVisible(false);

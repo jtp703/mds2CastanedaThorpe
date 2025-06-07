@@ -4,15 +4,19 @@ import org.vaadin.example.MainView;
 
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import base_de_datos.Tweet;
+
 public class VercomentariosUsuarionoregistrado extends Vercomentarios {
 	
 	//	private event _comentar;
 	public ListadotweetsUsuarionoregistrado_item _listadotweetsUsuarionoregistradoitem;
 	public ListadocomentariosUsuarionoregistrado _listadocomentariosUsuarionoregistrado;
+	public Tweet tweet;
 
 	public VercomentariosUsuarionoregistrado(
 			ListadocomentariosUsuarionoregistrado _listadocomentariosUsuarionoregistrado) {
 		super(_listadocomentariosUsuarionoregistrado);
+		//this.tweet = _listadocomentariosUsuarionoregistrado
 		this._listadotweetsUsuarionoregistradoitem = new ListadotweetsUsuarionoregistrado_item(this, _listadotweetsUsuarionoregistradoitem.tweet);
 		this._listadotweetsUsuarionoregistradoitem.getContenedorInteracciones().setVisible(false);
 		this.getContenedorTweet().as(VerticalLayout.class).add(this._listadotweetsUsuarionoregistradoitem);
@@ -24,6 +28,7 @@ public class VercomentariosUsuarionoregistrado extends Vercomentarios {
 	public VercomentariosUsuarionoregistrado(
 			ListadotweetsUsuarionoregistrado_item _listadotweetsUsuarionoregistradoitem) {
 		super(_listadotweetsUsuarionoregistradoitem);
+		this.tweet = _listadotweetsUsuarionoregistradoitem.tweet;
 		this._listadotweetsUsuarionoregistradoitem = new ListadotweetsUsuarionoregistrado_item(this, _listadotweetsUsuarionoregistradoitem.tweet);
 		this._listadotweetsUsuarionoregistradoitem.getContenedorInteracciones().setVisible(false);
 		this.getContenedorTweet().as(VerticalLayout.class).add(this._listadotweetsUsuarionoregistradoitem);

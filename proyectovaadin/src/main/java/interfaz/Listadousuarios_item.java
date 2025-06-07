@@ -14,10 +14,10 @@ public class Listadousuarios_item extends VistaListadousuarios_item{
 		this._listadousuarios = listadousuarios;
 		this._usuario = usuario;
 		this.getVerperfil().setText(usuario.getNick());
-		//falta funcionalidad imagen perfil, seguidores y seguidos
 		Integer seguidores = usuario.es_seguido.size();
 		this.getVerSeguidores().setText(Integer.toString(seguidores == null ? 0 : usuario.es_seguido.size()));
-		//this.getVerSeguidos().setText(String.valueOf());
+		Integer seguidos = usuario.sigue.size();
+		this.getVerSeguidos().setText(Integer.toString(seguidos == null ? 0 : usuario.sigue.size()));
 	}
 	
 	public Listadousuarios_item(Verlistado _Verlistado, base_de_datos.Usuario usuario) {

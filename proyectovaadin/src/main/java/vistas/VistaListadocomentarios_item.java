@@ -23,8 +23,6 @@ public class VistaListadocomentarios_item extends LitTemplate {
 	private NativeButton botonEliminarComentario;
 	@Id("btnDarMegusta")
 	private Icon btnDarMegusta;
-	@Id("verMegustas")
-	private Button verMegustas;
 	@Id("verperfil")
 	private Button verperfil;
 	@Id("Contenedorcontenido")
@@ -56,14 +54,6 @@ public class VistaListadocomentarios_item extends LitTemplate {
 
 	public void setBtnDarMegusta(Icon btnDarMegusta) {
 		this.btnDarMegusta = btnDarMegusta;
-	}
-
-	public Button getVerMegustas() {
-		return verMegustas;
-	}
-
-	public void setVerMegustas(Button verMegustas) {
-		this.verMegustas = verMegustas;
 	}
 
 	public Button getVerperfil() {

@@ -111,9 +111,9 @@ public class BDPrincipal implements
     }
 
     @Override
-    public Comentario escribirComentario(int idUsuario, String aTexto) {
+    public Comentario escribirComentario(int idUsuario,int idTweet, String aTexto) {
         try {
-            return _bD_Comentario.escribirComentario(idUsuario, aTexto);
+            return _bD_Comentario.escribirComentario(idUsuario, idTweet, aTexto);
         } catch (PersistentException e) {
             throw new RuntimeException(e);
         }

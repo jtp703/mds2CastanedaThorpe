@@ -15,36 +15,47 @@ public class ListadocomentariosUsuarioregistrado extends Listadocomentarios {
 	public VercomentariosUsuarioregistrado _vercomentariosUsuarioregistrado;
 	public Vector<ListadocomentariosUsuarioregistrado_item> listadoComentariosUsuarioregistrado_item = new Vector<ListadocomentariosUsuarioregistrado_item>();
 	public ListadotweetsUsuarioregistrado listadoTweetsUsuarioregistrado;
-	public iUsuarioregistrado _iusuarioRegistrado;
+	public Usuarioregistrado usuarioRegistrado;
+	public base_de_datos.Usuario usuario;
 
 	public ListadocomentariosUsuarioregistrado(VercomentariosUsuarioregistrado _vercomentariosUsuarioregistrado) {
 		super(_vercomentariosUsuarioregistrado);
-		this._iusuarioRegistrado = _vercomentariosUsuarioregistrado._listadotweetsUsuarioregistradoitem.
-				_listadotweetsUsuarioregistrado._vermuroprincipalUsuarioregistrado._usuarioregistrado.iUsuarioregistrado;
-		ListadocomentariosUsuarioregistrado_item item01 = new ListadocomentariosUsuarioregistrado_item(this, null);
-		ListadocomentariosUsuarioregistrado_item item02 = new ListadocomentariosUsuarioregistrado_item(this, null);
-		for (ListadocomentariosUsuarioregistrado_item item : listadoComentariosUsuarioregistrado_item) {
-			this.getContenedorComentariosItem().as(VerticalLayout.class).add(item);
+		this._vercomentariosUsuarioregistrado = _vercomentariosUsuarioregistrado;
+		this.usuarioRegistrado = _vercomentariosUsuarioregistrado._listadotweetsUsuarioregistradoitem.
+				_listadotweetsUsuarioregistrado._vermuroprincipalUsuarioregistrado._usuarioregistrado;
+		this.usuario = this.usuarioRegistrado._usuarioregistrado;
+		
+		Comentario[] comentarios = _vercomentariosUsuarioregistrado._tweet.tiene_comentario.toArray();
+		
+		if(comentarios.length != 0) {
+		
+			for (Comentario comentario : comentarios) {
+				ListadocomentariosUsuarioregistrado_item item = new ListadocomentariosUsuarioregistrado_item(this, comentario);
+				listadoComentariosUsuarioregistrado_item.add(item);
+				this.getContenedorComentariosItem().as(VerticalLayout.class).add(item);
+			}
+		}else {
+			Notification.show("No hay comentarios para este tweet");
 		}
 		this.getBtnEnviarComentario().addClickListener(event -> Comentar());
 	}
 
 	public void Comentar() {
-		String textoComentario = this.getTextAreaComentario().getValue().trim(); // Ajusta el getter si tu campo se
-																					// llama diferente
+		String textoComentario = this.getTextAreaComentario().getValue().trim();
 
 		if (textoComentario.isEmpty()) {
 			Notification.show("El texto del comentario no puede estar vacío");
 			return;
 		}
-
-		// Supongamos que tienes acceso al usuario actual así:
-		int idUsuario = this._vercomentariosUsuarioregistrado._listadotweetsUsuarioregistradoitem._listadotweetsUsuarioregistrado.
-				_vermuroprincipalUsuarioregistrado._usuarioregistrado._usuarioregistrado.getID();
+		int idUsuario = usuarioRegistrado._usuarioregistrado.getID();
 		// Si tu ruta es diferente, ajústala a tu modelo
 
 		try {
-			Comentario nuevoComentario = this._iusuarioRegistrado.escribirComentario(idUsuario, textoComentario);
+			Comentario nuevoComentario = this.usuarioRegistrado.iUsuarioregistrado.escribirComentario(
+					idUsuario, 
+					_vercomentariosUsuarioregistrado._tweet.getIdTweet(), 
+					textoComentario
+					);
 
 			// Ahora creas el item visual pasándole el objeto Comentario
 			ListadocomentariosUsuarioregistrado_item itemNuevo = new ListadocomentariosUsuarioregistrado_item(this,

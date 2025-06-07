@@ -63,7 +63,7 @@ public class ListadotweetsUsuarioregistrado extends Listadotweets {
 		
 		for(Tweet tweet: _verperfilUsuarioregistrado.usuario.tweetea.toArray()) {
 			ListadotweetsUsuarioregistrado_item itemNuevo = new ListadotweetsUsuarioregistrado_item(this, tweet);
-			this.getContenedorListadoTweets().as(VerticalLayout.class).add(itemNuevo);
+			this.getContenedorListadoTweets_item().as(VerticalLayout.class).add(itemNuevo);
 		}
 	}
 
@@ -131,6 +131,7 @@ public class ListadotweetsUsuarioregistrado extends Listadotweets {
 	public ListadotweetsUsuarioregistrado(Retweets _retweets, Tweet[] _retweetsArray) {
 		super(_retweets);
 		this._retweets = _retweets;
+		this._vermuroprincipalUsuarioregistrado = _retweets._verperfilUsuarioregistrado.vermuroprincipalUsuarioregistrado;
 		for (Tweet tweet : _retweetsArray) {
 			ListadotweetsUsuarioregistrado_item item = new ListadotweetsUsuarioregistrado_item(this, tweet);
 			this.getContenedorListadoTweets().as(VerticalLayout.class).add(item);
@@ -140,9 +141,10 @@ public class ListadotweetsUsuarioregistrado extends Listadotweets {
 	public ListadotweetsUsuarioregistrado(Megustas _megustas, Tweet[] _megustasArray) {
 		super(_megustas);
 		this._megustas = _megustas;
+		this._vermuroprincipalUsuarioregistrado = _megustas._verperfilUsuarioregistrado.vermuroprincipalUsuarioregistrado;
 		for (Tweet tweet : _megustasArray) {
 			ListadotweetsUsuarioregistrado_item item = new ListadotweetsUsuarioregistrado_item(this, tweet);
-			this.getContenedorListadoTweets().as(VerticalLayout.class).add(item);
+			this.getContenedorListadoTweets_item().as(VerticalLayout.class).add(item);
 		}
 	}
 }

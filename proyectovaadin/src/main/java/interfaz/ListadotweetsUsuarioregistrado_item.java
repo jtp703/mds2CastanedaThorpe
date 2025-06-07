@@ -16,39 +16,66 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
 	public base_de_datos.Usuario usu;
 	public base_de_datos.Tweet tweet;
 	
-	ListadotweetsUsuarioregistrado_item(ListadotweetsUsuarioregistrado listadotweetsUsuarioregistrado, base_de_datos.Tweet tweet) {
-		super(listadotweetsUsuarioregistrado, tweet);
-		this.getBtnEliminarTweet().setVisible(false);
-		this.usuario = listadotweetsUsuarioregistrado._vermuroprincipalUsuarioregistrado._usuarioregistrado;
-		this.usu = tweet.tweeteado_por;
-		this.tweet = tweet;
-		this.getVerperfil().addClickListener(event -> VerperfilUsuarioregistrado(usuario));
-		this.getComentar().addClickListener(event -> VercomentariosUsuarioregistrado());
-		this.getDarRetweet().addClickListener(even -> Darretweet());
-		this.getMeGusta().addClickListener(event -> Darmegusta());
-		
+	public ListadotweetsUsuarioregistrado_item(ListadotweetsUsuarioregistrado listadotweetsUsuarioregistrado, base_de_datos.Tweet tweet) {
+	    super(listadotweetsUsuarioregistrado, tweet);
+	    this.getBtnEliminarTweet().setVisible(false);
+	    this._listadotweetsUsuarioregistrado = listadotweetsUsuarioregistrado;
+	    this.usuario = listadotweetsUsuarioregistrado._vermuroprincipalUsuarioregistrado._usuarioregistrado;
+	    this.usu = tweet.tweeteado_por;
+	    this.tweet = tweet;
+	    if(this.usu.getID() == usuario._usuarioregistrado.getID()) {
+	    	this.getVerperfil().addClickListener(event -> MainView.Pantalla.cambiarVista(new Verperfilpersonal(usuario)));
+	    } else {
+	    	this.getVerperfil().addClickListener(event -> MainView.Pantalla.cambiarVista(new VerperfilUsuarioregistrado(usuario, usu)));
+	    }
+	    this.getComentar().addClickListener(event -> VercomentariosUsuarioregistrado());
+	    this.getDarRetweet().addClickListener(even -> Darretweet());
+	    this.getMeGusta().addClickListener(event -> Darmegusta());
+
+	    for (base_de_datos.Usuario u : tweet.likeado_por.toArray()) {
+	        if (u.getID() == usuario._usuarioregistrado.getID()) {
+	            megusta = true;
+	            break;
+	        }
+	    }
+	    if (megusta) {
+	        this.getMeGusta().getStyle().set("color", "red");
+	    } else {
+	        this.getMeGusta().getStyle().set("color", "black");
+	    }
 	}
+
 	
-	ListadotweetsUsuarioregistrado_item(VercomentariosUsuarioregistrado _vercomentariosUsuarioregistrado, base_de_datos.Tweet tweet) {
+	public ListadotweetsUsuarioregistrado_item(VercomentariosUsuarioregistrado _vercomentariosUsuarioregistrado, base_de_datos.Tweet tweet) {
 		super(_vercomentariosUsuarioregistrado, tweet);
 		this.getBtnEliminarTweet().setVisible(false);
 		this.getContenedorInteracciones().setVisible(false);
-	}	
+	}	 	
 	
 	public void Darmegusta() {
-		megusta = !megusta; // invierte el estado
+	    megusta = !megusta;
+
+	    int idUsuario = usuario._usuarioregistrado.getID();
+	    int idTweet = tweet.getIdTweet();
 
 	    if (megusta) {
-	        System.out.println("Tweet gustado");
-	        usuario.iUsuarioregistrado.darMegustaTweet(usuario._usuarioregistrado.getID(), tweet.getIdTweet());
+	        usuario.iUsuarioregistrado.darMegustaTweet(idUsuario, idTweet);
 	        this.getMeGusta().getStyle().set("color", "red");
 	    } else {
-	        System.out.println("Me gusta retirado");
-	        usuario.iUsuarioregistrado.quitarMegusta(usuario._usuarioregistrado.getID(), tweet.getIdTweet());
+	        usuario.iUsuarioregistrado.quitarMegusta(idUsuario, idTweet);
 	        this.getMeGusta().getStyle().set("color", "black");
 	    }
-	    
-	    Usuarioregistrado usuarioregistrado = new Usuarioregistrado(usuario.mainView, usuario.iUsuarioregistrado.cargarPerfilUsuarioregistrado(usu.getID()));
+
+	    // Recargar tweet actualizado desde base de datos
+	    //tweet = usuario.iUsuarioregistrado.tweet
+
+	    // 🔁 Recargar la vista principal del usuario
+	    Usuarioregistrado usuarioregistrado = new Usuarioregistrado(
+	        usuario.mainView,
+	        usuario.iUsuarioregistrado.cargarPerfilUsuarioregistrado(usu.getID())
+	    );
+	    usuario.mainView.removeAll();
+	    usuario.mainView.add(usuarioregistrado);
 	}
 
 	public void VercomentariosUsuarioregistrado() {
@@ -61,12 +88,6 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
 		MainView.Pantalla.cambiarVista(_darretweet);
 	}
 	
-	public void VerperfilUsuarioregistrado(Usuarioregistrado usuario) {
-		//usuario es aquel que inicio sesion y usu es el usuario cuyo perfil se quiere ver
-		_verperfilUsuarioregistrado = new VerperfilUsuarioregistrado(usuario, usu);
-		System.out.println("Ejecución ver perfil de usuario");
-		MainView.Pantalla.cambiarVista(_verperfilUsuarioregistrado);
-	}
 	
 	public void marcarRetweet() {
 	    retweeteado = true;
