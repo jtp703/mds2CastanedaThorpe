@@ -9,14 +9,11 @@ import com.vaadin.flow.component.notification.Notification.Position;
 import base_de_datos.Documento;
 
 public class Listadotweets_item extends VistaListadotweets_item {
-	private int _numRetweets;
-	private int _numComentarios;
 	
-	public base_de_datos.Tweet tweet;
-
 	public Listadotweets _listadotweets;
 	public Vercomentarios _vercomentarios;
-
+	public base_de_datos.Tweet tweet;
+	
 	public Listadotweets_item(Listadotweets listadoTweets, base_de_datos.Tweet tweet) {
 		this._listadotweets = listadoTweets;
 		this.tweet = tweet;

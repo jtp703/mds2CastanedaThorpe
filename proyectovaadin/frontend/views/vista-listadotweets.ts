@@ -54,7 +54,7 @@ export class VistaListadotweets extends LitElement {
    </vaadin-horizontal-layout>
   </vaadin-horizontal-layout>
  </vaadin-vertical-layout>
- <vaadin-vertical-layout theme="spacing-s" id="contenedorListadoTweets_item" style="flex-grow: 1; width: 80%; height: 100%; align-self: center;"></vaadin-vertical-layout>
+ <vaadin-vertical-layout theme="spacing-s" id="contenedorListadoTweets_item" style="flex-grow: 1; width: 100%; height: 100%; align-self: center;"></vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;
   }
