@@ -55,8 +55,7 @@ box-sizing: border-box; width: 100%;" id="contenedorListadoTweets">
     </vaadin-select>
    </vaadin-horizontal-layout>
   </vaadin-horizontal-layout>
- </vaadin-vertical-layout>
-<<<<<<< HEAD
+ </vaadin-vertical-layout>a
  <vaadin-vertical-layout theme="spacing-s" id="contenedorListadoTweets_item" style="flex: 1 1 auto;      /* flex-grow:1; flex-shrink:1; flex-basis:auto */
 width: 80%;
 max-width: 80%;
@@ -66,9 +65,6 @@ height: auto;
 /* quitamos el overflow—lo gestiona el padre con scroll */
 overflow: visible;
 box-sizing: border-box;"></vaadin-vertical-layout>
-=======
- <vaadin-vertical-layout theme="spacing-s" id="contenedorListadoTweets_item" style="flex-grow: 1; width: 100%; height: 100%; align-self: center;"></vaadin-vertical-layout>
->>>>>>> branch 'vistaListasDiego' of git@github.com:jtp703/mds2CastanedaThorpe.git
 </vaadin-vertical-layout>
 `;
   }
