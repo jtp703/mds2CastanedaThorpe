@@ -15,8 +15,8 @@ public class VerperfilUsuarionoregistrado extends Verperfildeusuario{
 	
 	public VerperfilUsuarionoregistrado(Usuarionoregistrado _usuarioNoRegistrado, base_de_datos.Usuario _usuario) {
 		super(_usuarioNoRegistrado, _usuario);
+		this._usuarioNoRegistrado = _usuarioNoRegistrado;
 		this.usuario = _usuario;
-		
 		this.getBtnBanearUsuario().setVisible(false);
 		this.getBtnEditarPerfil().setVisible(false);
 		this.getBtnEliminarPerfil().setVisible(false);

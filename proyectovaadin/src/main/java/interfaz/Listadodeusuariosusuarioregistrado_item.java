@@ -31,7 +31,19 @@ public class Listadodeusuariosusuarioregistrado_item extends Listadousuarios_ite
 	public Listadodeusuariosusuarioregistrado_item(VerperfilUsuarioregistrado _verPerfilUsuarioregistrado, base_de_datos.Usuario usuarioListado) {
 		super(_verPerfilUsuarioregistrado, usuarioListado);
 		this.usuarioListado = usuarioListado;
-		this.getVerperfil().addClickListener(event -> VerperfilUsuarioregistrado(usuarioRegistrado));
+		this._verPerfilUsuarioregistrado = _verPerfilUsuarioregistrado;
+		this.usuarioRegistrado = _verPerfilUsuarioregistrado.usuarioregistrado;
+		this.usuario = _verPerfilUsuarioregistrado.usuarioregistrado._usuarioregistrado;
+		
+		if (this.usuarioListado.getID() == usuario.getID()) {
+            this.getVerperfil().addClickListener(event ->
+                MainView.Pantalla.cambiarVista(new Verperfilpersonal(this.usuarioRegistrado))
+            );
+        } else {
+            this.getVerperfil().addClickListener(event ->
+                MainView.Pantalla.cambiarVista(new VerperfilUsuarioregistrado(usuarioRegistrado, usuarioListado))
+            );
+        }
 	}
 
 	private void alternarSeguir() {

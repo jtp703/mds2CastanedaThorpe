@@ -19,6 +19,8 @@ public class Listadodeusuariosusuarionoregistrado_item extends Listadousuarios_i
 	public Listadodeusuariosusuarionoregistrado_item(VerperfilUsuarionoregistrado _verPerfilUsuarionoregistrado, base_de_datos.Usuario usuario) {
 		super(_verPerfilUsuarionoregistrado, usuario);
 		this._usuario = usuario;
+		this._verPerfilUsuarionoregistrado = _verPerfilUsuarionoregistrado;
+		this.usuarionoregistrado = _verPerfilUsuarionoregistrado._usuarioNoRegistrado;
 		this.getSeguirUsuario().setVisible(false);
 		this.getVerperfil().addClickListener(event -> VerperfilUsuarionoregistrado(usuarionoregistrado));
 	}
