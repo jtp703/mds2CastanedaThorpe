@@ -7,9 +7,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import base_de_datos.iAdministrador;
 
 public class Administrador extends Cibernauta {
-	/*
-	 * private event _cerrarsesionAdministrador; 
-	 **/
+
 	public iAdministrador _iAdministrador = new base_de_datos.BDPrincipal();
 	 
 	public VermuroprincipalAdministrador _vermuroprincipalAdministrador;
@@ -55,7 +53,4 @@ public class Administrador extends Cibernauta {
 		this.getContenedorContenido().as(VerticalLayout.class).add(_verlistadohashtags);
 	}
 
-//	public void VerperfilAdministrador() {
-//		throw new UnsupportedOperationException();
-//	}
 }

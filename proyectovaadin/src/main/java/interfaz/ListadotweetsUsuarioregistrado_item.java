@@ -5,12 +5,6 @@ import org.vaadin.example.MainView;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
-	//	private event _darmegusta;
-	//	private label _nickUsuario;
-	//	private image _perfilUsuario;
-	// private int _numRetweets;
-	//private int _numComentarios;
-
 	
 	public ListadotweetsUsuarioregistrado _listadotweetsUsuarioregistrado;
 	public VercomentariosUsuarioregistrado _vercomentariosUsuarioregistrado;
@@ -20,7 +14,7 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
 	private boolean retweeteado = false;
 	private boolean megusta = false;
 	public base_de_datos.Usuario usu;
-	private base_de_datos.Tweet tweet;
+	public base_de_datos.Tweet tweet;
 	
 	ListadotweetsUsuarioregistrado_item(ListadotweetsUsuarioregistrado listadotweetsUsuarioregistrado, base_de_datos.Tweet tweet) {
 		super(listadotweetsUsuarioregistrado, tweet);
