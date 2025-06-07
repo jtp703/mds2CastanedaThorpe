@@ -27,7 +27,7 @@ export class VistaCibernauta extends LitElement {
    </vaadin-button>
   </vaadin-horizontal-layout>
  </vaadin-horizontal-layout>
- <vaadin-horizontal-layout theme="spacing" style="align-self: stretch; margin-left: var(--lumo-space-s); margin: var(--lumo-space-s);" id="vaadinHorizontalLayout2">
+ <vaadin-horizontal-layout theme="spacing" style="align-self: stretch;" id="vaadinHorizontalLayout2">
   <vaadin-button id="verMuroPrincipal" tabindex="0">
     Muro principal 
   </vaadin-button>

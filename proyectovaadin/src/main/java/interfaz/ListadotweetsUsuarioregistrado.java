@@ -114,7 +114,7 @@ public class ListadotweetsUsuarioregistrado extends Listadotweets {
 			Tweet nuevoTweet = this.iUsuarioregistrado.escribirTweet(idUsuario, texto, documentosArray, tiposArray);
 
 			ListadotweetsUsuarioregistrado_item itemNuevo = new ListadotweetsUsuarioregistrado_item(this, nuevoTweet);
-			this.getContenedorListadoTweets().as(VerticalLayout.class).addComponentAsFirst(itemNuevo);
+			this.getContenedorListadoTweets_item().as(VerticalLayout.class).addComponentAsFirst(itemNuevo);
 
 			this.getTextoTweet().clear();
 			this.getUrl1().clear();
