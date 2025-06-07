@@ -16,7 +16,7 @@ export class VistaVermuroprincipal extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;position:absolute;" id="contenedorVerMuroPrincipal">
- <vaadin-vertical-layout id="contenedorCibernauta" style="align-self: stretch;"></vaadin-vertical-layout>
+ <vaadin-vertical-layout id="contenedorCibernauta" style="align-self: stretch; align-items: center;"></vaadin-vertical-layout>
  <vaadin-vertical-layout id="contenedorListadoTweetsMuroPrincipal" style="align-self: stretch; flex-grow: 1;"></vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;

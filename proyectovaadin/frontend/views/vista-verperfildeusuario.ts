@@ -45,8 +45,8 @@ export class VistaVerperfildeusuario extends LitElement {
      Banear 
    </vaadin-button>
   </vaadin-vertical-layout>
-  <vaadin-horizontal-layout theme="spacing" style="flex-grow: 0; width: 50%;">
-   <vaadin-horizontal-layout style="align-self: center; justify-content: center; flex-grow: 1;">
+  <vaadin-horizontal-layout theme="spacing" style="flex-grow: 1; width: 50%;">
+   <vaadin-horizontal-layout style="align-self: center; justify-content: flex-end; flex-grow: 1;">
     <vaadin-button id="verSeguidos" style="background-color: gray !important;
   color: white !important;
   border-radius: 999px;
@@ -62,7 +62,7 @@ export class VistaVerperfildeusuario extends LitElement {
     </vaadin-button>
     <span style="align-self: center;">Seguidos</span>
    </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout style="align-self: center; justify-content: center; flex-grow: 1;">
+   <vaadin-horizontal-layout style="justify-content: flex-end; flex-grow: 0; align-self: center; padding-right: var(--lumo-space-xl); padding-left: var(--lumo-space-xl);">
     <vaadin-button tabindex="0" id="verSeguidores" style="background-color: gray !important;
   color: white !important;
   border-radius: 999px;
@@ -79,7 +79,7 @@ export class VistaVerperfildeusuario extends LitElement {
     <span style="align-self: center;">Seguidores</span>
    </vaadin-horizontal-layout>
   </vaadin-horizontal-layout>
-  <vaadin-horizontal-layout theme="spacing" style="flex-grow: 1; flex-shrink: 0; justify-content: flex-end;">
+  <vaadin-horizontal-layout theme="spacing" style="flex-grow: 0; flex-shrink: 0; justify-content: flex-end;">
    <vaadin-vertical-layout theme="spacing" style="align-self: center; flex-grow: 0;">
     <vaadin-button id="btnEditarPerfil" style="align-self: stretch;" tabindex="0">
       Editar perfil 
