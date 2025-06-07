@@ -31,8 +31,8 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
                 MainView.Pantalla.cambiarVista(new VerperfilUsuarioregistrado(usuario, usu))
             );
         }
-        this.getComentar().addClickListener(event -> VercomentariosUsuarioregistrado());
-        this.getDarRetweet().addClickListener(even   -> Darretweet());
+        this.getComentar().addClickListener(event-> VercomentariosUsuarioregistrado());
+        this.getDarRetweet().addClickListener(even-> Darretweet());
         this.getMeGusta().addClickListener(event      -> Darmegusta());
 
         for (base_de_datos.Usuario u : tweet.likeado_por.toArray()) {
@@ -67,7 +67,7 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
         // Recargar vista principal con perfil actualizado
         Usuarioregistrado usuarioregistrado = new Usuarioregistrado(
             usuario.mainView,
-            usuario.iUsuarioregistrado.cargarPerfilUsuarioregistrado(usu.getID())
+            usuario.iUsuarioregistrado.cargarPerfilUsuarioregistrado(usuario._usuarioregistrado.getID())
         );
         usuario.mainView.removeAll();
         usuario.mainView.add(usuarioregistrado);

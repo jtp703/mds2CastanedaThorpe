@@ -15,16 +15,12 @@ public class ListadotweetsAdministrador_item extends Listadotweets_item {
 		super(listadotweetsAdministrador, tweet);
 		this.tweet = tweet;
 		this.admin = listadotweetsAdministrador._administrador;
-		this.getDarRetweet().setVisible(false);
-		this.getMeGusta().setVisible(false);
 		this.getVerperfil().addClickListener(event -> verPerfilUsuarioRegistrado());
 		this.getComentar().addClickListener(event -> VercomentariosAdministrador());
 	}
 	
 	public ListadotweetsAdministrador_item(VercomentariosAdminstrador _vercomentariosAdminstrador, base_de_datos.Tweet tweet) {
 		super(_vercomentariosAdminstrador, tweet);
-		this.getDarRetweet().setVisible(false);
-		this.getMeGusta().setVisible(false);
 		this.getVerperfil().addClickListener(event -> verPerfilUsuarioRegistrado());
 		this.getComentar().addClickListener(event -> VercomentariosAdministrador());
 	}

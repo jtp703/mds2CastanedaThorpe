@@ -16,7 +16,7 @@ public class ListadotweetsUsuarionoregistrado extends Listadotweets {
 
 	public ListadotweetsUsuarionoregistrado(VerperfilUsuarionoregistrado _verperfilUsuarionoregistrado) {
 		super(_verperfilUsuarionoregistrado);
-		
+		this._vermuroPrincipalUsuarionoregistrado = _verperfilUsuarionoregistrado._vermuroPrincipalUsuarionoregistrado;
 		_verperfilUsuarionoregistrado.usuario.likea.toArray();
 		for (Tweet t : _verperfilUsuarionoregistrado.usuario.tweetea.toArray()) {
 			ListadotweetsUsuarionoregistrado_item item = new ListadotweetsUsuarionoregistrado_item(this, t);
@@ -32,7 +32,7 @@ public class ListadotweetsUsuarionoregistrado extends Listadotweets {
 	public ListadotweetsUsuarionoregistrado(VermuroprincipalUsuarionoregistrado _vermuroPrincipalUsuarionoregistrado) {
 		super(_vermuroPrincipalUsuarionoregistrado);
 		this.getContenedorNuevoTweet().setVisible(false);
-		
+		this._vermuroPrincipalUsuarionoregistrado = _vermuroPrincipalUsuarionoregistrado;
 		try {
 			Tweet[] tweets = _vermuroPrincipalUsuarionoregistrado._usuarioNoRegistrado._iUsuarionoregistrado.cargarTweets();
 			if (tweets != null) {

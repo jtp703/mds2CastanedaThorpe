@@ -25,17 +25,11 @@ public class Listadotweets extends VistaListadotweets {
 		this._retweets = _retweets;
 	}
 	public Listadotweets(Verlistadodetweetsfiltrado _verlistadodetweetsfiltrado, Hashtag _hashtag) {
-		this._verlistadodetweetsfiltrado = _verlistadodetweetsfiltrado;
-		Listadotweets_item i = new Listadotweets_item(this, null);
-		i.getBtnEliminarTweet().setVisible(false);
-		this.getContenedorListadoTweets().as(VerticalLayout.class).add(i);
-		Listadotweets_item is = new Listadotweets_item(this, null);
-		is.getBtnEliminarTweet().setVisible(false);
-		this.getContenedorListadoTweets().as(VerticalLayout.class).add(is);
-		
+		this._verlistadodetweetsfiltrado = _verlistadodetweetsfiltrado;		
 		if(_hashtag != null) {
 			try {
-				for(base_de_datos.Tweet tweet: _verlistadodetweetsfiltrado.cibernauta._iCibernauta.cargarTweetsFiltrados(_hashtag.getIdHashtag())) {
+				
+				for(base_de_datos.Tweet tweet: _verlistadodetweetsfiltrado._item._listadodehashtags._verListadohashtags._cibernauta._iCibernauta.cargarTweetsFiltrados(_hashtag.getIdHashtag())) {
 					Listadotweets_item item = new Listadotweets_item(this, tweet);
 					item.getBtnEliminarTweet().setVisible(false);
 					item.getContenedorInteracciones().setVisible(false);
