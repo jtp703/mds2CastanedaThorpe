@@ -6,6 +6,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import org.vaadin.example.*;
 
 public class VerlistadoglobaldeusuariosUsuarioregistrado extends Verlistadogloblaldeusuarios {
+	
 	public Usuarioregistrado _usuarioregistrado;
 	public Listadodeusuariosusuarioregistrado _listadodeusuariosusuarioregistrado;
 	

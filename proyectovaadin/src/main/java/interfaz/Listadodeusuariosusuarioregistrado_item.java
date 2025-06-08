@@ -4,10 +4,12 @@ import org.vaadin.example.MainView;
 import com.vaadin.flow.component.button.Button;
 
 public class Listadodeusuariosusuarioregistrado_item extends Listadousuarios_item {
+	
 	public Listadodeusuariosusuarioregistrado _listadodeusuariosusuarioregistrado;
-
 	public VerperfilUsuarioregistrado _verPerfilUsuarioregistrado;
 	public Usuarioregistrado usuarioRegistrado;
+	public Verlistadodeseguidores verListadoseguidores;
+	public Verlistadodeseguidos verListadoseguidos;
 	public base_de_datos.Usuario usuario;
 	public base_de_datos.Usuario usuarioListado;
 
@@ -25,7 +27,19 @@ public class Listadodeusuariosusuarioregistrado_item extends Listadousuarios_ite
 		actualizarEstadoBoton();
 
 		this.getSeguirUsuario().addClickListener(event -> alternarSeguir());
-		this.getVerperfil().addClickListener(event -> VerperfilUsuarioregistrado(usuarioRegistrado));
+		
+		if (this.usuarioListado.getID() == usuario.getID()) {
+            this.getVerperfil().addClickListener(event ->
+                MainView.Pantalla.cambiarVista(new Verperfilpersonal(this.usuarioRegistrado))
+            );
+        } else {
+            this.getVerperfil().addClickListener(event ->
+                MainView.Pantalla.cambiarVista(new VerperfilUsuarioregistrado(usuarioRegistrado, usuarioListado))
+            );
+        }
+		this.getVerSeguidores().addClickListener(event -> Verlistadodeseguidores());
+		this.getVerSeguidos().addClickListener(event -> Verlistadodeseguidos());
+		
 	}
 
 	public Listadodeusuariosusuarioregistrado_item(VerperfilUsuarioregistrado _verPerfilUsuarioregistrado, base_de_datos.Usuario usuarioListado) {
@@ -95,4 +109,14 @@ public class Listadodeusuariosusuarioregistrado_item extends Listadousuarios_ite
 		_verPerfilUsuarioregistrado = new VerperfilUsuarioregistrado(usuario, usuarioListado);
 		MainView.Pantalla.cambiarVista(_verPerfilUsuarioregistrado);
 	}
+	
+	private void Verlistadodeseguidores() {
+        verListadoseguidores = new Verlistadodeseguidores(this._listadodeusuariosusuarioregistrado, usuario.es_seguido.toArray());
+        MainView.Pantalla.cambiarVista(verListadoseguidores);
+    }
+
+    private void Verlistadodeseguidos() {
+        verListadoseguidos = new Verlistadodeseguidos(this._listadodeusuariosusuarioregistrado, usuario.sigue.toArray());
+        MainView.Pantalla.cambiarVista(verListadoseguidos);
+    }
 }

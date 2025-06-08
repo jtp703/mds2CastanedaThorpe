@@ -4,16 +4,23 @@ import org.vaadin.example.MainView;
 
 public class Listadodeusuariosusuarionoregistrado_item extends Listadousuarios_item {
 	
+	public Verlistadodeseguidores verListadoseguidores;
+	public Verlistadodeseguidos verListadoseguidos;
 	public VerperfilUsuarionoregistrado _verPerfilUsuarionoregistrado;
 	public Listadodeusuariosusuarionoregistrado _listadodeusuariosusuarionoregistrado;
 	public Usuarionoregistrado usuarionoregistrado;
-	public base_de_datos.Usuario _usuario;
+	public base_de_datos.Usuario usuarioListado;
 	
-	public Listadodeusuariosusuarionoregistrado_item(Listadodeusuariosusuarionoregistrado listadodeusuariosusuarionoregistrado, base_de_datos.Usuario usuario){
-		super(listadodeusuariosusuarionoregistrado, usuario);
-		this._usuario = usuario;
+	public Listadodeusuariosusuarionoregistrado_item(Listadodeusuariosusuarionoregistrado listadodeusuariosusuarionoregistrado, base_de_datos.Usuario usuarioListado){
+		super(listadodeusuariosusuarionoregistrado, usuarioListado);
+		this.usuarioListado = usuarioListado;
+		this._listadodeusuariosusuarionoregistrado = listadodeusuariosusuarionoregistrado;
+		this.usuarionoregistrado = listadodeusuariosusuarionoregistrado.verlistadoglobaldeusuariosUsuarionoregistrado.usuarioNoRegistrado;
+		
 		this.getSeguirUsuario().setVisible(false);
 		this.getVerperfil().addClickListener(event -> VerperfilUsuarionoregistrado(usuarionoregistrado));
+		this.getVerSeguidores().addClickListener(event -> Verlistadodeseguidores());
+		this.getVerSeguidos().addClickListener(event -> Verlistadodeseguidos());
 	}
 	
 	public Listadodeusuariosusuarionoregistrado_item(VerperfilUsuarionoregistrado _verPerfilUsuarionoregistrado, base_de_datos.Usuario usuario) {
@@ -29,5 +36,15 @@ public class Listadodeusuariosusuarionoregistrado_item extends Listadousuarios_i
 		_verPerfilUsuarionoregistrado = new VerperfilUsuarionoregistrado(usuarionoregistrado, _usuario);
 		MainView.Pantalla.cambiarVista(_verPerfilUsuarionoregistrado);
 	}
+	
+	private void Verlistadodeseguidores() {
+        verListadoseguidores = new Verlistadodeseguidores(this._listadodeusuariosusuarionoregistrado, usuarioListado.es_seguido.toArray());
+        MainView.Pantalla.cambiarVista(verListadoseguidores);
+    }
+
+    private void Verlistadodeseguidos() {
+        verListadoseguidos = new Verlistadodeseguidos(this._listadodeusuariosusuarionoregistrado, usuarioListado.sigue.toArray());
+        MainView.Pantalla.cambiarVista(verListadoseguidos);
+    }
 
 }

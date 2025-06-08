@@ -8,24 +8,97 @@ import base_de_datos.Usuario;
 
 public class Verlistadodeseguidos extends Verlistado {
 
-	public Listadodeusuariosusuarioregistrado _listadousuariosusuarioregistrado;
+	
 	public VerperfilUsuarioregistrado _verperfildeusuariousuarioregistrado;
 	public VerperfilUsuarionoregistrado _verperfilusuarionoregistrado;
 	public VerperfilAdministrador _verperfilaministrador;
+	public Listadodeusuariosusuarioregistrado _listadousuariosusuarioregistrado;
+	public Listadodeusuariosusuarionoregistrado _listadousuariosusuarionoregistrado;
+	public Listadodeusuariosadministrador _listadousuariosadministrador;
+	
 
-	public Verlistadodeseguidos(Listadousuarios _listadousuarios) {
-		super(_listadousuarios);
-		this.getListadoSeguidores().setVisible(false);
-		this.getTituloSeguidores().setVisible(false);
-		Listadousuarios_item item0 = new Listadousuarios_item(_listadousuarios, null);
-		item0.getSeguirUsuario().setVisible(false);
-		this.getListadoSeguidos().as(VerticalLayout.class).add(item0);
+	public Verlistadodeseguidos(Listadodeusuariosusuarioregistrado _listadousuariosusuarioregistrado,
+			Usuario[] _usuarioSetCollection) {
+		super(_listadousuariosusuarioregistrado);
+		this._listadousuariosusuarioregistrado = _listadousuariosusuarioregistrado;
+		// Botón Cerrar
+        this.getBtnCerrar().addClickListener(event -> btnCerrar());
 
-		Listadousuarios_item item1 = new Listadousuarios_item(_listadousuarios, null);
-		item1.getSeguirUsuario().setVisible(false);
-		this.getListadoSeguidos().as(VerticalLayout.class).add(item1);
+        try {
 
-		this.getBtnCerrar().addClickListener(event -> btnCerrar());
+            Usuario[] todosLosSeguidos = _usuarioSetCollection;
+
+            for (Usuario u : todosLosSeguidos) {
+
+                    Listadodeusuariosusuarioregistrado_item item =
+                        new Listadodeusuariosusuarioregistrado_item(this._listadousuariosusuarioregistrado, u);
+                    item.usuarioRegistrado.getVerPerfilPersonal().setText(u.getNick());
+
+                    item.getSeguirUsuario().setVisible(false);
+                    item.getContenedorSeguidoresSeguidos().setVisible(false);
+                    
+                    this.getListadoSeguidores().as(VerticalLayout.class).add(item);
+                
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+	}
+	
+	public Verlistadodeseguidos(Listadodeusuariosusuarionoregistrado _listadousuariosusuarionoregistrado,
+			Usuario[] _usuarioSetCollection) {
+		super(_listadousuariosusuarionoregistrado);
+		this._listadousuariosusuarionoregistrado = _listadousuariosusuarionoregistrado;
+		// Botón Cerrar
+        this.getBtnCerrar().addClickListener(event -> btnCerrar());
+
+        try {
+
+            Usuario[] todosLosSeguidos = _usuarioSetCollection;
+
+            for (Usuario u : todosLosSeguidos) {
+
+                    Listadodeusuariosusuarionoregistrado_item item =
+                        new Listadodeusuariosusuarionoregistrado_item(this._listadousuariosusuarionoregistrado, u);
+                    item.usuarionoregistrado.getVerPerfilPersonal().setText(u.getNick());
+
+                    item.getSeguirUsuario().setVisible(false);
+                    item.getContenedorSeguidoresSeguidos().setVisible(false);
+                    
+                    this.getListadoSeguidores().as(VerticalLayout.class).add(item);
+                
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+	}
+	
+	public Verlistadodeseguidos(Listadodeusuariosadministrador _listadousuariosadministrador,
+			Usuario[] _usuarioSetCollection) {
+		super(_listadousuariosadministrador);
+		this._listadousuariosadministrador = _listadousuariosadministrador;
+		// Botón Cerrar
+        this.getBtnCerrar().addClickListener(event -> btnCerrar());
+
+        try {
+
+            Usuario[] todosLosSeguidos = _usuarioSetCollection;
+
+            for (Usuario u : todosLosSeguidos) {
+
+                    Listadodeusuariosadministrador_item item =
+                        new Listadodeusuariosadministrador_item(this._listadousuariosadministrador, u);
+                    item.administrador.getVerPerfilPersonal().setText(u.getNick());
+
+                    item.getSeguirUsuario().setVisible(false);
+                    item.getContenedorSeguidoresSeguidos().setVisible(false);
+                    
+                    this.getListadoSeguidores().as(VerticalLayout.class).add(item);
+                
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 	}
 
 	public Verlistadodeseguidos(VerperfilUsuarioregistrado _verperfildeusuariousuarioregistrado, Usuario[] _usuarioSetCollection) {
