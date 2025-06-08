@@ -1,6 +1,7 @@
 package interfaz;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Vector;
 
@@ -26,18 +27,35 @@ public class ListadotweetsUsuarioregistrado extends Listadotweets {
 		super(vermuroprincipalUsuarioregistrado);
 		this._vermuroprincipalUsuarioregistrado = vermuroprincipalUsuarioregistrado;
 		this.iUsuarioregistrado = vermuroprincipalUsuarioregistrado._usuarioregistrado.iUsuarioregistrado;
-
+		
 		try {
-            Tweet[] tweets = this.iUsuarioregistrado.cargarTweets();
-            if (tweets != null) {
-                for (Tweet t : tweets) {
-                    ListadotweetsUsuarioregistrado_item item =
-                        new ListadotweetsUsuarioregistrado_item(this, t);
-                    _listadotweetsUsuarioregistrado.add(item);
-                    this.getContenedorListadoTweets_item()
-                        .as(VerticalLayout.class)
-                        .add(item);
-                }
+			ArrayList<Tweet> tweets = new ArrayList<Tweet>();
+			for(base_de_datos.Usuario usuarioSeguido: vermuroprincipalUsuarioregistrado._usuarioregistrado._usuarioregistrado.sigue.toArray()) {
+	            if(usuarioSeguido.tweetea != null) {
+	            	for(Tweet tweet : usuarioSeguido.tweetea.toArray()) {
+						tweets.add(tweet);
+					}
+	            }
+			}
+			
+			if(vermuroprincipalUsuarioregistrado._usuarioregistrado._usuarioregistrado.tweetea != null) {
+				for(Tweet tweet : vermuroprincipalUsuarioregistrado._usuarioregistrado._usuarioregistrado.tweetea.toArray()) {
+					tweets.add(tweet);
+				}
+			}
+			tweets.sort(Comparator
+				    .comparing(Tweet::getFechaCreacion)
+				    .reversed()
+				);
+		 	if (!tweets.isEmpty()) {
+	                for (Tweet t : tweets) {
+	                    ListadotweetsUsuarioregistrado_item item =
+	                        new ListadotweetsUsuarioregistrado_item(this, t);
+	                    _listadotweetsUsuarioregistrado.add(item);
+	                    this.getContenedorListadoTweets_item()
+	                        .as(VerticalLayout.class)
+	                        .add(item);
+	                }
             }
         } catch (Exception pe) {
             Notification.show(
@@ -134,7 +152,7 @@ public class ListadotweetsUsuarioregistrado extends Listadotweets {
 		this._vermuroprincipalUsuarioregistrado = _retweets._verperfilUsuarioregistrado.vermuroprincipalUsuarioregistrado;
 		for (Tweet tweet : _retweetsArray) {
 			ListadotweetsUsuarioregistrado_item item = new ListadotweetsUsuarioregistrado_item(this, tweet);
-			this.getContenedorListadoTweets().as(VerticalLayout.class).add(item);
+			this.getContenedorListadoTweets_item().as(VerticalLayout.class).add(item);
 		}
 	}
 	

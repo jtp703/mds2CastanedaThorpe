@@ -22,7 +22,6 @@ public class VerperfilAdministrador extends Verperfildeusuario {
 	
 	public VerperfilAdministrador(Administrador _administrador, Usuario _usuario) {
 		super(_administrador, _usuario);
-		this._listadotweetsadministrador.getContenedorNuevoTweet().setVisible(false);
 		this.usuario = _usuario;
 		this.getBtnBloquear().setVisible(false);
 		this.getBtnSeguir().setVisible(false);
@@ -33,6 +32,7 @@ public class VerperfilAdministrador extends Verperfildeusuario {
 		this._vermuroprincipalAdministrador = _administrador._vermuroprincipalAdministrador;
 		this._listadotweetsadministrador = new ListadotweetsAdministrador(this);
 		this.getContenedorListadotweets().as(VerticalLayout.class).add(_listadotweetsadministrador);
+		this._listadotweetsadministrador.getContenedorNuevoTweet().setVisible(false);
 		
 		//cargar perfil
 		super.cargarUsuario(_usuario);
@@ -41,14 +41,24 @@ public class VerperfilAdministrador extends Verperfildeusuario {
 		this.getVerSeguidores().addClickListener(event -> Verlistadodeseguidores(_usuario.es_seguido));
 		this.getVerSeguidos().addClickListener(event -> Verlistadodeseguidos(_usuario.sigue));
 		this.getBtnBanearUsuario().addClickListener(event -> Banear_usuarios());
+		this.getVerPosts().addClickListener(event -> Posts(_listadotweetsadministrador));
 		//sustituir por listado filtrado de megustras
-		this.getVerMegustas().addClickListener(event -> Me_gustas(new Megustas(this)));
+		this.getVerMegustas().addClickListener(event -> Megustas(new Megustas(this)));
 		//sustituir por listado filtrado de retweets
 		this.getVerRetweets().addClickListener(event -> Retweets(new Retweets(this)));
 	}
 	
 	public void Posts(ListadotweetsAdministrador _listadotweets) {
+		this.getContenedorListadotweets().as(VerticalLayout.class).removeAll();
 		this.getContenedorListadotweets().as(VerticalLayout.class).add(_listadotweets);
+	}
+	public void Retweets(Retweets _retweets) {
+		this.getContenedorListadotweets().as(VerticalLayout.class).removeAll();
+		this.getContenedorListadotweets().as(VerticalLayout.class).add(_retweets);
+	}
+	public void Megustas(Megustas _megustas) {
+		this.getContenedorListadotweets().as(VerticalLayout.class).removeAll();
+		this.getContenedorListadotweets().as(VerticalLayout.class).add(_megustas);
 	}
 	
 	public void Ver_Listado(Verlistado _verlistado) {

@@ -30,7 +30,7 @@ public interface iUsuarioregistrado extends iCibernauta {
 
 	public Tweet[] getTweetsByUserId(int aIdUsuario);
 
-	public Tweet retweet(int aIdTweetRetweteado, String aTexto);
+	public Tweet retweet(int idUsuario, int aIdTweetRetweteado, String aTexto);
 	
 	public Tweet getTweetById(int aIdTweet);
 }

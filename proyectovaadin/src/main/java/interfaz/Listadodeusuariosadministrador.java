@@ -10,11 +10,9 @@ public class Listadodeusuariosadministrador extends Listadousuarios {
 	
 	public Listadodeusuariosadministrador(VerlistadoglobaldeusuariosAdministrador _verlistadoglobaldeusuariosAdministrador){
 		super(_verlistadoglobaldeusuariosAdministrador);
-		Listadodeusuariosadministrador_item item0 = new Listadodeusuariosadministrador_item(this, null);
-		Listadodeusuariosadministrador_item item1 = new Listadodeusuariosadministrador_item(this, null);
-		_item.add(item0);
-		_item.add(item1);
-		for(Listadodeusuariosadministrador_item item: _item) {
+		for(base_de_datos.Usuario u : _verlistadoglobaldeusuariosAdministrador.administrador._iAdministrador.cargarUsuarios()) {
+			Listadodeusuariosadministrador_item item = new Listadodeusuariosadministrador_item(this, u);
+			_item.add(item);
 			this.getContenedorItemsUsuario().as(VerticalLayout.class).add(item);
 		}
 	}

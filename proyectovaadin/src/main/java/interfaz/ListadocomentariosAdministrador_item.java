@@ -11,14 +11,22 @@ public class ListadocomentariosAdministrador_item extends Listadocomentarios_ite
 
 	public ListadocomentariosAdministrador_item(ListadocomentariosAdministrador _listadocomentariosAdministrador,base_de_datos.Comentario comentario) {
 		super(_listadocomentariosAdministrador, comentario);
+		this._listadocomentariosAdministrador = _listadocomentariosAdministrador;
 		this.getBtnDarMegusta().setVisible(false);
 		this.getBotonEliminarComentario().addClickListener(event -> Eliminar_Comentario());
 		
 	}
 
 	public void Eliminar_Comentario() {
-		//eliminar comentario debera eliminar el comentario de la base de datos y la referencia sera este mismo item
-		this.getContenedorcontenido().as(VerticalLayout.class).remove(this);
+		this._listadocomentariosAdministrador.
+		_vercomentariosAdminstrador.
+		_item.
+		_listadotweetsAdministrador.
+		_vermuroprincipalAdministrador.
+		_administrador.
+		_iAdministrador.
+		borrarComentario(comentario.getIdComentario());
+		this._listadocomentariosAdministrador.getContenedorComentariosItem().as(VerticalLayout.class).remove(this);
 	}
 
 }

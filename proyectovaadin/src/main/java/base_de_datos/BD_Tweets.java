@@ -47,21 +47,29 @@ public class BD_Tweets {
     }
 
     /**
-     * Elimina un tweet dado su ID.
+     * Elimina un tweet dado su ID, disociándolo de todas sus relaciones
+     * y luego borrándolo en cascada correcta.
      */
     public void borrarTweet(int aIdTweet) throws PersistentException {
         PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager
-                .instance().getSession().beginTransaction();
+            .instance().getSession().beginTransaction();
         try {
-            Tweet tweet = TweetDAO.loadTweetByORMID(aIdTweet);
+            // Usamos get para que devuelva null si no existe
+            Tweet tweet = TweetDAO.getTweetByORMID(aIdTweet);
             if (tweet != null) {
-                TweetDAO.delete(tweet);
+                // El método generado por VP se encarga de:
+                // - quitar el tweet de autor.tweetea
+                // - quitarlo del padre.retweet (si retweet)
+                // - limpiar comentarios hijos, retweets hijos, likes, hashtags, documentos…
+                TweetDAO.deleteAndDissociate(tweet);
             }
             t.commit();
         } catch (Exception e) {
             t.rollback();
+            throw e;
         } finally {
-            MDS12425PFCastanedaThorpePersistentManager.instance().disposePersistentManager();
+            MDS12425PFCastanedaThorpePersistentManager
+                .instance().disposePersistentManager();
         }
     }
 
@@ -285,26 +293,29 @@ public class BD_Tweets {
      * @param aTexto             Nuevo texto adicional (puede combinarse con el original).
      * @return                   El nuevo Tweet que referencia al original.
      */
-    public Tweet retweet(int aIdTweetRetweteado, int aIdUsuario, String aTexto) throws PersistentException {
+    public Tweet retweet(int idUsuario, int aIdTweetRetweteado, String aTexto) throws PersistentException {
         PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager
                 .instance().getSession().beginTransaction();
         Tweet retweet = null;
         try {
             Tweet original = TweetDAO.loadTweetByORMID(aIdTweetRetweteado);
+            
             if (original != null) {
+            	Usuario reTweeter = UsuarioDAO.loadUsuarioByORMID(idUsuario);
+                if (reTweeter == null) {
+                    throw new PersistentException("Usuario con ID " + idUsuario + " no encontrado.");
+                }
                 // 1. Creamos el nuevo Tweet que referencia al original
                 retweet = TweetDAO.createTweet();
-                retweet.setTexto(aTexto);
+                retweet.setTexto(
+                	    "Tweet original: " + original.getTexto() + "\n" +
+                	    "Retweeteado por: " + reTweeter.getNick() + "\n" +
+                	    aTexto
+                	);
                 retweet.setFechaCreacion(new Date());
                 retweet.setTweet(original);
-
-                // 2. Asignar el usuario que retwitea (pasa el ID en el método)
-                Usuario reTweeter = UsuarioDAO.loadUsuarioByORMID(aIdUsuario);
-                if (reTweeter == null) {
-                    throw new PersistentException("Usuario con ID " + aIdUsuario + " no encontrado.");
-                }
                 retweet.setTweeteado_por(reTweeter);
-
+                original.reetweteado_por.add(reTweeter);
                 // 3. Guardamos el retweet
                 TweetDAO.save(retweet);
                 TweetDAO.save(original);

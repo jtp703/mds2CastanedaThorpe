@@ -21,12 +21,13 @@ public class ListadotweetsAdministrador extends Listadotweets {
 		this.getContenedorNuevoTweet().setVisible(false);
 		
 		this._administrador = _vermuroprincipalAdministrador._administrador;
+		this._vermuroprincipalAdministrador = _vermuroprincipalAdministrador;
 		
 		Tweet[] tweets = this._administrador._iAdministrador.cargarTweets();
 		for (int i = 0; i < tweets.length; i++) {
 			ListadotweetsAdministrador_item item = new ListadotweetsAdministrador_item(this, tweets[i]);
 			_item.add(item);
-			this.getContenedorListadoTweets().as(VerticalLayout.class).add(item);
+			this.getContenedorListadoTweets_item().as(VerticalLayout.class).add(item);
 		}
 		
 	}
@@ -44,7 +45,7 @@ public class ListadotweetsAdministrador extends Listadotweets {
 		for (int i = 0; i < tweets.length; i++) {
 			ListadotweetsAdministrador_item item = new ListadotweetsAdministrador_item(this, tweets[i]);
 			_item.add(item);
-			this.getContenedorListadoTweets().as(VerticalLayout.class).add(item);
+			this.getContenedorListadoTweets_item().as(VerticalLayout.class).add(item);
 		}
 	}
 	
@@ -59,7 +60,7 @@ public class ListadotweetsAdministrador extends Listadotweets {
 		for (int i = 0; i < tweets.length; i++) {
 			ListadotweetsAdministrador_item item = new ListadotweetsAdministrador_item(this, tweets[i]);
 			_item.add(item);
-			this.getContenedorListadoTweets().as(VerticalLayout.class).add(item);
+			this.getContenedorListadoTweets_item().as(VerticalLayout.class).add(item);
 		}
 	}
 	

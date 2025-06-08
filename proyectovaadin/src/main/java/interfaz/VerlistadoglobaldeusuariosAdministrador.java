@@ -5,7 +5,6 @@ import org.vaadin.example.MainView;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 public class VerlistadoglobaldeusuariosAdministrador extends Verlistadogloblaldeusuarios {
-
 	public Administrador administrador;
 	public Listadodeusuariosadministrador listadoDeUsuariosAdministrador;
 

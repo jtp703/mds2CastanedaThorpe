@@ -42,14 +42,6 @@ public class Verperfildeusuario extends VistaVerperfildeusuario {
 		this._listadotweets = _listadotweets;
 	}
 
-	public void Retweets(Retweets _retweets) {
-		this._retweets = _retweets;
-	}
-
-	public void Me_gustas(Megustas _megustas) {
-		this._megustas = _megustas;
-	}
-
 	public void Ver_Listado(Verlistado _verlistado) {
 		this._verlistado = _verlistado;
 	}

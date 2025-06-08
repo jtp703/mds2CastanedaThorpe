@@ -48,7 +48,7 @@ public class VerperfilUsuarioregistrado extends Verperfildeusuario {
 		this.getBtnSeguir().addClickListener(event -> Seguir_usuario_desde_perfil());
 		//sustiuir por listado filtrado de megustras
 		this.getVerPosts().addClickListener(event -> Posts(listadotweetsUsuarioregistrado));
-		this.getVerMegustas().addClickListener(event -> Me_gustas(new Megustas(this)));
+		this.getVerMegustas().addClickListener(event -> Megustas(new Megustas(this)));
 		//sustituir por listado filtrado de retweets
 		this.getVerRetweets().addClickListener(event -> Retweets(new Retweets(this)));
 	}
@@ -58,8 +58,17 @@ public class VerperfilUsuarioregistrado extends Verperfildeusuario {
 	}
 	
 	public void Posts(ListadotweetsUsuarioregistrado _listadotweets) {
-		this.getContenedorListadotweets().as(VerticalLayout.class).add(_listadotweets);
-		
+		this.getContenedorListadotweets().as(VerticalLayout.class).removeAll();
+		this.getContenedorListadotweets().as(VerticalLayout.class).add(listadotweetsUsuarioregistrado);
+	}
+	
+	public void Retweets(Retweets _retweets) {
+		this.getContenedorListadotweets().as(VerticalLayout.class).removeAll();
+		this.getContenedorListadotweets().as(VerticalLayout.class).add(_retweets);
+	}
+	public void Megustas(Megustas _megustas) {
+		this.getContenedorListadotweets().as(VerticalLayout.class).removeAll();
+		this.getContenedorListadotweets().as(VerticalLayout.class).add(_megustas);
 	}
 	
 	public void Ver_Listado(Verlistado _verlistado) {

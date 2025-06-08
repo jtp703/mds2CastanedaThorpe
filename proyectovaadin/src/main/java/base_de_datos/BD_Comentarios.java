@@ -13,24 +13,33 @@ public class BD_Comentarios {
 	public Vector<Comentario> _contiene_comentarios = new Vector<Comentario>();
 
 	/**
-	 * Elimina un comentario dado su ID.
+	 * Elimina un comentario dado su ID, disociándolo de todas sus relaciones
+	 * y luego borrándolo.
 	 */
 	public void borrarComentario(int aIdComentario) throws PersistentException {
-		PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager
-				.instance().getSession().beginTransaction();
-		try {
-			Comentario comentario = ComentarioDAO.loadComentarioByORMID(aIdComentario);
-			if (comentario != null) {
-				ComentarioDAO.delete(comentario);
-			}
-			t.commit();
-		}
-		catch (Exception e) {
-			t.rollback();
-		}
-
-		MDS12425PFCastanedaThorpePersistentManager.instance().disposePersistentManager();
+	    PersistentTransaction t = MDS12425PFCastanedaThorpePersistentManager
+	        .instance().getSession().beginTransaction();
+	    try {
+	        // 1) Recuperar con 'get' en vez de 'load' para evitar ObjectNotFoundException
+	        Comentario comentario = ComentarioDAO.getComentarioByORMID(aIdComentario);
+	        if (comentario != null) {
+	            // 2) Método generado por VP: quita el comentario de:
+	            //    - tweet.tiene_comentario
+	            //    - usuario.publica_comentario
+	            //    - limpia comlikeado_por, comentario_contiene…
+	            ComentarioDAO.deleteAndDissociate(comentario);
+	        }
+	        t.commit();
+	    } catch (Exception e) {
+	        t.rollback();
+	        throw e;
+	    } finally {
+	        MDS12425PFCastanedaThorpePersistentManager
+	            .instance().disposePersistentManager();
+	    }
 	}
+
+
 
 	/**
 	 * Quita el "Me gusta" de un comentario: elimina la relación entre el usuario y el comentario,

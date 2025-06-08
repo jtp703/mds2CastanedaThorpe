@@ -41,12 +41,11 @@ public class Listadotweets_item extends VistaListadotweets_item {
 					Image img = new Image(documento.getUrl(), "Documento");
 					this.setDoc1(img);
 				} else if(documento != null){
-					this.getDoc2().setSrc(documento.getUrl());
+					Image img = new Image(documento.getUrl(), "Documento");
+					this.setDoc2(img);
 				}
 			}
 		}
-		//falta funcionalidad settear mg y retweet con color si el usuario ya lo ha hecho.
-		//falta funcionalidad imagen.
 	}
 
 	public Listadotweets_item(Vercomentarios _vercomentarios, base_de_datos.Tweet tweet) {

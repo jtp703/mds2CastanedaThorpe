@@ -11,11 +11,11 @@ public class ListadocomentariosAdministrador extends Listadocomentarios {
 	
 	public Vector<ListadocomentariosAdministrador_item> _item = new Vector<ListadocomentariosAdministrador_item>();
 	public VercomentariosAdminstrador _vercomentariosAdminstrador;
-	public ListadotweetsAdministrador _listadoTweetsAdministrador;
 	
 	
 	public ListadocomentariosAdministrador(VercomentariosAdminstrador _vercomentariosAdministrador) {
 		super(_vercomentariosAdministrador);
+		this._vercomentariosAdminstrador = _vercomentariosAdministrador;
 		this.getContenedorEscribirComentarios().setVisible(false);
 		Comentario[] comentarios = _vercomentariosAdministrador.tweet.tiene_comentario.toArray();
 		

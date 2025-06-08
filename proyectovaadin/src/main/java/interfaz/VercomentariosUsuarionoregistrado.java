@@ -14,33 +14,16 @@ public class VercomentariosUsuarionoregistrado extends Vercomentarios {
 	public Tweet tweet;
 
 	public VercomentariosUsuarionoregistrado(
-			ListadocomentariosUsuarionoregistrado _listadocomentariosUsuarionoregistrado) {
-		super(_listadocomentariosUsuarionoregistrado);
-		//this.tweet = _listadocomentariosUsuarionoregistrado
-		this._listadotweetsUsuarionoregistradoitem = new ListadotweetsUsuarionoregistrado_item(this, _listadotweetsUsuarionoregistradoitem.tweet);
-		this._listadotweetsUsuarionoregistradoitem.getContenedorInteracciones().setVisible(false);
-		this.getContenedorTweet().as(VerticalLayout.class).add(this._listadotweetsUsuarionoregistradoitem);
-		ListadocomentariosUsuarionoregistrado listado = new ListadocomentariosUsuarionoregistrado(this);
-		this.getContenedorListadoComentarios().as(VerticalLayout.class).add(listado);
-		this.getBtnVovler().addClickListener(event -> btnVolver());
-	}
-
-	public VercomentariosUsuarionoregistrado(
 			ListadotweetsUsuarionoregistrado_item _listadotweetsUsuarionoregistradoitem) {
 		super(_listadotweetsUsuarionoregistradoitem);
 		this.tweet = _listadotweetsUsuarionoregistradoitem.tweet;
-		this._listadotweetsUsuarionoregistradoitem = new ListadotweetsUsuarionoregistrado_item(this, _listadotweetsUsuarionoregistradoitem.tweet);
+		this._listadotweetsUsuarionoregistradoitem = new ListadotweetsUsuarionoregistrado_item(this, this.tweet);
 		this._listadotweetsUsuarionoregistradoitem.getContenedorInteracciones().setVisible(false);
 		this.getContenedorTweet().as(VerticalLayout.class).add(this._listadotweetsUsuarionoregistradoitem);
 		ListadocomentariosUsuarionoregistrado listado = new ListadocomentariosUsuarionoregistrado(this);
 		this.getContenedorListadoComentarios().as(VerticalLayout.class).add(listado);
 		this.getBtnVovler().addClickListener(event -> btnVolver());
 	}
-
-	/*
-	 * public void ListadocomentariosUsuarioregistrado() { throw new
-	 * UnsupportedOperationException(); }
-	 */
 
 	public void btnVolver() {
 		MainView.Pantalla.volver();

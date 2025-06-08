@@ -41,6 +41,14 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
                 break;
             }
         }
+        
+        for(base_de_datos.Usuario u: tweet.reetweteado_por.toArray()) {
+        	if(u.getID() == usuario._usuarioregistrado.getID()) {
+				marcarRetweet();
+				break;
+			}
+        }
+        
         this.getMeGusta().getStyle().set("color", megusta ? "red" : "black");
     }
 

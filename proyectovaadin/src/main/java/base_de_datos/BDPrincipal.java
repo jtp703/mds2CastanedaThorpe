@@ -167,11 +167,9 @@ public class BDPrincipal implements
     }
 
     @Override
-    public Tweet retweet(int aIdTweetRetweteado, String aTexto) {
-        // Al igual que escribirTweet, retweet requiere ID de usuario; usamos 0 como placeholder
-        int aIdUsuario = 0; // TODO: sustituir por ID real del usuario actual
+    public Tweet retweet(int idUsuario, int aIdTweetRetweteado, String aTexto) {
         try {
-            return _bD_Publicaciones.retweet(aIdTweetRetweteado, aIdUsuario, aTexto);
+            return _bD_Publicaciones.retweet(idUsuario, aIdTweetRetweteado, aTexto);
         } catch (PersistentException e) {
             throw new RuntimeException(e);
         }

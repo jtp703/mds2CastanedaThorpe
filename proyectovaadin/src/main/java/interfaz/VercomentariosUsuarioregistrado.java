@@ -8,7 +8,6 @@ import base_de_datos.Tweet;
 
 public class VercomentariosUsuarioregistrado extends Vercomentarios {
 
-	// private event _comentar;
 	public ListadotweetsUsuarioregistrado_item _listadotweetsUsuarioregistradoitem;
 	public ListadocomentariosUsuarioregistrado _listadocomentariosUsuarioregistrado;
 	public Tweet _tweet;
@@ -23,12 +22,7 @@ public class VercomentariosUsuarioregistrado extends Vercomentarios {
 		this.getContenedorListadoComentarios().as(VerticalLayout.class).add(listadoComentarios);
 		this.getBtnVovler().addClickListener(event -> btnVolver());
 	}
-
-	/*
-	 * public void ListadocomentariosUsuarioregistrado() { throw new
-	 * UnsupportedOperationException(); }
-	 */
-
+	
 	public void btnVolver() {
 		MainView.Pantalla.volver();
 	}

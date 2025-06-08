@@ -11,9 +11,11 @@ public class ListadotweetsUsuarionoregistrado_item extends Listadotweets_item {
 	public VerperfilUsuarionoregistrado _verperfilUsuarionoregistrado;
 	public Usuarionoregistrado usuario;
 	public base_de_datos.Usuario usu;
+	public base_de_datos.Tweet tweet;
 	
 	public ListadotweetsUsuarionoregistrado_item(ListadotweetsUsuarionoregistrado listadotweetsUsuarionoregistrado, base_de_datos.Tweet tweet) {
 		super(listadotweetsUsuarionoregistrado, tweet);
+		this.tweet = tweet;
 		this._listadotweetsUsuarionoregistrado = listadotweetsUsuarionoregistrado;
 		this.usuario = listadotweetsUsuarionoregistrado._vermuroPrincipalUsuarionoregistrado._usuarioNoRegistrado;
 		this.getBtnEliminarTweet().setVisible(false);
