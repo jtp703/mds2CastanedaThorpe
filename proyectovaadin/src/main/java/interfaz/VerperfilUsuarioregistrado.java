@@ -1,6 +1,8 @@
 package interfaz;
 
 import org.vaadin.example.MainView;
+
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.notification.Notification;
@@ -19,6 +21,7 @@ public class VerperfilUsuarioregistrado extends Verperfildeusuario {
 	private Icon iconoSeguir;
 	private Icon iconoBloquear;
     public base_de_datos.Usuario usuario;
+    private boolean yaLoSigue;
 
     public VerperfilUsuarioregistrado(Usuarioregistrado usuarioregistrado, base_de_datos.Usuario _usuario) {
         super(usuarioregistrado, _usuario);
@@ -40,8 +43,12 @@ public class VerperfilUsuarioregistrado extends Verperfildeusuario {
 		this.getContenedorListadotweets().as(VerticalLayout.class).add(listadotweetsUsuarioregistrado);
 		super.cargarUsuario(_usuario);
 		
-		iconoSeguir = new Icon(VaadinIcon.USER_CHECK);
-		this.getBtnSeguir().setIcon(iconoSeguir);
+		yaLoSigue = usuarioregistrado._usuarioregistrado.sigue.contains(usuario);
+		Seguir_usuario_desde_perfil();
+		
+		this.getBtnSeguir().addClickListener(event -> alternarSeguir());
+		//iconoSeguir = new Icon(VaadinIcon.USER_CHECK);
+		//this.getBtnSeguir().setIcon(iconoSeguir);
 		iconoBloquear = new Icon(VaadinIcon.BAN);
 		this.getBtnBloquear().setIcon(iconoBloquear);
 		
@@ -107,19 +114,42 @@ public class VerperfilUsuarioregistrado extends Verperfildeusuario {
 	}
 
 	public void Seguir_usuario_desde_perfil() {
-	    boolean siguiendo = iconoSeguir.getElement().getAttribute("icon")
-	        .equals("vaadin:" + VaadinIcon.USER_CHECK.name().toLowerCase());
-
-	    if (siguiendo) {
-	        iconoSeguir = new Icon(VaadinIcon.USER);
-	        getBtnSeguir().setIcon(iconoSeguir);
-	        getBtnSeguir().setText("Siguiendo");
-	        getBtnSeguir().getStyle().set("color", "blue");
-	    } else {
-	        iconoSeguir = new Icon(VaadinIcon.USER_CHECK);
-	        getBtnSeguir().setIcon(iconoSeguir);
-	        getBtnSeguir().setText("Seguir");
-	        getBtnSeguir().getStyle().set("color", "green");
+		Button boton = this.getBtnSeguir();
+		if (yaLoSigue) {
+			boton.setText("Siguiendo");
+			boton.getStyle().set("color", "white");
+			boton.getStyle().set("background-color", "red");
+		} else {
+			boton.setText("Seguir");
+			boton.getStyle().set("color", "white");
+			boton.getStyle().set("background-color", "green");
+		}
+	}
+	
+	private void alternarSeguir() {
+	    try {
+	        if (yaLoSigue) {
+	            this.usuarioregistrado.iUsuarioregistrado.dejarSeguir(usuarioregistrado._usuarioregistrado.getID(), usuario.getID());
+	            // usuario.sigue.remove(usuarioListado);  // opcional: puedes quitarlo
+	            yaLoSigue = false;
+	        } else {
+	            this.usuarioregistrado.iUsuarioregistrado.seguirUsuario(usuarioregistrado._usuarioregistrado.getID(), usuario.getID());
+	            // usuario.sigue.add(usuarioListado);  // opcional: puedes quitarlo
+	            yaLoSigue = true;
+	        }
+	        Seguir_usuario_desde_perfil();
+	        Usuarioregistrado ur = new Usuarioregistrado(
+	        		usuarioregistrado.mainView, usuarioregistrado.iUsuarioregistrado.
+	        		cargarPerfilUsuarioregistrado(
+	        				usuarioregistrado._usuarioregistrado.getID()
+	        				));
+	        
+	        MainView.Pantalla.cambiarVista(ur);
+	        
+	    
+	    } catch (Exception e) {
+	        System.out.println("Error al alternar seguimiento:");
+	        e.printStackTrace();
 	    }
 	}
 	
