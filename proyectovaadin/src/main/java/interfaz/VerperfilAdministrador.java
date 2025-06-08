@@ -22,6 +22,7 @@ public class VerperfilAdministrador extends Verperfildeusuario {
 	
 	public VerperfilAdministrador(Administrador _administrador, Usuario _usuario) {
 		super(_administrador, _usuario);
+		this._administrador = _administrador;
 		this.usuario = _usuario;
 		this.getBtnBloquear().setVisible(false);
 		this.getBtnSeguir().setVisible(false);
@@ -85,6 +86,7 @@ public class VerperfilAdministrador extends Verperfildeusuario {
 	}
 
 	private void Verlistadodeseguidos(UsuarioSetCollection seguidos) {
+		
 		verListadoseguidos = new Verlistadodeseguidos(this, seguidos.toArray());
 		MainView.Pantalla.cambiarVista(verListadoseguidos);
 	}

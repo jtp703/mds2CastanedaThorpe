@@ -17,6 +17,9 @@ public class Listadodeusuariosadministrador_item extends Listadousuarios_item{
 	
 	public Listadodeusuariosadministrador_item(VerperfilAdministrador _verperfiladministrador, base_de_datos.Usuario usuario) {
 		super(_verperfiladministrador, usuario);
+		this._verperfiladministrador = _verperfiladministrador;
+		this._usuario = usuario;
+		this.administrador = _verperfiladministrador._administrador;
 		this.getSeguirUsuario().setVisible(false);
 		this.getVerperfil().addClickListener(event -> VerperfilAdministrador(administrador));
 	}
