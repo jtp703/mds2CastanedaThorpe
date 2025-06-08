@@ -12,6 +12,7 @@ public class ListadotweetsAdministrador_item extends Listadotweets_item {
 	public VercomentariosAdminstrador _vercomentariosAdminstrador;
 	public Administrador admin;
 	public base_de_datos.Tweet tweet;
+	public base_de_datos.Usuario usu;
 	
 	public ListadotweetsAdministrador_item(ListadotweetsAdministrador listadotweetsAdministrador, base_de_datos.Tweet tweet) {
 		super(listadotweetsAdministrador, tweet);
@@ -26,6 +27,9 @@ public class ListadotweetsAdministrador_item extends Listadotweets_item {
 	public ListadotweetsAdministrador_item(VercomentariosAdminstrador _vercomentariosAdminstrador, base_de_datos.Tweet tweet) {
 		super(_vercomentariosAdminstrador, tweet);
 		this._vercomentariosAdminstrador = _vercomentariosAdminstrador;
+		this.tweet = tweet;
+		this.usu = tweet.tweeteado_por;
+		
 		this.getVerperfil().addClickListener(event -> verPerfilUsuarioRegistrado());
 		this.getComentar().addClickListener(event -> VercomentariosAdministrador());
 		this.getBtnEliminarTweet().addClickListener(event -> Eliminartweet());

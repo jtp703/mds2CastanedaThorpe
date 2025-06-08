@@ -14,6 +14,7 @@ public class Megustas extends VistaMegustas {
 	public ListadotweetsUsuarionoregistrado _listadotweetsUsuarionoregistrado;
 	public VerperfilUsuarioregistrado _verperfilUsuarioregistrado;
 	public VerperfilAdministrador _verperfilAdministrador;
+	public Verperfilpersonal _verperfilpersonal;
 	public VerperfilUsuarionoregistrado _verperfilUsuarionoregistrado;
 
 	public Megustas(Verperfildeusuario _verperfil) {
@@ -30,6 +31,10 @@ public class Megustas extends VistaMegustas {
 			_verperfilUsuarionoregistrado = (VerperfilUsuarionoregistrado) _verperfil;
 			_listadotweetsUsuarionoregistrado = new ListadotweetsUsuarionoregistrado(this, _verperfilUsuarionoregistrado.usuario.likea.toArray());
 			this.getContenedorMegustas().as(VerticalLayout.class).add(_listadotweetsUsuarionoregistrado);
+		} else if( _verperfil instanceof Verperfilpersonal) {
+			_verperfilpersonal = (Verperfilpersonal) _verperfil;
+			_listadotweetsUsuarioregistrado = new ListadotweetsUsuarioregistrado(this, _verperfilpersonal.usuario.likea.toArray());
+			this.getContenedorMegustas().as(VerticalLayout.class).add(_listadotweetsUsuarioregistrado);
 		} else {
 			throw new UnsupportedOperationException("Tipo de perfil no soportado para me gustas.");
 		}

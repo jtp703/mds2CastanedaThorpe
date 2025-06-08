@@ -51,5 +51,8 @@ public class Listadotweets_item extends VistaListadotweets_item {
 	public Listadotweets_item(Vercomentarios _vercomentarios, base_de_datos.Tweet tweet) {
 		this._vercomentarios = _vercomentarios;
 		this.tweet = tweet;
+		this.getVerperfil().setText(tweet.getTweeteado_por().getNick());
+		this.getTextoTweet().setText(tweet.getTexto());
+		this.getBtnEliminarTweet().setVisible(false);
 	}
 }

@@ -25,7 +25,7 @@ public class ListadocomentariosUsuarioregistrado extends Listadocomentarios {
 				_listadotweetsUsuarioregistrado._vermuroprincipalUsuarioregistrado._usuarioregistrado;
 		this.usuario = this.usuarioRegistrado._usuarioregistrado;
 		
-		Comentario[] comentarios = _vercomentariosUsuarioregistrado._tweet.tiene_comentario.toArray();
+		Comentario[] comentarios = _vercomentariosUsuarioregistrado.tweet.tiene_comentario.toArray();
 		
 		if(comentarios.length != 0) {
 		
@@ -53,7 +53,7 @@ public class ListadocomentariosUsuarioregistrado extends Listadocomentarios {
 		try {
 			Comentario nuevoComentario = this.usuarioRegistrado.iUsuarioregistrado.escribirComentario(
 					idUsuario, 
-					_vercomentariosUsuarioregistrado._tweet.getIdTweet(), 
+					_vercomentariosUsuarioregistrado.tweet.getIdTweet(), 
 					textoComentario
 					);
 

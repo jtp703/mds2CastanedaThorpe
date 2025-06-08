@@ -24,13 +24,18 @@ public class ListadotweetsUsuarionoregistrado_item extends Listadotweets_item {
 		this.getComentar().addClickListener(event -> verComentariosUsuarioNoRegistrado());
 	}
 	
-	public ListadotweetsUsuarionoregistrado_item(VercomentariosUsuarionoregistrado _vercomentariosUsuarionoregistrado, base_de_datos.Tweet tweet) {
-		super(_vercomentariosUsuarionoregistrado, tweet);
-		this.getBtnEliminarTweet().setVisible(false);
-		this.usu = tweet.tweeteado_por;
-		this.getVerperfil().addClickListener(event -> verPerfilUsuarioNoRegistrado());
-		this.getComentar().addClickListener(event -> verComentariosUsuarioNoRegistrado());
+	public ListadotweetsUsuarionoregistrado_item(
+	        VercomentariosUsuarionoregistrado verComentarios,
+	        base_de_datos.Tweet tweet
+	) {
+	    super(verComentarios, tweet);
+	    this.tweet = tweet;
+	    this._vercomentariosUsuarionoregistrado = verComentarios;
+	    this.usu = tweet.tweeteado_por;
+	    this.getVerperfil().addClickListener(e -> verPerfilUsuarioNoRegistrado());
+	    this.getComentar().addClickListener(e -> verComentariosUsuarioNoRegistrado());
 	}
+
 	
 	//Probablemente deba ser especifico para el no registrado, pero aun no se sabe
 	public void verComentariosUsuarioNoRegistrado() {
