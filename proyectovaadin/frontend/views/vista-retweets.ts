@@ -13,7 +13,7 @@ export class VistaRetweets extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;position:absolute;" id="contenedorRetweets"></vaadin-vertical-layout>
+<vaadin-vertical-layout style="width: 100%; height: 100%;" id="contenedorRetweets"></vaadin-vertical-layout>
 `;
   }
 

@@ -39,6 +39,7 @@ public class Notificaciones extends VistaNotificaciones {
 				}
 			}
 		}
+		
 	}
 	
 	public void VerNoticacionesRetweets() {
@@ -56,6 +57,7 @@ public class Notificaciones extends VistaNotificaciones {
 				}
 			}
 		}
+		
 	}
 	public void VerNoticacionesMenciones() {
 		this.getContenedorNofiticiacionesItem().as(VerticalLayout.class).removeAll();
@@ -70,6 +72,7 @@ public class Notificaciones extends VistaNotificaciones {
 		}
 		for(Usuario usuario: _usuario.es_seguido.toArray()) {
 			Notificaciones_item item = new Notificaciones_item(this, usuario, ("Te ha seguido"));
+			
 			this.getContenedorNofiticiacionesItem().as(VerticalLayout.class).add(item);
 			_vectoritem.add(item);
 		}

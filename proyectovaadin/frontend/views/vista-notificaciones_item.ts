@@ -17,7 +17,7 @@ export class VistaNotificaciones_item extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%;position:absolute;" id="_layoutNotificacionUsuario">
+<vaadin-vertical-layout style="width: 100%;" id="_layoutNotificacionUsuario">
  <vaadin-vertical-layout theme="spacing" id="_LayoutRetweetUsuario" style="width: 100%; flex-grow: 0; flex-shrink: 0;">
   <vaadin-horizontal-layout theme="spacing-l" style="background-color: #f0f0f0; flex-shrink: 0; align-self: stretch; align-items: center;">
    <vaadin-button tabindex="0" id="verperfil">

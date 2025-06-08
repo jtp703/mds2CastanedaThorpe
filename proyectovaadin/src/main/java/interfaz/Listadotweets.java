@@ -16,7 +16,6 @@ public class Listadotweets extends VistaListadotweets {
 	public Verperfildeusuario _verperfildeusuario;
 	public Vermuroprincipal _vermuroprincipal;
 	public Vector<Listadotweets_item> _item = new Vector<Listadotweets_item>();
-	
 
 	public Listadotweets(Megustas _megustas) {
 		this._megustas = _megustas;
@@ -34,7 +33,7 @@ public class Listadotweets extends VistaListadotweets {
 					item.getBtnEliminarTweet().setVisible(false);
 					item.getContenedorInteracciones().setVisible(false);
 					_item.add(item);
-					this.getContenedorListadoTweets().as(VerticalLayout.class).add(item);
+					this.getContenedorListadoTweets_item().as(VerticalLayout.class).add(item);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();

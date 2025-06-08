@@ -39,10 +39,10 @@ export class VistaVerperfildeusuario extends LitElement {
 <vaadin-vertical-layout style="width: 100%; height: 100%;position:absolute;" id="contenedorVerPerfil">
  <vaadin-vertical-layout theme="spacing" id="contenedorImgFondo" style="align-self: stretch;">
   <vaadin-vertical-layout theme="spacing" id="contenedorImgPerfil" style="align-items: center; flex-grow: 0; align-self: center;">
-    <div id="headerBanner">
-    	<h1 id="nombreUsuario" style="align-self: center;">Heading 1</h1>
-    	<img id="imgFondo" />
-    </div>
+   <div id="headerBanner">
+    <h1 id="nombreUsuario" style="align-self: center;">Heading 1</h1>
+    <img id="imgFondo">
+   </div>
   </vaadin-vertical-layout>
  </vaadin-vertical-layout>
  <vaadin-vertical-layout theme="spacing" style="align-self: stretch; flex-shrink: 0;">
@@ -130,7 +130,7 @@ export class VistaVerperfildeusuario extends LitElement {
    </vaadin-button>
   </vaadin-horizontal-layout>
  </vaadin-vertical-layout>
- <vaadin-vertical-layout theme="spacing" id="contenedorListadotweets" style="align-self: stretch; flex-grow: 1;"></vaadin-vertical-layout>
+ <vaadin-vertical-layout theme="spacing" id="contenedorListadotweets" style="align-self: stretch; flex-grow: 1;border: 2px solid #888;"></vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;
   }

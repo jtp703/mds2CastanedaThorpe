@@ -1,9 +1,11 @@
 import { LitElement, html, css, customElement } from 'lit-element';
+import '@vaadin/list-box/src/vaadin-list-box.js';
+import '@vaadin/item/src/vaadin-item.js';
+import '@vaadin/select/src/vaadin-select.js';
 import '@vaadin/button/src/vaadin-button.js';
 import '@vaadin/text-area/src/vaadin-text-area.js';
-import '@vaadin/horizontal-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/text-field/src/vaadin-text-field.js';
-import '@vaadin/select/src/vaadin-select.js';
+import '@vaadin/horizontal-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vertical-layout/src/vaadin-vertical-layout.js';
 
 @customElement('vista-listadotweets')
@@ -42,24 +44,19 @@ box-sizing: border-box; width: 100%;" id="contenedorListadoTweets">
     <vaadin-text-field id="url1" style="align-self: center;" type="text" label="Url 1">
       TextText 
     </vaadin-text-field>
-    <vaadin-select id="select1" style="align-self: flex-end;">
-      imagenvideo 
-    </vaadin-select>
+    <vaadin-select id="select1" label="Tipo"></vaadin-select>
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout theme="spacing" style="align-self: center;">
     <vaadin-text-field style="align-self: center;" type="text" label="Url 2" id="url2">
       TextText 
     </vaadin-text-field>
-    <vaadin-select style="align-self: flex-end;" id="select2">
-      imagenvideo 
-    </vaadin-select>
+    <vaadin-select id="select2" label="Tipo"></vaadin-select>
    </vaadin-horizontal-layout>
   </vaadin-horizontal-layout>
  </vaadin-vertical-layout>
  <vaadin-vertical-layout theme="spacing-s" id="contenedorListadoTweets_item" style="flex: 1 1 auto; /* flex-grow:1; flex-shrink:1; flex-basis:auto */
 width: 80%; max-width: 80%; /* quitamos height:100% para que la altura sea la del contenido */
-height: auto; /* quitamos el overflow—lo gestiona el padre con scroll */
-overflow: visible; box-sizing: border-box; width: 70%; align-self: center;"></vaadin-vertical-layout>
+height: auto; box-sizing: border-box; width: 70%; align-self: center;"></vaadin-vertical-layout>
 </vaadin-vertical-layout>
 `;
   }

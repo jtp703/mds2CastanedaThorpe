@@ -22,6 +22,9 @@ public class Usuarioregistrado extends Cibernauta {
 		super(_mainView);
 		this.mainView = _mainView;
 		this._usuarioregistrado = usuarioregistrado;
+		_vermuroprincipalUsuarioregistrado = new VermuroprincipalUsuarioregistrado(this);
+		
+		this.getContenedorContenido().as(VerticalLayout.class).add(_vermuroprincipalUsuarioregistrado);
 		this.getContenedorRegistro().setVisible(false);
 		this.getBtnCerrrarSesion().setVisible(false);
 		this.getVerPerfilPersonal().setText(usuarioregistrado.getNick());

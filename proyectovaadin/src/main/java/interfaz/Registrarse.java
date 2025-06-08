@@ -3,7 +3,6 @@ package interfaz;
 import org.vaadin.example.MainView;
 
 import com.vaadin.flow.component.notification.Notification;
-import com.vaadin.flow.component.notification.Notification.Position;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import vistas.VistaRegistrarse;
@@ -29,7 +28,7 @@ public class Registrarse extends VistaRegistrarse{
 	}
 	
 	private void btnVolver() {
-		MainView.Pantalla.volver();
+		MainView.Pantalla.cambiarVista(this._usuarionoregistrado);
 	}
 	
 	private void registrarse() {
@@ -44,18 +43,6 @@ public class Registrarse extends VistaRegistrarse{
 			Notification.show("Porfavor rellene todos los campos obligatorios");
 			return;
 		}
-		
-		 // Validación de contraseña: 8–14 caracteres, al menos una mayúscula y un carácter especial
-        String password = this.getContrasenia().getValue().trim();
-        String pattern = "^(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,14}$";
-        if (!password.matches(pattern)) {
-            Notification.show(
-                "Contraseña no válida: debe tener 8–14 caracteres, al menos una mayúscula y un carácter especial",
-                3000,
-                Position.MIDDLE
-            );
-            return;
-        }
 		
 		//fecha de registro, necesita ser actualizada en la base de datos
 		Usuarioregistrado u = new Usuarioregistrado(this._usuarionoregistrado.mainView,

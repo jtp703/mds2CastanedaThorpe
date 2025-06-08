@@ -1,5 +1,7 @@
 package vistas;
 
+import java.util.List;
+
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.littemplate.LitTemplate;
@@ -39,14 +41,22 @@ public class VistaListadotweets extends LitTemplate {
 	@Id("textoTweet")
 	private TextArea textoTweet;
 
-	@Id("select1")
-	private Select select1;
-
-	@Id("select2")
-	private Select select2;
+	@Id("select1") 
+	private Select<String> select1;
+	@Id("select2") 
+	private Select<String> select2;
 
 	public VistaListadotweets() {
 		// You can initialise any data required for the connected UI components here.
+		List<String> tipos = List.of("Imagen", "Video");
+
+	    // 2. Cárgalas en ambos selects
+	    select1.setItems(tipos);
+	    select2.setItems(tipos);
+
+	    // 3. (Optativo) placeholder o valor por defecto
+	    select1.setPlaceholder("Tipo");
+	    select2.setPlaceholder("Tipo");
 	}
 
 	public Select getSelect1() {

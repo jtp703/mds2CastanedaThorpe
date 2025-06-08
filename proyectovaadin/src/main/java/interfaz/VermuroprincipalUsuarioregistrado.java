@@ -6,7 +6,6 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 public class VermuroprincipalUsuarioregistrado extends Vermuroprincipal {
 	
-//	private event _enviartweet;
 	public Usuarioregistrado _usuarioregistrado;
 	public ListadotweetsUsuarioregistrado _listadotweetsUsuarioregistrado;
 	
@@ -17,12 +16,4 @@ public class VermuroprincipalUsuarioregistrado extends Vermuroprincipal {
 		this.getContenedorListadoTweetsMuroPrincipal().as(VerticalLayout.class).add(_listadotweetsUsuarioregistrado);
 		
 	}
-	
-	public VermuroprincipalUsuarioregistrado(ListadotweetsUsuarioregistrado _listadotweetsUsuarioregistrado) {
-		super(_listadotweetsUsuarioregistrado);
-	}
-
-	/*public void ListadotweetsUsuarioregistrado() {
-		throw new UnsupportedOperationException();
-	}*/ 
 }

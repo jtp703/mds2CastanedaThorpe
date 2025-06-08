@@ -63,7 +63,8 @@ public class ListadotweetsUsuarioregistrado extends Listadotweets {
                 3000, Position.MIDDLE
             );
         }
-
+		this.getVerPerfilPersonal().addClickListener(event ->
+        MainView.Pantalla.cambiarVista(new Verperfilpersonal(vermuroprincipalUsuarioregistrado._usuarioregistrado)));
 		this.getBtnEnviarTweet().addClickListener(event -> Enviartweet());
 
 		this.getVerPerfilPersonal().addClickListener(event -> verPerfilPersonal());
@@ -104,60 +105,68 @@ public class ListadotweetsUsuarioregistrado extends Listadotweets {
 	}
 
 	public void Enviartweet() {
+	    // 1. Obtención de datos básicos
+	    int idUsuario = this._vermuroprincipalUsuarioregistrado
+	                          ._usuarioregistrado
+	                          ._usuarioregistrado
+	                          .getID();
 
-		int idUsuario = this._vermuroprincipalUsuarioregistrado._usuarioregistrado._usuarioregistrado.getID();
+	    String texto = getTextoTweet().getValue().trim();
+	    if (texto.isEmpty()) {
+	        Notification.show("El texto del tweet no puede estar vacío");
+	        return;
+	    }
 
-		String texto = this.getTextoTweet().getValue().trim();
-		if (texto.isEmpty()) {
-			Notification.show("El texto del tweet no puede estar vacío");
-			return;
-		}
+	    // 2. Recogida de URLs + tipos
+	    List<String> listaUrls  = new ArrayList<>();
+	    List<String> listaTipos = new ArrayList<>();
 
-		String url1 = this.getUrl1().getValue().trim();
-		String tipo1 = (String) this.getSelect1().getValue();
+	    // helper para no repetir código
+	    addAdjunto(listaUrls, listaTipos, getUrl1().getValue(), (String) getSelect1().getValue());
+	    addAdjunto(listaUrls, listaTipos, getUrl2().getValue(), (String) getSelect2().getValue());
 
-		String url2 = this.getUrl2().getValue().trim();
-		String tipo2 = (String) this.getSelect2().getValue();
+	    // 3. Conversión a arrays (nunca null)
+	    String[] documentosArray = listaUrls .toArray(new String[0]);
+	    String[] tiposArray      = listaTipos.toArray(new String[0]);
 
-		List<String> listaUrls = new ArrayList<>();
-		List<String> listaTipos = new ArrayList<>();
+	    try {
+	        // 4. Llamada al back-end
+	        Tweet nuevoTweet = this.iUsuarioregistrado
+	                              .escribirTweet(idUsuario, texto, documentosArray, tiposArray);
 
-		if (!url1.isEmpty() && tipo1 != null && !tipo1.isEmpty()) {
-			listaUrls.add(url1);
-			listaTipos.add(tipo1);
-		}
-		if (!url2.isEmpty() && tipo2 != null && !tipo2.isEmpty()) {
-			listaUrls.add(url2);
-			listaTipos.add(tipo2);
-		}
+	        // 5. Insertar el nuevo tweet al principio del listado
+	        ListadotweetsUsuarioregistrado_item itemNuevo =
+	            new ListadotweetsUsuarioregistrado_item(this, nuevoTweet);
+	        VerticalLayout layout =
+	            this.getContenedorListadoTweets_item()
+	                .as(VerticalLayout.class);
+	        layout.addComponentAsFirst(itemNuevo);
 
-		String[] documentosArray;
-		String[] tiposArray;
-		if (listaUrls.isEmpty()) {
-			documentosArray = null;
-			tiposArray = null;
-		} else {
-			documentosArray = listaUrls.toArray(new String[0]);
-			tiposArray = listaTipos.toArray(new String[0]);
-		}
+	        // 6. Reset del formulario y notificación
+	        resetForm();
+	        Notification.show("Tweet enviado correctamente", 1500, Position.BOTTOM_START);
 
-		try {
+	    } catch (Exception ex) {
+	        Notification.show("Error al enviar tweet: " + ex.getMessage(), 3000, Position.MIDDLE);
+	    }
+	}
 
-			Tweet nuevoTweet = this.iUsuarioregistrado.escribirTweet(idUsuario, texto, documentosArray, tiposArray);
-
-			ListadotweetsUsuarioregistrado_item itemNuevo = new ListadotweetsUsuarioregistrado_item(this, nuevoTweet);
-			this.getContenedorListadoTweets_item().as(VerticalLayout.class).addComponentAsFirst(itemNuevo);
-
-			this.getTextoTweet().clear();
-			this.getUrl1().clear();
-			this.getSelect1().clear();
-			this.getUrl2().clear();
-			this.getSelect2().clear();
-
-			Notification.show("Tweet enviado correctamente", 1500, Position.BOTTOM_START);
-		} catch (Exception ex) {
-			Notification.show("Error al enviar tweet: " + ex.getMessage(), 3000, Position.MIDDLE);
-		}
+	/** Añade un adjunto si URL y tipo son válidos */
+	private void addAdjunto(List<String> urls, List<String> tipos,
+	                        String url, String tipo) {
+	    if (url   != null && !url.trim().isEmpty() &&
+	        tipo  != null && !tipo.trim().isEmpty()) {
+	        urls .add(url.trim());
+	        tipos.add(tipo.trim());
+	    }
+	}
+	
+	private void resetForm() {
+	    getTextoTweet().clear();
+	    getUrl1()      .clear();
+	    getSelect1()   .clear();
+	    getUrl2()      .clear();
+	    getSelect2()   .clear();
 	}
 
 	public ListadotweetsUsuarioregistrado(Retweets _retweets, Tweet[] _retweetsArray) {

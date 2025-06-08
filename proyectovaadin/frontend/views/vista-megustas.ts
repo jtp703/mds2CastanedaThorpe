@@ -15,7 +15,7 @@ export class VistaMegustas extends LitElement {
 
   render() {
     return html`
-<vaadin-vertical-layout style="width: 100%; height: 100%;position:absolute;" id="contenedorMegustas"></vaadin-vertical-layout>
+<vaadin-vertical-layout style="width: 100%; height: 100%;" id="contenedorMegustas"></vaadin-vertical-layout>
 `;
   }
 
