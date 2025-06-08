@@ -24,6 +24,7 @@ public class VerperfilAdministrador extends Verperfildeusuario {
 		super(_administrador, _usuario);
 		this._administrador = _administrador;
 		this.usuario = _usuario;
+		
 		this.getBtnBloquear().setVisible(false);
 		this.getBtnSeguir().setVisible(false);
 		this.getBtnEditarPerfil().setVisible(false);
