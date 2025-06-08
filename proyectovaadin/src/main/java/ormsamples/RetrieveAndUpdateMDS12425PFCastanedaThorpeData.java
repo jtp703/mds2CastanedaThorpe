@@ -9,6 +9,9 @@ public class RetrieveAndUpdateMDS12425PFCastanedaThorpeData {
 	public void retrieveAndUpdateTestData() throws PersistentException {
 		PersistentTransaction t = base_de_datos.MDS12425PFCastanedaThorpePersistentManager.instance().getSession().beginTransaction();
 		try {
+			base_de_datos.UsuarioAutentificado base_de_datosUsuarioAutentificado = base_de_datos.UsuarioAutentificadoDAO.loadUsuarioAutentificadoByQuery(null, null);
+			// Update the properties of the persistent object
+			base_de_datos.UsuarioAutentificadoDAO.save(base_de_datosUsuarioAutentificado);
 			base_de_datos.Usuario base_de_datosUsuario = base_de_datos.UsuarioDAO.loadUsuarioByQuery(null, null);
 			// Update the properties of the persistent object
 			base_de_datos.UsuarioDAO.save(base_de_datosUsuario);
@@ -36,6 +39,12 @@ public class RetrieveAndUpdateMDS12425PFCastanedaThorpeData {
 	}
 	
 	public void retrieveByCriteria() throws PersistentException {
+		System.out.println("Retrieving UsuarioAutentificado by UsuarioAutentificadoCriteria");
+		base_de_datos.UsuarioAutentificadoCriteria base_de_datosUsuarioAutentificadoCriteria = new base_de_datos.UsuarioAutentificadoCriteria();
+		// Please uncomment the follow line and fill in parameter(s)
+		//base_de_datosUsuarioAutentificadoCriteria.ID.eq();
+		System.out.println(base_de_datosUsuarioAutentificadoCriteria.uniqueUsuarioAutentificado());
+		
 		System.out.println("Retrieving Usuario by UsuarioCriteria");
 		base_de_datos.UsuarioCriteria base_de_datosUsuarioCriteria = new base_de_datos.UsuarioCriteria();
 		// Please uncomment the follow line and fill in parameter(s)
@@ -45,7 +54,7 @@ public class RetrieveAndUpdateMDS12425PFCastanedaThorpeData {
 		System.out.println("Retrieving Tweet by TweetCriteria");
 		base_de_datos.TweetCriteria base_de_datosTweetCriteria = new base_de_datos.TweetCriteria();
 		// Please uncomment the follow line and fill in parameter(s)
-		//base_de_datosTweetCriteria.ID.eq();
+		//base_de_datosTweetCriteria.idTweet.eq();
 		System.out.println(base_de_datosTweetCriteria.uniqueTweet());
 		
 		System.out.println("Retrieving Comentario by ComentarioCriteria");

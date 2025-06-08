@@ -23,9 +23,8 @@ public class AdministradorDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final StringExpression nombre;
 	public final StringExpression mail;
 	public final StringExpression password;
-	public final LongExpression idAdministrador;
 	public final CollectionExpression elimina;
-	public final CollectionExpression administrador_tweet;
+	public final CollectionExpression elimina_tweet;
 	public final CollectionExpression banea;
 	
 	public AdministradorDetachedCriteria() {
@@ -34,10 +33,9 @@ public class AdministradorDetachedCriteria extends AbstractORMDetachedCriteria {
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
 		mail = new StringExpression("mail", this.getDetachedCriteria());
 		password = new StringExpression("password", this.getDetachedCriteria());
-		idAdministrador = new LongExpression("idAdministrador", this.getDetachedCriteria());
-		elimina = new CollectionExpression("ORM_Elimina", this.getDetachedCriteria());
-		administrador_tweet = new CollectionExpression("ORM_Administrador_tweet", this.getDetachedCriteria());
-		banea = new CollectionExpression("ORM_Banea", this.getDetachedCriteria());
+		elimina = new CollectionExpression("ORM_elimina", this.getDetachedCriteria());
+		elimina_tweet = new CollectionExpression("ORM_elimina_tweet", this.getDetachedCriteria());
+		banea = new CollectionExpression("ORM_banea", this.getDetachedCriteria());
 	}
 	
 	public AdministradorDetachedCriteria(DetachedCriteria aDetachedCriteria) {
@@ -46,22 +44,21 @@ public class AdministradorDetachedCriteria extends AbstractORMDetachedCriteria {
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
 		mail = new StringExpression("mail", this.getDetachedCriteria());
 		password = new StringExpression("password", this.getDetachedCriteria());
-		idAdministrador = new LongExpression("idAdministrador", this.getDetachedCriteria());
-		elimina = new CollectionExpression("ORM_Elimina", this.getDetachedCriteria());
-		administrador_tweet = new CollectionExpression("ORM_Administrador_tweet", this.getDetachedCriteria());
-		banea = new CollectionExpression("ORM_Banea", this.getDetachedCriteria());
+		elimina = new CollectionExpression("ORM_elimina", this.getDetachedCriteria());
+		elimina_tweet = new CollectionExpression("ORM_elimina_tweet", this.getDetachedCriteria());
+		banea = new CollectionExpression("ORM_banea", this.getDetachedCriteria());
 	}
 	
 	public base_de_datos.ComentarioDetachedCriteria createEliminaCriteria() {
-		return new base_de_datos.ComentarioDetachedCriteria(createCriteria("ORM_Elimina"));
+		return new base_de_datos.ComentarioDetachedCriteria(createCriteria("ORM_elimina"));
 	}
 	
-	public base_de_datos.TweetDetachedCriteria createAdministrador_tweetCriteria() {
-		return new base_de_datos.TweetDetachedCriteria(createCriteria("ORM_Administrador_tweet"));
+	public base_de_datos.TweetDetachedCriteria createElimina_tweetCriteria() {
+		return new base_de_datos.TweetDetachedCriteria(createCriteria("ORM_elimina_tweet"));
 	}
 	
 	public base_de_datos.UsuarioDetachedCriteria createBaneaCriteria() {
-		return new base_de_datos.UsuarioDetachedCriteria(createCriteria("ORM_Banea"));
+		return new base_de_datos.UsuarioDetachedCriteria(createCriteria("ORM_banea"));
 	}
 	
 	public Administrador uniqueAdministrador(PersistentSession session) {

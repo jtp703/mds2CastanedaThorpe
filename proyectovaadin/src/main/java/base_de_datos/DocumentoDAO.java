@@ -19,7 +19,7 @@ import org.hibernate.LockMode;
 import java.util.List;
 
 public class DocumentoDAO {
-	public static Documento loadDocumentoByORMID(long idDocumento) throws PersistentException {
+	public static Documento loadDocumentoByORMID(int idDocumento) throws PersistentException {
 		try {
 			PersistentSession session = base_de_datos.MDS12425PFCastanedaThorpePersistentManager.instance().getSession();
 			return loadDocumentoByORMID(session, idDocumento);
@@ -30,7 +30,7 @@ public class DocumentoDAO {
 		}
 	}
 	
-	public static Documento getDocumentoByORMID(long idDocumento) throws PersistentException {
+	public static Documento getDocumentoByORMID(int idDocumento) throws PersistentException {
 		try {
 			PersistentSession session = base_de_datos.MDS12425PFCastanedaThorpePersistentManager.instance().getSession();
 			return getDocumentoByORMID(session, idDocumento);
@@ -41,7 +41,7 @@ public class DocumentoDAO {
 		}
 	}
 	
-	public static Documento loadDocumentoByORMID(long idDocumento, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Documento loadDocumentoByORMID(int idDocumento, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = base_de_datos.MDS12425PFCastanedaThorpePersistentManager.instance().getSession();
 			return loadDocumentoByORMID(session, idDocumento, lockMode);
@@ -52,7 +52,7 @@ public class DocumentoDAO {
 		}
 	}
 	
-	public static Documento getDocumentoByORMID(long idDocumento, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Documento getDocumentoByORMID(int idDocumento, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = base_de_datos.MDS12425PFCastanedaThorpePersistentManager.instance().getSession();
 			return getDocumentoByORMID(session, idDocumento, lockMode);
@@ -63,9 +63,9 @@ public class DocumentoDAO {
 		}
 	}
 	
-	public static Documento loadDocumentoByORMID(PersistentSession session, long idDocumento) throws PersistentException {
+	public static Documento loadDocumentoByORMID(PersistentSession session, int idDocumento) throws PersistentException {
 		try {
-			return (Documento) session.load(base_de_datos.Documento.class, Long.valueOf(idDocumento));
+			return (Documento) session.load(base_de_datos.Documento.class, Integer.valueOf(idDocumento));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -73,9 +73,9 @@ public class DocumentoDAO {
 		}
 	}
 	
-	public static Documento getDocumentoByORMID(PersistentSession session, long idDocumento) throws PersistentException {
+	public static Documento getDocumentoByORMID(PersistentSession session, int idDocumento) throws PersistentException {
 		try {
-			return (Documento) session.get(base_de_datos.Documento.class, Long.valueOf(idDocumento));
+			return (Documento) session.get(base_de_datos.Documento.class, Integer.valueOf(idDocumento));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -83,9 +83,9 @@ public class DocumentoDAO {
 		}
 	}
 	
-	public static Documento loadDocumentoByORMID(PersistentSession session, long idDocumento, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Documento loadDocumentoByORMID(PersistentSession session, int idDocumento, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Documento) session.load(base_de_datos.Documento.class, Long.valueOf(idDocumento), lockMode);
+			return (Documento) session.load(base_de_datos.Documento.class, Integer.valueOf(idDocumento), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -93,9 +93,9 @@ public class DocumentoDAO {
 		}
 	}
 	
-	public static Documento getDocumentoByORMID(PersistentSession session, long idDocumento, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Documento getDocumentoByORMID(PersistentSession session, int idDocumento, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Documento) session.get(base_de_datos.Documento.class, Long.valueOf(idDocumento), lockMode);
+			return (Documento) session.get(base_de_datos.Documento.class, Integer.valueOf(idDocumento), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

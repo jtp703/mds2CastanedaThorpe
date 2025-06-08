@@ -1,5 +1,7 @@
 package interfaz;
 
+import java.util.Vector;
+
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import vistas.VistaMegustas;
@@ -7,23 +9,36 @@ import vistas.VistaMegustas;
 public class Megustas extends VistaMegustas {
 	
 	public Verperfildeusuario _verperfildeusuario;
-	public Listadotweets _listadotweets;
-	Listadodeusuariosusuarioregistrado luur;
-	
-	public Megustas(Verperfildeusuario _verperfildeusuario) {
-		this._verperfildeusuario = _verperfildeusuario;
-		Listadodeusuariosusuarioregistrado_item item0 = new Listadodeusuariosusuarioregistrado_item(luur);
-		this.getContenedorListadoMegustas().as(VerticalLayout.class).add(item0);
-		Listadodeusuariosusuarioregistrado_item item1 = new Listadodeusuariosusuarioregistrado_item(luur);
-		this.getContenedorListadoMegustas().as(VerticalLayout.class).add(item1);
-		
-	}
-	
-	public Megustas(Listadotweets _listadotweets) {
-		this._listadotweets = _listadotweets;
-	}
+	public ListadotweetsUsuarioregistrado _listadotweetsUsuarioregistrado;
+	public ListadotweetsAdministrador _listadotweetsAdministrador;
+	public ListadotweetsUsuarionoregistrado _listadotweetsUsuarionoregistrado;
+	public VerperfilUsuarioregistrado _verperfilUsuarioregistrado;
+	public VerperfilAdministrador _verperfilAdministrador;
+	public Verperfilpersonal _verperfilpersonal;
+	public VerperfilUsuarionoregistrado _verperfilUsuarionoregistrado;
 
-	public void Listadotweets() {
-		throw new UnsupportedOperationException();
+	public Megustas(Verperfildeusuario _verperfil) {
+		this._verperfildeusuario = _verperfil;
+		if (_verperfil instanceof VerperfilUsuarioregistrado) {
+			_verperfilUsuarioregistrado = (VerperfilUsuarioregistrado) _verperfil;
+			_listadotweetsUsuarioregistrado = new ListadotweetsUsuarioregistrado(this, _verperfilUsuarioregistrado.usuario.likea.toArray());
+			_listadotweetsUsuarioregistrado.getContenedorNuevoTweet().setVisible(false);
+			this.getContenedorMegustas().as(VerticalLayout.class).add(_listadotweetsUsuarioregistrado);
+		} else if (_verperfil instanceof VerperfilAdministrador) {
+			_verperfilAdministrador = (VerperfilAdministrador) _verperfil;
+			_listadotweetsAdministrador = new ListadotweetsAdministrador(this, _verperfilAdministrador.usuario.likea.toArray());
+			this.getContenedorMegustas().as(VerticalLayout.class).add(_listadotweetsAdministrador);
+		} else if (_verperfil instanceof VerperfilUsuarionoregistrado) {
+			_verperfilUsuarionoregistrado = (VerperfilUsuarionoregistrado) _verperfil;
+			_listadotweetsUsuarionoregistrado = new ListadotweetsUsuarionoregistrado(this, _verperfilUsuarionoregistrado.usuario.likea.toArray());
+			this.getContenedorMegustas().as(VerticalLayout.class).add(_listadotweetsUsuarionoregistrado);
+		} else if( _verperfil instanceof Verperfilpersonal) {
+			_verperfilpersonal = (Verperfilpersonal) _verperfil;
+			_listadotweetsUsuarioregistrado = new ListadotweetsUsuarioregistrado(this, _verperfilpersonal.usuario.likea.toArray());
+			_listadotweetsUsuarioregistrado.getContenedorNuevoTweet().setVisible(false);
+			this.getContenedorMegustas().as(VerticalLayout.class).add(_listadotweetsUsuarioregistrado);
+		} else {
+			throw new UnsupportedOperationException("Tipo de perfil no soportado para me gustas.");
+		}
 	}
 }

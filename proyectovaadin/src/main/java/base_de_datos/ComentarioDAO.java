@@ -19,7 +19,7 @@ import org.hibernate.LockMode;
 import java.util.List;
 
 public class ComentarioDAO {
-	public static Comentario loadComentarioByORMID(long idComentario) throws PersistentException {
+	public static Comentario loadComentarioByORMID(int idComentario) throws PersistentException {
 		try {
 			PersistentSession session = base_de_datos.MDS12425PFCastanedaThorpePersistentManager.instance().getSession();
 			return loadComentarioByORMID(session, idComentario);
@@ -30,7 +30,7 @@ public class ComentarioDAO {
 		}
 	}
 	
-	public static Comentario getComentarioByORMID(long idComentario) throws PersistentException {
+	public static Comentario getComentarioByORMID(int idComentario) throws PersistentException {
 		try {
 			PersistentSession session = base_de_datos.MDS12425PFCastanedaThorpePersistentManager.instance().getSession();
 			return getComentarioByORMID(session, idComentario);
@@ -41,7 +41,7 @@ public class ComentarioDAO {
 		}
 	}
 	
-	public static Comentario loadComentarioByORMID(long idComentario, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Comentario loadComentarioByORMID(int idComentario, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = base_de_datos.MDS12425PFCastanedaThorpePersistentManager.instance().getSession();
 			return loadComentarioByORMID(session, idComentario, lockMode);
@@ -52,7 +52,7 @@ public class ComentarioDAO {
 		}
 	}
 	
-	public static Comentario getComentarioByORMID(long idComentario, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Comentario getComentarioByORMID(int idComentario, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = base_de_datos.MDS12425PFCastanedaThorpePersistentManager.instance().getSession();
 			return getComentarioByORMID(session, idComentario, lockMode);
@@ -63,9 +63,9 @@ public class ComentarioDAO {
 		}
 	}
 	
-	public static Comentario loadComentarioByORMID(PersistentSession session, long idComentario) throws PersistentException {
+	public static Comentario loadComentarioByORMID(PersistentSession session, int idComentario) throws PersistentException {
 		try {
-			return (Comentario) session.load(base_de_datos.Comentario.class, Long.valueOf(idComentario));
+			return (Comentario) session.load(base_de_datos.Comentario.class, Integer.valueOf(idComentario));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -73,9 +73,9 @@ public class ComentarioDAO {
 		}
 	}
 	
-	public static Comentario getComentarioByORMID(PersistentSession session, long idComentario) throws PersistentException {
+	public static Comentario getComentarioByORMID(PersistentSession session, int idComentario) throws PersistentException {
 		try {
-			return (Comentario) session.get(base_de_datos.Comentario.class, Long.valueOf(idComentario));
+			return (Comentario) session.get(base_de_datos.Comentario.class, Integer.valueOf(idComentario));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -83,9 +83,9 @@ public class ComentarioDAO {
 		}
 	}
 	
-	public static Comentario loadComentarioByORMID(PersistentSession session, long idComentario, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Comentario loadComentarioByORMID(PersistentSession session, int idComentario, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Comentario) session.load(base_de_datos.Comentario.class, Long.valueOf(idComentario), lockMode);
+			return (Comentario) session.load(base_de_datos.Comentario.class, Integer.valueOf(idComentario), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -93,9 +93,9 @@ public class ComentarioDAO {
 		}
 	}
 	
-	public static Comentario getComentarioByORMID(PersistentSession session, long idComentario, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Comentario getComentarioByORMID(PersistentSession session, int idComentario, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Comentario) session.get(base_de_datos.Comentario.class, Long.valueOf(idComentario), lockMode);
+			return (Comentario) session.get(base_de_datos.Comentario.class, Integer.valueOf(idComentario), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -323,12 +323,12 @@ public class ComentarioDAO {
 	
 	public static boolean deleteAndDissociate(base_de_datos.Comentario comentario)throws PersistentException {
 		try {
-			if (comentario.getComentario_usuario() != null) {
-				comentario.getComentario_usuario().publica_comentario.remove(comentario);
+			if (comentario.getComentado_por() != null) {
+				comentario.getComentado_por().publica_comentario.remove(comentario);
 			}
 			
-			if (comentario.getComentario_tweet() != null) {
-				comentario.getComentario_tweet().tiene_comentario.remove(comentario);
+			if (comentario.getPertenecea_tweet() != null) {
+				comentario.getPertenecea_tweet().tiene_comentario.remove(comentario);
 			}
 			
 			if (comentario.getEs_eliminado() != null) {
@@ -338,6 +338,10 @@ public class ComentarioDAO {
 			base_de_datos.Documento[] lComentario_contienes = comentario.comentario_contiene.toArray();
 			for(int i = 0; i < lComentario_contienes.length; i++) {
 				lComentario_contienes[i].setPertenecea_comentario(null);
+			}
+			base_de_datos.Usuario[] lComlikeado_pors = comentario.comlikeado_por.toArray();
+			for(int i = 0; i < lComlikeado_pors.length; i++) {
+				lComlikeado_pors[i].likea_comentario.remove(comentario);
 			}
 			return delete(comentario);
 		}
@@ -349,12 +353,12 @@ public class ComentarioDAO {
 	
 	public static boolean deleteAndDissociate(base_de_datos.Comentario comentario, org.orm.PersistentSession session)throws PersistentException {
 		try {
-			if (comentario.getComentario_usuario() != null) {
-				comentario.getComentario_usuario().publica_comentario.remove(comentario);
+			if (comentario.getComentado_por() != null) {
+				comentario.getComentado_por().publica_comentario.remove(comentario);
 			}
 			
-			if (comentario.getComentario_tweet() != null) {
-				comentario.getComentario_tweet().tiene_comentario.remove(comentario);
+			if (comentario.getPertenecea_tweet() != null) {
+				comentario.getPertenecea_tweet().tiene_comentario.remove(comentario);
 			}
 			
 			if (comentario.getEs_eliminado() != null) {
@@ -364,6 +368,10 @@ public class ComentarioDAO {
 			base_de_datos.Documento[] lComentario_contienes = comentario.comentario_contiene.toArray();
 			for(int i = 0; i < lComentario_contienes.length; i++) {
 				lComentario_contienes[i].setPertenecea_comentario(null);
+			}
+			base_de_datos.Usuario[] lComlikeado_pors = comentario.comlikeado_por.toArray();
+			for(int i = 0; i < lComlikeado_pors.length; i++) {
+				lComlikeado_pors[i].likea_comentario.remove(comentario);
 			}
 			try {
 				session.delete(comentario);

@@ -10,12 +10,15 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.tabs.Tab;
+import com.vaadin.flow.component.icon.Icon;
+import com.vaadin.flow.component.html.H3;
+import com.vaadin.flow.component.html.Image;
 
 @Tag("vista-verperfildeusuario")
 @JsModule("./views/vista-verperfildeusuario.ts")
 public class VistaVerperfildeusuario extends LitTemplate {
 
-    @Id("contenedorVerPerfil")
+	@Id("contenedorVerPerfil")
 	private Element contenedorVerPerfil;
 	@Id("contenedorImgFondo")
 	private Element contenedorImgFondo;
@@ -33,22 +36,157 @@ public class VistaVerperfildeusuario extends LitTemplate {
 	private Paragraph descripcionPerfil;
 	@Id("nombreUsuario")
 	private H1 nombreUsuario;
-	@Id("verSeguidos")
-	private Element verSeguidos;
-	@Id("verSeguidores")
-	private Element verSeguidores;
-	@Id("verPosts")
-	private Tab verPosts;
-	@Id("verRetweets")
-	private Tab verRetweets;
 	@Id("contenedorListadotweets")
 	private Element contenedorListadotweets;
-	@Id("VerMeGustas")
-	private Tab verMeGustas;
-	@Id("verPerfil")
-	private Element verPerfil;
-	public VistaVerperfildeusuario() {
-        // You can initialise any data required for the connected UI components here.
-    }
-
+	@Id("btnEditarPerfil")
+	private Button btnEditarPerfil;
+	@Id("btnEliminarPerfil")
+	private Button btnEliminarPerfil;
+	@Id("verSeguidos")
+	private Button verSeguidos;
+	@Id("verSeguidores")
+	private Button verSeguidores;
+	@Id("verPosts")
+	private Button verPosts;
+	@Id("verRetweets")
+	private Button verRetweets;
+	@Id("verMegustas")
+	private Button verMegustas;
+	@Id("btnCerrarSesion")
+	private Button btnCerrarSesion;
+	@Id("nickUsuario")
+	private H3 nickUsuario;
+	@Id("imgFondo")
+	private Image imgFondo;
+	@Id("imgPerfil")
+	private Image imgPerfil;
+	
+	public Element getContenedorVerPerfil() {
+		return contenedorVerPerfil;
+	}
+	public void setContenedorVerPerfil(Element contenedorVerPerfil) {
+		this.contenedorVerPerfil = contenedorVerPerfil;
+	}
+	public Element getContenedorImgFondo() {
+		return contenedorImgFondo;
+	}
+	public void setContenedorImgFondo(Element contenedorImgFondo) {
+		this.contenedorImgFondo = contenedorImgFondo;
+	}
+	public Element getContenedorImgPerfil() {
+		return contenedorImgPerfil;
+	}
+	public void setContenedorImgPerfil(Element contenedorImgPerfil) {
+		this.contenedorImgPerfil = contenedorImgPerfil;
+	}
+	public Button getBtnVolver() {
+		return btnVolver;
+	}
+	public void setBtnVolver(Button btnVolver) {
+		this.btnVolver = btnVolver;
+	}
+	public Button getBtnSeguir() {
+		return btnSeguir;
+	}
+	public void setBtnSeguir(Button btnSeguir) {
+		this.btnSeguir = btnSeguir;
+	}
+	public Button getBtnBloquear() {
+		return btnBloquear;
+	}
+	public void setBtnBloquear(Button btnBloquear) {
+		this.btnBloquear = btnBloquear;
+	}
+	public Button getBtnBanearUsuario() {
+		return btnBanearUsuario;
+	}
+	public void setBtnBanearUsuario(Button btnBanearUsuario) {
+		this.btnBanearUsuario = btnBanearUsuario;
+	}
+	public Paragraph getDescripcionPerfil() {
+		return descripcionPerfil;
+	}
+	public void setDescripcionPerfil(Paragraph descripcionPerfil) {
+		this.descripcionPerfil = descripcionPerfil;
+	}
+	public H1 getNombreUsuario() {
+		return nombreUsuario;
+	}
+	public void setNombreUsuario(H1 nombreUsuario) {
+		this.nombreUsuario = nombreUsuario;
+	}
+	public Element getContenedorListadotweets() {
+		return contenedorListadotweets;
+	}
+	public void setContenedorListadotweets(Element contenedorListadotweets) {
+		this.contenedorListadotweets = contenedorListadotweets;
+	}
+	public Button getBtnEditarPerfil() {
+		return btnEditarPerfil;
+	}
+	public void setBtnEditarPerfil(Button btnEditarPerfil) {
+		this.btnEditarPerfil = btnEditarPerfil;
+	}
+	public Button getBtnEliminarPerfil() {
+		return btnEliminarPerfil;
+	}
+	public void setBtnEliminarPerfil(Button btnEliminarPerfil) {
+		this.btnEliminarPerfil = btnEliminarPerfil;
+	}
+	public Button getVerSeguidos() {
+		return verSeguidos;
+	}
+	public void setVerSeguidos(Button verSeguidos) {
+		this.verSeguidos = verSeguidos;
+	}
+	public Button getVerSeguidores() {
+		return verSeguidores;
+	}
+	public void setVerSeguidores(Button verSeguidores) {
+		this.verSeguidores = verSeguidores;
+	}
+	public Button getVerPosts() {
+		return verPosts;
+	}
+	public void setVerPosts(Button verPosts) {
+		this.verPosts = verPosts;
+	}
+	public Button getVerRetweets() {
+		return verRetweets;
+	}
+	public void setVerRetweets(Button verRetweets) {
+		this.verRetweets = verRetweets;
+	}
+	public Button getVerMegustas() {
+		return verMegustas;
+	}
+	public void setVerMegustas(Button verMegustas) {
+		this.verMegustas = verMegustas;
+	}
+	public Button getBtnCerrarSesion() {
+		return btnCerrarSesion;
+	}
+	public void setBtnCerrarSesion(Button btnCerrarSesion) {
+		this.btnCerrarSesion = btnCerrarSesion;
+	}
+	public H3 getNickUsuario() {
+		return nickUsuario;
+	}
+	public void setNickUsuario(H3 nickUsuario) {
+		this.nickUsuario = nickUsuario;
+	}
+	public Image getImgFondo() {
+		return imgFondo;
+	}
+	public void setImgFondo(Image imgFondo) {
+		this.imgFondo = imgFondo;
+	}
+	public Image getImgPerfil() {
+		return imgPerfil;
+	}
+	public void setImgPerfil(Image imgPerfil) {
+		this.imgPerfil = imgPerfil;
+	}
+	
+	
 }

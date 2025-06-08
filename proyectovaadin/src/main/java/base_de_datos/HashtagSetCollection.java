@@ -72,7 +72,6 @@ public class HashtagSetCollection extends org.orm.util.ORMSet {
 	 * @param propertyName Name of the property for sorting:<ul>
 	 * <li>idHashtag</li>
 	 * <li>nombre</li>
-	 * <li>numMenciones</li>
 	 * </ul>
 	 * @return The persistent objects sorted array
 	 */
@@ -85,7 +84,6 @@ public class HashtagSetCollection extends org.orm.util.ORMSet {
 	 * @param propertyName Name of the property for sorting:<ul>
 	 * <li>idHashtag</li>
 	 * <li>nombre</li>
-	 * <li>numMenciones</li>
 	 * </ul>
 	 * @param ascending true for ascending, false for descending
 	 * @return The persistent objects sorted array

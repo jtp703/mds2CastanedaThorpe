@@ -1,18 +1,34 @@
 package interfaz;
 
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Vector;
+
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import base_de_datos.Usuario;
+
 public class Listadodeusuariosusuarionoregistrado extends Listadousuarios {
-	//confirmar si es necesario verlistadoglobaldeusuariosUsuarioNOregistrado especifico en lugar de usuario registrados
-	public VerlistadoglobaldeusuariosUsuarionoregistrado _verlistadoglobaldeusuariosUsuarionoregistrado;
-	public Listadodeusuariosusuarionoregistrado_item _item;
-	
-	public Listadodeusuariosusuarionoregistrado(VerlistadoglobaldeusuariosUsuarionoregistrado _verlistadoglobaldeusuariosUsuarionoregistrado){
+	// confirmar si es necesario verlistadoglobaldeusuariosUsuarioNOregistrado
+	// especifico en lugar de usuario registrados
+	public VerlistadoglobaldeusuariosUsuarionoregistrado verlistadoglobaldeusuariosUsuarionoregistrado;
+	public Vector<Listadodeusuariosusuarionoregistrado_item> _listadodeusuariosusuarionoregistrado = new Vector<Listadodeusuariosusuarionoregistrado_item>();
+
+	public Listadodeusuariosusuarionoregistrado(
+			VerlistadoglobaldeusuariosUsuarionoregistrado _verlistadoglobaldeusuariosUsuarionoregistrado) {
 		super(_verlistadoglobaldeusuariosUsuarionoregistrado);
-		Listadodeusuariosusuarionoregistrado_item item = new Listadodeusuariosusuarionoregistrado_item(this);
-		this.getContenedorItemsUsuario().as(VerticalLayout.class).add(item);
-		Listadodeusuariosusuarionoregistrado_item item2 = new Listadodeusuariosusuarionoregistrado_item(this);
-		this.getContenedorItemsUsuario().as(VerticalLayout.class).add(item2);
+		this.verlistadoglobaldeusuariosUsuarionoregistrado = _verlistadoglobaldeusuariosUsuarionoregistrado;
+
+		Vector<base_de_datos.Usuario> usuarios = new Vector<>(Arrays
+				.asList(this.verlistadoglobaldeusuariosUsuarionoregistrado.usuarioNoRegistrado._iUsuarionoregistrado
+						.cargarUsuarios()));
+		usuarios.sort(Comparator.comparingInt((Usuario u) -> u.es_seguido.size()).reversed());
+		for (base_de_datos.Usuario usuario : usuarios) {
+			Listadodeusuariosusuarionoregistrado_item item = new Listadodeusuariosusuarionoregistrado_item(this,
+					usuario);
+			_listadodeusuariosusuarionoregistrado.add(item);
+			this.getContenedorItemsUsuario().as(VerticalLayout.class).add(item);
+		}
 	}
 
 }

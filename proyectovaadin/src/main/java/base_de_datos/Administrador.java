@@ -13,7 +13,14 @@
  */
 package base_de_datos;
 
-public class Administrador extends base_de_datos.UsuarioAutentificado {
+import java.io.Serializable;
+import javax.persistence.*;
+@Entity
+@org.hibernate.annotations.Proxy(lazy=false)
+@Table(name="Administrador")
+@Inheritance(strategy=InheritanceType.JOINED)
+@PrimaryKeyJoinColumn(name="UsuarioAutentificadoID", referencedColumnName="ID")
+public class Administrador extends base_de_datos.UsuarioAutentificado implements Serializable {
 	public Administrador() {
 	}
 	
@@ -21,8 +28,8 @@ public class Administrador extends base_de_datos.UsuarioAutentificado {
 		if (key == base_de_datos.ORMConstants.KEY_ADMINISTRADOR_ELIMINA) {
 			return ORM_elimina;
 		}
-		else if (key == base_de_datos.ORMConstants.KEY_ADMINISTRADOR_ADMINISTRADOR_TWEET) {
-			return ORM_administrador_tweet;
+		else if (key == base_de_datos.ORMConstants.KEY_ADMINISTRADOR_ELIMINA_TWEET) {
+			return ORM_elimina_tweet;
 		}
 		else if (key == base_de_datos.ORMConstants.KEY_ADMINISTRADOR_BANEA) {
 			return ORM_banea;
@@ -31,6 +38,7 @@ public class Administrador extends base_de_datos.UsuarioAutentificado {
 		return null;
 	}
 	
+	@Transient	
 	org.orm.util.ORMAdapter _ormAdapter = new org.orm.util.AbstractORMAdapter() {
 		public java.util.Set getSet(int key) {
 			return this_getSet(key);
@@ -38,21 +46,20 @@ public class Administrador extends base_de_datos.UsuarioAutentificado {
 		
 	};
 	
-	private long idAdministrador;
-	
+	@OneToMany(mappedBy="es_eliminado", targetEntity=base_de_datos.Comentario.class)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
+	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_elimina = new java.util.HashSet();
 	
-	private java.util.Set ORM_administrador_tweet = new java.util.HashSet();
+	@OneToMany(mappedBy="es_eliminado", targetEntity=base_de_datos.Tweet.class)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
+	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
+	private java.util.Set ORM_elimina_tweet = new java.util.HashSet();
 	
+	@OneToMany(mappedBy="es_baneado", targetEntity=base_de_datos.Usuario.class)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
+	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_banea = new java.util.HashSet();
-	
-	public void setIdAdministrador(long value) {
-		this.idAdministrador = value;
-	}
-	
-	public long getIdAdministrador() {
-		return idAdministrador;
-	}
 	
 	private void setORM_Elimina(java.util.Set value) {
 		this.ORM_elimina = value;
@@ -62,17 +69,19 @@ public class Administrador extends base_de_datos.UsuarioAutentificado {
 		return ORM_elimina;
 	}
 	
+	@Transient	
 	public final base_de_datos.ComentarioSetCollection elimina = new base_de_datos.ComentarioSetCollection(this, _ormAdapter, base_de_datos.ORMConstants.KEY_ADMINISTRADOR_ELIMINA, base_de_datos.ORMConstants.KEY_COMENTARIO_ES_ELIMINADO, base_de_datos.ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
-	private void setORM_Administrador_tweet(java.util.Set value) {
-		this.ORM_administrador_tweet = value;
+	private void setORM_Elimina_tweet(java.util.Set value) {
+		this.ORM_elimina_tweet = value;
 	}
 	
-	private java.util.Set getORM_Administrador_tweet() {
-		return ORM_administrador_tweet;
+	private java.util.Set getORM_Elimina_tweet() {
+		return ORM_elimina_tweet;
 	}
 	
-	public final base_de_datos.TweetSetCollection administrador_tweet = new base_de_datos.TweetSetCollection(this, _ormAdapter, base_de_datos.ORMConstants.KEY_ADMINISTRADOR_ADMINISTRADOR_TWEET, base_de_datos.ORMConstants.KEY_TWEET_ES_ELIMINADO, base_de_datos.ORMConstants.KEY_MUL_ONE_TO_MANY);
+	@Transient	
+	public final base_de_datos.TweetSetCollection elimina_tweet = new base_de_datos.TweetSetCollection(this, _ormAdapter, base_de_datos.ORMConstants.KEY_ADMINISTRADOR_ELIMINA_TWEET, base_de_datos.ORMConstants.KEY_TWEET_ES_ELIMINADO, base_de_datos.ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	private void setORM_Banea(java.util.Set value) {
 		this.ORM_banea = value;
@@ -82,6 +91,7 @@ public class Administrador extends base_de_datos.UsuarioAutentificado {
 		return ORM_banea;
 	}
 	
+	@Transient	
 	public final base_de_datos.UsuarioSetCollection banea = new base_de_datos.UsuarioSetCollection(this, _ormAdapter, base_de_datos.ORMConstants.KEY_ADMINISTRADOR_BANEA, base_de_datos.ORMConstants.KEY_USUARIO_ES_BANEADO, base_de_datos.ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	public String toString() {

@@ -6,20 +6,19 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 public class VerlistadoglobaldeusuariosUsuarionoregistrado extends Verlistadogloblaldeusuarios{
 
-	public MainView main;
 	public Usuarionoregistrado usuarioNoRegistrado;
 	public Listadodeusuariosusuarionoregistrado listadoDeUsuariosUsuarioNoRegistrado;
 	
 	public VerlistadoglobaldeusuariosUsuarionoregistrado(Usuarionoregistrado usuarioNoRegistrado) {
 		super(usuarioNoRegistrado);
-		this.usuarioNoRegistrado = new Usuarionoregistrado(main);
-		this.getContenedorCibernauta().as(VerticalLayout.class).add(this.usuarioNoRegistrado);
+		this.usuarioNoRegistrado = usuarioNoRegistrado;
 		this.listadoDeUsuariosUsuarioNoRegistrado = new Listadodeusuariosusuarionoregistrado(this);
 		this.getContenedorListadoUsuarios().as(VerticalLayout.class).add(this.listadoDeUsuariosUsuarioNoRegistrado);
 	}
 	
 	public VerlistadoglobaldeusuariosUsuarionoregistrado(Listadodeusuariosusuarionoregistrado listadoDeUsuariosUsuarioNoRegistrado) {
 		super(listadoDeUsuariosUsuarioNoRegistrado);
+		
 	}
 	
 	public void Listado_Usuarios__Usuario_No_Registrado_() {

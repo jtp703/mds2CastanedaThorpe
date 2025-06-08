@@ -335,9 +335,9 @@ public class UsuarioDAO {
 			for(int i = 0; i < lSigues.length; i++) {
 				lSigues[i].es_seguido.remove(usuario);
 			}
-			base_de_datos.Tweet[] lPublicas = usuario.publica.toArray();
-			for(int i = 0; i < lPublicas.length; i++) {
-				lPublicas[i].setTweet_usuario(null);
+			base_de_datos.Tweet[] lTweeteas = usuario.tweetea.toArray();
+			for(int i = 0; i < lTweeteas.length; i++) {
+				lTweeteas[i].setTweeteado_por(null);
 			}
 			base_de_datos.Usuario[] lEs_bloqueados = usuario.es_bloqueado.toArray();
 			for(int i = 0; i < lEs_bloqueados.length; i++) {
@@ -349,7 +349,19 @@ public class UsuarioDAO {
 			}
 			base_de_datos.Comentario[] lPublica_comentarios = usuario.publica_comentario.toArray();
 			for(int i = 0; i < lPublica_comentarios.length; i++) {
-				lPublica_comentarios[i].setComentario_usuario(null);
+				lPublica_comentarios[i].setComentado_por(null);
+			}
+			base_de_datos.Tweet[] lRetweeteas = usuario.retweetea.toArray();
+			for(int i = 0; i < lRetweeteas.length; i++) {
+				lRetweeteas[i].reetweteado_por.remove(usuario);
+			}
+			base_de_datos.Tweet[] lLikeas = usuario.likea.toArray();
+			for(int i = 0; i < lLikeas.length; i++) {
+				lLikeas[i].likeado_por.remove(usuario);
+			}
+			base_de_datos.Comentario[] lLikea_comentarios = usuario.likea_comentario.toArray();
+			for(int i = 0; i < lLikea_comentarios.length; i++) {
+				lLikea_comentarios[i].comlikeado_por.remove(usuario);
 			}
 			return delete(usuario);
 		}
@@ -373,9 +385,9 @@ public class UsuarioDAO {
 			for(int i = 0; i < lSigues.length; i++) {
 				lSigues[i].es_seguido.remove(usuario);
 			}
-			base_de_datos.Tweet[] lPublicas = usuario.publica.toArray();
-			for(int i = 0; i < lPublicas.length; i++) {
-				lPublicas[i].setTweet_usuario(null);
+			base_de_datos.Tweet[] lTweeteas = usuario.tweetea.toArray();
+			for(int i = 0; i < lTweeteas.length; i++) {
+				lTweeteas[i].setTweeteado_por(null);
 			}
 			base_de_datos.Usuario[] lEs_bloqueados = usuario.es_bloqueado.toArray();
 			for(int i = 0; i < lEs_bloqueados.length; i++) {
@@ -387,7 +399,19 @@ public class UsuarioDAO {
 			}
 			base_de_datos.Comentario[] lPublica_comentarios = usuario.publica_comentario.toArray();
 			for(int i = 0; i < lPublica_comentarios.length; i++) {
-				lPublica_comentarios[i].setComentario_usuario(null);
+				lPublica_comentarios[i].setComentado_por(null);
+			}
+			base_de_datos.Tweet[] lRetweeteas = usuario.retweetea.toArray();
+			for(int i = 0; i < lRetweeteas.length; i++) {
+				lRetweeteas[i].reetweteado_por.remove(usuario);
+			}
+			base_de_datos.Tweet[] lLikeas = usuario.likea.toArray();
+			for(int i = 0; i < lLikeas.length; i++) {
+				lLikeas[i].likeado_por.remove(usuario);
+			}
+			base_de_datos.Comentario[] lLikea_comentarios = usuario.likea_comentario.toArray();
+			for(int i = 0; i < lLikea_comentarios.length; i++) {
+				lLikea_comentarios[i].comlikeado_por.remove(usuario);
 			}
 			try {
 				session.delete(usuario);

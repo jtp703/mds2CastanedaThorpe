@@ -1,34 +1,47 @@
- package interfaz;
+package interfaz;
+
+import org.vaadin.example.MainView;
 
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import base_de_datos.Tweet;
+
 public class VercomentariosAdminstrador extends Vercomentarios {
-//	private event _eliminar_tweet;
+	public ListadotweetsAdministrador_item _listadotweetsAdministradoritem;
 	public ListadocomentariosAdministrador _listadocomentariosAdministrador;
 	public ListadotweetsAdministrador_item _item;
-	public ListadotweetsAdministrador listado;
-	
-	public VercomentariosAdminstrador() {
-	}
-	
-	public VercomentariosAdminstrador(ListadocomentariosAdministrador _listadocomentariosAdministrador) {
-		super(_listadocomentariosAdministrador);
-		ListadotweetsAdministrador_item item = new ListadotweetsAdministrador_item(listado);
-		this.getContenedorTweet().as(VerticalLayout.class).add(item);
-		ListadocomentariosAdministrador listado = new ListadocomentariosAdministrador(this);
-		this.getContenedorListadoComentarios().as(VerticalLayout.class).add(listado);
-		this.getBtnVovler().setVisible(false);
-	}
-	
-	public VercomentariosAdminstrador(ListadotweetsAdministrador_item _item) {
-		super(_item);
+	public Tweet tweet;
+
+	// VercomentariosAdminstrador.java
+
+	public VercomentariosAdminstrador(ListadotweetsAdministrador_item originalItem) {
+	    super(originalItem);
+	    // Guardamos referencia al item de la lista principal
+	    this._listadotweetsAdministradoritem = originalItem;
+	    this.tweet = originalItem.tweet;
+	    this._item = originalItem;
+	    // Creamos una nueva cabecera para esta vista de comentarios
+	    ListadotweetsAdministrador_item headerItem =
+	        new ListadotweetsAdministrador_item(this, this.tweet);
+	    headerItem.getContenedorInteracciones().setVisible(false);
+	    this.getContenedorTweet()
+	        .as(VerticalLayout.class)
+	        .add(headerItem);
+
+	    // Añadimos el listado de comentarios
+	    ListadocomentariosAdministrador listadoComentarios =
+	        new ListadocomentariosAdministrador(this);
+	    this.getContenedorListadoComentarios()
+	        .as(VerticalLayout.class)
+	        .add(listadoComentarios);
+
+	    // Botón “volver”
+	    this.getBtnVovler()
+	        .addClickListener(event -> btnVolver());
 	}
 
-	public void Listado_comentarios_administrador() {
-		throw new UnsupportedOperationException();
+	public void btnVolver() {
+	    MainView.Pantalla.volver();
 	}
 
-	public void Eliminar_tweet() {
-		throw new UnsupportedOperationException();
-	}
 }

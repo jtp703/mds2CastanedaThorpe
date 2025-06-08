@@ -19,29 +19,26 @@ import org.orm.PersistentSession;
 import org.orm.criteria.*;
 
 public class HashtagDetachedCriteria extends AbstractORMDetachedCriteria {
-	public final LongExpression idHashtag;
+	public final IntegerExpression idHashtag;
 	public final StringExpression nombre;
-	public final IntegerExpression numMenciones;
 	public final CollectionExpression aparece_en;
 	
 	public HashtagDetachedCriteria() {
 		super(base_de_datos.Hashtag.class, base_de_datos.HashtagCriteria.class);
-		idHashtag = new LongExpression("idHashtag", this.getDetachedCriteria());
+		idHashtag = new IntegerExpression("idHashtag", this.getDetachedCriteria());
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
-		numMenciones = new IntegerExpression("numMenciones", this.getDetachedCriteria());
-		aparece_en = new CollectionExpression("ORM_Aparece_en", this.getDetachedCriteria());
+		aparece_en = new CollectionExpression("ORM_aparece_en", this.getDetachedCriteria());
 	}
 	
 	public HashtagDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, base_de_datos.HashtagCriteria.class);
-		idHashtag = new LongExpression("idHashtag", this.getDetachedCriteria());
+		idHashtag = new IntegerExpression("idHashtag", this.getDetachedCriteria());
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
-		numMenciones = new IntegerExpression("numMenciones", this.getDetachedCriteria());
-		aparece_en = new CollectionExpression("ORM_Aparece_en", this.getDetachedCriteria());
+		aparece_en = new CollectionExpression("ORM_aparece_en", this.getDetachedCriteria());
 	}
 	
 	public base_de_datos.TweetDetachedCriteria createAparece_enCriteria() {
-		return new base_de_datos.TweetDetachedCriteria(createCriteria("ORM_Aparece_en"));
+		return new base_de_datos.TweetDetachedCriteria(createCriteria("ORM_aparece_en"));
 	}
 	
 	public Hashtag uniqueHashtag(PersistentSession session) {

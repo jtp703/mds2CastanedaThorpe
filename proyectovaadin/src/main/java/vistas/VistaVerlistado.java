@@ -6,6 +6,7 @@ import com.vaadin.flow.component.littemplate.LitTemplate;
 import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.html.H1;
+import com.vaadin.flow.component.button.Button;
 
 @Tag("vista-verlistado")
 @JsModule("./views/vista-verlistado.ts")
@@ -23,6 +24,8 @@ public class VistaVerlistado extends LitTemplate {
 	private Element listadoSeguidores;
 	@Id("ListadoSeguidos")
 	private Element listadoSeguidos;
+	@Id("btnCerrar")
+	private Button btnCerrar;
 
 	
 	public Element getContenedorListadousuariosSeguidoresSeguidos() {
@@ -83,7 +86,14 @@ public class VistaVerlistado extends LitTemplate {
 	public void setListadoSeguidos(Element listadoSeguidos) {
 		this.listadoSeguidos = listadoSeguidos;
 	}
-
+	
+	public Button getBtnCerrar() {
+		return btnCerrar;
+	}
+	
+	public void setBtnCerrar(Button btnCerrar) {
+		this.btnCerrar = btnCerrar;
+	}
 
 	public VistaVerlistado() {
         // You can initialise any data required for the connected UI components here.

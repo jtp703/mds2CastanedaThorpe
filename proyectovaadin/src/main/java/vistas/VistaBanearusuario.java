@@ -27,4 +27,45 @@ public class VistaBanearusuario extends LitTemplate {
         // You can initialise any data required for the connected UI components here.
     }
 
+	public Element getContenedorBanearUsuario() {
+		return contenedorBanearUsuario;
+	}
+
+	public void setContenedorBanearUsuario(Element contenedorBanearUsuario) {
+		this.contenedorBanearUsuario = contenedorBanearUsuario;
+	}
+
+	public Element getVerPerfil() {
+		return verPerfil;
+	}
+
+	public void setVerPerfil(Element verPerfil) {
+		this.verPerfil = verPerfil;
+	}
+
+	public TextArea getMotivoBaneo() {
+		return motivoBaneo;
+	}
+
+	public void setMotivoBaneo(TextArea motivoBaneo) {
+		this.motivoBaneo = motivoBaneo;
+	}
+
+	public Button getBtnVolver() {
+		return btnVolver;
+	}
+
+	public void setBtnVolver(Button btnVolver) {
+		this.btnVolver = btnVolver;
+	}
+
+	public Button getBtnEnviarBaneo() {
+		return btnEnviarBaneo;
+	}
+
+	public void setBtnEnviarBaneo(Button btnEnviarBaneo) {
+		this.btnEnviarBaneo = btnEnviarBaneo;
+	}
+	
+	
 }

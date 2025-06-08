@@ -13,7 +13,7 @@ import com.vaadin.flow.component.button.Button;
 @JsModule("./views/vista-registrarse.ts")
 public class VistaRegistrarse extends LitTemplate {
 
-    @Id("correo")
+	@Id("correo")
 	private TextField correo;
 	@Id("contenedorRegistrarse")
 	private Element contenedorRegistrarse;
@@ -31,11 +31,98 @@ public class VistaRegistrarse extends LitTemplate {
 	private Button btnVolver;
 	@Id("btnRegistrarse")
 	private Button btnRegistrarse;
-	@Id("iniciarSesion")
-	private Element iniciarSesion;
-
+	@Id("iniciarsesion")
+	private Button iniciarsesion;
+	@Id("nombreCompleto")
+	private TextField nombreCompleto;
 	public VistaRegistrarse() {
-        // You can initialise any data required for the connected UI components here.
-    }
+		// You can initialise any data required for the connected UI components here.
+	}
+
+	public TextField getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(TextField correo) {
+		this.correo = correo;
+	}
+
+	public Element getContenedorRegistrarse() {
+		return contenedorRegistrarse;
+	}
+
+	public void setContenedorRegistrarse(Element contenedorRegistrarse) {
+		this.contenedorRegistrarse = contenedorRegistrarse;
+	}
+
+	public TextField getNickUsuario() {
+		return nickUsuario;
+	}
+
+	public void setNickUsuario(TextField nickUsuario) {
+		this.nickUsuario = nickUsuario;
+	}
+
+	public TextField getImgPerfil() {
+		return imgPerfil;
+	}
+
+	public void setImgPerfil(TextField imgPerfil) {
+		this.imgPerfil = imgPerfil;
+	}
+
+	public TextField getImgFondo() {
+		return imgFondo;
+	}
+
+	public void setImgFondo(TextField imgFondo) {
+		this.imgFondo = imgFondo;
+	}
+
+	public TextArea getDescripción() {
+		return descripción;
+	}
+
+	public void setDescripción(TextArea descripción) {
+		this.descripción = descripción;
+	}
+
+	public TextField getContrasenia() {
+		return contrasenia;
+	}
+
+	public void setContrasenia(TextField contrasenia) {
+		this.contrasenia = contrasenia;
+	}
+
+	public Button getBtnVolver() {
+		return btnVolver;
+	}
+
+	public void setBtnVolver(Button btnVolver) {
+		this.btnVolver = btnVolver;
+	}
+
+	public Button getBtnRegistrarse() {
+		return btnRegistrarse;
+	}
+
+	public void setBtnRegistrarse(Button btnRegistrarse) {
+		this.btnRegistrarse = btnRegistrarse;
+	}
+
+	public Button getIniciarsesion() {
+		return iniciarsesion;
+	}
+
+	public void setIniciarsesion(Button iniciarsesion) {
+		this.iniciarsesion = iniciarsesion;
+	}
+	public TextField getNombreCompleto() {
+		return nombreCompleto;
+	}
+	public void setNombreCompleto(TextField nombreCompleto) {
+		this.nombreCompleto = nombreCompleto;
+	}
 
 }

@@ -3,10 +3,11 @@ package interfaz;
 import vistas.VistaVerlistado;
 
 public abstract class Verlistado extends VistaVerlistado {
+	
 	public Verlistadogloblaldeusuarios _verlistadogloblaldeusuarios;
 	public Verperfildeusuario _verperfildeusuario;
 	public Listadousuarios_item listadousuarios_item_;
-	public Listadousuarios _item;
+	public Listadousuarios listado;
 
 	public Verlistado(Verlistadogloblaldeusuarios _verlistadogloblaldeusuarios) {
 		this._verlistadogloblaldeusuarios = _verlistadogloblaldeusuarios;
@@ -20,8 +21,8 @@ public abstract class Verlistado extends VistaVerlistado {
 		this.listadousuarios_item_ = listadousuarios_item_;
 	}
 	
-	public Verlistado(Listadousuarios _item) {
-		this._item = _item;
+	public Verlistado(Listadousuarios listado) {
+		this.listado = listado;
 	}
 	
 	public void Listadousuarios() {

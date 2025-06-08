@@ -24,7 +24,7 @@ export class VistaEliminarperfil extends LitElement {
  </vaadin-vertical-layout>
  <vaadin-vertical-layout theme="spacing" style="align-self: stretch;">
   <vaadin-text-field label="Motivo de causa" placeholder="¿Qué te lleva a abandonarnos?" id="textFieldMotivo" style="align-self: center; width: 50%;" type="text"></vaadin-text-field>
-  <vaadin-text-field label="Escribe &quot;Autorizo eliminar (@tu nick)&quot; para eliminar tu cuenta" placeholder=" &quot;Autorizo eliminar (@nickUsuario)&quot;" style="align-self: center; width: 50%;" id="textFieldConfirmacion" type="text"></vaadin-text-field>
+  <vaadin-text-field label="Escribe tu nick para eliminar tu cuenta" placeholder="Nick" style="align-self: center; width: 50%;" id="textFieldConfirmacion" type="text"></vaadin-text-field>
  </vaadin-vertical-layout>
  <vaadin-horizontal-layout theme="spacing" style="align-self: stretch; justify-content: center; margin: var(--lumo-space-xl);">
   <vaadin-button id="btnVolver" tabindex="0">

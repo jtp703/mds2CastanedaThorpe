@@ -1,5 +1,9 @@
 package interfaz;
 
+import org.vaadin.example.MainView;
+
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 import vistas.VistaListadodehashtags_item;
 
 public class Listadodehashtags_item extends VistaListadodehashtags_item{
@@ -8,8 +12,24 @@ public class Listadodehashtags_item extends VistaListadodehashtags_item{
 	private int _numeroMenciones;
 	public Listadodehashtags _listadodehashtags;
 	public Verlistadodetweetsfiltrado _verlistadodetweetsfiltrado;
+	public base_de_datos.Hashtag _hashtag;
 	
-	Listadodehashtags_item(Listadodehashtags listadodehashtag){
+	public Listadodehashtags_item(Listadodehashtags listadodehashtag, base_de_datos.Hashtag hashtag) {
 		_listadodehashtags = listadodehashtag;
+		this._hashtag = hashtag;
+		this.getNombrehashtag().setText(hashtag.getNombre());
+		this.getIdNumeroInteraccionesHashtag().setText(String.valueOf(hashtag.aparece_en.size()));
+		this.getNombrehashtag().addClickListener(event -> Verlistadodetweetsfiltrado());
+		
 	}
+	
+	public void Verlistadodetweetsfiltrado() {
+		
+		this._listadodehashtags.getContenedorHashtags().as(VerticalLayout.class).removeAll();
+		
+		_verlistadodetweetsfiltrado = new Verlistadodetweetsfiltrado(this, _hashtag);
+		this._listadodehashtags.getContenedorHashtags().as(VerticalLayout.class).add(_verlistadodetweetsfiltrado);
+		
+	}
+	
 }

@@ -13,7 +13,7 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 @JsModule("./views/vista-darretweet.ts")
 public class VistaDarretweet extends LitTemplate {
 
-    @Id("_MensajeRetweet")
+	@Id("_MensajeRetweet")
 	private TextArea _MensajeRetweet;
 	@Id("idEnviarRetweet")
 	private Button idEnviarRetweet;
@@ -21,45 +21,36 @@ public class VistaDarretweet extends LitTemplate {
 	private Element _verPerfil;
 	@Id("contenedorTweetsItem")
 	private HorizontalLayout contenedorTweetsItem;
-	@Id("item")
-	private Element item;
+	@Id("volver")
+	private Button volver;
+
 	public VistaDarretweet() {
-        // You can initialise any data required for the connected UI components here.
-    }
-
-	
-	
-	public Element getItem() {
-		return item;
+		// You can initialise any data required for the connected UI components here.
 	}
 
-
-
-	public void setItem(Element item) {
-		this.item = item;
+	public Button getVolver() {
+		return volver;
 	}
 
-
+	public void setVolver(Button volver) {
+		this.volver = volver;
+	}
 
 	public Element get_verPerfil() {
 		return _verPerfil;
 	}
 
-
 	public void set_verPerfil(Element _verPerfil) {
 		this._verPerfil = _verPerfil;
 	}
-
 
 	public HorizontalLayout getContenedorTweetsItem() {
 		return contenedorTweetsItem;
 	}
 
-
 	public void setContenedorTweetsItem(HorizontalLayout contenedorTweetsItem) {
 		this.contenedorTweetsItem = contenedorTweetsItem;
 	}
-
 
 	public TextArea get_MensajeRetweet() {
 		return _MensajeRetweet;
@@ -77,6 +68,4 @@ public class VistaDarretweet extends LitTemplate {
 		this.idEnviarRetweet = idEnviarRetweet;
 	}
 
-	
-	
 }

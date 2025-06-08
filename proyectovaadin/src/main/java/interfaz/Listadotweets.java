@@ -2,6 +2,11 @@ package interfaz;
 
 import java.util.Vector;
 
+import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.notification.Notification.Position;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
+import base_de_datos.Hashtag;
 import vistas.VistaListadotweets;
 
 public class Listadotweets extends VistaListadotweets {
@@ -18,8 +23,27 @@ public class Listadotweets extends VistaListadotweets {
 	public Listadotweets(Retweets _retweets) {
 		this._retweets = _retweets;
 	}
-	public Listadotweets(Verlistadodetweetsfiltrado _verlistadodetweetsfiltrado) {
-		this._verlistadodetweetsfiltrado = _verlistadodetweetsfiltrado;
+	public Listadotweets(Verlistadodetweetsfiltrado _verlistadodetweetsfiltrado, Hashtag _hashtag) {
+		this._verlistadodetweetsfiltrado = _verlistadodetweetsfiltrado;		
+		if(_hashtag != null) {
+			try {
+				
+				for(base_de_datos.Tweet tweet: _verlistadodetweetsfiltrado._item._listadodehashtags._verListadohashtags._cibernauta._iCibernauta.cargarTweetsFiltrados(_hashtag.getIdHashtag())) {
+					Listadotweets_item item = new Listadotweets_item(this, tweet);
+					item.getBtnEliminarTweet().setVisible(false);
+					item.getContenedorInteracciones().setVisible(false);
+					_item.add(item);
+					this.getContenedorListadoTweets_item().as(VerticalLayout.class).add(item);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+	            Notification.show(
+	                    "No se pudieron cargar los tweets dado que no hay tweets con dicho hashtag " + e.getMessage(),
+	                    3000, Position.MIDDLE
+	                );
+			}
+		}
+		
 	}
 	public Listadotweets(Verperfildeusuario _verperfildeusuario) {
 		this._verperfildeusuario = _verperfildeusuario;

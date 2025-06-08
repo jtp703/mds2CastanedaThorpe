@@ -1,5 +1,10 @@
 package interfaz;
 
+import org.vaadin.example.MainView;
+
+import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 import vistas.VistaRegistrarse;
 
 public class Registrarse extends VistaRegistrarse{
@@ -13,16 +18,52 @@ public class Registrarse extends VistaRegistrarse{
 	public Usuarionoregistrado _usuarionoregistrado;
 	public GoogleLogin _googleLogin;
 	public Iniciarsesion _iniciarsesion;
+	public base_de_datos.Usuario _usuario;
 	
 	public Registrarse(Usuarionoregistrado _usuarionoregistrado) {
 		this._usuarionoregistrado = _usuarionoregistrado;
+		this.getBtnRegistrarse().addClickListener(event -> registrarse()); 
+		this.getIniciarsesion().addClickListener(event -> IniciarSesion());
+		this.getBtnVolver().addClickListener(event -> btnVolver());
+	}
+	
+	private void btnVolver() {
+		MainView.Pantalla.cambiarVista(this._usuarionoregistrado);
+	}
+	
+	private void registrarse() {
+		this._usuario = new base_de_datos.Usuario();
+		if(this._usuarionoregistrado._iUsuarionoregistrado.findByUserMail(this.getCorreo().getValue()) != null){
+			Notification.show("Este correo ya esta registrado");
+			return;
+		}
+		if(this.getCorreo().getValue().isEmpty() || 
+		   this.getContrasenia().getValue().isEmpty() || 
+		   this.getNickUsuario().getValue().isEmpty() || this.getNombreCompleto().getValue().isEmpty()){
+			Notification.show("Porfavor rellene todos los campos obligatorios");
+			return;
+		}
+		
+		//fecha de registro, necesita ser actualizada en la base de datos
+		Usuarioregistrado u = new Usuarioregistrado(this._usuarionoregistrado.mainView,
+				(base_de_datos.Usuario) this._usuarionoregistrado._iUsuarionoregistrado.registrarse(this.getNombreCompleto().getValue(), 
+						this.getContrasenia().getValue(), 
+						this.getCorreo().getValue(),
+						this.getNickUsuario().getValue(),
+						this.getImgFondo().getValue(),
+						this.getImgPerfil().getValue(),
+						this.getDescripción().getValue(),
+						null));
+		MainView.Pantalla.cambiarVista(u);
 	}
 	
 	public Registrarse(GoogleLogin _googleLogin) {
 		this._googleLogin = _googleLogin;
 	}
 	
-	public Registrarse(Iniciarsesion _iniciarsesion) {
-		this._iniciarsesion = _iniciarsesion;
+	public void IniciarSesion() {
+		this.getContenedorRegistrarse().as(VerticalLayout.class).removeAll();
+		this._iniciarsesion = new Iniciarsesion(this);
+		this.getContenedorRegistrarse().as(VerticalLayout.class).add(this._iniciarsesion);
 	}
 }

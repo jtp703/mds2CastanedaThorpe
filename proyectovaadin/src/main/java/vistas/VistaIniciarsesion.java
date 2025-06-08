@@ -12,7 +12,7 @@ import com.vaadin.flow.component.button.Button;
 @JsModule("./views/vista-iniciarsesion.ts")
 public class VistaIniciarsesion extends LitTemplate {
 
-    @Id("contenedorIniciarSesion")
+	@Id("contenedorIniciarSesion")
 	private Element contenedorIniciarSesion;
 	@Id("btnIniciarSesion")
 	private Button btnIniciarSesion;
@@ -20,9 +20,70 @@ public class VistaIniciarsesion extends LitTemplate {
 	private Button btnIniciarSesionGoogle;
 	@Id("recuperarContrasenia")
 	private Element recuperarContrasenia;
+	@Id("btnVolver")
+	private Button btnVolver;
+	@Id("correo")
+	private TextField correo;
+	@Id("contrasenia")
+	private TextField contrasenia;
 
 	public VistaIniciarsesion() {
-        // You can initialise any data required for the connected UI components here.
-    }
+		// You can initialise any data required for the connected UI components here.
+	}
 
+	public TextField getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(TextField correo) {
+		this.correo = correo;
+	}
+
+	public TextField getContrasenia() {
+		return contrasenia;
+	}
+
+	public void setContrasenia(TextField contrasenia) {
+		this.contrasenia = contrasenia;
+	}
+
+	public Element getContenedorIniciarSesion() {
+		return contenedorIniciarSesion;
+	}
+
+	public void setContenedorIniciarSesion(Element contenedorIniciarSesion) {
+		this.contenedorIniciarSesion = contenedorIniciarSesion;
+	}
+
+	public Button getBtnIniciarSesion() {
+		return btnIniciarSesion;
+	}
+
+	public void setBtnIniciarSesion(Button btnIniciarSesion) {
+		this.btnIniciarSesion = btnIniciarSesion;
+	}
+
+	public Button getBtnIniciarSesionGoogle() {
+		return btnIniciarSesionGoogle;
+	}
+
+	public void setBtnIniciarSesionGoogle(Button btnIniciarSesionGoogle) {
+		this.btnIniciarSesionGoogle = btnIniciarSesionGoogle;
+	}
+
+	public Element getRecuperarContrasenia() {
+		return recuperarContrasenia;
+	}
+
+	public void setRecuperarContrasenia(Element recuperarContrasenia) {
+		this.recuperarContrasenia = recuperarContrasenia;
+	}
+
+	public Button getBtnVolver() {
+		return btnVolver;
+	}
+
+	public void setBtnVolver(Button btnVolver) {
+		this.btnVolver = btnVolver;
+	}
 }

@@ -3,6 +3,7 @@ import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/horizontal-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/text-field/src/vaadin-text-field.js';
 import '@vaadin/text-area/src/vaadin-text-area.js';
+import '@vaadin/button/src/vaadin-button.js';
 
 @customElement('vista-editarperfil')
 export class VistaEditarperfil extends LitElement {
@@ -38,6 +39,14 @@ export class VistaEditarperfil extends LitElement {
  </vaadin-horizontal-layout>
  <vaadin-horizontal-layout theme="spacing" style="width: 100%; height: 100%; justify-content: center;">
   <vaadin-text-area label="Descripcion de tu perfil" id="_DescripcionPerfil" style="width: 40%;"></vaadin-text-area>
+ </vaadin-horizontal-layout>
+ <vaadin-horizontal-layout theme="spacing" style="align-self: center;">
+  <vaadin-button id="btnVolver" tabindex="0">
+   Volver
+  </vaadin-button>
+  <vaadin-button id="btnGuardar" tabindex="0">
+   Guardar
+  </vaadin-button>
  </vaadin-horizontal-layout>
 </vaadin-vertical-layout>
 `;

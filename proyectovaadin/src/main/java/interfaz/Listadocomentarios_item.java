@@ -8,8 +8,16 @@ public class Listadocomentarios_item extends VistaListadocomentarios_item {
 	 * _textoComentario; private button _enviar;
 	 */
 	public Listadocomentarios listadoComentarios;
-
-	public Listadocomentarios_item(Listadocomentarios listadoComentarios) {
+	public base_de_datos.Comentario comentario;
+	
+	
+	public Listadocomentarios_item(Listadocomentarios listadoComentarios, base_de_datos.Comentario comentario) {
 		this.listadoComentarios = listadoComentarios;
+		this.comentario = comentario;
+		this.getVerperfil().setText(comentario.getComentado_por().getNick());
+		this.getTextoComentario().setText(comentario.getTexto());
+		this.getnMegustas().setText(String.valueOf(comentario.comlikeado_por.size()));
+		//funcionalidad imagen perfil
+		//funcionalidad dar me gusta comentario si ya lo ha hecho
 	}
 }

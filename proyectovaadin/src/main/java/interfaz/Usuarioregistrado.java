@@ -1,47 +1,72 @@
 package interfaz;
 
-//import basededatos.iUsuarioregistrado;
+import base_de_datos.BDPrincipal;
+import base_de_datos.iUsuarioregistrado;
 import org.vaadin.example.*;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import java.util.*;
 
 public class Usuarioregistrado extends Cibernauta {
-//	public iUsuarioregistrado _iUsuarioregistrado;
+
+	public iUsuarioregistrado iUsuarioregistrado = new BDPrincipal();
 	public Notificacionesdeusuario _notificacionesdeusuario;
 	public VermuroprincipalUsuarioregistrado _vermuroprincipalUsuarioregistrado;
-	public VerlistadodetweetsfiltradoUsuarioregistrado _verlistadodetweetsfiltradoUsuarioregistrado;
+	public VerListadohashtags _verlistadohashtags;
 	public VerlistadoglobaldeusuariosUsuarioregistrado _verlistadoglobaldeusuariosUsuarioregistrado;
 	public Verperfilpersonal _verperfilpersonal;
-	public VerperfilUsuarioregistrado _verperfilUsuarioregistrado;
+	public MainView mainView;
 
-	public Usuarioregistrado() {
+	public base_de_datos.Usuario _usuarioregistrado;
+	
+	public Usuarioregistrado(MainView _mainView, base_de_datos.Usuario usuarioregistrado) {
+		super(_mainView);
+		this.mainView = _mainView;
+		this._usuarioregistrado = usuarioregistrado;
+		_vermuroprincipalUsuarioregistrado = new VermuroprincipalUsuarioregistrado(this);
 		
-	}
-	
-	public Usuarioregistrado(MainView MainView) {
-		super(MainView);
+		this.getContenedorContenido().as(VerticalLayout.class).add(_vermuroprincipalUsuarioregistrado);
 		this.getContenedorRegistro().setVisible(false);
+		this.getBtnCerrrarSesion().setVisible(false);
+		this.getVerPerfilPersonal().setText(usuarioregistrado.getNick());
+		this.getVerMuroPrincipal().addClickListener(event -> VermuroprincipalUsuarioregistrado());
+		this.getVerListadoUsuarios().addClickListener(event -> VerlistadoglobaldeusuariosUsuarioregistrado());
+		this.getVerListadoHashtags().addClickListener(event -> VerListadohashtags());
+		this.getVerNotificaciones().addClickListener(event -> Notificacionesdeusuario());
+		this.getVerPerfilPersonal().addClickListener(event -> Verperfilpersonal());
 	}
-	
+
 	public void Notificacionesdeusuario() {
-		throw new UnsupportedOperationException();
+		this.getContenedorContenido().as(VerticalLayout.class).removeAll();
+		_notificacionesdeusuario = new Notificacionesdeusuario(this);
+		this.getContenedorContenido().as(VerticalLayout.class).add(_notificacionesdeusuario);
 	}
 
 	public void VermuroprincipalUsuarioregistrado() {
-		throw new UnsupportedOperationException();
-	}
-
-	public void VerlistadodetweetsfiltradoUsuarioregistrado() {
-		throw new UnsupportedOperationException();
+		this.getContenedorContenido().as(VerticalLayout.class).removeAll();
+		_vermuroprincipalUsuarioregistrado = new VermuroprincipalUsuarioregistrado(this);
+		this.getContenedorContenido().as(VerticalLayout.class).add(_vermuroprincipalUsuarioregistrado);
 	}
 
 	public void VerlistadoglobaldeusuariosUsuarioregistrado() {
-		throw new UnsupportedOperationException();
+		this.getContenedorContenido().as(VerticalLayout.class).removeAll();
+		_verlistadoglobaldeusuariosUsuarioregistrado = new VerlistadoglobaldeusuariosUsuarioregistrado(this);
+		this.getContenedorContenido().as(VerticalLayout.class).add(_verlistadoglobaldeusuariosUsuarioregistrado);
+
 	}
 
 	public void Verperfilpersonal() {
-		throw new UnsupportedOperationException();
+		Verperfilpersonal _verperfilpersonal = new Verperfilpersonal(this);
+		System.out.println("Ejecucion clase usuario");
+		MainView.Pantalla.cambiarVista(_verperfilpersonal);
 	}
 
-	public void VerperfilUsuarioregistrado() {
-		throw new UnsupportedOperationException();
+	public void VerListadohashtags() {
+		this.getContenedorContenido().as(VerticalLayout.class).removeAll();
+		_verlistadohashtags = new VerListadohashtags(this);
+		this.getContenedorContenido().as(VerticalLayout.class).add(_verlistadohashtags);
+	}
+	
+	public MainView getMainView() {
+	    return this.mainView;
 	}
 }

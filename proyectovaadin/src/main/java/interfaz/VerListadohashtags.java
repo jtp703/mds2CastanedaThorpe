@@ -14,31 +14,35 @@ public class VerListadohashtags extends VistaVerlistadohashtags {
 	public Usuarionoregistrado unr;
 	public Listadodehashtags _listadodehashtags;
 	public MainView main;
-	
-	public VerListadohashtags() {
-		
-	}
 
 	public VerListadohashtags(Cibernauta _cibernauta) {
-		this._cibernauta = _cibernauta;
+		if(_cibernauta instanceof Usuarioregistrado) {
+			this._cibernauta = (Usuarioregistrado) _cibernauta;
+		} else if(_cibernauta instanceof Usuarionoregistrado) {
+			this._cibernauta = (Usuarionoregistrado) _cibernauta;
+			unr = (Usuarionoregistrado) _cibernauta;
+		} else if(_cibernauta instanceof Administrador) {
+			this._cibernauta = (Administrador) _cibernauta;
+		}
+		_listadodehashtags = new Listadodehashtags(this);
+		this.getContenedorListadoHashtags().as(VerticalLayout.class).add(_listadodehashtags);
 	}
-
+	/*
 	public VerListadohashtags(Administrador admin) {
 		this.admin = admin;
+		_listadodehashtags = new Listadodehashtags(this);
+		this.getContenedorListadoHashtags().as(VerticalLayout.class).add(_listadodehashtags);
 	}
-
 	public VerListadohashtags(Usuarioregistrado ur) {
-		this.ur = ur;
-		Administrador admin = new Administrador(main);
-		this.getContenedorCibernauta().as(VerticalLayout.class).add(admin);
-		Listadodehashtags ldh = new Listadodehashtags(this);
-		this.getContenedorListadoHashtags().as(VerticalLayout.class).add(ldh);
+		_listadodehashtags = new Listadodehashtags(this);
+		this.getContenedorListadoHashtags().as(VerticalLayout.class).add(_listadodehashtags);
 	}
-
 	public VerListadohashtags(Usuarionoregistrado unr) {
 		this.unr = unr;
+		_listadodehashtags = new Listadodehashtags(this);
+		this.getContenedorListadoHashtags().as(VerticalLayout.class).add(_listadodehashtags);
 	}
-
+	*/
 	public VerListadohashtags(Listadodehashtags _listadodehashtags) {
 		this._listadodehashtags = _listadodehashtags;
 	}

@@ -13,7 +13,12 @@
  */
 package base_de_datos;
 
-public class Documento {
+import java.io.Serializable;
+import javax.persistence.*;
+@Entity
+@org.hibernate.annotations.Proxy(lazy=false)
+@Table(name="Documento")
+public class Documento implements Serializable {
 	public Documento() {
 	}
 	
@@ -27,6 +32,7 @@ public class Documento {
 		}
 	}
 	
+	@Transient	
 	org.orm.util.ORMAdapter _ormAdapter = new org.orm.util.AbstractORMAdapter() {
 		public void setOwner(Object owner, int key) {
 			this_setOwner(owner, key);
@@ -34,25 +40,37 @@ public class Documento {
 		
 	};
 	
-	private long idDocumento;
+	@Column(name="IdDocumento", nullable=false, length=10)	
+	@Id	
+	@GeneratedValue(generator="BASE_DE_DATOS_DOCUMENTO_IDDOCUMENTO_GENERATOR")	
+	@org.hibernate.annotations.GenericGenerator(name="BASE_DE_DATOS_DOCUMENTO_IDDOCUMENTO_GENERATOR", strategy="native")	
+	private int idDocumento;
 	
+	@ManyToOne(targetEntity=base_de_datos.Comentario.class, fetch=FetchType.LAZY)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
+	@JoinColumns(value={ @JoinColumn(name="ComentarioIdComentario", referencedColumnName="IdComentario") }, foreignKey=@ForeignKey(name="FKDocumento471192"))	
 	private base_de_datos.Comentario pertenecea_comentario;
 	
+	@ManyToOne(targetEntity=base_de_datos.Tweet.class, fetch=FetchType.LAZY)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
+	@JoinColumns(value={ @JoinColumn(name="TweetIdTweet", referencedColumnName="IdTweet") }, foreignKey=@ForeignKey(name="FKDocumento977943"))	
 	private base_de_datos.Tweet pertenecea_tweet;
 	
+	@Column(name="Url", nullable=true, length=255)	
 	private String url;
 	
+	@Column(name="Tipo", nullable=true, length=255)	
 	private String tipo;
 	
-	private void setIdDocumento(long value) {
+	private void setIdDocumento(int value) {
 		this.idDocumento = value;
 	}
 	
-	public long getIdDocumento() {
+	public int getIdDocumento() {
 		return idDocumento;
 	}
 	
-	public long getORMID() {
+	public int getORMID() {
 		return getIdDocumento();
 	}
 	

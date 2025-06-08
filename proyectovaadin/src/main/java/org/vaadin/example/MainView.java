@@ -1,7 +1,10 @@
 package org.vaadin.example;
 
+import java.util.Stack;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.dependency.CssImport;
 
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -109,125 +112,43 @@ import interfaz.VerperfilAdministrador;
 
 public class MainView extends VerticalLayout {
 
-	// Cibernauta cb = new Cibernauta(this);
-
-	VerListadohashtags vlh = new VerListadohashtags();
-
-	Listadodehashtags lth = new Listadodehashtags(vlh);
-
-	Vermuroprincipal vmun = new Vermuroprincipal();
-
-	Listadotweets lt = new Listadotweets(vmun);
-
-	VermuroprincipalAdministrador vma = new VermuroprincipalAdministrador();
-
-	ListadotweetsAdministrador lta = new ListadotweetsAdministrador(vma);
-
-	VermuroprincipalUsuarioregistrado vmur = new VermuroprincipalUsuarioregistrado();
-
-	ListadotweetsUsuarioregistrado ltur = new ListadotweetsUsuarioregistrado(vmur);
-
-	VermuroprincipalUsuarionoregistrado vmurn = new VermuroprincipalUsuarionoregistrado();
-
-	ListadotweetsUsuarionoregistrado ltun = new ListadotweetsUsuarionoregistrado(vmurn);
-
-	VercomentariosUsuarionoregistrado vcun;
-
-	ListadocomentariosUsuarionoregistrado lcun = new ListadocomentariosUsuarionoregistrado(vcun);
-
-	VercomentariosAdminstrador vca;
-
-	ListadocomentariosAdministrador lca = new ListadocomentariosAdministrador(vca);
-
-	VercomentariosUsuarioregistrado vcur;
-
-	ListadocomentariosUsuarioregistrado lcur = new ListadocomentariosUsuarioregistrado(vcur);
-
-	VerlistadoglobaldeusuariosAdministrador vlgua;
-
-	Listadodeusuariosadministrador lua = new Listadodeusuariosadministrador(vlgua);
-
-	VerlistadoglobaldeusuariosUsuarioregistrado vlguur;
-
-	Listadodeusuariosusuarioregistrado luur = new Listadodeusuariosusuarioregistrado(vlguur);
-
-	VerlistadoglobaldeusuariosUsuarionoregistrado vlguunr;
-
-	Listadodeusuariosusuarionoregistrado luunr = new Listadodeusuariosusuarionoregistrado(vlguunr);
-
-	ListadotweetsUsuarioregistrado_item lturi;
-
-	Darretweet dr = new Darretweet(lturi);
-
-	VerperfilAdministrador vpa;
-
-	Banearusuario bu = new Banearusuario(vpa);
-
-	Verperfilpersonal vpp;
-
-	Editarperfil ep = new Editarperfil(vpp);
-
-	Eliminarperfil eep = new Eliminarperfil(vpp);
-
-	Registrarse r;
-
-	Iniciarsesion is = new Iniciarsesion(r);
-
-	Verperfildeusuario vpdu;
-
-	Megustas mg = new Megustas(vpdu);
-
-	Recuperarcontrasenia rc = new Recuperarcontrasenia(is);
-
-	Registrarse re = new Registrarse(is);
-
-	Retweets rts = new Retweets(vpdu);
-
-	Listadousuarios lu;
-
-	Verlistadodeseguidores vlseguidores = new Verlistadodeseguidores(lu);
-
-	Verlistadodeseguidos vlseguidos = new Verlistadodeseguidos(lu);
-
-	Vercomentarios vc;
-
-	Listadocomentarios lc = new Listadocomentarios(vc);
-	
-	Administrador admin = new Administrador(this);
-	VerlistadoglobaldeusuariosAdministrador vlgdua = new VerlistadoglobaldeusuariosAdministrador(admin);
-	
-	Usuarioregistrado u = new Usuarioregistrado(this);
-	VerlistadoglobaldeusuariosUsuarioregistrado vlgduur = new VerlistadoglobaldeusuariosUsuarioregistrado(u);
-	
-	Usuarionoregistrado un = new Usuarionoregistrado(this);
-	VerlistadoglobaldeusuariosUsuarionoregistrado vlgduunr = new VerlistadoglobaldeusuariosUsuarionoregistrado(un);
-	
-	VerlistadodetweetsfiltradoUsuarionoregistrado vldtfunr = new VerlistadodetweetsfiltradoUsuarionoregistrado(un);
-	
-	VerlistadodetweetsfiltradoUsuarioregistrado vldtfur = new VerlistadodetweetsfiltradoUsuarioregistrado(u);
-	
-	VerlistadodetweetsfiltradoAdministrador vldtfa = new VerlistadodetweetsfiltradoAdministrador(admin);
-	
-	VerListadohashtags vlha = new VerListadohashtags(u);
-	
-	VermuroprincipalAdministrador vmpad = new VermuroprincipalAdministrador(admin);
-	
-	VermuroprincipalUsuarionoregistrado vmpunr = new VermuroprincipalUsuarionoregistrado(un);
-	
-	VermuroprincipalUsuarioregistrado vmpur = new VermuroprincipalUsuarioregistrado(u);
-
-	Notificacionesdeusuario nu = new Notificacionesdeusuario(u);
-	
-	VercomentariosAdminstrador vcadmin = new VercomentariosAdminstrador(lca);
-	
-	VercomentariosUsuarioregistrado vcUsu = new VercomentariosUsuarioregistrado(lcur);
-	
-	VercomentariosUsuarionoregistrado vcUsuno = new VercomentariosUsuarionoregistrado(lcun);
-
-	public MainView(@Autowired GreetService service) {
-
-		add(vlgdua);
-
+	public MainView() {
+		
 	}
+    public static class Pantalla{
+		public static VerticalLayout MainView;
 
+	    public static Stack<Component> pilaVistas = new Stack<>();
+	    
+	    public static void cambiarVista(Component nuevaVista) {
+            if (MainView != null && MainView.getComponentCount() > 0) {
+                pilaVistas.push(MainView.getComponentAt(0));
+                MainView.removeAll();
+                MainView.add(nuevaVista);
+            }
+        }
+
+        public static void volver() {
+            if (!pilaVistas.isEmpty()) {
+                Component vistaAnterior = pilaVistas.pop();
+                MainView.removeAll();
+                MainView.add(vistaAnterior);
+            } else {
+                System.out.println("⚠ No hay vista anterior en la pila.");
+            }
+        }
+    }
+    
+    public base_de_datos.Usuario usuario = new base_de_datos.Usuario();
+    public Usuarioregistrado usuarioregistrado = new Usuarioregistrado(this, usuario);
+    public Administrador administrador = new Administrador(this, null);
+    public Usuarionoregistrado usuarionoregistrado = new Usuarionoregistrado(this);
+
+    @Autowired
+    public MainView(GreetService service) {
+
+        add(usuarionoregistrado);
+        Pantalla.MainView = this;
+    }
 }
+

@@ -17,6 +17,8 @@ import org.orm.*;
 import org.orm.cfg.JDBCConnectionSetting;
 import org.hibernate.*;
 import java.util.Properties;
+import org.hibernate.cfg.*;
+import org.hibernate.boot.MetadataSources;
 
 public class MDS12425PFCastanedaThorpePersistentManager extends PersistentManager {
 	private static final String PROJECT_NAME = "MDS12425PFCastanedaThorpe";
@@ -30,6 +32,18 @@ public class MDS12425PFCastanedaThorpePersistentManager extends PersistentManage
 	private MDS12425PFCastanedaThorpePersistentManager() throws PersistentException {
 		super(_connectionSetting, _sessionType, _timeToAlive, new String[] {}, _extraProperties, _configurationFile);
 		setFlushMode(FlushMode.AUTO);
+	}
+	
+	@Override
+	protected void configureMetadataSources(MetadataSources aMetadataSources) {
+		super.configureMetadataSources(aMetadataSources);
+		aMetadataSources.addAnnotatedClass(base_de_datos.UsuarioAutentificado.class);
+		aMetadataSources.addAnnotatedClass(base_de_datos.Usuario.class);
+		aMetadataSources.addAnnotatedClass(base_de_datos.Tweet.class);
+		aMetadataSources.addAnnotatedClass(base_de_datos.Comentario.class);
+		aMetadataSources.addAnnotatedClass(base_de_datos.Administrador.class);
+		aMetadataSources.addAnnotatedClass(base_de_datos.Hashtag.class);
+		aMetadataSources.addAnnotatedClass(base_de_datos.Documento.class);
 	}
 	
 	public String getProjectName() {
