@@ -3,7 +3,7 @@ package interfaz;
 import org.vaadin.example.MainView;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
-
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 public class VerperfilUsuarioregistrado extends Verperfildeusuario {
@@ -24,6 +24,10 @@ public class VerperfilUsuarioregistrado extends Verperfildeusuario {
         super(usuarioregistrado, _usuario);
         this.usuarioregistrado = usuarioregistrado;
         this.usuario = _usuario;
+        if(this.usuario.bloquea.contains(usuarioregistrado._usuarioregistrado)) {
+			Notification.show("No puedes ver el perfil de un usuario que te ha bloqueado.");
+        	return;
+		}
         this.getBtnEditarPerfil().setVisible(false);
         this.getBtnEliminarPerfil().setVisible(false);
 		this.getBtnBanearUsuario().setVisible(false);
@@ -86,11 +90,19 @@ public class VerperfilUsuarioregistrado extends Verperfildeusuario {
 	        getBtnBloquear().setIcon(iconoBloquear);
 	        getBtnBloquear().setText("Desbloquear");
 	        getBtnBloquear().getStyle().set("color", "red");
+	        this.getBtnBloquear().addClickListener(event -> {
+	            usuarioregistrado._usuarioregistrado.es_bloqueado.remove(usuario);
+	            Seguir_usuario_desde_perfil();
+	        });
 	    } else {
 	        iconoBloquear = new Icon(VaadinIcon.BAN);
 	        getBtnBloquear().setIcon(iconoBloquear);
 	        getBtnBloquear().setText("Bloquear");
 	        getBtnBloquear().getStyle().set("color", "black");
+	        this.getBtnBloquear().addClickListener(event -> {
+	            usuarioregistrado._usuarioregistrado.es_bloqueado.add(usuario);
+	            Seguir_usuario_desde_perfil();
+	        });
 	    }
 	}
 

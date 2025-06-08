@@ -32,15 +32,20 @@ public class Iniciarsesion extends VistaIniciarsesion{
 
 	public void Validardatosdelogin() {
 		UsuarioAutentificado r = this._registrarse._usuarionoregistrado._iUsuarionoregistrado
-				.iniciarSesion(this.getCorreo().getValue(), this.getContrasenia().getValue());	
+				.iniciarSesion(this.getCorreo().getValue(), this.getContrasenia().getValue());
 		if (r instanceof Usuario) {
 			Usuarioregistrado u = new Usuarioregistrado(this._registrarse._usuarionoregistrado.mainView, (base_de_datos.Usuario) r);
+			if(u._usuarioregistrado.getEs_baneado() != null) {
+				Notification.show("Este usuario ha sido baneado");
+				return;
+			}
 			MainView.Pantalla.cambiarVista(u);
 		} else if (r instanceof base_de_datos.Administrador){
 			Administrador a = new Administrador(this._registrarse._usuarionoregistrado.mainView, (base_de_datos.Administrador) r);
 			MainView.Pantalla.cambiarVista(a);
 		} else {
 			this.usuarionoregistrado.mainView.add(this.usuarionoregistrado);
+			
 			Notification.show("Este usuario no existe");
 		}
 	}

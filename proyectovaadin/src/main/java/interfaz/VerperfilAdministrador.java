@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import org.vaadin.example.MainView;
 
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import base_de_datos.Usuario;
@@ -42,7 +43,16 @@ public class VerperfilAdministrador extends Verperfildeusuario {
 		this.getBtnVolver().addClickListener(event -> btnVolver());
 		this.getVerSeguidores().addClickListener(event -> Verlistadodeseguidores(_usuario.es_seguido));
 		this.getVerSeguidos().addClickListener(event -> Verlistadodeseguidos(_usuario.sigue));
-		this.getBtnBanearUsuario().addClickListener(event -> Banear_usuarios());
+		Button buton = this.getBtnBanearUsuario();
+		if(_usuario.getEs_baneado() != null) {
+			buton.getStyle().set("background-color", "red");
+		}else {
+			buton.getStyle().set("background-color", "green");
+			this.getBtnBanearUsuario().addClickListener(event -> Banear_usuarios());
+		}
+		
+		
+		
 		this.getVerPosts().addClickListener(event -> Posts(_listadotweetsadministrador));
 		//sustituir por listado filtrado de megustras
 		this.getVerMegustas().addClickListener(event -> Megustas(new Megustas(this)));
