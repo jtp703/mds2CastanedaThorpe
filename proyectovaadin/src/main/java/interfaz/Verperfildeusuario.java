@@ -5,15 +5,6 @@ import com.vaadin.flow.component.html.Image;
 import vistas.VistaVerperfildeusuario;
 
 public class Verperfildeusuario extends VistaVerperfildeusuario {
-	/*private image _imagenFondo;
-	private image _fotoPerfil;
-	private label _nombreUsuario;
-	private label _descripcion;
-	private button _volverMuroPrincipal;
-	public Retweets _unnamed_Retweets_;
-	public Megustas _unnamed_Megustas_;
-	public Verlistado _unnamed_Verlistado_;
-	public Listadotweets _unnamed_Listadotweets_;*/
 	public Cibernauta cibernauta;
 	public Retweets _retweets;
 	public Megustas _megustas;
@@ -49,16 +40,27 @@ public class Verperfildeusuario extends VistaVerperfildeusuario {
 	public void Listadotweets(Listadotweets _listadotweets) {
 		this._listadotweets = _listadotweets;
 	}
-	
 	public void cargarUsuario(base_de_datos.Usuario usuario) {
-		this.getNombreUsuario().setText(usuario.getNombre());
-		this.getNickUsuario().setText(usuario.getNick());
-		this.getDescripcionPerfil().setText(usuario.getDescripcion());
-		Image img = new Image(usuario.getFotoPerfil(), "imgPerfil");
-		this.setImgPerfil(img);
-		Image img2 = new Image(usuario.getFotoFondo(), "imgFondo");
-		this.setImgFondo(img2);
-		this.getVerSeguidores().setText(usuario.es_seguido == null ? "0" : String.valueOf(usuario.es_seguido.size()));
-		this.getVerSeguidos().setText(usuario.sigue == null ? "0" : String.valueOf(usuario.sigue.size()));
+	    // 1) Texto del perfil
+	    this.getNombreUsuario().setText(usuario.getNombre());
+	    this.getNickUsuario().setText(usuario.getNick());
+	    this.getDescripcionPerfil().setText(usuario.getDescripcion());
+
+	    // 2) Foto de perfil: actualizamos el src del <img id="imgPerfil">
+	    this.getImgPerfil().setSrc(usuario.getFotoPerfil());
+	    this.getImgPerfil().setAlt("Perfil de " + usuario.getNick());
+	    this.getImgPerfil().setWidth("150px");                     // opcional
+	    this.getImgPerfil().getStyle().set("border-radius", "50%");// opcional
+	    
+	    this.getImgFondo().setSrc(usuario.getFotoFondo());
+	    this.getImgFondo().setAlt("Fondo de " + usuario.getNick());
+	    this.getImgFondo().setWidth("100%");
+
+	    // 4) Contadores de seguidores y seguidos
+	    int seguidos  = usuario.sigue     == null ? 0 : usuario.sigue.size();
+	    int seguidores= usuario.es_seguido == null ? 0 : usuario.es_seguido.size();
+	    this.getVerSeguidores().setText(String.valueOf(seguidores));
+	    this.getVerSeguidos() .setText(String.valueOf(seguidos));
 	}
+
 }

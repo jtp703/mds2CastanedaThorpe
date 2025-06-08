@@ -12,6 +12,25 @@ export class VistaVerperfildeusuario extends LitElement {
           display: block;
           height: 100%;
       }
+	#headerBanner {
+	  position: relative;
+	  width: 100%;
+	  height: 200px;              /* alto fijo coherente */
+	  background-image: var(--fondo-url);
+	  background-size: cover;     /* recorta/escala */
+	  background-position: center;
+	}
+	
+	#headerBanner h1 {
+	  position: absolute;
+	  bottom: 16px;               /* distancia desde abajo */
+	  left: 24px;                 /* margen izquierdo */
+	  margin: 0;
+	  color: white;               /* contraste sobre la imagen */
+	  text-shadow: 0 0 4px rgba(0,0,0,0.7);
+	  font-size: 2rem;
+	}
+
       `;
   }
 
@@ -20,12 +39,14 @@ export class VistaVerperfildeusuario extends LitElement {
 <vaadin-vertical-layout style="width: 100%; height: 100%;position:absolute;" id="contenedorVerPerfil">
  <vaadin-vertical-layout theme="spacing" id="contenedorImgFondo" style="align-self: stretch;">
   <vaadin-vertical-layout theme="spacing" id="contenedorImgPerfil" style="align-items: center; flex-grow: 0; align-self: center;">
-   <img id="imgFondo">
+    <div id="headerBanner">
+    	<h1 id="nombreUsuario" style="align-self: center;">Heading 1</h1>
+    	<img id="imgFondo" />
+    </div>
   </vaadin-vertical-layout>
  </vaadin-vertical-layout>
  <vaadin-vertical-layout theme="spacing" style="align-self: stretch; flex-shrink: 0;">
-  <h1 id="nombreUsuario" style="align-self: center;">Heading 1</h1>
-  <img id="imgPerfil">
+  <img id="imgPerfil" style="align-self: center;">
   <vaadin-horizontal-layout style="flex-grow: 0; align-self: center; flex-shrink: 0;" id="perfilLayout">
    <h3 id="nickUsuario">Heading 3</h3>
   </vaadin-horizontal-layout>
