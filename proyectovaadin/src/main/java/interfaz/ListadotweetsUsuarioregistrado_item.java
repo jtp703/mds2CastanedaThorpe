@@ -54,6 +54,12 @@ public class ListadotweetsUsuarioregistrado_item extends Listadotweets_item {
 
     public ListadotweetsUsuarioregistrado_item(VercomentariosUsuarioregistrado _vercomentariosUsuarioregistrado, base_de_datos.Tweet tweet) {
         super(_vercomentariosUsuarioregistrado, tweet);
+        this.tweet = tweet;
+        this._vercomentariosUsuarioregistrado = _vercomentariosUsuarioregistrado;
+        this.usu = tweet.tweeteado_por;
+        this.getVerperfil().addClickListener(event ->
+			MainView.Pantalla.cambiarVista(new VerperfilUsuarioregistrado(usuario, usu))
+		);
         this.getBtnEliminarTweet().setVisible(false);
         this.getContenedorInteracciones().setVisible(false);
     }

@@ -19,8 +19,7 @@ public class ListadocomentariosAdministrador_item extends Listadocomentarios_ite
 
 	public void Eliminar_Comentario() {
 		this._listadocomentariosAdministrador.
-		_vercomentariosAdminstrador.
-		_item.
+		_vercomentariosAdminstrador._item.
 		_listadotweetsAdministrador.
 		_vermuroprincipalAdministrador.
 		_administrador.

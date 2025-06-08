@@ -84,6 +84,20 @@ public class ListadotweetsUsuarioregistrado extends Listadotweets {
 			this.getContenedorListadoTweets_item().as(VerticalLayout.class).add(itemNuevo);
 		}
 	}
+	
+	public ListadotweetsUsuarioregistrado(Verperfilpersonal _verperfilpersonal) {
+		super(_verperfilpersonal);
+		this._verperfilpersonal = _verperfilpersonal;
+		this._vermuroprincipalUsuarioregistrado = _verperfilpersonal.vermuroprincipalUsuarioregistrado;
+		this.iUsuarioregistrado = _verperfilpersonal.usuarioregistrado.iUsuarioregistrado;
+
+		for (Tweet tweet : _verperfilpersonal.usuarioregistrado._usuarioregistrado.tweetea.toArray()) {
+			ListadotweetsUsuarioregistrado_item itemNuevo = new ListadotweetsUsuarioregistrado_item(this, tweet);
+			this.getContenedorListadoTweets_item().as(VerticalLayout.class).add(itemNuevo);
+		}
+
+		this.getBtnEnviarTweet().setVisible(false);
+		}
 
 	public void verPerfilPersonal() {
 		MainView.Pantalla.cambiarVista(_verperfilpersonal);
@@ -149,7 +163,13 @@ public class ListadotweetsUsuarioregistrado extends Listadotweets {
 	public ListadotweetsUsuarioregistrado(Retweets _retweets, Tweet[] _retweetsArray) {
 		super(_retweets);
 		this._retweets = _retweets;
-		this._vermuroprincipalUsuarioregistrado = _retweets._verperfilUsuarioregistrado.vermuroprincipalUsuarioregistrado;
+		if(_retweets._verperfildeusuario instanceof VerperfilUsuarioregistrado) {
+			this._verperfilUsuarioregistrado = (VerperfilUsuarioregistrado) _retweets._verperfildeusuario;
+			this._vermuroprincipalUsuarioregistrado = _retweets._verperfilUsuarioregistrado.vermuroprincipalUsuarioregistrado;
+		} else if(_retweets._verperfildeusuario instanceof Verperfilpersonal) {
+			this._verperfilpersonal = (Verperfilpersonal) _retweets._verperfildeusuario;
+			this._vermuroprincipalUsuarioregistrado = _retweets._verperfilpersonal.vermuroprincipalUsuarioregistrado;
+		}
 		for (Tweet tweet : _retweetsArray) {
 			ListadotweetsUsuarioregistrado_item item = new ListadotweetsUsuarioregistrado_item(this, tweet);
 			this.getContenedorListadoTweets_item().as(VerticalLayout.class).add(item);
@@ -159,7 +179,13 @@ public class ListadotweetsUsuarioregistrado extends Listadotweets {
 	public ListadotweetsUsuarioregistrado(Megustas _megustas, Tweet[] _megustasArray) {
 		super(_megustas);
 		this._megustas = _megustas;
-		this._vermuroprincipalUsuarioregistrado = _megustas._verperfilUsuarioregistrado.vermuroprincipalUsuarioregistrado;
+		if(_megustas._verperfildeusuario instanceof VerperfilUsuarioregistrado) {
+			this._verperfilUsuarioregistrado = (VerperfilUsuarioregistrado) _megustas._verperfildeusuario;
+			this._vermuroprincipalUsuarioregistrado = _megustas._verperfilUsuarioregistrado.vermuroprincipalUsuarioregistrado;
+		} else if(_megustas._verperfildeusuario instanceof Verperfilpersonal) {
+			this._verperfilpersonal = (Verperfilpersonal) _megustas._verperfildeusuario;
+			this._vermuroprincipalUsuarioregistrado = _megustas._verperfilpersonal.vermuroprincipalUsuarioregistrado;
+		}
 		for (Tweet tweet : _megustasArray) {
 			ListadotweetsUsuarioregistrado_item item = new ListadotweetsUsuarioregistrado_item(this, tweet);
 			this.getContenedorListadoTweets_item().as(VerticalLayout.class).add(item);
