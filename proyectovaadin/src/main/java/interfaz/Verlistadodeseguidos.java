@@ -12,6 +12,7 @@ public class Verlistadodeseguidos extends Verlistado {
 	public VerperfilUsuarioregistrado _verperfildeusuariousuarioregistrado;
 	public VerperfilUsuarionoregistrado _verperfilusuarionoregistrado;
 	public VerperfilAdministrador _verperfilaministrador;
+	public Verperfilpersonal _verperfilpersonal;
 	public Listadodeusuariosusuarioregistrado _listadousuariosusuarioregistrado;
 	public Listadodeusuariosusuarionoregistrado _listadousuariosusuarionoregistrado;
 	public Listadodeusuariosadministrador _listadousuariosadministrador;
@@ -23,9 +24,11 @@ public class Verlistadodeseguidos extends Verlistado {
 		this._listadousuariosusuarioregistrado = _listadousuariosusuarioregistrado;
 		// Botón Cerrar
         this.getBtnCerrar().addClickListener(event -> btnCerrar());
+        this.getTituloSeguidores().setVisible(false);
 
         try {
 
+        	//_listadousuariosusuarioregistrado._item.removeAll(null);
             Usuario[] todosLosSeguidos = _usuarioSetCollection;
 
             for (Usuario u : todosLosSeguidos) {
@@ -51,6 +54,7 @@ public class Verlistadodeseguidos extends Verlistado {
 		this._listadousuariosusuarionoregistrado = _listadousuariosusuarionoregistrado;
 		// Botón Cerrar
         this.getBtnCerrar().addClickListener(event -> btnCerrar());
+        this.getTituloSeguidores().setVisible(false);
 
         try {
 
@@ -79,7 +83,7 @@ public class Verlistadodeseguidos extends Verlistado {
 		this._listadousuariosadministrador = _listadousuariosadministrador;
 		// Botón Cerrar
         this.getBtnCerrar().addClickListener(event -> btnCerrar());
-
+        this.getTituloSeguidores().setVisible(false);
         try {
 
             Usuario[] todosLosSeguidos = _usuarioSetCollection;
@@ -168,6 +172,34 @@ public class Verlistadodeseguidos extends Verlistado {
 		}
 
 		this.getBtnCerrar().addClickListener(event -> btnCerrar());
+	}
+	
+	public Verlistadodeseguidos(Verperfilpersonal _verperfilpersonal,
+			Usuario[] _usuarioSetCollection) {
+		super(_verperfilpersonal);
+		this._verperfilpersonal = _verperfilpersonal;
+		// Botón Cerrar
+        this.getBtnCerrar().addClickListener(event -> btnCerrar());
+
+        try {
+
+            Usuario[] todosLosSeguidos = _usuarioSetCollection;
+
+            for (Usuario u : todosLosSeguidos) {
+
+                    Listadodeusuariosusuarionoregistrado_item item =
+                        new Listadodeusuariosusuarionoregistrado_item(this._listadousuariosusuarionoregistrado, u);
+                    item.usuarionoregistrado.getVerPerfilPersonal().setText(u.getNick());
+
+                    item.getSeguirUsuario().setVisible(false);
+                    item.getContenedorSeguidoresSeguidos().setVisible(false);
+                    
+                    this.getListadoSeguidores().as(VerticalLayout.class).add(item);
+                
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 	}
 	
 	private void eliminarSeguidoresYSeguidos(Listadousuarios_item item) {

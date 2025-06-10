@@ -10,8 +10,10 @@ public class Verperfilpersonal extends Verperfildeusuario {
 
 	public Usuarioregistrado usuarioregistrado;
 	public VermuroprincipalUsuarioregistrado vermuroprincipalUsuarioregistrado;
+	public Verlistadodeseguidores verListadoseguidores;
+	public Verlistadodeseguidos verListadoseguidos;
 	public ListadotweetsUsuarioregistrado listadotweetsUsuarioregistrado;
-	public Usuario usuario;
+	public base_de_datos.Usuario usuario;
 	
 	public Verperfilpersonal(Usuarioregistrado usuarioregistrado) {
 		super(usuarioregistrado, usuarioregistrado._usuarioregistrado);
@@ -32,6 +34,8 @@ public class Verperfilpersonal extends Verperfildeusuario {
 		this.getBtnEditarPerfil().addClickListener(event -> Editar_perfil());
 		this.getBtnCerrarSesion().addClickListener(event -> Cerrar_sesion());
 		
+		this.getVerSeguidores().addClickListener(event -> Verlistadodeseguidores());
+		this.getVerSeguidos().addClickListener(event -> Verlistadodeseguidos());
 
 		this.getVerPosts().addClickListener(event -> Posts(listadotweetsUsuarioregistrado));
 		this.getVerMegustas().addClickListener(event -> Megustas(new Megustas(this)));
@@ -72,4 +76,14 @@ public class Verperfilpersonal extends Verperfildeusuario {
 	private void btnVolver() {
 		MainView.Pantalla.volver();
 	}
+	
+	private void Verlistadodeseguidores() {
+        verListadoseguidores = new Verlistadodeseguidores(this, this.usuario.es_seguido.toArray());
+        MainView.Pantalla.cambiarVista(verListadoseguidores);
+    }
+
+    private void Verlistadodeseguidos() {
+        verListadoseguidos = new Verlistadodeseguidos(this, this.usuario.sigue.toArray());
+        MainView.Pantalla.cambiarVista(verListadoseguidos);
+    }
 }

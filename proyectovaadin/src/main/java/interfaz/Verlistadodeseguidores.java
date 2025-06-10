@@ -16,6 +16,7 @@ public class Verlistadodeseguidores extends Verlistado {
 	public VerperfilUsuarioregistrado _verperfildeusuariousuarioregistrado;
 	public VerperfilUsuarionoregistrado _verperfilusuarionoregistrado;
 	public VerperfilAdministrador _verperfilaministrador;
+	public Verperfilpersonal _verperfilpersonal;
 
 	public Verlistadodeseguidores(Listadodeusuariosusuarioregistrado _listadousuariosusuarioregistrado,
 			Usuario[] _usuarioSetCollection) {
@@ -23,7 +24,7 @@ public class Verlistadodeseguidores extends Verlistado {
 		this._listadousuariosusuarioregistrado = _listadousuariosusuarioregistrado;
 		
 		eliminarSeguidos();
-
+		this.getSeguidos().setVisible(false);
 		this.getBtnCerrar().addClickListener(event -> btnCerrar());
 
 		try {
@@ -176,6 +177,37 @@ public class Verlistadodeseguidores extends Verlistado {
 			this.getListadoSeguidores().as(VerticalLayout.class).add(item);
 		}
 	}
+	
+	public Verlistadodeseguidores(Verperfilpersonal _verperfilpersonal,
+			Usuario[] _usuarioSetCollection) {
+		super(_verperfilpersonal);
+		this._verperfilpersonal = _verperfilpersonal;
+		eliminarSeguidos();
+		this.getBtnCerrar().addClickListener(event -> btnCerrar());
+		
+
+		try {
+
+			Usuario[] todosLosSeguidores = _usuarioSetCollection;
+
+			for (Usuario u : todosLosSeguidores) {
+
+				Listadodeusuariosusuarionoregistrado_item item = new Listadodeusuariosusuarionoregistrado_item(
+						this._verperfilpersonal, u);
+				item.usuarionoregistrado.getVerPerfilPersonal().setText(u.getNick());
+
+				item.getSeguirUsuario().setVisible(false);
+				item.getContenedorSeguidoresSeguidos().setVisible(false);
+
+				this.getListadoSeguidores().as(VerticalLayout.class).add(item);
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		eliminarSeguidos();
+	}
+	
 
 	private void eliminarSeguidoresYSeguidos(Listadousuarios_item item) {
 		item.getSeguirUsuario().setVisible(false);
@@ -183,6 +215,7 @@ public class Verlistadodeseguidores extends Verlistado {
 	}
 
 	private void eliminarSeguidos() {
+		
 		this.getListadoSeguidos().setVisible(false);
 		this.getSeguidos().setVisible(false);
 	}

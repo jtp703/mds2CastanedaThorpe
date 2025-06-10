@@ -2,8 +2,9 @@ import { LitElement, html, css, customElement } from 'lit-element';
 import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/horizontal-layout/src/vaadin-horizontal-layout.js';
 import '@vaadin/vertical-layout/src/vaadin-vertical-layout.js';
-import '@vaadin/text-field/src/vaadin-text-field.js';
 import '@vaadin/button/src/vaadin-button.js';
+import '@vaadin/password-field/src/vaadin-password-field.js';
+import '@vaadin/text-field/src/vaadin-text-field.js';
 
 @customElement('vista-iniciarsesion')
 export class VistaIniciarsesion extends LitElement {
@@ -23,7 +24,7 @@ export class VistaIniciarsesion extends LitElement {
   <vaadin-vertical-layout theme="spacing" style="align-items: flex-start; align-self: center; padding: var(--lumo-space-l);">
    <h1 style="align-self: center;">Iniciar sesión en X</h1>
    <vaadin-text-field label="Correo electrónico" placeholder="example@gmail.com" id="correo" style="align-self: center;" type="text"></vaadin-text-field>
-   <vaadin-text-field label="Contraseña" type="text" id="contrasenia" style="align-self: center;"></vaadin-text-field>
+   <vaadin-password-field id="contrasenia1" style="align-self: center;" type="password" label="Contraseña"></vaadin-password-field>
    <vaadin-horizontal-layout theme="spacing" style="align-self: center;">
     <vaadin-button id="btnIniciarSesion" tabindex="0">
       Acceder a x 
@@ -32,9 +33,11 @@ export class VistaIniciarsesion extends LitElement {
       Iniciar sesión con google 
     </vaadin-button>
    </vaadin-horizontal-layout>
-   <a href="https://vaadin.com" id="recuperarContrasenia" style="align-self: center;">¿Olvidaste tu contraseña?</a>
+   <vaadin-button id="recuperarContrasenia" style="align-self: center;" tabindex="0">
+    ¿Olvidaste tu contraseña?
+   </vaadin-button>
    <vaadin-button id="btnVolver" tabindex="0">
-    Volver
+     Volver 
    </vaadin-button>
   </vaadin-vertical-layout>
  </vaadin-horizontal-layout>
