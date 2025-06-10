@@ -145,6 +145,14 @@ public class ListadotweetsUsuarioregistrado extends Listadotweets {
 	        // 6. Reset del formulario y notificación
 	        resetForm();
 	        Notification.show("Tweet enviado correctamente", 1500, Position.BOTTOM_START);
+	        
+	        Usuarioregistrado usuarioregistrado = new Usuarioregistrado(
+	                _vermuroprincipalUsuarioregistrado._usuarioregistrado.mainView,
+	                iUsuarioregistrado.cargarPerfilUsuarioregistrado(
+	                		_vermuroprincipalUsuarioregistrado._usuarioregistrado._usuarioregistrado.getID()
+	                		));
+	        _vermuroprincipalUsuarioregistrado._usuarioregistrado.mainView.removeAll();
+	        _vermuroprincipalUsuarioregistrado._usuarioregistrado.mainView.add(usuarioregistrado);
 
 	    } catch (Exception ex) {
 	        Notification.show("Error al enviar tweet: " + ex.getMessage(), 3000, Position.MIDDLE);

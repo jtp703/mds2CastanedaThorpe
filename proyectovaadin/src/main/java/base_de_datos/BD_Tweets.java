@@ -57,10 +57,6 @@ public class BD_Tweets {
             // Usamos get para que devuelva null si no existe
             Tweet tweet = TweetDAO.getTweetByORMID(aIdTweet);
             if (tweet != null) {
-                // El método generado por VP se encarga de:
-                // - quitar el tweet de autor.tweetea
-                // - quitarlo del padre.retweet (si retweet)
-                // - limpiar comentarios hijos, retweets hijos, likes, hashtags, documentos…
                 TweetDAO.deleteAndDissociate(tweet);
             }
             t.commit();

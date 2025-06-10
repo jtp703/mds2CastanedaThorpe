@@ -32,7 +32,7 @@ public class Notificaciones extends VistaNotificaciones {
 		for(Tweet tweet: _usuario.tweetea.toArray()) {
 			
 			for(Usuario usuario: tweet.likeado_por.toArray()) {
-				if(usuario.getNick().equals(_usuario.getNick())) {
+				if(!usuario.getNick().equals(_usuario.getNick())) {
 					Notificaciones_item item = new Notificaciones_item(this, usuario, ("Te ha dado un me gusta a tu tweet"));
 					this.getContenedorNofiticiacionesItem().as(VerticalLayout.class).add(item);
 					_vectoritem.add(item);
@@ -50,7 +50,7 @@ public class Notificaciones extends VistaNotificaciones {
 				return;
 			}
 			for(Usuario usuario: tweet.reetweteado_por.toArray()) {
-				if(usuario.getNick().equals(_usuario.getNick())) {
+				if(!usuario.getNick().equals(_usuario.getNick())) {
 					Notificaciones_item item = new Notificaciones_item(this, usuario, ("Te ha dado retweet a tu tweet"));
 					this.getContenedorNofiticiacionesItem().as(VerticalLayout.class).add(item);
 					_vectoritem.add(item);
