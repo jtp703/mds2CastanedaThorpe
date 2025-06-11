@@ -37,8 +37,8 @@ public class Listadodeusuariosusuarioregistrado_item extends Listadousuarios_ite
                 MainView.Pantalla.cambiarVista(new VerperfilUsuarioregistrado(usuarioRegistrado, usuarioListado))
             );
         }
-		this.getVerSeguidores().addClickListener(event -> Verlistadodeseguidores());
-		this.getVerSeguidos().addClickListener(event -> Verlistadodeseguidos());
+		//this.getVerSeguidores().addClickListener(event -> Verlistadodeseguidores());
+		//this.getVerSeguidos().addClickListener(event -> Verlistadodeseguidos());
 		
 	}
 

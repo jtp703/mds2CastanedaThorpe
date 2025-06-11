@@ -24,16 +24,24 @@ public class Listadodeusuariosusuarioregistrado extends Listadousuarios {
 		super(_verlistadoglobaldeusuariosUsuarioregistrado);
 		this._verlistadoglobaldeusuariosUsuarioregistrado = _verlistadoglobaldeusuariosUsuarioregistrado;
 		this.iUsuarioregistrado = _verlistadoglobaldeusuariosUsuarioregistrado._usuarioregistrado.iUsuarioregistrado;
+		
+		int IdUsuarioActual = _verlistadoglobaldeusuariosUsuarioregistrado._usuarioregistrado._usuarioregistrado.getID();
 
 		Vector<base_de_datos.Usuario> usuarios = new Vector<>(Arrays
 				.asList(this._verlistadoglobaldeusuariosUsuarioregistrado._usuarioregistrado.iUsuarioregistrado
 						.cargarUsuarios()));
+		
 		usuarios.sort(Comparator.comparingInt((Usuario u) -> u.es_seguido.size()).reversed());
+		
+		
 		for (base_de_datos.Usuario usuario : usuarios) {
 			Listadodeusuariosusuarioregistrado_item item = new Listadodeusuariosusuarioregistrado_item(this,
 					usuario);
-			listado.add(item);
-			this.getContenedorItemsUsuario().as(VerticalLayout.class).add(item);
+			if (usuario.getID() != IdUsuarioActual) {
+				listado.add(item);
+				this.getContenedorItemsUsuario().as(VerticalLayout.class).add(item);
+			}
+			
 		}
 	}
 }
