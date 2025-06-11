@@ -23,7 +23,7 @@ export class VistaVerlistado extends LitElement {
    <vaadin-horizontal-layout theme="spacing">
     <h1 id="tituloSeguidores">Seguidores</h1>
     <h1 id="Seguidos">Seguidos</h1>
-    <h1>de<a href="" id="verPerfil" style="flex-grow: 0; align-self: center;">@usuario</a></h1>
+    <h1> de <a href="" id="verPerfil" style="flex-grow: 0; align-self: center;">@usuario</a></h1>
    </vaadin-horizontal-layout>
    <vaadin-vertical-layout style="align-self: stretch; flex-shrink: 0; flex-grow: 0; width: 100%;" id="ListadoSeguidores"></vaadin-vertical-layout>
    <vaadin-vertical-layout style="flex-shrink: 0; align-self: stretch; width: 100%;" id="ListadoSeguidos"></vaadin-vertical-layout>

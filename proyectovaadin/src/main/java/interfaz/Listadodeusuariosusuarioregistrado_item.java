@@ -59,6 +59,43 @@ public class Listadodeusuariosusuarioregistrado_item extends Listadousuarios_ite
             );
         }
 	}
+	
+	public Listadodeusuariosusuarioregistrado_item(Verlistadodeseguidores _verListadoseguidores, base_de_datos.Usuario usuarioSeguidor) {
+		super(_verListadoseguidores, usuarioSeguidor);
+		this.usuarioListado = usuarioSeguidor;
+		usuario = _verListadoseguidores.usuario;
+		this.getSeguirUsuario().setVisible(false);
+		
+		this.getContenedorSeguidoresSeguidos().setVisible(false);
+		if (this.usuarioListado.getID() == usuario.getID()) {
+            this.getVerperfil().addClickListener(event ->
+                MainView.Pantalla.cambiarVista(new Verperfilpersonal(this.usuarioRegistrado))
+            );
+        } else {
+            this.getVerperfil().addClickListener(event ->
+                MainView.Pantalla.cambiarVista(new VerperfilUsuarioregistrado(usuarioRegistrado, usuarioListado))
+            );
+        }
+		
+	}
+	
+	public Listadodeusuariosusuarioregistrado_item(Verlistadodeseguidos _verListadoseguidos, base_de_datos.Usuario usuarioSeguido) {
+		super(_verListadoseguidos, usuarioSeguido);
+		this.usuarioListado = usuarioSeguido;
+		usuario = _verListadoseguidos.usuario;
+		this.getSeguirUsuario().setVisible(false);
+		this.getContenedorSeguidoresSeguidos().setVisible(false);
+		if (this.usuarioListado.getID() == usuario.getID()) {
+            this.getVerperfil().addClickListener(event ->
+                MainView.Pantalla.cambiarVista(new Verperfilpersonal(this.usuarioRegistrado))
+            );
+        } else {
+            this.getVerperfil().addClickListener(event ->
+                MainView.Pantalla.cambiarVista(new VerperfilUsuarioregistrado(usuarioRegistrado, usuarioListado))
+            );
+        }
+		
+	}
 
 	private void alternarSeguir() {
 	    try {

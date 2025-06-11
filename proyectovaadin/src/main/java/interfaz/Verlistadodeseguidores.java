@@ -17,12 +17,13 @@ public class Verlistadodeseguidores extends Verlistado {
 	public VerperfilUsuarionoregistrado _verperfilusuarionoregistrado;
 	public VerperfilAdministrador _verperfilaministrador;
 	public Verperfilpersonal _verperfilpersonal;
+	public base_de_datos.Usuario usuario;
 
 	public Verlistadodeseguidores(Listadodeusuariosusuarioregistrado _listadousuariosusuarioregistrado,
 			Usuario[] _usuarioSetCollection) {
 		super(_listadousuariosusuarioregistrado);
 		this._listadousuariosusuarioregistrado = _listadousuariosusuarioregistrado;
-		
+		usuario = this._listadousuariosusuarioregistrado._verlistadoglobaldeusuariosUsuarioregistrado._usuarioregistrado._usuarioregistrado;
 		eliminarSeguidos();
 		this.getSeguidos().setVisible(false);
 		this.getBtnCerrar().addClickListener(event -> btnCerrar());
@@ -34,11 +35,7 @@ public class Verlistadodeseguidores extends Verlistado {
 			for (Usuario u : todosLosSeguidores) {
 
 				Listadodeusuariosusuarioregistrado_item item = new Listadodeusuariosusuarioregistrado_item(
-						this._listadousuariosusuarioregistrado, u);
-				item.usuarioRegistrado.getVerPerfilPersonal().setText(u.getNick());
-
-				item.getSeguirUsuario().setVisible(false);
-				item.getContenedorSeguidoresSeguidos().setVisible(false);
+						this, u);
 
 				this.getListadoSeguidores().as(VerticalLayout.class).add(item);
 
@@ -66,7 +63,7 @@ public class Verlistadodeseguidores extends Verlistado {
 				Listadodeusuariosusuarionoregistrado_item item = new Listadodeusuariosusuarionoregistrado_item(
 						this._listadodeusuariosusuarionoregistrado, u);
 				item.usuarionoregistrado.getVerPerfilPersonal().setText(u.getNick());
-
+				
 				item.getSeguirUsuario().setVisible(false);
 				item.getContenedorSeguidoresSeguidos().setVisible(false);
 
@@ -84,7 +81,7 @@ public class Verlistadodeseguidores extends Verlistado {
 		this._listadodeusuariosadministrador = _listadodeusuariosadministrador;
 		
 		eliminarSeguidos();
-
+		
 		this.getBtnCerrar().addClickListener(event -> btnCerrar());
 
 		try {
@@ -112,6 +109,7 @@ public class Verlistadodeseguidores extends Verlistado {
 			Usuario[] _usuarioSetCollection) {
 		super(_verperfildeusuariousuarioregistrado);
 		this._verperfildeusuariousuarioregistrado = _verperfildeusuariousuarioregistrado;
+		this.getVerPerfil().setText(_verperfildeusuariousuarioregistrado.usuario.getNick());
 		// Ocultamos la sección “Seguidos”
 		eliminarSeguidos();
 		// Botón Cerrar
@@ -144,7 +142,7 @@ public class Verlistadodeseguidores extends Verlistado {
 		this._verperfilusuarionoregistrado = _verperfilusuarionoregistrado;
 		eliminarSeguidos();
 		this.getBtnCerrar().addClickListener(event -> btnCerrar());
-
+		this.getVerPerfil().setText(_verperfilusuarionoregistrado.usuario.getNick());
 		try {
 
 			Usuario[] todosLosSeguidores = _usuarioSetCollection;
@@ -168,7 +166,9 @@ public class Verlistadodeseguidores extends Verlistado {
 
 	public Verlistadodeseguidores(VerperfilAdministrador _verperfilaministrador, Usuario[] _usuarioSetCollection) {
 		super(_verperfilaministrador);
+		this._verperfilaministrador = _verperfilaministrador;
 		eliminarSeguidos();
+		this.getVerPerfil().setText(_verperfilaministrador.usuario.getNick());
 		this.getBtnCerrar().addClickListener(event -> btnCerrar());
 		for (Usuario usuario : _usuarioSetCollection) {
 			Listadodeusuariosadministrador_item item = new Listadodeusuariosadministrador_item(_verperfilaministrador,
