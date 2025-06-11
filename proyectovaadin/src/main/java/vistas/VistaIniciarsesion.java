@@ -7,6 +7,7 @@ import com.vaadin.flow.dom.Element;
 import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.textfield.PasswordField;
 
 @Tag("vista-iniciarsesion")
 @JsModule("./views/vista-iniciarsesion.ts")
@@ -18,15 +19,14 @@ public class VistaIniciarsesion extends LitTemplate {
 	private Button btnIniciarSesion;
 	@Id("btnIniciarSesionGoogle")
 	private Button btnIniciarSesionGoogle;
-	@Id("recuperarContrasenia")
-	private Element recuperarContrasenia;
 	@Id("btnVolver")
 	private Button btnVolver;
 	@Id("correo")
 	private TextField correo;
-	@Id("contrasenia")
-	private TextField contrasenia;
-
+	@Id("contrasenia1")
+	private PasswordField contrasenia1;
+	@Id("recuperarContrasenia")
+	private Button recuperarContrasenia;
 	public VistaIniciarsesion() {
 		// You can initialise any data required for the connected UI components here.
 	}
@@ -37,14 +37,6 @@ public class VistaIniciarsesion extends LitTemplate {
 
 	public void setCorreo(TextField correo) {
 		this.correo = correo;
-	}
-
-	public TextField getContrasenia() {
-		return contrasenia;
-	}
-
-	public void setContrasenia(TextField contrasenia) {
-		this.contrasenia = contrasenia;
 	}
 
 	public Element getContenedorIniciarSesion() {
@@ -71,14 +63,6 @@ public class VistaIniciarsesion extends LitTemplate {
 		this.btnIniciarSesionGoogle = btnIniciarSesionGoogle;
 	}
 
-	public Element getRecuperarContrasenia() {
-		return recuperarContrasenia;
-	}
-
-	public void setRecuperarContrasenia(Element recuperarContrasenia) {
-		this.recuperarContrasenia = recuperarContrasenia;
-	}
-
 	public Button getBtnVolver() {
 		return btnVolver;
 	}
@@ -86,4 +70,21 @@ public class VistaIniciarsesion extends LitTemplate {
 	public void setBtnVolver(Button btnVolver) {
 		this.btnVolver = btnVolver;
 	}
+
+	public PasswordField getContrasenia1() {
+		return contrasenia1;
+	}
+
+	public void setContrasenia1(PasswordField contrasenia1) {
+		this.contrasenia1 = contrasenia1;
+	}
+
+	public Button getRecuperarContrasenia() {
+		return recuperarContrasenia;
+	}
+
+	public void setRecuperarContrasenia(Button recuperarContrasenia) {
+		this.recuperarContrasenia = recuperarContrasenia;
+	}
+	
 }

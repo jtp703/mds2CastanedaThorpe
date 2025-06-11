@@ -7,6 +7,7 @@ public class Listadodeusuariosusuarionoregistrado_item extends Listadousuarios_i
 	public Verlistadodeseguidores verListadoseguidores;
 	public Verlistadodeseguidos verListadoseguidos;
 	public VerperfilUsuarionoregistrado _verPerfilUsuarionoregistrado;
+	public Verperfilpersonal _verperfilpersonal;
 	public Listadodeusuariosusuarionoregistrado _listadodeusuariosusuarionoregistrado;
 	public Usuarionoregistrado usuarionoregistrado;
 	public base_de_datos.Usuario usuarioListado;
@@ -27,6 +28,15 @@ public class Listadodeusuariosusuarionoregistrado_item extends Listadousuarios_i
 		super(_verPerfilUsuarionoregistrado, usuario);
 		this._usuario = usuario;
 		this._verPerfilUsuarionoregistrado = _verPerfilUsuarionoregistrado;
+		this.usuarionoregistrado = _verPerfilUsuarionoregistrado._usuarioNoRegistrado;
+		this.getSeguirUsuario().setVisible(false);
+		this.getVerperfil().addClickListener(event -> VerperfilUsuarionoregistrado(usuarionoregistrado));
+	}
+	
+	public Listadodeusuariosusuarionoregistrado_item(Verperfilpersonal _verperfilpersonal, base_de_datos.Usuario usuario) {
+		super(_verperfilpersonal, usuario);
+		this._usuario = usuario;
+		this._verperfilpersonal = _verperfilpersonal;
 		this.usuarionoregistrado = _verPerfilUsuarionoregistrado._usuarioNoRegistrado;
 		this.getSeguirUsuario().setVisible(false);
 		this.getVerperfil().addClickListener(event -> VerperfilUsuarionoregistrado(usuarionoregistrado));

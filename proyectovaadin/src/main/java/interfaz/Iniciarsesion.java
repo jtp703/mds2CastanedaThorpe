@@ -2,6 +2,7 @@ package interfaz;
 
 import org.vaadin.example.MainView;
 
+import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
@@ -24,6 +25,7 @@ public class Iniciarsesion extends VistaIniciarsesion{
 		this.usuarionoregistrado = _registrarse._usuarionoregistrado;
 		this.getBtnIniciarSesion().addClickListener(event -> Validardatosdelogin());
 		this.getBtnVolver().addClickListener(event -> Volver());
+		this.getRecuperarContrasenia().addClickListener(event -> recuperarContrasenia());
 	}
 	
 	public Iniciarsesion(Recuperarcontrasenia _recuperarcontrasenia) {
@@ -32,7 +34,7 @@ public class Iniciarsesion extends VistaIniciarsesion{
 
 	public void Validardatosdelogin() {
 		UsuarioAutentificado r = this._registrarse._usuarionoregistrado._iUsuarionoregistrado
-				.iniciarSesion(this.getCorreo().getValue(), this.getContrasenia().getValue());
+				.iniciarSesion(this.getCorreo().getValue(), this.getContrasenia1().getValue());
 		if (r instanceof Usuario) {
 			Usuarioregistrado u = new Usuarioregistrado(this._registrarse._usuarionoregistrado.mainView, (base_de_datos.Usuario) r);
 			if(u._usuarioregistrado.getEs_baneado() != null) {
@@ -52,4 +54,21 @@ public class Iniciarsesion extends VistaIniciarsesion{
 	private void Volver() {
 		MainView.Pantalla.volver();
 	}
+	
+	public void recuperarContrasenia() {
+	    // Crear el contenido personalizado
+	    Span contenido = new Span("Ponte en contacto con el administrador");
+	    contenido.getStyle()
+	             .set("color", "red")
+	             .set("font-size", "20px");
+
+	    // Crear la notificación
+	    Notification notification = new Notification();
+	    notification.add(contenido);
+	    notification.setDuration(4000); // 4 segundos
+	    notification.setPosition(Notification.Position.MIDDLE);
+	    notification.open();
+	}
+
+
 }
